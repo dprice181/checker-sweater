@@ -1,0 +1,37 @@
+The girl has the ability to do anything.* t t t t n t t t
+This is an accurate measurement.* t t t n t
+I gave you the address to my house.* t t t t n t t t
+I cannot afford to buy lunch.* t t n t t t
+I will alert the authorities.* t t n t t
+Try to analyze the data carefully.* t t n t t t
+My ancestor came from the Middle East.* t n t t t t t
+The annual conference was held once per year.* t n t t t t t t
+It is apparent that you didn't listen.* t t n t t t t
+What is the appropriate behavior?* t t t n t
+The arena held many types of performances.* t n t t t t t
+You are under arrest!* t t t n
+I was about to ascend the stairs.* t t t t n t t
+It is good to assist the elderly.* t t t t n t t
+That was a very good attempt.* t t t t t n
+Watch closely and be attentive.* t t t t n
+The actress is considered to be very attractive.* t t t t t t t n
+Is it awkward to stand like this?* t t n t t t t
+Don't forget the baggage after we get off the plane.* t t t n t t t t t t
+Basic rules of engagement tell us not to proceed.* n t t t t t t t t
+It is a benefit to all people to be cheeful.* t t t n t t t t t t
+If we blend these ingredients together, what will we get?* t t n t t t t t t t
+The cherry blossom festival drew a large crowd.* t t n t t t t t
+The mole liked to burrow into the ground.* t t t t n t t t
+Calculate how long it will take to finish the work.* n t t t t t t t t t
+She was more than capable to do well.* t t t t n t t t
+They lived trapped in captivity.* t t t t n
+Life was meant to be lived fun and carefree.* t t t t t t t t n
+It took more than a century for this technology to develop.* t t t t t n t t t t t
+The chamber was filled with rats.* t n t t t t
+The shape was not square but more circular.* t t t t t t t n
+We had to coax the answer out of her.* t t t n t t t t t
+The column and row of the square was correctly placed.* t n t t t t t t t t
+I would like to communicate a message to you.* t t t t n t t t t
+A little competition is good for motivation.* t t n t t t t
+Can you complete this sentence?* t t n t t
+I can't concentrate well with all these distractions.* t t n t t t t t

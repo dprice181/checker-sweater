@@ -1,0 +1,23 @@
+This is a really really really really really long sentence.* o v t a a a a a a n
+The dog barked very loudly at night.* t n v a d p n
+The room is small but tidy.* t n v a c a
+Squares have four sides.* n v a n
+This is a big house.* o v t a n
+June is a wonderful wife and mother.* n v t a n c n
+Rachel and Amanda swam in the pool.* n c n v p t n
+The girls like to read books.* t n v p v n
+Boardgames are very fun!* n v a a
+The clay pot sits in the corner.* c a n v p t n
+This is a book.* n v t n
+Is this a book?* v n t n
+What is it?* o v n
+That is a pencil.* n v t n
+That is not a pencil.* n v d t n
+Is that a pencil?* v n t n
+What is that?* o v n
+These are books.* o v n
+Are these books?* v n n
+What are these?* o v o
+Those are pencils.* o v n
+Those are not pencils.* o v d o
+Are those pencils?* v o n

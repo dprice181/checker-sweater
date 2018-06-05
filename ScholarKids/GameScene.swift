@@ -9,13 +9,65 @@
 import SpriteKit
 import GameplayKit
 
+
+
 class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var viewController: GameViewController!
+    
     override func didMove(to view: SKView) {
         
+        physicsWorld.gravity = .zero
+                
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        let wordSelectScene = MathDrawScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Math")
+        self.view?.presentScene(wordSelectScene, transition: reveal)
+        
+        
+        /*
+        backgroundColor = SKColor.white
+
+        //print(self.size.width,self.size.height)
+        let message = "Select the noun from the sentence below"
+        let label = SKLabelNode(fontNamed: "Arial")
+        label.text = message
+        label.fontSize = 20
+        label.fontColor = SKColor.black
+        label.position = CGPoint(x: self.size.width/2, y: self.size.height*2/3)
+        addChild(label)
+        
+        
+        
+        var wordAr : [String] = ["The","dog","barked","very","loudly","at","night"]
+        let sentLen = GetSentenceLength(wordAr:wordAr)
+        
+        var i = 0
+        var curWordCount = 0
+        for word in wordAr
+        {
+            let len = word.characters.count
+            
+            //let message2 = "The dog barked very loudly at night."
+            //let label2 = SKLabelNode(fontNamed: "Arial")
+            labelAr.append(SKLabelNode(fontNamed: "Arial"))
+            labelAr[i].name = "word" + String(i)
+            labelAr[i].text = word
+            labelAr[i].fontSize = 20
+            labelAr[i].fontColor = SKColor.blue
+            labelAr[i].horizontalAlignmentMode = .left
+            labelAr[i].position = CGPoint(x: 20.0 + CGFloat(curWordCount) * (size.width/38.0), y: self.size.height/3)
+            addChild(labelAr[i])
+            i = i + 1
+            curWordCount = curWordCount + len + 1
+        }
+        */
+        
+        
+        
+        /*
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
         if let label = self.label {
@@ -35,9 +87,11 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        */
     }
     
-    
+        
+    /*
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
@@ -86,4 +140,5 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
+ */
 }
