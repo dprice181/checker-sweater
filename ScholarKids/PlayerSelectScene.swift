@@ -9,11 +9,9 @@
 import SpriteKit
 import GameplayKit
 
-
-
 class PlayerSelectScene: SKScene {
     
-    let SELECTTEXT_FONTSIZE :CGFloat = 17.0
+    let SELECTTEXT_FONTSIZE :CGFloat = 18.0
     var nodeDefinitionAr = [SKNode]()
     var playerboxAr = [SKShapeNode]()
     var playerboxShadowAr = [SKShapeNode]()
@@ -28,6 +26,11 @@ class PlayerSelectScene: SKScene {
     var addName = ""
     var addGrade = ""
     var myPath = ""
+    
+    let color1 = SKColor(red: 80/255, green: 115/255, blue: 205/255, alpha: 1.0)
+    let color2 = SKColor(red: 185/255, green: 80/255, blue: 185/255, alpha: 1.0)
+    
+    
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -57,16 +60,18 @@ class PlayerSelectScene: SKScene {
         let labelTitle = SKLabelNode(fontNamed: "Arial")
         labelTitle.text = "Select Or Create New Student"
         labelTitle.fontSize = 25
-        labelTitle.fontColor = SKColor.black
+        labelTitle.fontColor = global.titleColor
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*19/24)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
+        addChild(CreateShadowLabel(label: labelTitle,offset: 1))
         
-        let displayWidth = (size.width * 8 / 10) / 2
+        
+        let displayWidth = (size.width * 7.5 / 10) / 2
         
         var i = 0
         for player in playerAr  {
-            let playerDataAr = player.characters.split{$0 == "*"}.map(String.init)
+            var playerDataAr = player.characters.split{$0 == "*"}.map(String.init)
             if playerDataAr.count < 1 {
                 continue
             }
@@ -77,15 +82,21 @@ class PlayerSelectScene: SKScene {
                 grade = playerDataAr[1]
             }
             gradeAr.append(grade)
+            
             let mySentence: NSString = name as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE+1.0)])
             let sentenceWidth = sizeSentence.width
             let sentenceHeight = sizeSentence.height
             var numLines = 1
             var countWordsPerLine = 0
             if sentenceWidth > displayWidth {
                 numLines = Int(sentenceWidth / displayWidth) + 1
-                wordAr = playerAr[i].characters.split{$0 == " "}.map(String.init)
+                wordAr = name.characters.split{$0 == " "}.map(String.init)
+                if wordAr.count == 1 {  //no spaces
+                    let nameCountD2 = name.count / 2
+                    wordAr[0] = String(name.dropLast(name.count - nameCountD2))
+                    wordAr.append(String(name.dropFirst(nameCountD2)))
+                }
                 countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
             }
             
@@ -98,12 +109,13 @@ class PlayerSelectScene: SKScene {
             if numLines == 1 {
                 let labelDefinition = SKLabelNode(fontNamed: "Arial")
                 labelDefinition.text = name
-                labelDefinition.fontSize = SELECTTEXT_FONTSIZE
-                labelDefinition.fontColor = SKColor.blue
+                labelDefinition.fontSize = SELECTTEXT_FONTSIZE+1.0
+                labelDefinition.fontColor = color1
                 labelDefinition.position = CGPoint(x: -self.size.width/4,y: 0)
                 labelDefinition.zPosition = 100.0
                 labelDefinition.name = "playerbox" + String(i)
                 nodeDefinitionAr[i].addChild(labelDefinition)
+                nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
             }
             else {
                 var totalWordsSoFar = 0
@@ -120,12 +132,13 @@ class PlayerSelectScene: SKScene {
                     
                     let labelDefinition = SKLabelNode(fontNamed: "Arial")
                     labelDefinition.text = definitionLine
-                    labelDefinition.fontSize = SELECTTEXT_FONTSIZE
-                    labelDefinition.fontColor = SKColor.blue
+                    labelDefinition.fontSize = SELECTTEXT_FONTSIZE+1.0
+                    labelDefinition.fontColor = color1
                     labelDefinition.position = CGPoint(x: -self.size.width/4,y: -sentenceHeight * CGFloat(n))
                     labelDefinition.zPosition = 100.0
                     labelDefinition.name = "playerbox" + String(i)
                     nodeDefinitionAr[i].addChild(labelDefinition)
+                    nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
                     totalWordsSoFar = totalWordsSoFar + countWords
                 }
             }
@@ -133,7 +146,7 @@ class PlayerSelectScene: SKScene {
             playerboxShadowAr[i].name = "shadowbox" + String(i)
             playerboxShadowAr[i].fillColor = SKColor.black
             playerboxShadowAr[i].strokeColor = SKColor.black
-            playerboxShadowAr[i].position = CGPoint(x:-1,y:1)
+            playerboxShadowAr[i].position = CGPoint(x:-1.5,y:1.5)
             nodeDefinitionAr[i].addChild(playerboxShadowAr[i])
             
             playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:30.0))
@@ -146,19 +159,20 @@ class PlayerSelectScene: SKScene {
             gradeboxAr.append(SKShapeNode(rectOf: CGSize(width: size.width/5,height: self.size.height*4/48-2)))
             gradeboxAr[i].name = "playerboxgrade" + String(i)
             gradeboxAr[i].fillColor = SKColor(red: 225/255, green: 245/255, blue: 225/255, alpha: 1)
-            gradeboxAr[i].strokeColor = SKColor(red: 225/255, green: 245/255, blue: 225/255, alpha: 1)
+            gradeboxAr[i].strokeColor = SKColor(red: 185/255, green: 80/255, blue: 185/255, alpha: 1.0)
             gradeboxAr[i].position = CGPoint(x:self.size.width/32,y:0)
             gradeboxAr[i].zPosition = 101.0
             nodeDefinitionAr[i].addChild(gradeboxAr[i])
             
             let labelGrade = SKLabelNode(fontNamed: "Arial")
-            labelGrade.text = "Grade:" + grade
-            labelGrade.fontSize = SELECTTEXT_FONTSIZE
-            labelGrade.fontColor = SKColor.blue
+            labelGrade.text = "Grade: " + grade
+            labelGrade.fontSize = SELECTTEXT_FONTSIZE-1.0
+            labelGrade.fontColor = color1
             labelGrade.position = CGPoint(x: self.size.width/32,y:0)
             labelGrade.zPosition = 102.0
             labelGrade.name = "playerboxgrade" + String(i)
             nodeDefinitionAr[i].addChild(labelGrade)
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelGrade,offset: 1))
             
             let progressbox = SKShapeNode(rectOf: CGSize(width: size.width/5,height: self.size.height*4/48))
             progressbox.name = "progressbox" + String(i)
@@ -171,11 +185,12 @@ class PlayerSelectScene: SKScene {
             let labelProgress = SKLabelNode(fontNamed: "Arial")
             labelProgress.text = "Progress"
             labelProgress.fontSize = 15
-            labelProgress.fontColor = SKColor.blue
+            labelProgress.fontColor = color2
             labelProgress.position = CGPoint(x: self.size.width/32+self.size.width/5,y:0)
             labelProgress.zPosition = 102.0
             labelProgress.name = "labelprogress" + String(i)
             nodeDefinitionAr[i].addChild(labelProgress)
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress,offset: 1))
             
             let mySentence2: NSString = "Progress" as NSString
             let sizeSentence2: CGSize = mySentence2.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15)])
@@ -183,11 +198,12 @@ class PlayerSelectScene: SKScene {
             let labelProgress2 = SKLabelNode(fontNamed: "Arial")
             labelProgress2.text = "Report"
             labelProgress2.fontSize = 15
-            labelProgress2.fontColor = SKColor.blue
+            labelProgress2.fontColor = color2
             labelProgress2.position = CGPoint(x: self.size.width/32+self.size.width/5,y:-sentenceHeight2)
             labelProgress2.zPosition = 102.0
             labelProgress2.name = "labelprogress" + String(i)
             nodeDefinitionAr[i].addChild(labelProgress2)
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress2,offset: 1))
             
             let deletebox = SKShapeNode(rectOf: CGSize(width: (size.width-32)/2,height: self.size.height*4/48-2),cornerRadius:30)
             deletebox.name = "deletebox" + String(i)
@@ -205,6 +221,7 @@ class PlayerSelectScene: SKScene {
             deleteLabel.zPosition = 102.0
             deleteLabel.name = "deletebox" + String(i)
             nodeDefinitionAr[i].addChild(deleteLabel)
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: deleteLabel,offset: 1))
             
             addChild(nodeDefinitionAr[i])
             i = i + 1
@@ -224,18 +241,19 @@ class PlayerSelectScene: SKScene {
             
             let labelDefinition = SKLabelNode(fontNamed: "Arial")
             labelDefinition.text = name
-            labelDefinition.fontSize = SELECTTEXT_FONTSIZE
-            labelDefinition.fontColor = SKColor.blue
+            labelDefinition.fontSize = SELECTTEXT_FONTSIZE+1.0
+            labelDefinition.fontColor = color1
             labelDefinition.position = CGPoint(x: 0,y: 0)
             labelDefinition.zPosition = 100.0
             labelDefinition.name = "playerbox" + String(i)
             nodeDefinitionAr[i].addChild(labelDefinition)
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
             
             playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:30.0))
             playerboxShadowAr[i].name = "shadowbox" + String(i)
             playerboxShadowAr[i].fillColor = SKColor.black
             playerboxShadowAr[i].strokeColor = SKColor.black
-            playerboxShadowAr[i].position = CGPoint(x:-1,y:1)
+            playerboxShadowAr[i].position = CGPoint(x:-1.5,y:1.5)
             nodeDefinitionAr[i].addChild(playerboxShadowAr[i])
             
             playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:30.0))
@@ -250,6 +268,12 @@ class PlayerSelectScene: SKScene {
         background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
         background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
         addChild(background)
+        
+        let backButton = SKSpriteNode(imageNamed: "backwards.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
     }
     
     func DeleteDataArrays() {
@@ -265,6 +289,9 @@ class PlayerSelectScene: SKScene {
     
     func RemoveDialog(studentIndex: Int)
     {
+        let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+        self.run(SKAction.sequence([playSound]))
+        
         let dialogMessage = UIAlertController(title: "Remove Student", message: "Are you sure you want to remove this student?", preferredStyle: .alert)
         
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) -> Void in
@@ -294,7 +321,7 @@ class PlayerSelectScene: SKScene {
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             
             if let nameInput = nameTextField?.text {
-                self.addName = nameInput
+                self.addName = String(nameInput.prefix(26))
             }
             if let gradeInput = gradeTextField?.text {
                 if let addGradeInt = Int(gradeInput) {
@@ -332,7 +359,7 @@ class PlayerSelectScene: SKScene {
     {
         let file = "Players.txt" //this is the file. we will write to and read from it
         if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let path = dir + file
+            let path = dir + "/" + file
             do {
                 var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
@@ -361,7 +388,7 @@ class PlayerSelectScene: SKScene {
     {
         let file = "Players.txt" //this is the file. we will write to and read from it
         if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let path = dir + file
+            let path = dir + "/" + file
             do {
                 let fileText2 = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             }
@@ -377,10 +404,14 @@ class PlayerSelectScene: SKScene {
     {
         let file = "Players.txt" //this is the file. we will write to and read from it
         if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let path = dir + file
+            let path = dir + "/" + file
             do {
                 var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-                let text = addName + "* " + addGrade
+                if addName.count < 1 {  //name was empty so add a name
+                    let dataAr = fileText.components(separatedBy: .newlines)
+                    addName = "Student " + String(dataAr.count)
+                }
+                let text = addName + "*" + addGrade
                 fileText.append("\n"+text)
                 try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
 
@@ -400,7 +431,7 @@ class PlayerSelectScene: SKScene {
     {
         let file = "Players.txt" //this is the file. we will write to and read from it
         if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let path = dir + file
+            let path = dir + "/" + file
             do {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 playerAr = fileText.components(separatedBy: .newlines)
@@ -420,6 +451,8 @@ class PlayerSelectScene: SKScene {
     
     func AddPlayer()
     {
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        self.run(SKAction.sequence([playSound]))
         GetStudentName()
     }
     
@@ -546,12 +579,28 @@ class PlayerSelectScene: SKScene {
                     }
                 }
             }
+            if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
+                TransitionBack()
+            }
         }
+    }
+    
+    func TransitionBack()
+    {
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        let newScene = SKAction.run({
+            let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
+            
+            let nextScene = TitleScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Title")
+            self.view?.presentScene(nextScene, transition: reveal)
+            
+        })
+        self.run(SKAction.sequence([playSound,newScene]))
     }
     
     func TransitionScene()
     {
-        let playSound = SKAction.playSoundFileNamed("Correct-answer.mp3", waitForCompletion: false)
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             

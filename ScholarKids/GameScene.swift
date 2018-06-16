@@ -21,9 +21,12 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         physicsWorld.gravity = .zero
-                
+       
+        let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]  
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: self, userInfo:dictToSend)
+        
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let wordSelectScene = MathDrawScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Math")
+        let wordSelectScene = TitleScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Title")
         self.view?.presentScene(wordSelectScene, transition: reveal)
         
         

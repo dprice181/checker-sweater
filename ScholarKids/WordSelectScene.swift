@@ -38,7 +38,7 @@ class WordSelectScene: SKScene {
     var sceneType = ""
     
     var levelMode = "n"
-    var background = SKSpriteNode(imageNamed: "background4.jpg")
+    var background = SKSpriteNode(imageNamed: "background4.png")
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -52,7 +52,7 @@ class WordSelectScene: SKScene {
         GetSentence()        
         SetCorrectAnswer()
         
-        backgroundColor = SKColor.white
+        backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         
         let fullTitle = SKNode()
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*5/6)
@@ -70,7 +70,7 @@ class WordSelectScene: SKScene {
         labelSubtitle.text = "Level " + String(global.currentLevel)
         labelSubtitle.fontSize = 35
         labelSubtitle.fontColor = SKColor.red
-        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
+        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
         labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
@@ -80,13 +80,13 @@ class WordSelectScene: SKScene {
         
         
         labelInstr.text = "Select the noun from the sentence below."
-        labelInstr.fontSize = 20
+        labelInstr.fontSize = 18
         labelInstr.fontColor = SKColor.purple
-        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*15/24)
+        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
         labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
-        fullTitle.addChild(labelInstrShadow)
+        addChild(labelInstrShadow)
         
         let scoreNode = SKNode()
         scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/6)
@@ -145,9 +145,9 @@ class WordSelectScene: SKScene {
             labelAr[i].name = "word"
             labelAr[i].text = word
             labelAr[i].fontSize = SELECTTEXT_FONTSIZE
-            labelAr[i].fontColor = SKColor(red:160/255,green:160/255,blue:245/255,alpha:1)
+            labelAr[i].fontColor = global.lightBlue
             labelAr[i].horizontalAlignmentMode = .left
-            labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 5 / 12)
+            labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 12 / 24)
             widthSum = widthSum + widthWord
             addChild(labelAr[i])
             addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
@@ -163,6 +163,12 @@ class WordSelectScene: SKScene {
         background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
         background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
         addChild(background)
+        
+        let backButton = SKSpriteNode(imageNamed: "backwards.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -275,6 +281,11 @@ class WordSelectScene: SKScene {
                 }
             }
         }
+        else if let shapeNode = touchedNode as? SKNode {
+            if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
+                TransitionBackFromScene(myScene: self)
+            }
+        }
     }
     
     func TransitionScene(playSound: SKAction)
@@ -297,9 +308,10 @@ class WordSelectScene: SKScene {
     
     func CorrectAnswerSelected()
     {
-        for label in labelAr {
-            label.removeFromParent()
-        }
+//        for label in labelAr {
+//            label.removeFromParent()
+//        }
+        
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = SKColor.blue
         labelInstr.fontSize = 30
@@ -310,15 +322,16 @@ class WordSelectScene: SKScene {
         labelCorrect.text = "Correct : " + String(self.correctAnswers)
         labelCorrectShadow.text = "Correct : " + String(self.correctAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("Correct-answer.mp3", waitForCompletion: false)
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         TransitionScene(playSound:playSound)
     }
     
     func IncorrectAnswerSelected()
     {
-        for label in labelAr {
-            label.removeFromParent()
-        }
+//        for label in labelAr {
+//            label.removeFromParent()
+//        }
+        
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
         labelInstr.fontSize = 30
@@ -329,7 +342,7 @@ class WordSelectScene: SKScene {
         labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
         labelIncorrectShadow.text = "Missed : " + String(self.incorrectAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("Error-sound-effect.mp3", waitForCompletion: false)
+        let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
         TransitionScene(playSound:playSound)
     }
 }

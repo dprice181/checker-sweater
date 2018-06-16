@@ -55,8 +55,8 @@ class MathDrawScene: SKScene {
         
         GetProblem()
         
-        labelTitle.text = "Use the numbers below to answer"
-        labelTitle.fontSize = 23
+        labelTitle.text = "Answer with the numbers below"
+        labelTitle.fontSize = 21
         labelTitle.fontColor = SKColor.black
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.2/24)
         labelTitle.zPosition = 100.0
@@ -65,7 +65,7 @@ class MathDrawScene: SKScene {
         addChild(labelTitleShadow)
         
         labelTitle2.text = "(Write your work with your finger)"
-        labelTitle2.fontSize = 22
+        labelTitle2.fontSize = 21
         labelTitle2.fontColor = SKColor.red
         labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*21.3/24)
         labelTitle2.zPosition = 100.0
@@ -84,20 +84,20 @@ class MathDrawScene: SKScene {
             labelArg1.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
             labelArg1.zPosition = 100.0
             addChild(labelArg1)
-            addChild(CreateShadowLabel(label: labelArg1,offset: 2))
+            addChild(CreateShadowLabel(label: labelArg1,offset: 1))
             
             if let labelArg2 = labelArg1.copy() as? SKLabelNode {
                 labelArg2.text = String(arg2)
                 labelArg2.position = CGPoint(x: self.size.width/2, y: self.size.height*13.5/24)
                 addChild(labelArg2)
-                addChild(CreateShadowLabel(label: labelArg2,offset: 2))
+                addChild(CreateShadowLabel(label: labelArg2,offset: 1))
             }
             
             if let labelOperand = labelArg1.copy() as? SKLabelNode {
                 labelOperand.text = oper1
                 labelOperand.position = CGPoint(x: self.size.width/2 + size.width/3.3, y: self.size.height*13.5/24)
                 addChild(labelOperand)
-                addChild(CreateShadowLabel(label: labelOperand,offset: 2))
+                addChild(CreateShadowLabel(label: labelOperand,offset: 1))
             }
             
             var points = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*6/8, y:0.0)]
@@ -111,7 +111,7 @@ class MathDrawScene: SKScene {
             labelAnswer.text = ""
             labelAnswer.position = CGPoint(x: self.size.width/2, y: self.size.height*10.7/24)
             addChild(labelAnswer)
-            labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: 2)
+            labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: 1)
             addChild(labelAnswerShadow)
         }
         
@@ -133,7 +133,7 @@ class MathDrawScene: SKScene {
         labelArg1.position = CGPoint(x: self.size.width/7, y: self.size.height*(12.5)/24)
         labelArg1.zPosition = 100.0
         addChild(labelArg1)
-        addChild(CreateShadowLabel(label: labelArg1,offset: 2))
+        addChild(CreateShadowLabel(label: labelArg1,offset: 1))
         
         var points = [CGPoint(x:0.0, y:0.0),CGPoint(x:0.0, y:self.size.height/8)]
         let line = SKShapeNode(points: &points, count: points.count)
@@ -153,14 +153,14 @@ class MathDrawScene: SKScene {
             labelArg2.text = String(arg2)
             labelArg2.position = CGPoint(x: self.size.width/2, y: self.size.height*(12.5)/24)
             addChild(labelArg2)
-            addChild(CreateShadowLabel(label: labelArg2,offset: 2))
+            addChild(CreateShadowLabel(label: labelArg2,offset: 1))
         }
         
         labelAnswer = labelArg1.copy() as! SKLabelNode
         labelAnswer.text = ""
         labelAnswer.position = CGPoint(x: self.size.width/2, y: self.size.height*15.5/24)
         addChild(labelAnswer)
-        labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: 2)
+        labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: 1)
         addChild(labelAnswerShadow)
     }
     
@@ -174,26 +174,218 @@ class MathDrawScene: SKScene {
         return Int(arc4random_uniform(UInt32(range-prevRange)) + prevRange)
     }
     
+    func GetNumbers(myOper : String) -> [Int] {
+        switch (global.currentGrade) {
+        case "K":
+            if myOper == "+" {
+                if global.currentLevel > 1 {
+                    return [Int(arc4random_uniform(10+global.currentLevel)),GetNumber(numDigit: 1)]
+                }
+            }
+            return [GetNumber(numDigit: 1),GetNumber(numDigit: 1)]
+        case "1":
+            var oper1 = 0
+            var oper2 = 0
+            if myOper == "-" {
+                if global.currentLevel > 5 {
+                    oper1 = Int(arc4random_uniform(UInt32(10 * global.currentLevel)))
+                    oper2 = Int(arc4random_uniform(UInt32(10 * global.currentLevel)))
+                }
+                else {
+                    oper1 = Int(arc4random_uniform(UInt32(10 * global.currentLevel)))
+                    oper2 = GetNumber(numDigit: 1)
+                }
+                if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else {  //"+"
+                oper1 = Int(arc4random_uniform(UInt32(10 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(10 * global.currentLevel)))
+            }
+            return [oper1,oper2]
+        case "2":
+            var oper1 = 0
+            var oper2 = 0
+            if myOper == "X" {
+                if global.currentLevel > 5 {
+                    oper1 = Int(arc4random_uniform(UInt32(5 + global.currentLevel)))
+                    oper2 = GetNumber(numDigit: 1)
+                }
+                else {
+                    oper1 = GetNumber(numDigit: 1)
+                    oper2 = GetNumber(numDigit: 1)
+                }
+            }
+            else if myOper == "-" {
+                oper1 = Int(arc4random_uniform(UInt32(10 + 10 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(10 + 10 * global.currentLevel)))
+                if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else {  //"+"
+                oper1 = Int(arc4random_uniform(UInt32(20 + 10 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(20 + 10 * global.currentLevel)))
+            }
+            return [oper1,oper2]
+        case "3":
+            var oper1 = 0
+            var oper2 = 0
+            if myOper == "/" {
+                if global.currentLevel > 5 {
+                    oper2 = GetNumber(numDigit: 1)
+                    oper1 = oper2 * Int(arc4random_uniform(UInt32(global.currentLevel)))
+                }
+                else if global.currentLevel > 12 {
+                    oper1 = GetNumber(numDigit: 1)
+                    oper2 = GetNumber(numDigit: 2)
+                }
+                else {  //should never get here
+                    oper1 = GetNumber(numDigit: 1)
+                    oper2 = GetNumber(numDigit: 1)
+                }
+                if oper2 == 0 {
+                    oper2 = 1
+                }
+                else if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else if myOper == "X" {
+                if global.currentLevel > 5 {
+                    oper1 = Int(arc4random_uniform(UInt32(15 + 5*global.currentLevel)))
+                    oper2 = oper1 * Int(arc4random_uniform(UInt32(3*global.currentLevel)))
+                }
+                else {
+                    oper1 = Int(arc4random_uniform(UInt32(15 + 5*global.currentLevel)))
+                    oper2 = GetNumber(numDigit: 1)
+                }
+            }
+            else if myOper == "-" {
+                oper1 = Int(arc4random_uniform(UInt32(20 + 20 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(20 + 20 * global.currentLevel)))
+                if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else {  //"+"
+                oper1 = Int(arc4random_uniform(UInt32(30 + 30 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(30 + 30 * global.currentLevel)))
+            }
+            return [oper1,oper2]
+        case "4":
+            var oper1 = 0
+            var oper2 = 0
+            if myOper == "/" {
+                if global.currentLevel > 5 {
+                    oper1 = Int(arc4random_uniform(UInt32(10 + 5 * global.currentLevel)))
+                    oper2 = Int(arc4random_uniform(UInt32(10 + 10 * global.currentLevel)))
+                }
+                else if global.currentLevel > 2 {
+                    oper1 = Int(arc4random_uniform(UInt32(10 + 3 * global.currentLevel)))
+                    oper2 = oper2 * Int(arc4random_uniform(UInt32(5*global.currentLevel)))
+                }
+                else {
+                    oper1 = GetNumber(numDigit: 1)
+                    oper2 = oper1 * Int(arc4random_uniform(UInt32(2*global.currentLevel)))
+                }
+                if oper2 == 0 {
+                    oper2 = 1
+                }
+                else if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else if myOper == "X" {
+                oper1 = Int(arc4random_uniform(UInt32(25 + 5*global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(5 + 5*global.currentLevel)))
+            }
+            else if myOper == "-" {
+                oper1 = Int(arc4random_uniform(UInt32(40 + 30 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(40 + 30 * global.currentLevel)))
+                if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else {  //"+"
+                oper1 = Int(arc4random_uniform(UInt32(50 + 50 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(50 + 50 * global.currentLevel)))
+            }
+            return [oper1,oper2]
+        case "5","6","7","8","9","10","11","12":
+            return [1,1]
+        default:
+            return [1,1]
+            
+        }
+    }
+    
+    func GetOperator() -> Int {
+        switch (global.currentGrade) {
+        case "K":
+            if global.currentLevel > 5 {
+                return Int(arc4random_uniform(2))
+            }
+            else {
+                return 0
+            }
+        case "1":
+            return Int(arc4random_uniform(2))
+        case "2":
+            if global.currentLevel > 5 {
+                return Int(arc4random_uniform(3))
+            }
+            else {
+                return Int(arc4random_uniform(2))
+            }
+        case "3":
+            if global.currentLevel > 5 {
+                return Int(arc4random_uniform(4))
+            }
+            else {
+                return Int(arc4random_uniform(3))
+            }
+        case "4","5","6","7","8","9","10","11","12":
+            return Int(arc4random_uniform(4))
+        default:
+            return 0
+        }
+    }
+    
     func GetProblem() {
-        let randOper = Int(arc4random_uniform(4))
+        var randOper = GetOperator()
         if randOper == 0 {
             oper1 = "+"
-            let rand01 = Int(arc4random_uniform(2))
-            let rand2_01 = Int(arc4random_uniform(2))
-            arg1 = GetNumber(numDigit: 3+rand01)
-            arg2 = GetNumber(numDigit: 3+rand2_01)
+            let numbers = GetNumbers(myOper: oper1)
+            arg1 = numbers[0]
+            arg2 = numbers[1]
             correctAnswer = arg1 + arg2
         }
         else if randOper == 1 {
             oper1 = "-"
-            arg1 = GetNumber(numDigit: 3)
-            arg2 = GetNumber(numDigit: 3)
+            let numbers = GetNumbers(myOper: oper1)
+            arg1 = numbers[0]
+            arg2 = numbers[1]
             correctAnswer = arg1 - arg2
         }
         else if randOper == 2 {
             oper1 = "X"
-            arg1 = GetNumber(numDigit: 2)
-            arg2 = GetNumber(numDigit: 2)
+            let numbers = GetNumbers(myOper: oper1)
+            arg1 = numbers[0]
+            arg2 = numbers[1]
             correctAnswer = arg1 * arg2
         }
         else if randOper == 3 {
@@ -210,21 +402,11 @@ class MathDrawScene: SKScene {
         }
         else {
             oper1 = "+"
-            arg1 = GetNumber(numDigit: 2)
-            arg2 = GetNumber(numDigit: 2)
+            let numbers = GetNumbers(myOper: oper1)
+            arg1 = numbers[0]
+            arg2 = numbers[1]
             correctAnswer = arg1 + arg2
         }
-//        if let path = Bundle.main.path(forResource: "Math4", ofType: "txt")
-//        {
-//            let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-//            let lineAr = fileText.components(separatedBy: .newlines)
-//            problemAr = lineAr[currentSentenceNum].characters.split{$0 == " "}.map(String.init)
-//            self.currentSentenceNum = self.currentSentenceNum + 1
-//        }
-//        else
-//        {
-//            print("file not found")
-//        }
     }
     
     func DrawCorrectLabels() {
@@ -312,9 +494,9 @@ class MathDrawScene: SKScene {
             }
             
         }
-        buttonShadowAr[0].position = CGPoint(x: self.size.width*6/7 - 2, y: self.size.height*20.5/24 + 2)
-        buttonAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.5/24)
-        buttonLabelAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.5/24 - self.size.height/96)
+        buttonShadowAr[0].position = CGPoint(x: self.size.width*6/7 - 2, y: self.size.height*20.2/24 + 2)
+        buttonAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24)
+        buttonLabelAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24 - self.size.height/96)
         buttonLabelAr[0].text = "Wipe Screen"
         buttonShadowAr[1].position = CGPoint(x: self.size.width*9/10 - 2, y: self.size.height*9.9/24 + 2)
         buttonAr[1].position = CGPoint(x: self.size.width*9/10, y: self.size.height*9.9/24)
@@ -332,7 +514,7 @@ class MathDrawScene: SKScene {
         buttonAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24)
         buttonLabelAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24 - self.size.height/96)
         buttonLabelAr[4].text = "Add Remainder"
-        buttonLabelAr[4].fontSize = 13
+        buttonLabelAr[4].fontSize = 12
         for j in 0..<5 {
             buttonLabelShadowAr.append(CreateShadowLabel(label: buttonLabelAr[j],offset: 1))
             if j == 3  {
@@ -376,7 +558,7 @@ class MathDrawScene: SKScene {
             self.addChild(circle)
             
             circleShadowAr.append(SKShapeNode(circleOfRadius: 35))
-            circleShadowAr[i-1].position = CGPoint(x:-2+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:2+size.height*(4-secondRow)/24)
+            circleShadowAr[i-1].position = CGPoint(x:-2.5+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:2.5+size.height*(4-secondRow)/24)
             circleShadowAr[i-1].name = "cirshadow" + String(i-1)
             circleShadowAr[i-1].strokeColor = SKColor.black
             circleShadowAr[i-1].fillColor = SKColor.black
@@ -398,6 +580,12 @@ class MathDrawScene: SKScene {
             addChild(numberLabel)            
             addChild(CreateShadowLabel(label: numberLabel,offset: 2))
         }
+        
+        var backButton = SKSpriteNode(imageNamed: "backwards.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -432,6 +620,9 @@ class MathDrawScene: SKScene {
                             fingerDown = false;  //no drawing if they clicked a button
                         }
                     }
+                }
+                if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
+                    fingerDown = false;  //no drawing if they clicked a button
                 }
             }
         }
@@ -517,6 +708,9 @@ class MathDrawScene: SKScene {
                         }
                     }
                 }
+                if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
+                    TransitionBackFromScene(myScene: self)
+                }            
             }
         }        
         fingerDown = false
@@ -567,7 +761,7 @@ class MathDrawScene: SKScene {
         labelCorrect.text = "Correct : " + String(self.correctAnswers)
         labelCorrectShadow.text = "Correct : " + String(self.correctAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("Correct-answer.mp3", waitForCompletion: false)
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         TransitionScene(playSound:playSound,duration:1.5)
     }
     
@@ -607,7 +801,7 @@ class MathDrawScene: SKScene {
         labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
         labelIncorrectShadow.text = "Missed : " + String(self.incorrectAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("Error-sound-effect.mp3", waitForCompletion: false)
+        let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
         TransitionScene(playSound:playSound,duration:4.5)
     }
     

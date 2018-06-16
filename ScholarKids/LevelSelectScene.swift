@@ -17,6 +17,8 @@ class LevelSelectScene: SKScene {
     var hotAirBalloonAr = [[SKSpriteNode]]()
     var hotAirBalloonLabelAr = [[SKLabelNode]]()
     var hotAirBalloonLabel2Ar = [[SKLabelNode]]()
+    var hotAirBalloonLabelShadowAr = [[SKLabelNode]]()
+    var hotAirBalloonLabelShadow2Ar = [[SKLabelNode]]()
     
     var minX : CGFloat = 0.0
     var maxX : CGFloat = 0.0
@@ -36,10 +38,11 @@ class LevelSelectScene: SKScene {
         let labelTitle = SKLabelNode(fontNamed: "Arial")
         labelTitle.text = "Select Level"
         labelTitle.fontSize = 35
-        labelTitle.fontColor = SKColor.black
+        labelTitle.fontColor = global.titleColor
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22/24)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
+        addChild(CreateShadowLabel(label: labelTitle,offset: 1))
         
         let labelNameGrade = SKLabelNode(fontNamed: "Arial")
         labelNameGrade.text = global.currentStudent + ": Grade " + global.currentGrade
@@ -48,6 +51,7 @@ class LevelSelectScene: SKScene {
         labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
         labelNameGrade.zPosition = 100.0
         addChild(labelNameGrade)
+        addChild(CreateShadowLabel(label: labelNameGrade,offset: 1))
         
         var n = 0
         for subject in subjectAr {
@@ -58,10 +62,13 @@ class LevelSelectScene: SKScene {
             subjectTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*(19.5-4*CGFloat(n))/24)
             subjectTitle.zPosition = 100.0
             addChild(subjectTitle)
+            addChild(CreateShadowLabel(label: subjectTitle,offset: 1.5))
             
             hotAirBalloonAr.append([])
             hotAirBalloonLabelAr.append([])
             hotAirBalloonLabel2Ar.append([])
+            hotAirBalloonLabelShadowAr.append([])
+            hotAirBalloonLabelShadow2Ar.append([])
             for i in minLevel-1..<maxLevel {
                 hotAirBalloonAr[n].append(SKSpriteNode(imageNamed: "hotairballoon.png"))
                 hotAirBalloonAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/4),y:self.size.height*(18-4*CGFloat(n))/24)
@@ -71,12 +78,14 @@ class LevelSelectScene: SKScene {
                 
                 hotAirBalloonLabelAr[n].append(SKLabelNode(fontNamed: "ChalkDuster"))
                 hotAirBalloonLabelAr[n][i].text = "Level"
-                hotAirBalloonLabelAr[n][i].fontSize = 15
+                hotAirBalloonLabelAr[n][i].fontSize = 13
                 hotAirBalloonLabelAr[n][i].fontColor = SKColor.red
                 hotAirBalloonLabelAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/4),y:self.size.height*(18.6-4*CGFloat(n))/24 )
                 hotAirBalloonLabelAr[n][i].zPosition = 102.0
                 hotAirBalloonLabelAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabelAr[n][i])
+                hotAirBalloonLabelShadowAr[n].append(CreateShadowLabel(label: hotAirBalloonLabelAr[n][i],offset: 1))
+                addChild(hotAirBalloonLabelShadowAr[n][i])
                 
                 hotAirBalloonLabel2Ar[n].append(SKLabelNode(fontNamed: "ChalkDuster"))
                 hotAirBalloonLabel2Ar[n][i].text = String(i+1)
@@ -86,6 +95,8 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabel2Ar[n][i].zPosition = 102.0
                 hotAirBalloonLabel2Ar[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabel2Ar[n][i])
+                hotAirBalloonLabelShadow2Ar[n].append(CreateShadowLabel(label: hotAirBalloonLabel2Ar[n][i],offset: 1))
+                addChild(hotAirBalloonLabelShadow2Ar[n][i])
             }
             
             maxX = 0.0
@@ -100,6 +111,12 @@ class LevelSelectScene: SKScene {
             scrollBoxAr.append((start:CGPoint(x:0,y:self.size.height*(16.5-4*CGFloat(n))/24),end:CGPoint(x:self.size.width,y:self.size.height*(20-4*CGFloat(n))/24)))
             n = n + 1
         }
+        
+        let backButton = SKSpriteNode(imageNamed: "backwards.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -140,6 +157,12 @@ class LevelSelectScene: SKScene {
                     }
                     for hotAirBalloonLabel2 in hotAirBalloonLabel2Ar[scrollBoxInd] {
                         hotAirBalloonLabel2.run(action)
+                    }
+                    for hotAirBalloonLabelShadow in hotAirBalloonLabelShadowAr[scrollBoxInd] {
+                        hotAirBalloonLabelShadow.run(action)
+                    }
+                    for hotAirBalloonLabelShadow2 in hotAirBalloonLabelShadow2Ar[scrollBoxInd] {
+                        hotAirBalloonLabelShadow2.run(action)
                     }
                     isScrolling = true
                 }
@@ -184,6 +207,9 @@ class LevelSelectScene: SKScene {
                         
                     }
                 }
+                if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
+                    TransitionBack()
+                }
             }
         }
         
@@ -216,9 +242,25 @@ class LevelSelectScene: SKScene {
         prevLocation = touchLocation
     }
     
+    func TransitionBack()
+    {
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        let newScene = SKAction.run({
+            let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
+            
+            let nextScene = PlayerSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"PlayerSelect")
+            self.view?.presentScene(nextScene, transition: reveal)
+            
+        })
+        self.run(SKAction.sequence([playSound,newScene]))
+    }
+    
     func TransitionScene(sceneType:String)
     {
-        let playSound = SKAction.playSoundFileNamed("Correct-answer.mp3", waitForCompletion: false)
+        let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "StopBackgroundSound"), object: self, userInfo:dictToSend)
+        
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
@@ -232,6 +274,10 @@ class LevelSelectScene: SKScene {
             }
             else if sceneType == "Grammar" {
                 let nextScene = WordSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
+                self.view?.presentScene(nextScene, transition: reveal)
+            }
+            else if sceneType == "Spelling" {
+                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             
