@@ -24,11 +24,14 @@ class LevelSelectScene: SKScene {
     var maxX : CGFloat = 0.0
     var curX : [CGFloat] = [0.0,0.0,0.0,0.0,0.0]
     
-    let subjectAr = ["Math","Grammar","Vocabulary","Spelling","Reading"]
+    //let subjectAr = ["Math","Grammar","Vocabulary","Spelling","Reading"]
+    let subjectAr = ["Math","Grammar","Vocabulary","Spelling"]
 
     var scrollLocation = CGPoint.zero
     var prevLocation = CGPoint.zero
     var isScrolling = false
+    
+    let SUB_SPACING : CGFloat = 5.0
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -59,7 +62,7 @@ class LevelSelectScene: SKScene {
             subjectTitle.text = subject
             subjectTitle.fontSize = 25
             subjectTitle.fontColor = SKColor.blue
-            subjectTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*(19.5-4*CGFloat(n))/24)
+            subjectTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*(19.5 - SUB_SPACING*CGFloat(n))/24)
             subjectTitle.zPosition = 100.0
             addChild(subjectTitle)
             addChild(CreateShadowLabel(label: subjectTitle,offset: 1.5))
@@ -71,7 +74,7 @@ class LevelSelectScene: SKScene {
             hotAirBalloonLabelShadow2Ar.append([])
             for i in minLevel-1..<maxLevel {
                 hotAirBalloonAr[n].append(SKSpriteNode(imageNamed: "hotairballoon.png"))
-                hotAirBalloonAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/4),y:self.size.height*(18-4*CGFloat(n))/24)
+                hotAirBalloonAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
                 hotAirBalloonAr[n][i].scale(to: CGSize(width: self.size.height*3/48,height: (self.size.height*3/48)*(4/2.4)))
                 hotAirBalloonAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonAr[n][i])
@@ -80,7 +83,7 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabelAr[n][i].text = "Level"
                 hotAirBalloonLabelAr[n][i].fontSize = 13
                 hotAirBalloonLabelAr[n][i].fontColor = SKColor.red
-                hotAirBalloonLabelAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/4),y:self.size.height*(18.6-4*CGFloat(n))/24 )
+                hotAirBalloonLabelAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(18.1 - SUB_SPACING*CGFloat(n))/24 )
                 hotAirBalloonLabelAr[n][i].zPosition = 102.0
                 hotAirBalloonLabelAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabelAr[n][i])
@@ -91,7 +94,7 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabel2Ar[n][i].text = String(i+1)
                 hotAirBalloonLabel2Ar[n][i].fontSize = 20
                 hotAirBalloonLabel2Ar[n][i].fontColor = SKColor.red
-                hotAirBalloonLabel2Ar[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/4),y:self.size.height*(18-4*CGFloat(n))/24)
+                hotAirBalloonLabel2Ar[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
                 hotAirBalloonLabel2Ar[n][i].zPosition = 102.0
                 hotAirBalloonLabel2Ar[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabel2Ar[n][i])
@@ -104,15 +107,30 @@ class LevelSelectScene: SKScene {
             
             var points = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*14/16, y:0.0)]
             let line = SKShapeNode(points: &points, count: points.count)
-            line.position = CGPoint(x:self.size.width/16,y:self.size.height*(16.5-4*CGFloat(n))/24)
+            line.position = CGPoint(x:self.size.width/16,y:self.size.height*(16 - SUB_SPACING*CGFloat(n))/24)
             line.strokeColor = SKColor.red
             self.addChild(line)
             
-            scrollBoxAr.append((start:CGPoint(x:0,y:self.size.height*(16.5-4*CGFloat(n))/24),end:CGPoint(x:self.size.width,y:self.size.height*(20-4*CGFloat(n))/24)))
+            scrollBoxAr.append((start:CGPoint(x:0,y:self.size.height*(16 - SUB_SPACING*CGFloat(n))/24),end:CGPoint(x:self.size.width,y:self.size.height*(19.5 - SUB_SPACING*CGFloat(n))/24)))
             n = n + 1
         }
         
-        let backButton = SKSpriteNode(imageNamed: "backwards.png")
+        let redLeft = SKSpriteNode(imageNamed: "RedLeft.png")
+        redLeft.name = "backbutton"
+        redLeft.position = CGPoint(x: frame.size.width * 18/20, y: self.size.height*17/20)
+        redLeft.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(redLeft)
+        
+        let redLeftLabel = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+        redLeftLabel.text = "Swipe Left"
+        redLeftLabel.fontSize = 15
+        redLeftLabel.fontColor = SKColor.red
+        redLeftLabel.position = CGPoint(x: frame.size.width * 18/20, y: self.size.height*16/20)
+        redLeftLabel.zPosition = 100.0
+        addChild(redLeftLabel)
+        addChild(CreateShadowLabel(label: redLeftLabel,offset: 1))
+        
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
@@ -209,7 +227,7 @@ class LevelSelectScene: SKScene {
                 }
                 if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
                     TransitionBack()
-                }
+                }                
             }
         }
         
@@ -244,6 +262,10 @@ class LevelSelectScene: SKScene {
     
     func TransitionBack()
     {
+        for child in global.overlayNode.children {
+            child.removeFromParent()
+        }
+        global.overlayNode.removeFromParent()
         let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)

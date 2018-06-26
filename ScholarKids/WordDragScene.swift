@@ -25,10 +25,12 @@ class WordDragScene: SKScene {
     var correctAnswerAr : [Int]  = []
     var wordAr : [String] = []
     var sentenceDataAr : [String] = []
-    let labelTitle = SKLabelNode(fontNamed: "ChalkDuster")
-    let labelSubtitle = SKLabelNode(fontNamed: "ChalkDuster")
+    let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    let labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelInstr = SKLabelNode(fontNamed: "Arial")
+    let labelInstr2 = SKLabelNode(fontNamed: "Arial")
     var labelInstrShadow = SKLabelNode(fontNamed: "Arial")
+    var labelInstrShadow2 = SKLabelNode(fontNamed: "Arial")
     let labelCorrect = SKLabelNode(fontNamed: "Arial")
     var labelCorrectShadow = SKLabelNode(fontNamed: "Arial")
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
@@ -40,18 +42,12 @@ class WordDragScene: SKScene {
     
     var answerboxPos = CGPoint(x:0,y:0)
     
-    var correctAnswers = 0
-    var incorrectAnswers = 0
-    var currentSentenceNum = 0
     var currentExtraWordNum = 0
     
     var levelMode = "n"
-    var answerPos = 0
-    
+    var answerPos = 0    
     var choiceMade = false
-    
     var background = SKSpriteNode(imageNamed: "background4.png")
-    
     var sceneType = ""
     
     func GetSentence()
@@ -65,20 +61,20 @@ class WordDragScene: SKScene {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
             lineAr.shuffle()  //FIX should be done once per launch, not per screen
-            while (lineAr[currentSentenceNum] == "") {
-                self.currentSentenceNum = self.currentSentenceNum + 1
-                if currentSentenceNum >= lineAr.count {
-                    currentSentenceNum = 0
+            while (lineAr[global.currentSentenceNum] == "") {
+                global.currentSentenceNum = global.currentSentenceNum + 1
+                if global.currentSentenceNum >= lineAr.count {
+                    global.currentSentenceNum = 0
                     break
                 }
             }
-            let sentenceAr = lineAr[currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
             
             sentence = sentenceAr[0]
             let sentenceData = sentenceAr[1]
             wordAr = sentence.characters.split{$0 == " "}.map(String.init)
             sentenceDataAr = sentenceData.characters.split{$0 == " "}.map(String.init)
-            self.currentSentenceNum = self.currentSentenceNum + 1
+            global.currentSentenceNum = global.currentSentenceNum + 1
         }
         else
         {
@@ -90,14 +86,15 @@ class WordDragScene: SKScene {
     {
         var extraWord1 = ""
         var extraWord2 = ""
-        let correctWord = wordAr[correctAnswerAr[0]]
+        var correctWord = wordAr[correctAnswerAr[0]]
         if sceneType == "Spelling" {
             var vocabularyWordAr = Misspell(word: correctWord)
             extraWord1 = vocabularyWordAr[1]
             extraWord2 = vocabularyWordAr[2]
         }
         else if sceneType == "Vocabulary" {
-            if let path = Bundle.main.path(forResource: "Vocabulary1", ofType: "txt")  {
+            let fileName = "Vocabulary" + global.currentGrade
+            if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
                 lineAr.shuffle()  //FIX should be done once per launch, not per screen
@@ -107,7 +104,7 @@ class WordDragScene: SKScene {
             else {
                 print("file not found")
             }
-            if let path = Bundle.main.path(forResource: "Vocabulary1", ofType: "txt")  {
+            if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
                 lineAr.shuffle()  //FIX should be done once per launch, not per screen
@@ -190,9 +187,9 @@ class WordDragScene: SKScene {
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         
-        self.currentSentenceNum = currentSentenceNum
-        self.correctAnswers = correctAnswers
-        self.incorrectAnswers = incorrectAnswers
+        global.currentSentenceNum = currentSentenceNum
+        global.correctAnswers = correctAnswers
+        global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
         self.sceneType = sceneType
         
@@ -200,7 +197,6 @@ class WordDragScene: SKScene {
         physicsWorld.contactDelegate = self
         
         GetSentence()
-        
         SetCorrectAnswer()
         
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
@@ -218,7 +214,7 @@ class WordDragScene: SKScene {
         else {
             labelTitle.text = "NOUNS"
         }
-        labelTitle.fontSize = 35
+        labelTitle.fontSize = 45
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -227,7 +223,7 @@ class WordDragScene: SKScene {
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 30
+        labelSubtitle.fontSize = 40
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
         labelSubtitle.zPosition = 100.0
@@ -238,27 +234,36 @@ class WordDragScene: SKScene {
         addChild(fullTitle)
         
         if sceneType == "Vocabulary" {
-            labelInstr.text = "Drag the correct word to the sentence below."
+            labelInstr.text = "Drag the correct word"
         }
         else if sceneType == "Spelling" {
-            labelInstr.text = "Drag the correct spelling to the sentence below"
+            labelInstr.text = "Drag the correct spelling"
         }
         else {
-            labelInstr.text = "Drag the noun to the sentence below."
+            labelInstr.text = "Drag the noun"
         }
-        labelInstr.fontSize = 17
+        labelInstr2.text = "to the sentence below."
+        labelInstr.fontSize = 22
         labelInstr.fontColor = SKColor.purple
         labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
         labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
         addChild(labelInstrShadow)
+    
+        labelInstr2.fontSize = 22
+        labelInstr2.fontColor = SKColor.purple
+        labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*15/24)
+        labelInstr2.zPosition = 100.0
+        addChild(labelInstr2)
+        labelInstrShadow2 = CreateShadowLabel(label: labelInstr2,offset: 1)
+        addChild(labelInstrShadow2)
         
         let scoreNode = SKNode()
         scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/6)
         scoreNode.zPosition = 100.0
         
-        labelCorrect.text = "Correct : " + String(self.correctAnswers)
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
         labelCorrect.fontSize = 15
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
@@ -267,7 +272,7 @@ class WordDragScene: SKScene {
         scoreNode.addChild(labelCorrectShadow)
         
         
-        labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrect.fontSize = 15
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
@@ -279,16 +284,16 @@ class WordDragScene: SKScene {
         
         GetChoiceArray()
         
-        var posX = self.size.width/5
+        var posX = self.size.width/6
         
         //add three choice boxes
         for n in 0...2
         {
-            let correctWord = choiceWordAr[n]
+            var correctWord = choiceWordAr[n]
             let myWord: NSString = correctWord as NSString
-            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-            sizeWordChoice.width = sizeWordChoice.width * 1.40
-            sizeWordChoice.height = sizeWordChoice.height * 1.25
+            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE-2.0)])
+            sizeWordChoice.width = sizeWordChoice.width * 1.45
+            sizeWordChoice.height = sizeWordChoice.height * 2.0
             
             //parent node with physics body for collision
             let choiceNode = SKSpriteNode()
@@ -302,36 +307,41 @@ class WordDragScene: SKScene {
             choiceNode.physicsBody?.collisionBitMask = PhysicsCategory.none
             choiceNode.physicsBody?.usesPreciseCollisionDetection = true
             
+            correctWord = correctWord.replacingOccurrences(of: ".", with: "")
             let labelChoice = SKLabelNode(fontNamed: "Verdana")
             labelChoice.zPosition = 100.0
             labelChoice.name = "choicelabel"
             labelChoice.text = correctWord.lowercased()
-            labelChoice.fontSize = SELECTTEXT_FONTSIZE
-            labelChoice.fontColor = global.lightBlue
+            labelChoice.fontSize = SELECTTEXT_FONTSIZE-2.0
+            labelChoice.fontColor = SKColor.white
             labelChoice.horizontalAlignmentMode = .center
             labelChoice.position = CGPoint(x:  0, y: -sizeWordChoice.height/4)
             choiceNode.addChild(labelChoice)
             choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: 1))
             
             
-            let boxChoice = SKShapeNode(rectOf: sizeWordChoice,cornerRadius: 20.0)
+//            let boxChoice = SKShapeNode(rectOf: sizeWordChoice,cornerRadius: 20.0)
+//            boxChoice.name = "choicebox"
+//            boxChoice.fillColor = SKColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+//            boxChoice.strokeColor = SKColor.red
+//            boxChoice.position = .zero
+//            choiceNode.addChild(boxChoice)
+            let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
             boxChoice.name = "choicebox"
-            boxChoice.fillColor = SKColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
-            boxChoice.strokeColor = SKColor.red
             boxChoice.position = .zero
+            boxChoice.scale(to: sizeWordChoice)
             choiceNode.addChild(boxChoice)
             
-            
-            if let boxChoiceShadow = boxChoice.copy() as? SKShapeNode {
-                boxChoiceShadow.fillColor = SKColor.black
-                boxChoiceShadow.strokeColor = SKColor.black
-                boxChoiceShadow.zPosition = -1.0
-                boxChoice.position = CGPoint(x:-1.0,y:1.0)
-                choiceNode.addChild(boxChoiceShadow)
-            }
+//            let boxChoiceShadow = SKShapeNode(rectOf: sizeWordChoice,cornerRadius: 30.0)
+//            boxChoiceShadow.fillColor = SKColor.black
+//            boxChoiceShadow.strokeColor = SKColor.black
+//            boxChoiceShadow.zPosition = -1.0
+//            boxChoice.position = CGPoint(x:-1.0,y:1.0)
+//            choiceNode.addChild(boxChoiceShadow)
+        
             addChild(choiceNode)
             
-            posX = posX + self.size.width*3/10
+            posX = posX + self.size.width*2/6
         }
         
         let mySentence: NSString = sentence as NSString
@@ -378,7 +388,6 @@ class WordDragScene: SKScene {
             labelAr[i].fontColor = global.lightBlue
             labelAr[i].horizontalAlignmentMode = .left
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 9 / 24)
-
             
             if firstCorrectAnswer == i {
                 //parent node with physics body for collision
@@ -408,7 +417,6 @@ class WordDragScene: SKScene {
             }
             
             widthSum = widthSum + widthWord
-            
             i = i + 1
         }
         
@@ -416,7 +424,7 @@ class WordDragScene: SKScene {
         background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
         addChild(background)
         
-        let backButton = SKSpriteNode(imageNamed: "backwards.png")
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
@@ -503,32 +511,48 @@ class WordDragScene: SKScene {
             if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
                 TransitionBackFromScene(myScene: self)
             }
+            if shapeNode.name?.contains("home") != nil && (shapeNode.name?.contains("home"))!  {
+                TransitionBackFromScene(myScene: self)
+            }
+            if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
+                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                TransitionScene(playSound:playSound,duration:0.0)
+            }
+            if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
+                global.currentLevel = global.currentLevel + 1
+                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                TransitionScene(playSound:playSound,duration:0.0)
+            }
         }
     }
     
-    func TransitionScene(playSound: SKAction)
+    func TransitionScene(playSound: SKAction,duration : TimeInterval)
     {
-        let wait = SKAction.wait(forDuration: 1.5)
+        for child in global.overlayNode.children {
+            child.removeFromParent()
+        }
+        global.overlayNode.removeFromParent()
+        let wait = SKAction.wait(forDuration: duration)
         
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             if self.sceneType == "Vocabulary" || self.sceneType == "Spelling" {
-                if (self.currentSentenceNum % 6) < 3 {
-                    let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                if (global.currentSentenceNum % 6) < 3 {
+                    let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
                 else {
-                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
             }
             else {
-                if (self.currentSentenceNum % 6) < 3 {
-                    let nextScene = WordSelectScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                if (global.currentSentenceNum % 6) < 3 {
+                    let nextScene = WordSelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
                 else {
-                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
             }
@@ -544,12 +568,17 @@ class WordDragScene: SKScene {
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30
         
-        self.correctAnswers = self.correctAnswers + 1
-        labelCorrect.text = "Correct : " + String(self.correctAnswers)
-        labelCorrectShadow.text = "Correct : " + String(self.correctAnswers)
+        global.correctAnswers = global.correctAnswers + 1
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
+        labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
-        TransitionScene(playSound:playSound)
+        if global.correctAnswers + global.incorrectAnswers >= 12 {
+            DisplayLevelFinished(scene:self)
+        }
+        else {
+            let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            TransitionScene(playSound:playSound,duration: 1.5)
+        }
     }
     
     func IncorrectAnswerSelected()
@@ -560,12 +589,17 @@ class WordDragScene: SKScene {
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
         labelInstrShadow.fontSize = 30
         
-        self.incorrectAnswers = self.incorrectAnswers + 1
-        labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
-        labelIncorrectShadow.text = "Missed : " + String(self.incorrectAnswers)
+        global.incorrectAnswers = global.incorrectAnswers + 1
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
+        labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
-        TransitionScene(playSound:playSound)
+        if global.correctAnswers + global.incorrectAnswers >= 12 {
+            DisplayLevelFinished(scene:self)
+        }
+        else {
+            let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            TransitionScene(playSound:playSound, duration: 4.0)
+        }
     }
     
     func ChoiceBoxMovedToAnswerBox(choicebox: SKSpriteNode, answerbox: SKSpriteNode)

@@ -234,7 +234,7 @@ class PlayerSelectScene: SKScene {
             nodeDefinitionAr[i].zPosition = 100.0
             nodeDefinitionAr[i].name = "playerbox" + String(i)
             
-            let greenPlus = SKSpriteNode(imageNamed: "green_plus-2.png")
+            let greenPlus = SKSpriteNode(imageNamed: "GreenPlus.png")
             greenPlus.position = CGPoint(x: -self.size.width/3,y:0)
             greenPlus.scale(to: CGSize(width: self.size.height*3/48,height: self.size.height*3/48))
             nodeDefinitionAr[i].addChild(greenPlus)
@@ -269,7 +269,7 @@ class PlayerSelectScene: SKScene {
         background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
         addChild(background)
         
-        let backButton = SKSpriteNode(imageNamed: "backwards.png")
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
@@ -581,12 +581,16 @@ class PlayerSelectScene: SKScene {
             }
             if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
                 TransitionBack()
-            }
+            }            
         }
     }
     
     func TransitionBack()
     {
+        for child in global.overlayNode.children {
+            child.removeFromParent()
+        }
+        global.overlayNode.removeFromParent()
         let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)

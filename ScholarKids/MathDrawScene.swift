@@ -2,7 +2,7 @@
 //  MathDrawScene.swift
 //  ScholarKids
 //
-//  Created by Boo Ja Witzmann on 5/31/18.
+//  Created by Doug Price on 5/31/18.
 //  Copyright © 2018 Doug Price. All rights reserved.
 //
 
@@ -16,7 +16,8 @@ class MathDrawScene: SKScene {
     var problemAr = [String]()
     var labelAnswer = SKLabelNode(fontNamed: "Arial")
     var labelAnswerShadow = SKLabelNode(fontNamed: "Arial")
-    var buttonAr = [SKShapeNode]()
+    //var buttonAr = [SKShapeNode]()
+    var buttonAr = [SKSpriteNode]()
     var buttonShadowAr = [SKShapeNode]()
     var buttonLabelAr = [SKLabelNode]()
     var buttonLabelShadowAr = [SKLabelNode]()
@@ -29,15 +30,14 @@ class MathDrawScene: SKScene {
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
     var labelCorrectShadow = SKLabelNode(fontNamed: "Arial")
     var labelIncorrectShadow = SKLabelNode(fontNamed: "Arial")
+    var lineTitle2 = SKShapeNode()
     var arg1 = 0
     var arg2 = 0
     var oper1 = "+"
     var correctAnswer = 0
     var correctAnswerRemainder = 0
+    var negativeNumbers = false
     
-    var correctAnswers = 0
-    var incorrectAnswers = 0
-    var currentSentenceNum = 0
     var currentExtraWordNum = 0
     var sceneType = ""
     
@@ -47,9 +47,9 @@ class MathDrawScene: SKScene {
         physicsWorld.gravity = .zero
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         
-        self.currentSentenceNum = currentSentenceNum
-        self.correctAnswers = correctAnswers
-        self.incorrectAnswers = incorrectAnswers
+        global.currentSentenceNum = currentSentenceNum
+        global.correctAnswers = correctAnswers
+        global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
         self.sceneType = sceneType
         
@@ -73,6 +73,13 @@ class MathDrawScene: SKScene {
         labelTitleShadow2 = CreateShadowLabel(label: labelTitle2,offset: 1)
         addChild(labelTitleShadow2)
         
+        var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*3/4, y:0.0)]
+        lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
+        lineTitle2.position = CGPoint(x:self.size.width/8,y:self.size.height*21/24)
+        lineTitle2.lineWidth = 2.0
+        lineTitle2.strokeColor = SKColor.red
+        self.addChild(lineTitle2)
+        
         if oper1 == "/" {
             AddDivision()
         }
@@ -84,20 +91,20 @@ class MathDrawScene: SKScene {
             labelArg1.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
             labelArg1.zPosition = 100.0
             addChild(labelArg1)
-            addChild(CreateShadowLabel(label: labelArg1,offset: 1))
+            addChild(CreateShadowLabel(label: labelArg1,offset: 1.5))
             
             if let labelArg2 = labelArg1.copy() as? SKLabelNode {
                 labelArg2.text = String(arg2)
                 labelArg2.position = CGPoint(x: self.size.width/2, y: self.size.height*13.5/24)
                 addChild(labelArg2)
-                addChild(CreateShadowLabel(label: labelArg2,offset: 1))
+                addChild(CreateShadowLabel(label: labelArg2,offset: 1.5))
             }
             
             if let labelOperand = labelArg1.copy() as? SKLabelNode {
                 labelOperand.text = oper1
                 labelOperand.position = CGPoint(x: self.size.width/2 + size.width/3.3, y: self.size.height*13.5/24)
                 addChild(labelOperand)
-                addChild(CreateShadowLabel(label: labelOperand,offset: 1))
+                addChild(CreateShadowLabel(label: labelOperand,offset: 1.5))
             }
             
             var points = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*6/8, y:0.0)]
@@ -111,7 +118,7 @@ class MathDrawScene: SKScene {
             labelAnswer.text = ""
             labelAnswer.position = CGPoint(x: self.size.width/2, y: self.size.height*10.7/24)
             addChild(labelAnswer)
-            labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: 1)
+            labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: 1.5)
             addChild(labelAnswerShadow)
         }
         
@@ -326,7 +333,33 @@ class MathDrawScene: SKScene {
             }
             return [oper1,oper2]
         case "5","6","7","8","9","10","11","12":
-            return [1,1]
+            var oper1 = 0
+            var oper2 = 0
+            if myOper == "/" {
+                oper1 = Int(arc4random_uniform(UInt32(10 + 10 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(10 + 20 * global.currentLevel)))
+                if oper2 == 0 {
+                    oper2 = 1
+                }
+                else if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else if myOper == "X" {
+                oper1 = Int(arc4random_uniform(UInt32(25 + 10*global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(10 + 10*global.currentLevel)))
+            }
+            else if myOper == "-" {
+                oper1 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
+            }
+            else {  //"+"
+                oper1 = Int(arc4random_uniform(UInt32(50 + 100 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(50 + 100 * global.currentLevel)))
+            }
+            return [oper1,oper2]
         default:
             return [1,1]
             
@@ -366,6 +399,7 @@ class MathDrawScene: SKScene {
     }
     
     func GetProblem() {
+        negativeNumbers = false
         var randOper = GetOperator()
         if randOper == 0 {
             oper1 = "+"
@@ -376,6 +410,11 @@ class MathDrawScene: SKScene {
         }
         else if randOper == 1 {
             oper1 = "-"
+            if let grade = Int(global.currentGrade) {
+                if grade >= 5 {
+                    negativeNumbers = true
+                }
+            }
             let numbers = GetNumbers(myOper: oper1)
             arg1 = numbers[0]
             arg2 = numbers[1]
@@ -415,7 +454,7 @@ class MathDrawScene: SKScene {
         scoreNode.position = CGPoint(x: self.size.width*9/10, y: size.height*6/24)
         scoreNode.zPosition = 100.0
         
-        labelCorrect.text = "Correct : " + String(self.correctAnswers)
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
         labelCorrect.fontSize = 15
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
@@ -423,7 +462,7 @@ class MathDrawScene: SKScene {
         labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
         scoreNode.addChild(labelCorrectShadow)
         
-        labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrect.fontSize = 15
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
@@ -436,10 +475,10 @@ class MathDrawScene: SKScene {
     func DrawOtherButtons() {
         for i in 0..<5 {
             if i == 0 || i==4 {
-                buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/4,height: self.size.height*2/48),cornerRadius: 30.0))
+                buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/4,height: self.size.height*2/48),cornerRadius: 40.0))
             }
             else if i == 3 {
-                buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/5,height: self.size.height*2/48),cornerRadius: 30.0))
+                buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/5,height: self.size.height*2/48),cornerRadius: 40.0))
             }
             else {
                 buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6,height: self.size.height*2/48),cornerRadius: 30.0))
@@ -452,29 +491,34 @@ class MathDrawScene: SKScene {
             
             
             if i == 0 || i==4 {
-                buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/4,height: self.size.height*2/48),cornerRadius: 30.0))
+                //buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/4,height: self.size.height*2/48),cornerRadius: 30.0))
+                buttonAr.append(SKSpriteNode(imageNamed: "RedButtonBig.png"))
+                buttonAr[i].scale(to: CGSize(width: self.size.width/3.5,height: self.size.height*2.5/48))
             }
             else if i == 3 {
-                buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/5,height: self.size.height*2/48),cornerRadius: 30.0))
+                //buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/5,height: self.size.height*2/48),cornerRadius: 30.0))
+                buttonAr.append(SKSpriteNode(imageNamed: "RedButtonBig.png"))
+                buttonAr[i].scale(to: CGSize(width: self.size.width/4.5,height: self.size.height*2.5/48))
             }
             else {
-                buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6,height: self.size.height*2/48),cornerRadius: 30.0))
+                //buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6,height: self.size.height*2/48),cornerRadius: 30.0))
+                buttonAr.append(SKSpriteNode(imageNamed: "RedButtonSmall.png"))
+                buttonAr[i].scale(to: CGSize(width: self.size.width/5.5,height: self.size.height*2.5/48))
             }
             buttonAr[i].name = "button" + String(i)
-            buttonAr[i].fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-            buttonAr[i].strokeColor = SKColor.red
             buttonAr[i].zPosition = 101.0
-            buttonAr[i].lineWidth = 1.5
-            
+//            buttonAr[i].fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+//            buttonAr[i].strokeColor = SKColor.red
+//            buttonAr[i].lineWidth = 1.5
             
             buttonLabelAr.append(SKLabelNode(fontNamed: "Arial"))
             buttonLabelAr[i].name = "buttonlabel" + String(i)
             buttonLabelAr[i].fontSize = 15
-            buttonLabelAr[i].fontColor = SKColor.blue
+            buttonLabelAr[i].fontColor = SKColor.white
             buttonLabelAr[i].zPosition = 102.0
             
             if i == 3  {
-                if oper1 == "-" {
+                if oper1 == "-" && negativeNumbers == true {
                     addChild(buttonAr[i])
                     addChild(buttonShadowAr[i])
                     addChild(buttonLabelAr[i])
@@ -494,23 +538,23 @@ class MathDrawScene: SKScene {
             }
             
         }
-        buttonShadowAr[0].position = CGPoint(x: self.size.width*6/7 - 2, y: self.size.height*20.2/24 + 2)
+        buttonShadowAr[0].position = CGPoint(x: self.size.width*6/7 - 5, y: self.size.height*20.2/24 + 2)
         buttonAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24)
         buttonLabelAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24 - self.size.height/96)
         buttonLabelAr[0].text = "Wipe Screen"
-        buttonShadowAr[1].position = CGPoint(x: self.size.width*9/10 - 2, y: self.size.height*9.9/24 + 2)
-        buttonAr[1].position = CGPoint(x: self.size.width*9/10, y: self.size.height*9.9/24)
-        buttonLabelAr[1].position = CGPoint(x: self.size.width*9/10, y: self.size.height*9.9/24 - self.size.height/96)
+        buttonShadowAr[1].position = CGPoint(x: self.size.width*9/10 - 1.5, y: self.size.height*10.2/24 + 1.5)
+        buttonAr[1].position = CGPoint(x: self.size.width*9/10, y: self.size.height*10.2/24)
+        buttonLabelAr[1].position = CGPoint(x: self.size.width*9/10, y: self.size.height*10.2/24 - self.size.height/96)
         buttonLabelAr[1].text = "Submit"
-        buttonShadowAr[2].position = CGPoint(x: self.size.width*9/10 - 2, y: self.size.height*8.4/24 + 2)
-        buttonAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.4/24)
-        buttonLabelAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.4/24 - self.size.height/96)
+        buttonShadowAr[2].position = CGPoint(x: self.size.width*9/10 - 1.5, y: self.size.height*8.3/24 + 1.5)
+        buttonAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.3/24)
+        buttonLabelAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.3/24 - self.size.height/96)
         buttonLabelAr[2].text = "Clear"
-        buttonShadowAr[3].position = CGPoint(x: self.size.width/9 - 2, y: self.size.height*11.5/24 + 2)
+        buttonShadowAr[3].position = CGPoint(x: self.size.width/9 - 3.5, y: self.size.height*11.5/24 + 2.5)
         buttonAr[3].position = CGPoint(x: self.size.width/9, y: self.size.height*11.5/24)
         buttonLabelAr[3].position = CGPoint(x: self.size.width/9, y: self.size.height*11.5/24 - self.size.height/96)
         buttonLabelAr[3].text = "Put -"
-        buttonShadowAr[4].position = CGPoint(x: self.size.width*6/7 - 2, y: self.size.height*18/24 + 2)
+        buttonShadowAr[4].position = CGPoint(x: self.size.width*6/7 - 5, y: self.size.height*18/24 + 2)
         buttonAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24)
         buttonLabelAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24 - self.size.height/96)
         buttonLabelAr[4].text = "Add Remainder"
@@ -518,7 +562,7 @@ class MathDrawScene: SKScene {
         for j in 0..<5 {
             buttonLabelShadowAr.append(CreateShadowLabel(label: buttonLabelAr[j],offset: 1))
             if j == 3  {
-                if oper1 == "-" {
+                if oper1 == "-" && negativeNumbers == true {
                     addChild(buttonLabelShadowAr[j])
                 }
             }
@@ -538,27 +582,38 @@ class MathDrawScene: SKScene {
     func DrawNumberButtons() {
         for i in 1...10 {
             let numText = i % 10
-            let circle = SKShapeNode(circleOfRadius: 35)
             var secondRow :CGFloat = 0.0
             if (i-1)/5 > 0 {
-                secondRow = 2.7
+                secondRow = 2.4
             }
+            var filename = "SilverButton.png"
+            if (i&1) == 1 {
+                filename = "GoldButton.png"
+            }
+            let circle = SKSpriteNode(imageNamed: filename)
             circle.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(4-secondRow)/24)
             circle.name = "circle" + String(i-1)
-            if (i&1) == 0 {
-                circle.strokeColor = SKColor.yellow
-                circle.fillColor = SKColor.green
-            }
-            else {
-                circle.strokeColor = SKColor.red
-                circle.fillColor = SKColor.blue
-            }
-            circle.lineWidth = 4.0
             circle.zPosition = 100.0
+            circle.scale(to: CGSize(width: self.size.width/5, height: self.size.width/5))
             self.addChild(circle)
-            
+        
+//            let circle = SKShapeNode(circleOfRadius: 35)
+//            circle.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(4-secondRow)/24)
+//            circle.name = "circle" + String(i-1)
+//            if (i&1) == 0 {
+//                circle.strokeColor = SKColor.yellow
+//                circle.fillColor = SKColor.green
+//            }
+//            else {
+//                circle.strokeColor = SKColor.red
+//                circle.fillColor = SKColor.blue
+//            }
+//            circle.lineWidth = 4.0
+//            circle.zPosition = 100.0
+//            self.addChild(circle)
+
             circleShadowAr.append(SKShapeNode(circleOfRadius: 35))
-            circleShadowAr[i-1].position = CGPoint(x:-2.5+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:2.5+size.height*(4-secondRow)/24)
+            circleShadowAr[i-1].position = CGPoint(x:-3.0+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:3.0+size.height*(4-secondRow)/24)
             circleShadowAr[i-1].name = "cirshadow" + String(i-1)
             circleShadowAr[i-1].strokeColor = SKColor.black
             circleShadowAr[i-1].fillColor = SKColor.black
@@ -569,10 +624,10 @@ class MathDrawScene: SKScene {
             numberLabel.text = String(numText)
             numberLabel.fontSize = 36
             if (i&1) == 0 {
-                numberLabel.fontColor = SKColor.yellow
+                numberLabel.fontColor = SKColor(red: 227/255,green:227/255,blue:223/255,alpha:1)
             }
             else {
-                numberLabel.fontColor = SKColor.red
+                numberLabel.fontColor = SKColor(red: 229/255,green:222/255,blue:162/255,alpha:1)
             }
             numberLabel.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(3.6-secondRow)/24)
             numberLabel.zPosition = 102.0
@@ -581,7 +636,7 @@ class MathDrawScene: SKScene {
             addChild(CreateShadowLabel(label: numberLabel,offset: 2))
         }
         
-        var backButton = SKSpriteNode(imageNamed: "backwards.png")
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
@@ -710,7 +765,19 @@ class MathDrawScene: SKScene {
                 }
                 if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
                     TransitionBackFromScene(myScene: self)
-                }            
+                }
+                if shapeNode.name?.contains("home") != nil && (shapeNode.name?.contains("home"))!  {
+                    TransitionBackFromScene(myScene: self)
+                }
+                if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
+                    let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                    TransitionScene(playSound:playSound,duration:0.0)
+                }
+                if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
+                    global.currentLevel = global.currentLevel + 1
+                    let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                    TransitionScene(playSound:playSound,duration:0.0)
+                }
             }
         }        
         fingerDown = false
@@ -718,24 +785,29 @@ class MathDrawScene: SKScene {
     
     func TransitionScene(playSound: SKAction,duration: TimeInterval)
     {
+        for child in global.overlayNode.children {
+            child.removeFromParent()
+        }
+        global.overlayNode.removeFromParent()
+        global.currentSentenceNum = global.currentSentenceNum + 1
+        
         let wait = SKAction.wait(forDuration: duration)
         
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
-            //if (self.currentSentenceNum % 6) < 3 {
-                let nextScene = MathDrawScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+            if (global.currentSentenceNum % 6) < 3 {
+                let nextScene = MathDrawScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
-//            }
-//            else {
-//                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
-//                self.view?.presentScene(nextScene, transition: reveal)
-//            }
+            }
+            else {
+                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                self.view?.presentScene(nextScene, transition: reveal)
+            }
         })
         self.run(SKAction.sequence([playSound,wait,newScene]))
     }
     
-    func CorrectAnswerSelected()
-    {
+    func RemoveLabels() {
         labelTitle.removeFromParent()
         labelTitleShadow.removeFromParent()
         for label in buttonLabelAr {
@@ -750,41 +822,43 @@ class MathDrawScene: SKScene {
         for buttonShadow in buttonShadowAr {
             buttonShadow.removeFromParent()
         }
+        lineTitle2.removeFromParent()
+    }
+    
+    func CorrectAnswerSelected()
+    {
+        RemoveLabels()
         
+        labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)
         labelTitle2.text = "Answer Is Correct!!!"
         labelTitle2.fontColor = SKColor.blue
         labelTitle2.fontSize = 30
+        labelTitleShadow2.position = CGPoint(x: self.size.width/2 - 1, y: self.size.height*20/24 + 1)
         labelTitleShadow2.text = "Answer Is Correct!!!"
         labelTitleShadow2.fontSize = 30
         
-        self.correctAnswers = self.correctAnswers + 1
-        labelCorrect.text = "Correct : " + String(self.correctAnswers)
-        labelCorrectShadow.text = "Correct : " + String(self.correctAnswers)
+        global.correctAnswers = global.correctAnswers + 1
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
+        labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
-        TransitionScene(playSound:playSound,duration:1.5)
+        if global.correctAnswers + global.incorrectAnswers >= 12 {
+            DisplayLevelFinished(scene:self)
+        }
+        else {
+            let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            TransitionScene(playSound:playSound,duration:1.5)
+        }
     }
     
     func IncorrectAnswerSelected()
     {
-        labelTitle.removeFromParent()
-        labelTitleShadow.removeFromParent()
-        for label in buttonLabelAr {
-            label.removeFromParent()
-        }
-        for label in buttonLabelShadowAr {
-            label.removeFromParent()
-        }
-        for button in buttonAr {
-            button.removeFromParent()
-        }
-        for buttonShadow in buttonShadowAr {
-            buttonShadow.removeFromParent()
-        }
+        RemoveLabels()
     
+        labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)
         labelTitle2.text = "Sorry, Answer Is Incorrect"
         labelTitle2.fontColor = SKColor.red
         labelTitle2.fontSize = 30
+        labelTitleShadow2.position = CGPoint(x: self.size.width/2 - 1, y: self.size.height*20/24 + 1)
         labelTitleShadow2.text = "Sorry, Answer Is Incorrect"
         labelTitleShadow2.fontSize = 30
         labelAnswer.fontColor = SKColor.red
@@ -797,12 +871,17 @@ class MathDrawScene: SKScene {
             labelAnswerShadow.text = String(correctAnswer)
         }
         
-        self.incorrectAnswers = self.incorrectAnswers + 1
-        labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
-        labelIncorrectShadow.text = "Missed : " + String(self.incorrectAnswers)
+        global.incorrectAnswers = global.incorrectAnswers + 1
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
+        labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
-        TransitionScene(playSound:playSound,duration:4.5)
+        if global.correctAnswers + global.incorrectAnswers >= 12 {
+            DisplayLevelFinished(scene:self)
+        }
+        else {
+            let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            TransitionScene(playSound:playSound,duration:4.0)
+        }
     }
     
     func ButtonPressed(ind : Int) {

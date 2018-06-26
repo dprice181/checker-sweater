@@ -5,6 +5,9 @@
       location = "container:"
       name = "New Group">
       <FileRef
+         location = "group:/Users/boojawitzmann/Projects/ScholarKids/ScholarKids/VocabularyConnect.swift">
+      </FileRef>
+      <FileRef
          location = "self:">
       </FileRef>
    </Group>

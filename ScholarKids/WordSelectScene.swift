@@ -18,22 +18,19 @@ class WordSelectScene: SKScene {
     var correctAnswerAr : [Int]  = []
     var wordAr : [String] = []
     var sentenceDataAr : [String] = []
-    let labelTitle = SKLabelNode(fontNamed: "ChalkDuster")
-    let labelSubtitle = SKLabelNode(fontNamed: "ChalkDuster")
+    let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    let labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelInstr = SKLabelNode(fontNamed: "Arial")
     let labelCorrect = SKLabelNode(fontNamed: "Arial")
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
-    var labelTitleShadow = SKLabelNode(fontNamed: "ChalkDuster")
-    var labelSubtitleShadow = SKLabelNode(fontNamed: "ChalkDuster")
+    var labelTitleShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    var labelSubtitleShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     var labelInstrShadow = SKLabelNode(fontNamed: "Arial")
     var labelCorrectShadow = SKLabelNode(fontNamed: "Arial")
     var labelIncorrectShadow = SKLabelNode(fontNamed: "Arial")
     let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
     var sentence = ""
     
-    var correctAnswers = 0
-    var incorrectAnswers = 0
-    var currentSentenceNum = 0
     var currentExtraWordNum = 0
     var sceneType = ""
     
@@ -43,9 +40,9 @@ class WordSelectScene: SKScene {
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         
-        self.currentSentenceNum = currentSentenceNum
-        self.correctAnswers = correctAnswers
-        self.incorrectAnswers = incorrectAnswers
+        global.currentSentenceNum = currentSentenceNum
+        global.correctAnswers = correctAnswers
+        global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
         self.sceneType = sceneType
         
@@ -59,7 +56,7 @@ class WordSelectScene: SKScene {
         fullTitle.zPosition = 100.0
 
         labelTitle.text = "NOUNS"
-        labelTitle.fontSize = 40
+        labelTitle.fontSize = 45
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -68,7 +65,7 @@ class WordSelectScene: SKScene {
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 35
+        labelSubtitle.fontSize = 40
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
         labelSubtitle.zPosition = 100.0
@@ -92,7 +89,7 @@ class WordSelectScene: SKScene {
         scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/6)
         scoreNode.zPosition = 100.0
         
-        labelCorrect.text = "Correct : " + String(self.correctAnswers)
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
         labelCorrect.fontSize = 15
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
@@ -101,7 +98,7 @@ class WordSelectScene: SKScene {
         scoreNode.addChild(labelCorrectShadow)
         
         
-        labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrect.fontSize = 15
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
@@ -164,7 +161,7 @@ class WordSelectScene: SKScene {
         background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
         addChild(background)
         
-        let backButton = SKSpriteNode(imageNamed: "backwards.png")
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
@@ -181,12 +178,12 @@ class WordSelectScene: SKScene {
         {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
-            let sentenceAr = lineAr[currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
             sentence = sentenceAr[0]
             let sentenceData = sentenceAr[1]
             wordAr = sentence.characters.split{$0 == " "}.map(String.init)
             sentenceDataAr = sentenceData.characters.split{$0 == " "}.map(String.init)
-            self.currentSentenceNum = self.currentSentenceNum + 1
+            global.currentSentenceNum = global.currentSentenceNum + 1
         }
         else
         {
@@ -285,21 +282,37 @@ class WordSelectScene: SKScene {
             if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
                 TransitionBackFromScene(myScene: self)
             }
+            if shapeNode.name?.contains("home") != nil && (shapeNode.name?.contains("home"))!  {
+                TransitionBackFromScene(myScene: self)
+            }
+            if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
+                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                TransitionScene(playSound:playSound,duration:0.0)
+            }
+            if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
+                global.currentLevel = global.currentLevel + 1
+                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                TransitionScene(playSound:playSound,duration:0.0)
+            }
         }
     }
     
-    func TransitionScene(playSound: SKAction)
+    func TransitionScene(playSound: SKAction,duration: TimeInterval)
     {
-        let wait = SKAction.wait(forDuration: 1.5)
+        for child in global.overlayNode.children {
+            child.removeFromParent()
+        }
+        global.overlayNode.removeFromParent()
+        let wait = SKAction.wait(forDuration: duration)
         
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
-            if (self.currentSentenceNum % 6) < 3 {
-                let nextScene = WordSelectScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+            if (global.currentSentenceNum % 6) < 3 {
+                let nextScene = WordSelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = WordDragScene(size: self.size,currentSentenceNum:self.currentSentenceNum,correctAnswers:self.correctAnswers,incorrectAnswers:self.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
         })
@@ -308,41 +321,43 @@ class WordSelectScene: SKScene {
     
     func CorrectAnswerSelected()
     {
-//        for label in labelAr {
-//            label.removeFromParent()
-//        }
-        
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = SKColor.blue
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30
         
-        self.correctAnswers = self.correctAnswers + 1
-        labelCorrect.text = "Correct : " + String(self.correctAnswers)
-        labelCorrectShadow.text = "Correct : " + String(self.correctAnswers)
+        global.correctAnswers = global.correctAnswers + 1
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
+        labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
-        TransitionScene(playSound:playSound)
+        if global.correctAnswers + global.incorrectAnswers >= 12 {
+            DisplayLevelFinished(scene:self)
+        }
+        else {
+            let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            TransitionScene(playSound:playSound,duration:1.5)
+        }
     }
     
     func IncorrectAnswerSelected()
     {
-//        for label in labelAr {
-//            label.removeFromParent()
-//        }
-        
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
         labelInstrShadow.fontSize = 30
         
-        self.incorrectAnswers = self.incorrectAnswers + 1
-        labelIncorrect.text = "Missed : " + String(self.incorrectAnswers)
-        labelIncorrectShadow.text = "Missed : " + String(self.incorrectAnswers)
+        global.incorrectAnswers = global.incorrectAnswers + 1
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
+        labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
-        let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
-        TransitionScene(playSound:playSound)
+        if global.correctAnswers + global.incorrectAnswers >= 12 {
+            DisplayLevelFinished(scene:self)
+        }
+        else {
+            let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            TransitionScene(playSound:playSound,duration:4.0)
+        }
     }
 }

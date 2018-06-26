@@ -11,28 +11,43 @@ import GameplayKit
 
 class VocabularyConnectScene: SKScene {
     
-    var buttonBackground : SKShapeNode = SKShapeNode()
-    var startButtonShadow : SKShapeNode = SKShapeNode()
-    var startButton : SKShapeNode = SKShapeNode()
-    var optionsButtonShadow : SKShapeNode = SKShapeNode()
-    var optionsButton : SKShapeNode = SKShapeNode()
-    var startButtonLabel = SKLabelNode()
-    var optionsButtonLabel = SKLabelNode()
+
     var background = SKSpriteNode(imageNamed: "background3.jpg")
-    
-    var labelTitle = SKLabelNode()
-    var labelTitleShadow = SKLabelNode()
-    var labelSubtitle = SKLabelNode()
-    var labelSubtitleShadow = SKLabelNode()
-    let text1 = ["S", "c", "h", "o", "l", "a", "r"]
-    let text2 = ["K", "i", "d", "s"]
-    var titleLabelText = ""
-    var subtitleLabelText = ""
-    var calls : Int = 0
-    var timer : Timer!
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         physicsWorld.gravity = .zero
         
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
+
+        background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
+        background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
+        addChild(background)
+        
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 1 - Choose one of the touches to work with
+        guard let touch = touches.first else {
+            return
+        }
+        
+        let touchLocation = touch.location(in: self)
+        let touchedNode = self.atPoint(touchLocation)
+        
+        if let shapeNode = touchedNode as? SKNode {
+            if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
+                TransitionBackFromScene(myScene: self)
+            }
+        }
+    }
+}

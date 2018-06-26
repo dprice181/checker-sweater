@@ -38,30 +38,30 @@ class TitleScene: SKScene {
         
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.updateLabelText), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.updateLabelText), userInfo: nil, repeats: true)
         
         let fullTitle = SKNode()
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*3/4)
         fullTitle.zPosition = 100.0
         
-        labelTitle = SKLabelNode(fontNamed: "ChalkDuster")
+        labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = titleLabelText
-        labelTitle.fontSize = 70
+        labelTitle.fontSize = 80
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 2)
         fullTitle.addChild(labelTitleShadow)
         
-        labelSubtitle = SKLabelNode(fontNamed: "ChalkDuster")
+        labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = subtitleLabelText
-        labelSubtitle.fontSize = 70
+        labelSubtitle.fontSize = 80
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/10)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 2)
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
         
@@ -78,7 +78,7 @@ class TitleScene: SKScene {
         startButtonShadow.name = "sbshadow"
         startButtonShadow.fillColor = SKColor.black
         startButtonShadow.strokeColor = SKColor.black
-        startButtonShadow.position = CGPoint(x: self.size.width/2 - 2, y: self.size.height*11.5/24 + 2)
+        startButtonShadow.position = CGPoint(x: self.size.width/2 - 2.5, y: self.size.height*11.5/24 + 2.5)
         addChild(startButtonShadow)
         
         startButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: 30.0)
@@ -102,7 +102,7 @@ class TitleScene: SKScene {
         optionsButtonShadow.name = "obshadow"
         optionsButtonShadow.fillColor = SKColor.black
         optionsButtonShadow.strokeColor = SKColor.black
-        optionsButtonShadow.position = CGPoint(x: self.size.width/2 - 2, y: self.size.height*8.5/24 + 2)
+        optionsButtonShadow.position = CGPoint(x: self.size.width/2 - 2.5, y: self.size.height*8.5/24 + 2.5)
         addChild(optionsButtonShadow)
         
         optionsButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: 30.0)
