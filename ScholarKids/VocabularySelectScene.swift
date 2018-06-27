@@ -131,7 +131,7 @@ class VocabularySelectScene: SKScene {
 
         addChild(scoreNode)
         
-        let displayWidth = size.width * 8.5 / 10
+        let displayWidth = size.width * 8 / 10
         
         labelVocabularyWord.text = vocabularyWord
         labelVocabularyWord.fontSize = 45
@@ -162,6 +162,12 @@ class VocabularySelectScene: SKScene {
                 numLines = Int(sentenceWidth / displayWidth) + 1
                 wordAr = vocabularyDefinitionAr[i].characters.split{$0 == " "}.map(String.init)
                 countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
+                if countWordsPerLine * (numLines-2) >= wordAr.count {
+                    numLines = numLines - 2
+                }
+                else if countWordsPerLine * (numLines-1) >= wordAr.count {
+                    numLines = numLines - 1
+                }
             }
             
             nodeDefinitionAr.append(SKNode())
@@ -254,6 +260,12 @@ class VocabularySelectScene: SKScene {
             numLines = Int(sentenceWidth / displayWidth) + 1
             wordAr = spellingDefinition.characters.split{$0 == " "}.map(String.init)
             countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
+            if countWordsPerLine * (numLines-2) >= wordAr.count {
+                numLines = numLines - 2
+            }
+            else if countWordsPerLine * (numLines-1) >= wordAr.count {
+                numLines = numLines - 1
+            }
         }
         
         if numLines == 1 {
@@ -537,7 +549,7 @@ class VocabularySelectScene: SKScene {
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }        
         })
@@ -590,6 +602,12 @@ class VocabularySelectScene: SKScene {
             numLines = Int(sentenceWidth / displayWidth) + 1
             wordAr = vocabularyDefinition.characters.split{$0 == " "}.map(String.init)
             countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
+            if countWordsPerLine * (numLines-2) >= wordAr.count {
+                numLines = numLines - 2
+            }
+            else if countWordsPerLine * (numLines-1) >= wordAr.count {
+                numLines = numLines - 1
+            }
         }
         
         if numLines == 1 {

@@ -67,13 +67,10 @@
 		840B92B420B8D330001F8FA3 /* Players.txt in Resources */ = {isa = PBXBuildFile; fileRef = 840B92B320B8D330001F8FA3 /* Players.txt */; };
 		840B92B820B9DB14001F8FA3 /* green_plus-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 840B92B720B9DB14001F8FA3 /* green_plus-2.png */; };
 		840B92BC20BB9AFB001F8FA3 /* hotairballoon.png in Resources */ = {isa = PBXBuildFile; fileRef = 840B92BB20BB9AFB001F8FA3 /* hotairballoon.png */; };
-		84409F3B20B4E6320008F6D5 /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84409F1D20B4E6320008F6D5 /* background2.jpg */; };
 		845A42FA20B1312000996714 /* free-backgrounds-17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 845A42F920B1312000996714 /* free-backgrounds-17.jpg */; };
 		84A6951020B0EAEC00D5E212 /* WordSelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6950F20B0EAEC00D5E212 /* WordSelectScene.swift */; };
 		84C36AC520B4DB7B00ED9C19 /* VocabularySelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C36AC420B4DB7B00ED9C19 /* VocabularySelectScene.swift */; };
 		84E8A4B920B24B4000AF7C4C /* Sentences1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84E8A4B820B24B4000AF7C4C /* Sentences1.txt */; };
-		84E8A4C020B25CFA00AF7C4C /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84E8A4BC20B25CFA00AF7C4C /* background1.jpg */; };
-		84E8A4C720B262A300AF7C4C /* background4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84E8A4C620B262A300AF7C4C /* background4.jpg */; };
 		84E8A4C920B3432800AF7C4C /* WordDragScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8A4C820B3432800AF7C4C /* WordDragScene.swift */; };
 		84E8A4CD20B3610400AF7C4C /* AttributedLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8A4CC20B3610400AF7C4C /* AttributedLabelNode.swift */; };
 		84E8A4CF20B3AD4300AF7C4C /* Adjectives1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84E8A4CE20B3AD4300AF7C4C /* Adjectives1.txt */; };
@@ -162,13 +159,10 @@
 		840B92B320B8D330001F8FA3 /* Players.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Players.txt; path = ScholarKids/Players.txt; sourceTree = SOURCE_ROOT; };
 		840B92B720B9DB14001F8FA3 /* green_plus-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_plus-2.png"; sourceTree = "<group>"; };
 		840B92BB20BB9AFB001F8FA3 /* hotairballoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hotairballoon.png; path = ScholarKids/hotairballoon.png; sourceTree = SOURCE_ROOT; };
-		84409F1D20B4E6320008F6D5 /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpg; sourceTree = "<group>"; };
 		845A42F920B1312000996714 /* free-backgrounds-17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "free-backgrounds-17.jpg"; sourceTree = "<group>"; };
 		84A6950F20B0EAEC00D5E212 /* WordSelectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSelectScene.swift; sourceTree = "<group>"; };
 		84C36AC420B4DB7B00ED9C19 /* VocabularySelectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySelectScene.swift; sourceTree = "<group>"; };
 		84E8A4B820B24B4000AF7C4C /* Sentences1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sentences1.txt; sourceTree = "<group>"; };
-		84E8A4BC20B25CFA00AF7C4C /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
-		84E8A4C620B262A300AF7C4C /* background4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background4.jpg; sourceTree = "<group>"; };
 		84E8A4C820B3432800AF7C4C /* WordDragScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDragScene.swift; sourceTree = "<group>"; };
 		84E8A4CC20B3610400AF7C4C /* AttributedLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedLabelNode.swift; sourceTree = "<group>"; };
 		84E8A4CE20B3AD4300AF7C4C /* Adjectives1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adjectives1.txt; sourceTree = "<group>"; };
@@ -314,9 +308,6 @@
 				840B92B720B9DB14001F8FA3 /* green_plus-2.png */,
 				040B60B920D0722E0009ED9C /* background4.png */,
 				8400BBDF20B7B8F50040CC24 /* background3.jpg */,
-				84E8A4C620B262A300AF7C4C /* background4.jpg */,
-				84E8A4BC20B25CFA00AF7C4C /* background1.jpg */,
-				84409F1D20B4E6320008F6D5 /* background2.jpg */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -459,7 +450,6 @@
 				0437528A20E2AA9F00E791F0 /* Vocabulary3.txt in Resources */,
 				0437528920E2AA9F00E791F0 /* Vocabulary2.txt in Resources */,
 				0437526920E19DD700E791F0 /* retry.png in Resources */,
-				84E8A4C720B262A300AF7C4C /* background4.jpg in Resources */,
 				0437527E20E1CAE800E791F0 /* CorrectProgress.wav in Resources */,
 				040B60B620CF34D00009ED9C /* QuizWrong.wav in Resources */,
 				0437527D20E1CAE800E791F0 /* WrongProgress.wav in Resources */,
@@ -468,7 +458,6 @@
 				845A42FA20B1312000996714 /* free-backgrounds-17.jpg in Resources */,
 				0437528B20E2AA9F00E791F0 /* Vocabulary7.txt in Resources */,
 				0437526A20E19DD700E791F0 /* home.png in Resources */,
-				84E8A4C020B25CFA00AF7C4C /* background1.jpg in Resources */,
 				840B92B420B8D330001F8FA3 /* Players.txt in Resources */,
 				84004A8E20AF3C3100761FB6 /* Main.storyboard in Resources */,
 				04B22B0820DB6E0E00F3AA69 /* RedButtonSmall.png in Resources */,
@@ -479,7 +468,6 @@
 				040B60C120D1C14A0009ED9C /* Spelling1.txt in Resources */,
 				0437526820E19DD700E791F0 /* next.png in Resources */,
 				040B60C420D1C14A0009ED9C /* Spelling3.txt in Resources */,
-				84409F3B20B4E6320008F6D5 /* background2.jpg in Resources */,
 				040B60B520CF34D00009ED9C /* QuizRight.wav in Resources */,
 				0437528E20E2AA9F00E791F0 /* VocabularyK.txt in Resources */,
 				84004A9320AF3C3100761FB6 /* LaunchScreen.storyboard in Resources */,

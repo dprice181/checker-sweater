@@ -98,6 +98,12 @@ class PlayerSelectScene: SKScene {
                     wordAr.append(String(name.dropFirst(nameCountD2)))
                 }
                 countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
+                if countWordsPerLine * (numLines-2) >= wordAr.count {
+                    numLines = numLines - 2
+                }
+                else if countWordsPerLine * (numLines-1) >= wordAr.count {
+                    numLines = numLines - 1
+                }
             }
             
             

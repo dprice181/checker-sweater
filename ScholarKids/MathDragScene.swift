@@ -24,7 +24,6 @@ class MathDragScene: SKScene {
     var labelIncorrectShadow = SKLabelNode(fontNamed: "Arial")
     let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
     
-    //var background = SKSpriteNode(imageNamed: "background4.png")
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)

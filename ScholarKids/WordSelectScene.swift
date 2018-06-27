@@ -214,8 +214,7 @@ class WordSelectScene: SKScene {
         }
     }
     
-    func GetSentenceLength(wordAr : [String]) -> Int
-    {
+    func GetSentenceLength(wordAr : [String]) -> Int {
         var count = 1  //Add 1 for the period at the end
         for word in wordAr
         {
