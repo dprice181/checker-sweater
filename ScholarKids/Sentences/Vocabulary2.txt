@@ -1,320 +1,320 @@
-abbreviation
-a shortened form of a name, phrase or word; the act of shortening something
-aboard
-on a boat or any sort of vehicle, such as a train or plane; into a group
-absent
-not present in a certain time or location; non-existent
-acceleration
-an increase in speed or rate; the ability of something to go faster
-accident
-an unforeseen event that causes harm, damage, injury or even death; a sudden and unplanned event
-accompaniment
-something that accompanies something or someone else; music that accompanies a singer or the main tune
-accomplish
-to carry something out; to finish something
-affect
-to impact someone emotionally or mentally; to produce a change in
-aid
-help; assistance
-appendix
-additional material that is found at the end of a book, an essay or another written piece; added information
-area
-a geographical region; part of a surface or space
-author
-the creator of something; the person who writes a document
-authority
-power; the ability and right to control
-aware
-cognizant; knowing
-benefit
-an advantage; a gift or payment from an employer to an employee
-capable
-able to do something; quite good at a certain task
-capacity
-the ability to do something; the maximum number of things that a place or object can hold
-chapter
-a section of a book or a written work; a branch of a society or group
-chart
-a drawing or illustration which displays information in an easy to understand way; a graph
-commission
-a fee or payment for goods or services rendered; a request to create a specific work for someone
-community
-a group of people living in the same area or region; a group of people who share common interests
-compassion
-a feeling of deep sympathy and sorrow for the sufferings or misfortunes of others and a wish to help them
-compromise
-a settlement of differences by mutual concessions; reduce the quality, value, or degree of something
-conflict
-a fight or a disagreement between two or more parties; a struggle
-consider
-to think carefully
-constant
-unchanging; firm or resolute
-construction
-the act or business of building things, especially structures
-consume
-to eat; to use
-consumer
-a person who purchases goods or services
-context
-the circumstances surrounding something; the words before and after something that help explain what it means
-contract
-to get smaller; to shrink
-contrast
-the act of finding differences between two or more things; a difference between two or more things
 core
 the center of something; the most important or essential part of something
-couple
-two people who are romantically involved; two similar or equal things
-create
-to invent something; to develop something new
-credit
-money that is given to someone with the understanding that it will be paid back with interest; recognition or praise
-culture
-behaviors, beliefs, and standards that are shared between one large group of people or a society; art, such as music, literature, dance, theater, etc.
-currency
-money; any other medium of exchange
-cycle
-an extended period of time; a bi- or tri- cycle
-data
-information, facts or figures about a specific subject that is often used to make a decision; information used by a computer
-decade
-a period of ten years; any series or group of ten
+welfare
+the well-being of a person or people; financial aid from a government to a person in need
+volume
+the amount of space taken up by something; an amount of something
+unique
+special; being the only one of its kind
+tense
+tight; pulled to its limit
+simile
+(the use of) a phrase that describes something by comparing it to something else, always including the words 'as' or 'like'
+theme
+the topic or subject discussed in a book, essay, conversation, debate, etc.; a subject that is brought up frequently
+survey
+a poll used to measure public opinion or the incidence of something in a society; an examination of a subject or a situation
+text
+a piece of writing such as a book; all the words that were said in a speech
+tenacious
+holding firmly; that clings
+shift
+a slight change in something; a change
+grade
+a level or rank; a number or letter that indicates the quality of something
+aware
+cognizant; knowing
+stress
+the pressure exerted on a physical object; emotional stress or anxiety caused by a difficult situation
+period
+an interval or length of time; a full stop
+role
+the part that a performer in theater acts out; one's proper function in society
+author
+the creator of something; the person who writes a document
+sum
+the total of a calculation; an amount of money
+consume
+to eat; to use
+appendix
+additional material that is found at the end of a book, an essay or another written piece; added information
+commission
+a fee or payment for goods or services rendered; a request to create a specific work for someone
+parallel
+not intersecting; occurring at the same time
+sphere
+a globe; a ball shaped object
+source
+the place in which something originates or which someone comes from; a point or place of origin
+hypothesis
+an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study, discussion, or investigation, etc.
+chart
+a drawing or illustration which displays information in an easy to understand way; a graph
+shrewd
+having or showing sharp powers to understand things and to make good judgments in practical affairs; astute
+novel
+new; different from anything that has previously existed
+professional
+relating to or suitable for a specific profession; performing an activity to earn money instead of to relax or have fun
+quotation
+specific words that have been directly taken from a certain source; the act of using someone else's words
+gravity
+the force that pulls matter toward a center of attraction; the force that pulls matter to the ground
+authority
+power; the ability and right to control
+migration
+the movement of people or animals from one reason to another, based on a variety of different reasons
+acceleration
+an increase in speed or rate; the ability of something to go faster
+investigate
+to thoroughly examine something; to explore a topic in order to learn the truth about it
+compromise
+a settlement of differences by mutual concessions; reduce the quality, value, or degree of something
+benefit
+an advantage; a gift or payment from an employer to an employee
+conflict
+a fight or a disagreement between two or more parties; a struggle
 definition
 a clear outline of something; the meaning of a word or phrase
-design
-a sketch or a plan that shows what something will be like when it is produced or constructed; a pattern or plan
-display
-to show or present; to demonstrate
-diversity
-difference or variety; the state of having people from different races and cultures gathered together in one space or organization
+chapter
+a section of a book or a written work; a branch of a society or group
+individual
+a single human being; a person
+positive
+extremely certain, without any doubt; more than zero
+aboard
+on a boat or any sort of vehicle, such as a train or plane; into a group
+paragraph
+a portion of a text that centers around one specific idea
+credit
+money that is given to someone with the understanding that it will be paid back with interest; recognition or praise
+precinct
+a division of a city for policing or political reasons; a specific area which is enclosed or limited, most often by walls
+objective
+fair and impartial; unbiased
+negative
+pessimistic; harmful or bad
+publish
+to make a document available in digital or print format; to make something public or known
 document
 to record something on paper or in digital format; to provide written evidence
-draft
-the first draft or copy of something; a sketch
-drama
-a play that is performed in a theater, on television or on the radio; a literary work that deals with a serious subject
+diversity
+difference or variety; the state of having people from different races and cultures gathered together in one space or organization
+evaluate
+to judge; to closely examine something before determining its value
+interpretation
+explanation; definition
+legend
+the part of a map or a chart where each symbol or color are explained; a story that has been told over generations that may or may not be true
+incentive
+something that motivates people to do something or take action; a reward or the threat of punishment that inspires people to act
+cycle
+an extended period of time; a bi- or tri- cycle
+identify
+to discover; to equate
+globe
+a spherical shape; a ball
+faction
+a small group within a larger group, usually contentious minority within a larger group; conflict within an organization or nation
+context
+the circumstances surrounding something; the words before and after something that help explain what it means
+mode
+a fashion; a way of doing something or performing a task
+immigration
+the act of moving into a new country in order to live there
+motive
+one of the reasons behind someone's behavior; something that inspires someone to behave in a certain way
+outcome
+the result or consequence; the effect
+area
+a geographical region; part of a surface or space
+estimate
+to make a guess or calculate the amount or value of something; to judge
+grant
+to give something to someone; to allow someone to have something
+consider
+to think carefully
+summary
+an explanation of something giving the main points or ideas of the original document or argument; a recapitulation
+margin
+a border or edge; the difference between the cost of production of a good and the amount at which it is sold
+energy
+the effort or power needed to do something; heat, electricity, light or the resources used to produce power
+justify
+to explain or defend one's position or reasoning; to adjust one's text so that the right and left edges of a document are equal
+abbreviation
+a shortened form of a name, phrase or word; the act of shortening something
+scale
+to climb a surface that is steep; to set something according to a scale or measure something by a scale
+environment
+all of the conditions and circumstances that surround a specific person, animal or thing; the surroundings
+irony
+a method of humorous or subtly sarcastic expression in which the intended meaning of the words is different from and often opposite to their literal meaning
 economy
 the money and production of goods and services of a specific political region; thriftiness or careful management when spending money
+feature
+a part or aspect of something; a quality
+method
+a way of doing something; an approach
+design
+a sketch or a plan that shows what something will be like when it is produced or constructed; a pattern or plan
+drama
+a play that is performed in a theater, on television or on the radio; a literary work that deals with a serious subject
+formula
+a fixed or standard way of doing something; mathematical symbols that express a rule or a fact
+innovation
+the use of something new; a change to a particular process
+absent
+not present in a certain time or location; non-existent
+section
+a piece of something; a part of a whole object
+index
+an alphabetical list showing all that is included in a book or a larger document; an alphabetical list of the documents in a collection
+investigation
+research or inquiry; the act of trying to find information about something in order to better understand it
+accomplish
+to carry something out; to finish something
+resolution
+a decision that is made by a group through a voting process; a personal promise to oneself
+contract
+to get smaller; to shrink
+income
+money that one receives in exchange for one's work or smart investing; revenue
+currency
+money; any other medium of exchange
 edit
 to revise a document and change whatever errors one sees; to produce a book or document by gathering different works together
 emphasis
 the importance that is specifically placed on something; stress
-energy
-the effort or power needed to do something; heat, electricity, light or the resources used to produce power
-environment
-all of the conditions and circumstances that surround a specific person, animal or thing; the surroundings
-equation
-a math problem; the act of considering one thing to be the same as another
-erosion
-the gradual corroding or eating away of a subject; deterioration
-estimate
-to make a guess or calculate the amount or value of something; to judge
-evaluate
-to judge; to closely examine something before determining its value
-evidence
-material that shows someone is innocent or guilty of something; material that proves something
-expansion
-growth; the act or process of getting larger
-faction
-a small group within a larger group, usually contentious minority within a larger group; conflict within an organization or nation
-feature
-a part or aspect of something; a quality
-flexibility
-the ability or willingness to make changes; easily bent
-focus
-the center point of something; the center of attention
-formula
-a fixed or standard way of doing something; mathematical symbols that express a rule or a fact
-function
-a duty or an activity that one must perform; a formal event
-generation
-a group of people in a society or in a family that were born in the same general age; a period of around thirty years in which people are born, grow up, and have babies of their own
-genre
-a category or class; a specific style used in works of art that share common features
-globe
-a spherical shape; a ball
-grade
-a level or rank; a number or letter that indicates the quality of something
-grant
-to give something to someone; to allow someone to have something
-gravity
-the force that pulls matter toward a center of attraction; the force that pulls matter to the ground
-hypothesis
-an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study, discussion, or investigation, etc.
-identify
-to discover; to equate
-immigration
-the act of moving into a new country in order to live there
-impact
-a collision; the moment when two or more bodies hit
-incentive
-something that motivates people to do something or take action; a reward or the threat of punishment that inspires people to act
-income
-money that one receives in exchange for one's work or smart investing; revenue
-index
-an alphabetical list showing all that is included in a book or a larger document; an alphabetical list of the documents in a collection
-individual
-a single human being; a person
-innovation
-the use of something new; a change to a particular process
-interpretation
-explanation; definition
-investigate
-to thoroughly examine something; to explore a topic in order to learn the truth about it
-investigation
-research or inquiry; the act of trying to find information about something in order to better understand it
-irony
-a method of humorous or subtly sarcastic expression in which the intended meaning of the words is different from and often opposite to their literal meaning
+accident
+an unforeseen event that causes harm, damage, injury or even death; a sudden and unplanned event
+construction
+the act or business of building things, especially structures
 journal
 a newspaper or magazine; a magazine that contains articles about a specific subject
-justify
-to explain or defend one's position or reasoning; to adjust one's text so that the right and left edges of a document are equal
+genre
+a category or class; a specific style used in works of art that share common features
 label
 a piece of material on an object that gives information about the object; a name or phrase assigned to a person to classify them, often in an unfair manner
-legend
-the part of a map or a chart where each symbol or color are explained; a story that has been told over generations that may or may not be true
-location
-the place where someone or something can be found; place
-margin
-a border or edge; the difference between the cost of production of a good and the amount at which it is sold
-medium
-a way of expressing something, such as photography or print; something in a middle position
-method
-a way of doing something; an approach
-migration
-the movement of people or animals from one reason to another, based on a variety of different reasons
-minute
-extremely small
-mode
-a fashion; a way of doing something or performing a task
-monitor
-to watch someone or something; to check on something or someone in order to detect changes
-motive
-one of the reasons behind someone's behavior; something that inspires someone to behave in a certain way
-negative
-pessimistic; harmful or bad
-norm
-a rule or standard; a pattern or something that is expected
-novel
-new; different from anything that has previously existed
-objective
-fair and impartial; unbiased
-odd
-unable to be divided by two; strange or uncommon
-orientation
-the act of finding or determining one's position; a person or group's interests or beliefs
-outcome
-the result or consequence; the effect
-paragraph
-a portion of a text that centers around one specific idea
-parallel
-not intersecting; occurring at the same time
-pedantic
-giving too much importance to formal rules or small details; making an excessive display of one's own learning
-percent
-out of one hundred; a part of one hundred
-period
-an interval or length of time; a full stop
-perspective
-a vista or view; a way of looking at or examining something
-plastic
-(of substances or materials) capable of being molded or shaped
-positive
-extremely certain, without any doubt; more than zero
-precinct
-a division of a city for policing or political reasons; a specific area which is enclosed or limited, most often by walls
-predict
-to say that something is going to happen before it actually does; to foretell
-process
-a series of happenings or actions that lead to a specific result; a naturally occurring series of changes
-professional
-relating to or suitable for a specific profession; performing an activity to earn money instead of to relax or have fun
-publish
-to make a document available in digital or print format; to make something public or known
-quotation
-specific words that have been directly taken from a certain source; the act of using someone else's words
-region
-a specific part of the world; a large area of land where the people or land possesses similar characteristics
-remove
-to get rid of; to take away
-research
-to investigate; to make inquiries in order to find out information
-resolution
-a decision that is made by a group through a voting process; a personal promise to oneself
+community
+a group of people living in the same area or region; a group of people who share common interests
+equation
+a math problem; the act of considering one thing to be the same as another
+compassion
+a feeling of deep sympathy and sorrow for the sufferings or misfortunes of others and a wish to help them
+culture
+behaviors, beliefs, and standards that are shared between one large group of people or a society; art, such as music, literature, dance, theater, etc.
+impact
+a collision; the moment when two or more bodies hit
+couple
+two people who are romantically involved; two similar or equal things
+erosion
+the gradual corroding or eating away of a subject; deterioration
+data
+information, facts or figures about a specific subject that is often used to make a decision; information used by a computer
+draft
+the first draft or copy of something; a sketch
 resource
 material used to do or make something; a supply of something that can be used when required
-revenue
-income; money that an organization, government or company receives from different sources
-revise
-to check something and make changes to make sure that it is acceptable; to change or amend
-revolution
-a huge change in something, such as a political organization or country; the circular movement around a certain celestial body
-role
-the part that a performer in theater acts out; one's proper function in society
-scale
-to climb a surface that is steep; to set something according to a scale or measure something by a scale
-section
-a piece of something; a part of a whole object
-select
-preferred; of a special value or importance
-sequence
-the order or pattern in which things happen or take place; a set of things that is put in a specific order
-shift
-a slight change in something; a change
-shrewd
-having or showing sharp powers to understand things and to make good judgments in practical affairs; astute
-simile
-(the use of) a phrase that describes something by comparing it to something else, always including the words 'as' or 'like'
-site
-a place where something can be found or where something is located
-slight
-small in size, degree, or amount; treat with disrespect or indifference
-source
-the place in which something originates or which someone comes from; a point or place of origin
-sphere
-a globe; a ball shaped object
-stable
-constant; unwavering
-stress
-the pressure exerted on a physical object; emotional stress or anxiety caused by a difficult situation
-structure
-a free-standing building made from different parts; the way in which something is organized
-style
-a way of doing or expressing something; fashion
-sum
-the total of a calculation; an amount of money
-summary
-an explanation of something giving the main points or ideas of the original document or argument; a recapitulation
-survey
-a poll used to measure public opinion or the incidence of something in a society; an examination of a subject or a situation
-symbol
-a sign; a shape, object or picture which is used to represent something
+decade
+a period of ten years; any series or group of ten
+capacity
+the ability to do something; the maximum number of things that a place or object can hold
+percent
+out of one hundred; a part of one hundred
+minute
+extremely small
+consumer
+a person who purchases goods or services
+focus
+the center point of something; the center of attention
+medium
+a way of expressing something, such as photography or print; something in a middle position
+function
+a duty or an activity that one must perform; a formal event
+aid
+help; assistance
+display
+to show or present; to demonstrate
+contrast
+the act of finding differences between two or more things; a difference between two or more things
+generation
+a group of people in a society or in a family that were born in the same general age; a period of around thirty years in which people are born, grow up, and have babies of their own
+perspective
+a vista or view; a way of looking at or examining something
 task
 to assign a job to someone; to place a burden on someone
+plastic
+(of substances or materials) capable of being molded or shaped
+location
+the place where someone or something can be found; place
+constant
+unchanging; firm or resolute
+flexibility
+the ability or willingness to make changes; easily bent
+predict
+to say that something is going to happen before it actually does; to foretell
+orientation
+the act of finding or determining one's position; a person or group's interests or beliefs
+accompaniment
+something that accompanies something or someone else; music that accompanies a singer or the main tune
+revise
+to check something and make changes to make sure that it is acceptable; to change or amend
+region
+a specific part of the world; a large area of land where the people or land possesses similar characteristics
+revenue
+income; money that an organization, government or company receives from different sources
+pedantic
+giving too much importance to formal rules or small details; making an excessive display of one's own learning
+research
+to investigate; to make inquiries in order to find out information
+capable
+able to do something; quite good at a certain task
+sequence
+the order or pattern in which things happen or take place; a set of things that is put in a specific order
+select
+preferred; of a special value or importance
+slight
+small in size, degree, or amount; treat with disrespect or indifference
+expansion
+growth; the act or process of getting larger
+norm
+a rule or standard; a pattern or something that is expected
+structure
+a free-standing building made from different parts; the way in which something is organized
+create
+to invent something; to develop something new
+odd
+unable to be divided by two; strange or uncommon
+remove
+to get rid of; to take away
+evidence
+material that shows someone is innocent or guilty of something; material that proves something
+monitor
+to watch someone or something; to check on something or someone in order to detect changes
+revolution
+a huge change in something, such as a political organization or country; the circular movement around a certain celestial body
+style
+a way of doing or expressing something; fashion
+stable
+constant; unwavering
 team
 a group of people that work toward a common goal; two or more animals that work together to pull something
+process
+a series of happenings or actions that lead to a specific result; a naturally occurring series of changes
+symbol
+a sign; a shape, object or picture which is used to represent something
+affect
+to impact someone emotionally or mentally; to produce a change in
 technology
 the use of scientific knowledge for practical purposes, with special reference to its use in industry; applied sciences
-tenacious
-holding firmly; that clings
-tense
-tight; pulled to its limit
-text
-a piece of writing such as a book; all the words that were said in a speech
-theme
-the topic or subject discussed in a book, essay, conversation, debate, etc.; a subject that is brought up frequently
-tradition
-heritage; behavior and customs that are passed from one generation to the next
+site
+a place where something can be found or where something is located
 trend
 the general direction in which something is moving or the way people are behaving; a fashion
-unique
-special; being the only one of its kind
+tradition
+heritage; behavior and customs that are passed from one generation to the next
 valid
 sound; binding
-volume
-the amount of space taken up by something; an amount of something
-welfare
-the well-being of a person or people; financial aid from a government to a person in need
 zeal
 great energy, effort, and enthusiasm, as in working for a person, cause, or object

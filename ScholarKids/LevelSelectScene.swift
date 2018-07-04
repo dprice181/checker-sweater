@@ -291,7 +291,7 @@ class LevelSelectScene: SKScene {
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if sceneType == "Vocabulary" {
-                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
+                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if sceneType == "Grammar" {

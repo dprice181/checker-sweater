@@ -1,0 +1,3 @@
+Alice had X items and gave Student Y.  How many items did Alice have left?*X-Y*Y
+Alice had X items and Z items2 and gave Student Y items and W items2.  How many items did Alice have left?*X-Z*Y+W*
+There are X items.  Alice took Y and Student took the rest.  How many did Student take?*Y*X-Y

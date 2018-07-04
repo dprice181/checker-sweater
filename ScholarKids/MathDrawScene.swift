@@ -10,7 +10,6 @@ import SpriteKit
 import GameplayKit
 
 class MathDrawScene: SKScene {
-   
     var fingerDown = false
     var circleShadowAr = [SKShapeNode]()
     var problemAr = [String]()
@@ -489,28 +488,20 @@ class MathDrawScene: SKScene {
             buttonShadowAr[i].zPosition = 100.0
             buttonShadowAr[i].lineWidth = 2.0
             
-            
             if i == 0 || i==4 {
-                //buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/4,height: self.size.height*2/48),cornerRadius: 30.0))
                 buttonAr.append(SKSpriteNode(imageNamed: "RedButtonBig.png"))
                 buttonAr[i].scale(to: CGSize(width: self.size.width/3.5,height: self.size.height*2.5/48))
             }
             else if i == 3 {
-                //buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/5,height: self.size.height*2/48),cornerRadius: 30.0))
                 buttonAr.append(SKSpriteNode(imageNamed: "RedButtonBig.png"))
                 buttonAr[i].scale(to: CGSize(width: self.size.width/4.5,height: self.size.height*2.5/48))
             }
             else {
-                //buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6,height: self.size.height*2/48),cornerRadius: 30.0))
                 buttonAr.append(SKSpriteNode(imageNamed: "RedButtonSmall.png"))
                 buttonAr[i].scale(to: CGSize(width: self.size.width/5.5,height: self.size.height*2.5/48))
             }
             buttonAr[i].name = "button" + String(i)
             buttonAr[i].zPosition = 101.0
-//            buttonAr[i].fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-//            buttonAr[i].strokeColor = SKColor.red
-//            buttonAr[i].lineWidth = 1.5
-            
             buttonLabelAr.append(SKLabelNode(fontNamed: "Arial"))
             buttonLabelAr[i].name = "buttonlabel" + String(i)
             buttonLabelAr[i].fontSize = 15
@@ -574,8 +565,6 @@ class MathDrawScene: SKScene {
             else {
                 addChild(buttonLabelShadowAr[j])
             }
-            
-            
         }
     }
     
@@ -596,22 +585,7 @@ class MathDrawScene: SKScene {
             circle.zPosition = 100.0
             circle.scale(to: CGSize(width: self.size.width/5, height: self.size.width/5))
             self.addChild(circle)
-        
-//            let circle = SKShapeNode(circleOfRadius: 35)
-//            circle.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(4-secondRow)/24)
-//            circle.name = "circle" + String(i-1)
-//            if (i&1) == 0 {
-//                circle.strokeColor = SKColor.yellow
-//                circle.fillColor = SKColor.green
-//            }
-//            else {
-//                circle.strokeColor = SKColor.red
-//                circle.fillColor = SKColor.blue
-//            }
-//            circle.lineWidth = 4.0
-//            circle.zPosition = 100.0
-//            self.addChild(circle)
-
+      
             circleShadowAr.append(SKShapeNode(circleOfRadius: 35))
             circleShadowAr[i-1].position = CGPoint(x:-3.0+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:3.0+size.height*(4-secondRow)/24)
             circleShadowAr[i-1].name = "cirshadow" + String(i-1)
@@ -641,7 +615,7 @@ class MathDrawScene: SKScene {
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
         addChild(backButton)
-    }
+    }        
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -783,8 +757,7 @@ class MathDrawScene: SKScene {
         fingerDown = false
     }
     
-    func TransitionScene(playSound: SKAction,duration: TimeInterval)
-    {
+    func TransitionScene(playSound: SKAction,duration: TimeInterval) {
         for child in global.overlayNode.children {
             child.removeFromParent()
         }
@@ -825,8 +798,7 @@ class MathDrawScene: SKScene {
         lineTitle2.removeFromParent()
     }
     
-    func CorrectAnswerSelected()
-    {
+    func CorrectAnswerSelected() {
         RemoveLabels()
         
         labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)

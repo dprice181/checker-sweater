@@ -130,8 +130,7 @@ class WordSelectScene: SKScene {
         var widthSum:CGFloat = 0.0
         
         var i = 0
-        for var word in wordAr
-        {
+        for var word in wordAr {
             word = word + "   "
             let myWord: NSString = word as NSString
             let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])

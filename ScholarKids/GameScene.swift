@@ -28,7 +28,7 @@ class GameScene: SKScene {
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         
         //global.currentGrade = "K"
-        let wordSelectScene = TitleScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Vocabulary")
+        let wordSelectScene = MathDragScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Vocabulary")
         self.view?.presentScene(wordSelectScene, transition: reveal)
         
         

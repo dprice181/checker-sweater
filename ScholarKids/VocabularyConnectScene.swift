@@ -8,7 +8,6 @@
 import SpriteKit
 import GameplayKit
 
-
 class VocabularyConnectScene: SKScene {
     
     let SELECTTEXT_FONTSIZE : CGFloat = 17.0
@@ -33,6 +32,8 @@ class VocabularyConnectScene: SKScene {
     var choiceboxDefinitionAr = [SKShapeNode]()
     var circleDefinitionAr = [SKShapeNode]()
     var circleWordAr = [SKShapeNode]()
+    var circleDefinitionAr2 = [SKShapeNode]()
+    var circleWordAr2 = [SKShapeNode]()
     
     var currentExtraWordNum = 0
     var sceneType = ""
@@ -58,7 +59,6 @@ class VocabularyConnectScene: SKScene {
     
     var lineConnections = [Int]()
     var lineAr = [SKShapeNode]()
-    
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -134,7 +134,6 @@ class VocabularyConnectScene: SKScene {
         AddWords()
         AddDefinitions()
 
-        
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
@@ -149,13 +148,19 @@ class VocabularyConnectScene: SKScene {
     func AddWords() {
         for i in 0...2  {
             nodeWordAr.append(SKNode())
-            nodeWordAr[i].position = CGPoint(x: self.size.width/6, y: self.size.height*(15-5.5 * CGFloat(i))/24)
+            nodeWordAr[i].position = CGPoint(x: self.size.width/5.1, y: self.size.height*(15-5.5 * CGFloat(i))/24)
             nodeWordAr[i].zPosition = 100.0
             nodeWordAr[i].name = "wordnode" + String(i)
             
             let labelWord = SKLabelNode(fontNamed: "Arial")
             labelWord.text = vocabularyWordAr[i]
-            labelWord.fontSize = SELECTTEXT_FONTSIZE+5.0
+            
+            var count = vocabularyWordAr[i].count - 10
+            if count < 0 {
+                count = 0
+            }
+            let fontSizeRed = count
+            labelWord.fontSize = SELECTTEXT_FONTSIZE+5.0 - CGFloat(fontSizeRed)
             labelWord.fontColor = global.blue
             labelWord.position = .zero
             labelWord.zPosition = 100.0
@@ -163,13 +168,23 @@ class VocabularyConnectScene: SKScene {
             nodeWordAr[i].addChild(labelWord)
             nodeWordAr[i].addChild(CreateShadowLabel(label: labelWord,offset: 1))
             
-            circleWordAr.append(SKShapeNode(circleOfRadius: 6.0))
+            //hidden circle to expand clickable area
+//            circleWordAr2.append(SKShapeNode(circleOfRadius: 11.0))
+//            circleWordAr2[i].name = "wordcircle" + String(i)
+//            circleWordAr2[i].fillColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
+//            circleWordAr2[i].strokeColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
+//            circleWordAr2[i].lineWidth = 2
+//            circleWordAr2[i].position = CGPoint(x:0,y:self.size.height*2/24)
+//            circleWordAr2[i].zPosition = -1
+//            nodeWordAr[i].addChild(circleWordAr2[i])
+            
+            circleWordAr.append(SKShapeNode(circleOfRadius: 7.0))
             circleWordAr[i].name = "wordcircle" + String(i)
             circleWordAr[i].fillColor = SKColor.red
-            circleWordAr[i].strokeColor = SKColor.red
+            circleWordAr[i].strokeColor = SKColor.black
+            circleWordAr[i].lineWidth = 2
             circleWordAr[i].position = CGPoint(x:0,y:self.size.height*1/24)
             nodeWordAr[i].addChild(circleWordAr[i])
-            
             addChild(nodeWordAr[i])
         }
     }
@@ -212,7 +227,6 @@ class VocabularyConnectScene: SKScene {
                 nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
             }
             else {
-                
                 if numLines > 4 {
                     var definition = wordAr.joined(separator: " ")
                     let defAr = definition.characters.split{$0 == ";"}.map(String.init)
@@ -290,10 +304,21 @@ class VocabularyConnectScene: SKScene {
             choiceboxDefinitionAr[i].position = .zero
             nodeDefinitionAr[i].addChild(choiceboxDefinitionAr[i])
             
-            circleDefinitionAr.append(SKShapeNode(circleOfRadius: 6.0))
+            //hidden circle to expand clickable area
+//            circleDefinitionAr2.append(SKShapeNode(circleOfRadius: 11.0))
+//            circleDefinitionAr2[i].name = "choicecircle" + String(i)
+//            circleDefinitionAr2[i].fillColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
+//            circleDefinitionAr2[i].strokeColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
+//            circleDefinitionAr2[i].lineWidth = 2
+//            circleDefinitionAr2[i].position = CGPoint(x:0,y:self.size.height*2/24)
+//            circleDefinitionAr2[i].zPosition = -1
+//            nodeDefinitionAr[i].addChild(circleDefinitionAr2[i])
+            
+            circleDefinitionAr.append(SKShapeNode(circleOfRadius: 7.0))
             circleDefinitionAr[i].name = "choicecircle" + String(i)
             circleDefinitionAr[i].fillColor = SKColor.red
-            circleDefinitionAr[i].strokeColor = SKColor.red
+            circleDefinitionAr[i].strokeColor = SKColor.black
+            circleDefinitionAr[i].lineWidth = 2
             circleDefinitionAr[i].position = CGPoint(x:0,y:self.size.height*2/24)
             nodeDefinitionAr[i].addChild(circleDefinitionAr[i])
             
@@ -308,27 +333,19 @@ class VocabularyConnectScene: SKScene {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
             
-            lineAr.shuffle()  //FIX should be done once per launch, not per screen
-            
             vocabularyWord = lineAr[global.currentSentenceNum*2]
             vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
-            let vocabCount = lineAr.count / 2
-            var random1 = Int(arc4random_uniform(UInt32(vocabCount)))
-            while random1 == global.currentSentenceNum {
-                random1 = Int(arc4random_uniform(UInt32(vocabCount)))
-            }
-            var random2 = Int(arc4random_uniform(UInt32(vocabCount)))
-            while random2 == random1  || random2 == global.currentSentenceNum {
-                random2 = Int(arc4random_uniform(UInt32(vocabCount)))
-            }
-            vocabularyWord1 = lineAr[random1*2]
-            vocabularyWord2 = lineAr[random2*2]
+            global.currentSentenceNum = global.currentSentenceNum + 1
+            vocabularyWord1 = lineAr[global.currentSentenceNum*2]
+            vocabularyDefinition1 = lineAr[global.currentSentenceNum*2 + 1]
+            global.currentSentenceNum = global.currentSentenceNum + 1
+            vocabularyWord2 = lineAr[global.currentSentenceNum*2]
+            vocabularyDefinition2 = lineAr[global.currentSentenceNum*2 + 1]
+            global.currentSentenceNum = global.currentSentenceNum + 1
+            
             vocabularyWordAr.append(vocabularyWord)
             vocabularyWordAr.append(vocabularyWord1)
             vocabularyWordAr.append(vocabularyWord2)
-            
-            vocabularyDefinition1 = lineAr[random1*2 + 1]
-            vocabularyDefinition2 = lineAr[random2*2 + 1]
             
             let rand = Int(arc4random_uniform(6))
             switch rand {
@@ -354,16 +371,16 @@ class VocabularyConnectScene: SKScene {
                 vocabularyDefinitionAr.append(vocabularyDefinition)
                 vocabularyDefinitionAr.append(vocabularyDefinition2)
             case 3:
-                correctAnswerAr.append(1)
                 correctAnswerAr.append(2)
                 correctAnswerAr.append(0)
+                correctAnswerAr.append(1)
                 vocabularyDefinitionAr.append(vocabularyDefinition1)
                 vocabularyDefinitionAr.append(vocabularyDefinition2)
                 vocabularyDefinitionAr.append(vocabularyDefinition)
             case 4:
+                correctAnswerAr.append(1)
                 correctAnswerAr.append(2)
                 correctAnswerAr.append(0)
-                correctAnswerAr.append(1)
                 vocabularyDefinitionAr.append(vocabularyDefinition2)
                 vocabularyDefinitionAr.append(vocabularyDefinition)
                 vocabularyDefinitionAr.append(vocabularyDefinition1)
@@ -382,11 +399,8 @@ class VocabularyConnectScene: SKScene {
                 vocabularyDefinitionAr.append(vocabularyDefinition1)
                 vocabularyDefinitionAr.append(vocabularyDefinition2)
             }
-            
-            global.currentSentenceNum = global.currentSentenceNum + 1
         }
-        else
-        {
+        else {
             print("file not found")
         }
     }
@@ -398,8 +412,6 @@ class VocabularyConnectScene: SKScene {
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
-        
-        
         
         if let myNode = touchedNode as? SKNode {
             if (myNode.name?.contains("choice")) != nil  && (myNode.name?.contains("choice"))!  {
@@ -478,11 +490,8 @@ class VocabularyConnectScene: SKScene {
             line.isAntialiased = true
             line.lineWidth = 4
             line.fillColor = SKColor.red
-            
             self.addChild(line)
-            
         }
-      
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -493,7 +502,6 @@ class VocabularyConnectScene: SKScene {
         
         var location = touch.location(in: self)
         let touchedNode = self.atPoint(location)
-        
         
         var lineConnected = false
         if fingerDown {
@@ -569,8 +577,7 @@ class VocabularyConnectScene: SKScene {
         }
     }
     
-    func TransitionScene(playSound: SKAction,duration: Double)
-    {
+    func TransitionScene(playSound: SKAction,duration: Double) {
         for child in global.overlayNode.children {
             child.removeFromParent()
         }
@@ -580,12 +587,12 @@ class VocabularyConnectScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
-            if (global.currentSentenceNum % 6) < 3 {
-                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+            if (global.currentSentenceNum % 12) < 9 {
+                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
         })
@@ -622,7 +629,6 @@ class VocabularyConnectScene: SKScene {
     }
     
     func IncorrectAnswerSelected() {
-        
         for line in lineAr {
             line.removeFromParent()
         }

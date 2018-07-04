@@ -544,12 +544,12 @@ class VocabularySelectScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
 
-            if (global.currentSentenceNum % 6) < 3 {
-                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+            if (global.currentSentenceNum % 12) < 9 {
+                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }        
         })
