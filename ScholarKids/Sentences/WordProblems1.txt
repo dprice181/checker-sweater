@@ -1,3 +1,19 @@
-Alice had X items and gave Student Y.  How many items did Alice have left?*X-Y*Y
-Alice had X items and Z items2 and gave Student Y items and W items2.  How many items did Alice have left?*X-Z*Y+W*
-There are X items.  Alice took Y and Student took the rest.  How many did Student take?*Y*X-Y
+Alice had \M6 items and gave Student five-sixths.  How many items did Alice have left?#\M6/6#\M6*5/6
+Alice had \M6 items and gave Student four-sixths.  How many items did Alice have left?#\M6*2/6#\M6*4/6
+Alice had \M6 items and gave Student three-sixths.  How many items did Alice have left?#\M6*3/6#\M6*3/6
+Alice had \M6 items and gave Student two-sixths.  How many items did Alice have left?#\M6*4/6#\M6*2/6
+Alice had \M6 items and gave Student one-sixths.  How many items did Alice have left?#\M6/6#\M6*5/6
+Alice had \M5 items and gave Student four-fifths.  How many items did Alice have left?#\M5/5#\M5*4/5
+Alice had \M5 items and gave Student three-fifths.  How many items did Alice have left?#\M5*2/5#\M5*3/5
+Alice had \M5 items and gave Student two-fifths.  How many items did Alice have left?#\M5*3/5#\M5*2/5
+Alice had \M5 items and gave Student one-fifth.  How many items did Alice have left?#\M5*4/5#\M5/5
+Alice had \M4 items and gave Student three-fourths.  How many items did Alice have left?#\M4/4#\M4*3/4
+Alice had \M4 items and gave Student two-fourths.  How many items did Alice have left?#\M4/2#\M4/2
+Alice had \M4 items and gave Student one-fourth.  How many items did Alice have left?#\M4*3/4#\M4/4
+Alice had \M3 items and gave Student two-thirds.  How many items did Alice have left?#\M3/3#\M3*2/3
+Alice had \M3 items and gave Student one-third.  How many items did Alice have left?#\M3*2/3#\M3/3
+Alice had \E items and gave Student half.  How many items did Alice have left?#\E/2#\E/2
+Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
+There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
+Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y

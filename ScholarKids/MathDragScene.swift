@@ -28,18 +28,25 @@ class MathDragScene: SKScene {
     var wordAr : [String] = []
     
     let labelCountFirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    let labelCount2FirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    
     var labelCountFirstNameShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    var labelCount2FirstNameShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    
     let labelCountSecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelCount2SecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    
     var labelCountSecondNameShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+    var labelCount2SecondNameShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     var submitButtonShadow = SKShapeNode()
     var labelTitleShadow = SKLabelNode()
     var labelSubtitleShadow = SKLabelNode()
     
-    
     var sentence = ""
     var person1Answer = -1
+    var person1Answer2 = -1
     var person2Answer = -1
+    var person2Answer2 = -1
     var person3Answer = -1
     
     let NPCAr = ["Alice","Bob","Susan","Gary","Deborah","Steve","Kathy","David"]
@@ -49,9 +56,11 @@ class MathDragScene: SKScene {
     var item2 = "pies"
     var person1 = "Alice"
     
+    var A = -1
+    var B = -1
     var X = 0
     var Y = 0
-    var Z = 0
+    var Z = -1
     var W = 0
     
     var itemNodeAr = [SKSpriteNode]()
@@ -63,6 +72,7 @@ class MathDragScene: SKScene {
     var boxSecondName = SKShapeNode()
     
     var labelWordProblemAr = [SKLabelNode]()
+    var labelWordProblemShadowAr = [SKLabelNode]()
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -103,159 +113,34 @@ class MathDragScene: SKScene {
         DrawSentence()
         DrawItems()
         
-        boxFirstName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*12/48))
-        boxFirstName.name = "boxfirstname"
-        boxFirstName.strokeColor = SKColor.blue
-        boxFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*24/48)
-        addChild(boxFirstName)
+        DrawFirstBox()
+        DrawSecondBox()
         
-        let boxSmallFirstName = SKShapeNode(rectOf: CGSize(width: self.size.width*7/48,height: self.size.height*5.5/48))
-        boxSmallFirstName.name = "boxfirstname"
-        boxSmallFirstName.strokeColor = SKColor.blue
-        boxSmallFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*20.75/48)
-        addChild(boxSmallFirstName)
-        
-        labelCountFirstName.text = String(X)
-        labelCountFirstName.fontSize = 30
-        labelCountFirstName.fontColor = SKColor.blue
-        labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*20.75/48)
-        labelCountFirstName.zPosition = 100.0
-        addChild(labelCountFirstName)
-        labelCountFirstNameShadow = CreateShadowLabel(label: labelCountFirstName,offset: 1)
-        addChild(labelCountFirstNameShadow)
-        
-        if Z > 0 {
-            let labelItemFirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
-            labelItemFirstName.text = item
-            labelItemFirstName.fontSize = 15
-            labelItemFirstName.fontColor = SKColor.blue
-            labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*19.25/48)
-            labelItemFirstName.zPosition = 100.0
-            addChild(labelItemFirstName)
-            let labelItemFirstNameShadow = CreateShadowLabel(label: labelItemFirstName,offset: 1)
-            addChild(labelItemFirstNameShadow)
-        }
-        else {
-            let labelItemFirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
-            labelItemFirstName.text = item
-            labelItemFirstName.fontSize = 15
-            labelItemFirstName.fontColor = SKColor.blue
-            labelItemFirstName.position = CGPoint(x: self.size.width*18/24, y: self.size.height*19.25/48)
-            labelItemFirstName.zPosition = 100.0
-            addChild(labelItemFirstName)
-            let labelItemFirstNameShadow = CreateShadowLabel(label: labelItemFirstName,offset: 1)
-            addChild(labelItemFirstNameShadow)
-        }
-        
-        
-        let labelFirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
-        labelFirstName.text = person1
-        labelFirstName.fontSize = 30
-        labelFirstName.fontColor = SKColor.blue
-        labelFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*14/24)
-        labelFirstName.zPosition = 100.0
-        addChild(labelFirstName)
-        let labelFirstNameShadow = CreateShadowLabel(label: labelFirstName,offset: 1)
-        addChild(labelFirstNameShadow)
-        
-        boxSecondName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*12/48))
-        boxSecondName.name = "boxsecondname"
-        boxSecondName.strokeColor = SKColor.red
-        boxSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*12/48)
-        addChild(boxSecondName)
-        
-        let boxSmallSecondName = SKShapeNode(rectOf: CGSize(width: self.size.width*7/48,height: self.size.height*5.5/48))
-        boxSmallSecondName.name = "boxsecondname"
-        boxSmallSecondName.strokeColor = SKColor.red
-        boxSmallSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*8.75/48)
-        addChild(boxSmallSecondName)
-        
-        if Z > 0 {
-            labelCountSecondName.fontSize = 15
-        }
-        else {
-            labelCountSecondName.fontSize = 30
-        }
-        
-        labelCountSecondName.text = "0"
-        labelCountSecondName.fontColor = SKColor.red
-        labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*8.75/48)
-        labelCountSecondName.zPosition = 100.0
-        addChild(labelCountSecondName)
-        labelCountSecondNameShadow = CreateShadowLabel(label: labelCountSecondName,offset: 1)
-        addChild(labelCountSecondNameShadow)
-        
-        if Z > 0 {
-            labelCount2SecondName.text = "0"
-            labelCount2SecondName.fontColor = SKColor.red
-            labelCount2SecondName.position = CGPoint(x: self.size.width*18/24, y: self.size.height*8.75/48)
-            labelCount2SecondName.zPosition = 100.0
-            addChild(labelCount2SecondName)
-            let labelCount2SecondNameShadow = CreateShadowLabel(label: labelCount2SecondName,offset: 1)
-            addChild(labelCount2SecondNameShadow)
-        }
-        
-        
-        let labelItemSecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
-        labelItemSecondName.text = item
-        labelItemSecondName.fontColor = SKColor.red
-        labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7.25/48)
-        labelItemSecondName.zPosition = 100.0
-        if Z > 0 {
-            labelItemSecondName.fontSize = 10
-        }
-        else {
-            labelItemSecondName.fontSize = 15
-        }
-        addChild(labelItemSecondName)
-        let labelItemSecondNameShadow = CreateShadowLabel(label: labelItemSecondName,offset: 1)
-        addChild(labelItemSecondNameShadow)
-        
-        if Z > 0 {
-            let labelItemSecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
-            labelItemSecondName.text = item
-            labelItemSecondName.fontColor = SKColor.red
-            labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7.25/48)
-            labelItemSecondName.zPosition = 100.0
-            labelItemSecondName.fontSize = 15
-            addChild(labelItemSecondName)
-            let labelItemSecondNameShadow = CreateShadowLabel(label: labelItemSecondName,offset: 1)
-            addChild(labelItemSecondNameShadow)
-        }
-        
-        let labelSecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
-        labelSecondName.text = global.currentStudent
-        labelSecondName.fontSize = 30
-        labelSecondName.fontColor = SKColor.red
-        labelSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*8/24)
-        labelSecondName.zPosition = 100.0
-        addChild(labelSecondName)
-        let labelSecondNameShadow = CreateShadowLabel(label: labelSecondName,offset: 1)
-        addChild(labelSecondNameShadow)
+        DrawCorrectLabels()
         
         let submitButton = SKSpriteNode(imageNamed: "RedButtonSmall.png")
-        submitButton.scale(to: CGSize(width: self.size.width/5.5,height: self.size.height*2.5/48))
+        submitButton.scale(to: CGSize(width: (self.size.width/5.5)*0.9,height: (self.size.height*2.5/48)*0.9))
         submitButton.name = "submitbutton"
         submitButton.zPosition = 101.0
-        submitButton.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/24)
+        submitButton.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48)
         addChild(submitButton)
         
-        submitButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/6,
-                                            height: self.size.height*2/48),cornerRadius: 30.0)
+        submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.9,
+                                            height: (self.size.height*2/48)*0.9),cornerRadius: 30.0)
         submitButtonShadow.name = "bshadow"
         submitButtonShadow.fillColor = SKColor.black
         submitButtonShadow.strokeColor = SKColor.black
-        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-1.5, y: self.size.height*1.5/24+1.5)
+        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-1.2, y: self.size.height*1.5/48+1.2)
         submitButtonShadow.zPosition = 100.0
         submitButtonShadow.lineWidth = 2.0
         addChild(submitButtonShadow)
         
         let submitLabel = SKLabelNode(fontNamed: "Arial")
         submitLabel.name = "submitbutton"
-        submitLabel.fontSize = 15
+        submitLabel.fontSize = 14
         submitLabel.fontColor = SKColor.white
         submitLabel.zPosition = 102.0
-        submitLabel.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/24 - self.size.height/96)
+        submitLabel.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48 - self.size.height/96)
         submitLabel.text = "Submit"
         addChild(submitLabel)
         addChild(CreateShadowLabel(label: submitLabel,offset: 1))
@@ -271,9 +156,201 @@ class MathDragScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func DrawCorrectLabels() {
+        let scoreNode = SKNode()
+        
+        scoreNode.position = CGPoint(x: self.size.width*1/10, y: size.height*14/24)
+        scoreNode.zPosition = 100.0
+        
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
+        labelCorrect.fontSize = 15
+        labelCorrect.fontColor = SKColor.red
+        labelCorrect.position = CGPoint(x: 0, y: self.size.height/36)
+        scoreNode.addChild(labelCorrect)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        scoreNode.addChild(labelCorrectShadow)
+        
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
+        labelIncorrect.fontSize = 15
+        labelIncorrect.fontColor = SKColor.red
+        labelIncorrect.position = .zero
+        scoreNode.addChild(labelIncorrect)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        scoreNode.addChild(labelIncorrectShadow)
+        addChild(scoreNode)
+    }
+    
+    func DrawFirstBox() {
+        boxFirstName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*12/48))
+        boxFirstName.name = "boxfirstname"
+        boxFirstName.strokeColor = SKColor.blue
+        boxFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*21/48)
+        addChild(boxFirstName)
+        
+        let boxSmallFirstName = SKShapeNode(rectOf: CGSize(width: self.size.width*7/48,height: self.size.height*5.5/48))
+        boxSmallFirstName.name = "boxfirstname"
+        boxSmallFirstName.strokeColor = SKColor.blue
+        boxSmallFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*17.75/48)
+        addChild(boxSmallFirstName)
+        
+        labelCountFirstName.text = String(X)
+        labelCountFirstName.fontColor = SKColor.blue
+        if Z > -1 || B > -1 {
+            labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*19/48)
+            labelCountFirstName.fontSize = 20
+        }
+        else {
+            labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*17.75/48)
+            labelCountFirstName.fontSize = 30
+        }
+        labelCountFirstName.zPosition = 100.0
+        addChild(labelCountFirstName)
+        labelCountFirstNameShadow = CreateShadowLabel(label: labelCountFirstName,offset: 1)
+        addChild(labelCountFirstNameShadow)
+        
+        if Z > -1 || B > -1 {
+            if Z > -1 {
+                labelCount2FirstName.text = String(Z)
+            }
+            else if B > -1 {
+                labelCount2FirstName.text = "0"
+            }
+            labelCount2FirstName.fontSize = 20
+            labelCount2FirstName.fontColor = SKColor.blue
+            labelCount2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16.5/48)
+            labelCount2FirstName.zPosition = 100.0
+            addChild(labelCount2FirstName)
+            labelCount2FirstNameShadow = CreateShadowLabel(label: labelCount2FirstName,offset: 1)
+            addChild(labelCount2FirstNameShadow)
+        }
+        
+        let labelItemFirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+        labelItemFirstName.text = item
+        labelItemFirstName.fontColor = SKColor.blue
+        if Z > -1 || B > -1 {
+            labelItemFirstName.fontSize = 13
+            labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*18/48)
+        }
+        else {
+            labelItemFirstName.fontSize = 15
+            labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16.25/48)
+        }
+        labelItemFirstName.zPosition = 100.0
+        addChild(labelItemFirstName)
+        let labelItemFirstNameShadow = CreateShadowLabel(label: labelItemFirstName,offset: 1)
+        addChild(labelItemFirstNameShadow)
+        
+        if Z > -1 || B > -1 {
+            let labelItem2FirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+            labelItem2FirstName.text = item2
+            labelItem2FirstName.fontSize = 13
+            labelItem2FirstName.fontColor = SKColor.blue
+            labelItem2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*15.5/48)
+            labelItem2FirstName.zPosition = 100.0
+            addChild(labelItem2FirstName)
+            let labelItem2FirstNameShadow = CreateShadowLabel(label: labelItem2FirstName,offset: 1)
+            addChild(labelItem2FirstNameShadow)
+        }
+        
+        let labelFirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+        labelFirstName.text = person1
+        labelFirstName.fontSize = 30
+        labelFirstName.fontColor = SKColor.blue
+        labelFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*12.5/24)
+        labelFirstName.zPosition = 100.0
+        addChild(labelFirstName)
+        let labelFirstNameShadow = CreateShadowLabel(label: labelFirstName,offset: 1)
+        addChild(labelFirstNameShadow)
+    }
+    
+    func DrawSecondBox() {
+        boxSecondName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*12/48))
+        boxSecondName.name = "boxsecondname"
+        boxSecondName.strokeColor = SKColor.red
+        boxSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*9/48)
+        addChild(boxSecondName)
+        
+        let boxSmallSecondName = SKShapeNode(rectOf: CGSize(width: self.size.width*7/48,height: self.size.height*5.5/48))
+        boxSmallSecondName.name = "boxsecondname"
+        boxSmallSecondName.strokeColor = SKColor.red
+        boxSmallSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*5.75/48)
+        addChild(boxSmallSecondName)
+        
+        if Z > -1 || B > -1 {
+            labelCountSecondName.fontSize = 20
+            labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7/48)
+        }
+        else {
+            labelCountSecondName.fontSize = 30
+            labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
+        }
+        labelCountSecondName.text = "0"
+        labelCountSecondName.fontColor = SKColor.red
+        labelCountSecondName.zPosition = 100.0
+        addChild(labelCountSecondName)
+        labelCountSecondNameShadow = CreateShadowLabel(label: labelCountSecondName,offset: 1)
+        addChild(labelCountSecondNameShadow)
+        
+        if Z > -1 || B > -1 {
+            labelCount2SecondName.fontSize = 20
+            labelCount2SecondName.text = "0"
+            labelCount2SecondName.fontColor = SKColor.red
+            labelCount2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*4.5/48)
+            labelCount2SecondName.zPosition = 100.0
+            addChild(labelCount2SecondName)
+            labelCount2SecondNameShadow = CreateShadowLabel(label: labelCount2SecondName,offset: 1)
+            addChild(labelCount2SecondNameShadow)
+        }
+        
+        let labelItemSecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+        labelItemSecondName.text = item
+        labelItemSecondName.fontColor = SKColor.red
+        if Z > -1 || B > -1 {
+            labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
+            labelItemSecondName.fontSize = 13
+        }
+        else {
+            labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*4.25/48)
+            labelItemSecondName.fontSize = 15
+        }
+        labelItemSecondName.zPosition = 100.0
+        
+        addChild(labelItemSecondName)
+        let labelItemSecondNameShadow = CreateShadowLabel(label: labelItemSecondName,offset: 1)
+        addChild(labelItemSecondNameShadow)
+        
+        if Z > -1 || B > -1 {
+            let labelItem2SecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+            labelItem2SecondName.text = item2
+            labelItem2SecondName.fontColor = SKColor.red
+            labelItem2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*3.5/48)
+            labelItem2SecondName.zPosition = 100.0
+            labelItem2SecondName.fontSize = 13
+            addChild(labelItem2SecondName)
+            let labelItem2SecondNameShadow = CreateShadowLabel(label: labelItem2SecondName,offset: 1)
+            addChild(labelItem2SecondNameShadow)
+        }
+        
+        let labelSecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+        labelSecondName.text = global.currentStudent
+        labelSecondName.fontSize = 30
+        labelSecondName.fontColor = SKColor.red
+        labelSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*6.5/24)
+        labelSecondName.zPosition = 100.0
+        addChild(labelSecondName)
+        let labelSecondNameShadow = CreateShadowLabel(label: labelSecondName,offset: 1)
+        addChild(labelSecondNameShadow)
+    }
+    
     func CheckAnswer() {
         let person1Ans_1 = Int(labelCountFirstName.text!)!
         let person2Ans_1 = Int(labelCountSecondName.text!)!
+        var person1Ans_2 = -1
+        var person2Ans_2 = -1
+        if Z > -1 || B > -1 {
+            person1Ans_2 = Int(labelCount2FirstName.text!)!
+            person2Ans_2 = Int(labelCount2SecondName.text!)!
+        }
         
         if person3Answer != -1 {
 //            let person3Ans_1 = Int(labelCountThirdName.text!)! + 1
@@ -282,7 +359,7 @@ class MathDragScene: SKScene {
 //            }
         }
         else {
-            if person1Answer == person1Ans_1 && person2Answer == person2Ans_1 {
+            if person1Answer == person1Ans_1 && person2Answer == person2Ans_1 && person1Answer2 == person1Ans_2 && person2Answer2 == person2Ans_2{
                 CorrectAnswerSelected()
             }
             else {
@@ -294,21 +371,30 @@ class MathDragScene: SKScene {
     func RemoveLabels() {
         labelTitle.removeFromParent()
         labelTitleShadow.removeFromParent()
+        labelSubtitle.removeFromParent()
+        labelSubtitleShadow.removeFromParent()
     }
     
     func CorrectAnswerSelected() {
-        RemoveLabels()
+        //RemoveLabels()
         
         for label in labelWordProblemAr {
             label.removeFromParent()
         }
-        labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)
-        labelWordProblemAr[0].text = "Answer Is Correct!!!"
+        for label in labelWordProblemShadowAr {
+            label.removeFromParent()
+        }
+        labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*18/24)
+        labelWordProblemAr[0].text = "Answer Is Correct!"
         labelWordProblemAr[0].fontColor = SKColor.blue
         labelWordProblemAr[0].fontSize = 30
-//        labelTitleShadow2.position = CGPoint(x: self.size.width/2 - 1, y: self.size.height*20/24 + 1)
-//        labelTitleShadow2.text = "Answer Is Correct!!!"
-//        labelTitleShadow2.fontSize = 30
+        addChild(labelWordProblemAr[0])
+        
+        labelWordProblemShadowAr[0].position = CGPoint(x: self.size.width/2-1, y: self.size.height*18/24+1)
+        labelWordProblemShadowAr[0].text = "Answer Is Correct!"
+        labelWordProblemShadowAr[0].fontColor = SKColor.black
+        labelWordProblemShadowAr[0].fontSize = 30
+        addChild(labelWordProblemShadowAr[0])
         
         global.correctAnswers = global.correctAnswers + 1
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -324,15 +410,41 @@ class MathDragScene: SKScene {
     }
     
     func IncorrectAnswerSelected() {
-        RemoveLabels()
+        //RemoveLabels()
         
         for label in labelWordProblemAr {
             label.removeFromParent()
         }
-        labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)
-        labelWordProblemAr[0].text = "Answer Is Incorrect!!!"
+        for label in labelWordProblemShadowAr {
+            label.removeFromParent()
+        }
+        labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*18/24)
+        labelWordProblemAr[0].text = "Answer Is Incorrect!"
         labelWordProblemAr[0].fontColor = SKColor.red
         labelWordProblemAr[0].fontSize = 30
+        addChild(labelWordProblemAr[0])
+        
+        labelWordProblemShadowAr[0].position = CGPoint(x: self.size.width/2-1, y: self.size.height*18/24+1)
+        labelWordProblemShadowAr[0].text = "Answer Is Incorrect!"
+        labelWordProblemShadowAr[0].fontColor = SKColor.black
+        labelWordProblemShadowAr[0].fontSize = 30
+        addChild(labelWordProblemShadowAr[0])
+        
+        //set the correct answer
+        labelCountFirstName.text = String(person1Answer)
+        labelCountFirstNameShadow.text = String(person1Answer)
+        labelCountSecondName.text = String(person2Answer)
+        labelCountSecondNameShadow.text = String(person2Answer)
+        labelCountFirstName.fontColor = SKColor.purple
+        labelCountSecondName.fontColor = SKColor.purple
+        if Z > -1 || B > -1 {
+            labelCount2FirstName.text = String(person1Answer2)
+            labelCount2FirstNameShadow.text = String(person1Answer2)
+            labelCount2SecondName.text = String(person2Answer2)
+            labelCount2SecondNameShadow.text = String(person2Answer2)
+            labelCount2FirstName.fontColor = SKColor.purple
+            labelCount2SecondName.fontColor = SKColor.purple
+        }
         
         global.incorrectAnswers = global.incorrectAnswers + 1
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
@@ -370,25 +482,69 @@ class MathDragScene: SKScene {
         offY.append(frame.size.height*2/18)
         offY.append(frame.size.height*2/18)
         
-        for i in 0...X-1 {
-            itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
-            itemNodeAr[i].name = "item"
-            itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*11.5/24 + offY[i%offY.count])
-            itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
-            itemNodeAr[i].zPosition = 301
-            addChild(itemNodeAr[i])
-        }
-        if Z > 0 {
-            for i in X...X+Z-1 {
-                itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
-                itemNodeAr[i].name = "item"
-                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*11.5/24 + offY[i%offY.count])
+        
+        var offX2 = [0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,frame.size.width/4,-frame.size.width/4,frame.size.width/4,
+                    -frame.size.width/4,frame.size.width/4,-frame.size.width/4]
+        offX2.append(-frame.size.width*3/8)
+        offX2.append(-frame.size.width*3/8)
+        offX2.append(frame.size.width*3/8)
+        offX2.append(-frame.size.width*3/8)
+        offX2.append(-frame.size.width*2.5/8)
+        offX2.append(frame.size.width*2.5/8)
+        offX2.append(-frame.size.width*1.5/8)
+        offX2.append(frame.size.width*1.5/8)
+        
+        var offY2 = [0,0,0,-frame.size.height/18,-frame.size.height/18,-frame.size.height/18,frame.size.height/18,frame.size.height/18,frame.size.height/18,0,0,-frame.size.height/18,-frame.size.height/18,frame.size.height/18]
+        offY2.append(frame.size.height/18)
+        offY2.append(0)
+        offY2.append(-frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        
+        if A > 0 {
+            for i in 0...A-1 {
+                itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
+                itemNodeAr[i].name = "item1"
+                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
                 itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
             }
         }
-    
+        if B > 0 {
+            for i in A...A+B-1 {
+                itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
+                itemNodeAr[i].name = "item2"
+                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
+                itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                itemNodeAr[i].zPosition = 301
+                addChild(itemNodeAr[i])
+            }
+        }
+        if X > 0 {
+            for i in 0...X-1 {
+                itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
+                itemNodeAr[i].name = "item1"
+                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count])
+                itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                itemNodeAr[i].zPosition = 301
+                addChild(itemNodeAr[i])
+            }
+        }
+        if Z > 0 {
+            for i in X...X+Z-1 {
+                itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
+                itemNodeAr[i].name = "item2"
+                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count])
+                itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                itemNodeAr[i].zPosition = 301
+                addChild(itemNodeAr[i])
+            }
+        }
     }
     
     func DrawSentence() {
@@ -398,7 +554,7 @@ class MathDragScene: SKScene {
         let sentenceHeight = sizeSentence.height
         var numLines = 1
         var countWordsPerLine = 0
-        let displayWidth = size.width * 9 / 10
+        let displayWidth = size.width * 8 / 10
         if sentenceWidth > displayWidth {
             numLines = Int(sentenceWidth / displayWidth) + 1
             wordAr = sentence.characters.split{$0 == " "}.map(String.init)
@@ -420,7 +576,8 @@ class MathDragScene: SKScene {
             labelWordProblemAr[0].zPosition = 100.0
             labelWordProblemAr[0].name = "spellingdefinition"
             addChild(labelWordProblemAr[0])
-            addChild(CreateShadowLabel(label: labelWordProblemAr[0],offset: 1))
+            labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr[0],offset: 1))
+            addChild(labelWordProblemShadowAr[0])
         }
         else {
             var totalWordsSoFar = 0
@@ -443,7 +600,8 @@ class MathDragScene: SKScene {
                 labelWordProblemAr[n].zPosition = 100.0
                 labelWordProblemAr[n].name = "spellingdefinition"
                 addChild(labelWordProblemAr[n])
-                addChild(CreateShadowLabel(label: labelWordProblemAr[n],offset: 1))
+                labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr[n],offset: 1))
+                addChild(labelWordProblemShadowAr[n])
                 totalWordsSoFar = totalWordsSoFar + countWords
             }
         }
@@ -471,18 +629,32 @@ class MathDragScene: SKScene {
                     touchLocation.y > (boxFirstName.position.y-boxFirstName.frame.height/2) &&
                     touchLocation.y < (boxFirstName.position.y+boxFirstName.frame.height/2) {
                     
-                    let newCount = String(Int(labelCountFirstName.text!)! - 1)
-                    labelCountFirstName.text = newCount
-                    labelCountFirstNameShadow.text = newCount
+                    if shapeNode.name != nil && shapeNode.name!.last == "1" {
+                        let newCount = String(Int(labelCountFirstName.text!)! - 1)
+                        labelCountFirstName.text = newCount
+                        labelCountFirstNameShadow.text = newCount
+                    }
+                    if shapeNode.name != nil && shapeNode.name!.last == "2" {
+                        let newCount = String(Int(labelCount2FirstName.text!)! - 1)
+                        labelCount2FirstName.text = newCount
+                        labelCount2FirstNameShadow.text = newCount
+                    }
                 }
                 if touchLocation.x > (boxSecondName.position.x-boxSecondName.frame.width/2) &&
                     touchLocation.x < (boxSecondName.position.x+boxSecondName.frame.width/2) &&
                     touchLocation.y > (boxSecondName.position.y-boxSecondName.frame.height/2) &&
                     touchLocation.y < (boxSecondName.position.y+boxSecondName.frame.height/2) {
                     
-                    let newCount = String(Int(labelCountSecondName.text!)! - 1)
-                    labelCountSecondName.text = newCount
-                    labelCountSecondNameShadow.text = newCount
+                    if shapeNode.name != nil && shapeNode.name!.last == "1" {
+                        let newCount = String(Int(labelCountSecondName.text!)! - 1)
+                        labelCountSecondName.text = newCount
+                        labelCountSecondNameShadow.text = newCount
+                    }
+                    if shapeNode.name != nil && shapeNode.name!.last == "2" {
+                        let newCount = String(Int(labelCount2SecondName.text!)! - 1)
+                        labelCount2SecondName.text = newCount
+                        labelCount2SecondNameShadow.text = newCount
+                    }
                 }
             }
         }
@@ -521,27 +693,41 @@ class MathDragScene: SKScene {
             CheckAnswer()
         }
         
-        selectedNode = SKSpriteNode()
         if itemTouched == true {
             if touchLocation.x > (boxFirstName.position.x-boxFirstName.frame.width/2) &&
                touchLocation.x < (boxFirstName.position.x+boxFirstName.frame.width/2) &&
                touchLocation.y > (boxFirstName.position.y-boxFirstName.frame.height/2) &&
                touchLocation.y < (boxFirstName.position.y+boxFirstName.frame.height/2) {
                 
-                let newCount = String(Int(labelCountFirstName.text!)! + 1)
-                labelCountFirstName.text = newCount
-                labelCountFirstNameShadow.text = newCount
+                if selectedNode.name != nil && selectedNode.name!.last == "1" {
+                    let newCount = String(Int(labelCountFirstName.text!)! + 1)
+                    labelCountFirstName.text = newCount
+                    labelCountFirstNameShadow.text = newCount
+                }
+                if selectedNode.name != nil && selectedNode.name!.last == "2" {
+                    let newCount = String(Int(labelCount2FirstName.text!)! + 1)
+                    labelCount2FirstName.text = newCount
+                    labelCount2FirstNameShadow.text = newCount
+                }
             }
             if touchLocation.x > (boxSecondName.position.x-boxSecondName.frame.width/2) &&
                 touchLocation.x < (boxSecondName.position.x+boxSecondName.frame.width/2) &&
                 touchLocation.y > (boxSecondName.position.y-boxSecondName.frame.height/2) &&
                 touchLocation.y < (boxSecondName.position.y+boxSecondName.frame.height/2) {
                 
-                let newCount = String(Int(labelCountSecondName.text!)! + 1)
-                labelCountSecondName.text = newCount
-                labelCountSecondNameShadow.text = newCount
+                if selectedNode.name != nil && selectedNode.name!.last == "1" {
+                    let newCount = String(Int(labelCountSecondName.text!)! + 1)
+                    labelCountSecondName.text = newCount
+                    labelCountSecondNameShadow.text = newCount
+                }
+                if selectedNode.name != nil && selectedNode.name!.last == "2" {
+                    let newCount = String(Int(labelCount2SecondName.text!)! + 1)
+                    labelCount2SecondName.text = newCount
+                    labelCount2SecondNameShadow.text = newCount
+                }
             }
         }
+        selectedNode = SKSpriteNode()
         itemTouched = false
         
         if let shapeNode = touchedNode as? SKNode {
@@ -570,7 +756,7 @@ class MathDragScene: SKScene {
             if lineAr.count < global.currentSentenceNum {
                 return
             }
-            let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "#"}.map(String.init)
             if sentenceAr.count < 3 {
                 return
             }
@@ -593,62 +779,139 @@ class MathDragScene: SKScene {
             item2 = itemAr[rand3]
             
             sentence = sentenceAr[0]
-            var string = "Z"
-            if sentence.range(of:string) != nil {
-                Z = Int(arc4random_uniform(UInt32(X))+1)
-            }
-            var string2 = "W"
-            if sentence.range(of:string2) != nil {
-                W = Int(arc4random_uniform(UInt32(Y))+1)
-            }
             
-            X = Int(arc4random_uniform(UInt32(22))+2)
-            Y = Int(arc4random_uniform(UInt32(X))+1)
+            var string = "\\A"
+            if sentence.range(of:string) != nil {
+                A = Int(arc4random_uniform(UInt32(22))+1)
+            }
+            string = "\\B"
+            if sentence.range(of:string) != nil {
+                B = Int(arc4random_uniform(UInt32(22))+1)
+            }
+            string = "\\X"
+            if sentence.range(of:string) != nil {
+                X = Int(arc4random_uniform(UInt32(22))+2)
+            }
+            string = "\\E"
+            if sentence.range(of:string) != nil {
+                X = ( Int(arc4random_uniform(UInt32(22))+2) / 2 ) * 2
+            }
+            string = "\\M"
+            var replaceMString = "\\M"
+            if sentence.range(of:string) != nil {
+                let range = sentence.range(of:string)
+                let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
+                if let multiplier = Int(String(sentence[ind])) {
+                    X = ( Int(arc4random_uniform(UInt32(22))+2) / multiplier ) * multiplier
+                    if X < multiplier {
+                        X = multiplier
+                    }
+                }
+                else {
+                    X = ( Int(arc4random_uniform(UInt32(22))+2))
+                }
+                replaceMString = "\\M" + String(sentence[ind])
+            }
+            string = "\\Y"
+            if sentence.range(of:string) != nil {
+                if A > -1 {
+                    Y = Int(arc4random_uniform(UInt32(A))+1)
+                }
+                else {
+                    Y = Int(arc4random_uniform(UInt32(X))+1)
+                }
+            }
+            string = "\\Z"
+            if sentence.range(of:string) != nil {
+                Z = Int(arc4random_uniform(UInt32(22))+1)
+            }
+            string = "\\W"
+            if sentence.range(of:string) != nil {
+                if B > -1 {
+                    W = Int(arc4random_uniform(UInt32(B))+1)
+                }
+                else {
+                    W = Int(arc4random_uniform(UInt32(Z))+1)
+                }
+            }
             
             sentence = sentence.replacingOccurrences(of: "Alice", with: person1)
             sentence = sentence.replacingOccurrences(of: "Student", with: global.currentStudent)
             sentence = sentence.replacingOccurrences(of: "items2", with: item2)
             sentence = sentence.replacingOccurrences(of: "items", with: item)
-            sentence = sentence.replacingOccurrences(of: "X", with: String(X))
-            sentence = sentence.replacingOccurrences(of: "Y", with: String(Y))
-            sentence = sentence.replacingOccurrences(of: "Z", with: String(Z))
-            sentence = sentence.replacingOccurrences(of: "W", with: String(W))
+            sentence = sentence.replacingOccurrences(of: "\\A", with: String(A))
+            sentence = sentence.replacingOccurrences(of: "\\B", with: String(B))
+            sentence = sentence.replacingOccurrences(of: "\\E", with: String(X))
+            sentence = sentence.replacingOccurrences(of: replaceMString, with: String(X))
+            sentence = sentence.replacingOccurrences(of: "\\X", with: String(X))
+            sentence = sentence.replacingOccurrences(of: "\\Y", with: String(Y))
+            sentence = sentence.replacingOccurrences(of: "\\Z", with: String(Z))
+            sentence = sentence.replacingOccurrences(of: "\\W", with: String(W))
             
             var ansString = sentenceAr[1]
-            ansString = ansString.replacingOccurrences(of: "X", with: String(X))
-            ansString = ansString.replacingOccurrences(of: "Y", with: String(Y))
-            ansString = ansString.replacingOccurrences(of: "Z", with: String(Z))
-            ansString = ansString.replacingOccurrences(of: "W", with: String(W))
+            ansString = ansString.replacingOccurrences(of: "\\A", with: String(A))
+            ansString = ansString.replacingOccurrences(of: "\\B", with: String(B))
+            ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
+            ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
+            ansString = ansString.replacingOccurrences(of: "\\W", with: String(W))
             var exp = NSExpression(format: ansString)
             if let result = exp.expressionValue(with: nil, context: nil) as? Int {
                 person1Answer = result
-                print("person1Answer=",person1Answer)
             }
             
             ansString = sentenceAr[2]
-            ansString = ansString.replacingOccurrences(of: "X", with: String(X))
-            ansString = ansString.replacingOccurrences(of: "Y", with: String(Y))
-            ansString = ansString.replacingOccurrences(of: "Z", with: String(Z))
-            ansString = ansString.replacingOccurrences(of: "W", with: String(W))
+            ansString = ansString.replacingOccurrences(of: "\\A", with: String(A))
+            ansString = ansString.replacingOccurrences(of: "\\B", with: String(B))
+            ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
+            ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
+            ansString = ansString.replacingOccurrences(of: "\\W", with: String(W))
             exp = NSExpression(format: ansString)
             if let result = exp.expressionValue(with: nil, context: nil) as? Int {
-                person2Answer = result
-                print("person2Answer=",person2Answer)
+                if Z > -1 || B > -1 {
+                    person1Answer2 = result
+                }
+                else {
+                    person2Answer = result
+                }
             }
             
-            if sentenceAr.count < 4 {
+            if sentenceAr.count < 5 {
                 return
             }
             ansString = sentenceAr[3]
-            ansString = ansString.replacingOccurrences(of: "X", with: String(X))
-            ansString = ansString.replacingOccurrences(of: "Y", with: String(Y))
-            ansString = ansString.replacingOccurrences(of: "Z", with: String(Z))
-            ansString = ansString.replacingOccurrences(of: "W", with: String(W))
+            ansString = ansString.replacingOccurrences(of: "\\A", with: String(A))
+            ansString = ansString.replacingOccurrences(of: "\\B", with: String(B))
+            ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
+            ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
+            ansString = ansString.replacingOccurrences(of: "\\W", with: String(W))
             exp = NSExpression(format: ansString)
             if let result = exp.expressionValue(with: nil, context: nil) as? Int {
-                person3Answer = result
+                person2Answer = result
             }
-            global.currentSentenceNum = global.currentSentenceNum + 1
+            
+            ansString = sentenceAr[4]
+            ansString = ansString.replacingOccurrences(of: "\\A", with: String(A))
+            ansString = ansString.replacingOccurrences(of: "\\B", with: String(B))
+            ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
+            ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
+            ansString = ansString.replacingOccurrences(of: "\\W", with: String(W))
+            exp = NSExpression(format: ansString)
+            if let result = exp.expressionValue(with: nil, context: nil) as? Int {
+                person2Answer2 = result
+            }
+            
         }
         else {
             print("file not found")
@@ -660,6 +923,7 @@ class MathDragScene: SKScene {
             child.removeFromParent()
         }
         global.overlayNode.removeFromParent()
+        
         global.currentSentenceNum = global.currentSentenceNum + 1
         
         let wait = SKAction.wait(forDuration: duration)
