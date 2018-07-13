@@ -1,5 +1,3 @@
-Alice had \M3 items and gave Student two-thirds (2/3).  How many items did Alice have left?#\M3/3#\M3*2/3
-Alice had \M3 items and gave Student one-third (1/3).  How many items did Alice have left?#\M3*2/3#\M3/3
 Alice had \E items and gave Student half (1/2).  How many items did Alice have left?#\E/2#\E/2
 Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
 There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
