@@ -15,10 +15,12 @@ class LevelSelectScene: SKScene {
     
     var scrollBoxAr:[(start: CGPoint, end: CGPoint)] = []
     var hotAirBalloonAr = [[SKSpriteNode]]()
+    var hotAirBalloonLockAr = [[SKSpriteNode]]()
     var hotAirBalloonLabelAr = [[SKLabelNode]]()
     var hotAirBalloonLabel2Ar = [[SKLabelNode]]()
     var hotAirBalloonLabelShadowAr = [[SKLabelNode]]()
     var hotAirBalloonLabelShadow2Ar = [[SKLabelNode]]()
+    var levelUnlockedAr = [String:Int]()
     
     var minX : CGFloat = 0.0
     var maxX : CGFloat = 0.0
@@ -37,6 +39,7 @@ class LevelSelectScene: SKScene {
         super.init(size: size)
         
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
+        GetUnlockedLevels()
         
         let labelTitle = SKLabelNode(fontNamed: "Arial")
         labelTitle.text = "Select Level"
@@ -68,6 +71,7 @@ class LevelSelectScene: SKScene {
             addChild(CreateShadowLabel(label: subjectTitle,offset: 1.5))
             
             hotAirBalloonAr.append([])
+            hotAirBalloonLockAr.append([])
             hotAirBalloonLabelAr.append([])
             hotAirBalloonLabel2Ar.append([])
             hotAirBalloonLabelShadowAr.append([])
@@ -78,6 +82,20 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonAr[n][i].scale(to: CGSize(width: self.size.height*3/48,height: (self.size.height*3/48)*(4/2.4)))
                 hotAirBalloonAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonAr[n][i])
+                
+                //lock
+                if let levelUnlocked = levelUnlockedAr[subject] {
+                    if levelUnlocked <= i {
+                        hotAirBalloonLockAr[n].append(SKSpriteNode(imageNamed: "lock.png"))
+                        let ind = hotAirBalloonLockAr[n].count - 1
+                        hotAirBalloonLockAr[n][ind].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17 - SUB_SPACING*CGFloat(n))/24)
+                        hotAirBalloonLockAr[n][ind].scale(to: CGSize(width: self.size.height*1.5/48,height: self.size.height*1.5/48))
+                        hotAirBalloonLockAr[n][ind].name = "hotairballoon" + String(n) + ":" + String(i)
+                        hotAirBalloonLockAr[n][ind].zPosition = 101.5
+                        hotAirBalloonLockAr[n][ind].alpha = 1.0
+                        addChild(hotAirBalloonLockAr[n][ind])
+                    }
+                }
                 
                 hotAirBalloonLabelAr[n].append(SKLabelNode(fontNamed: "ChalkDuster"))
                 hotAirBalloonLabelAr[n][i].text = "Level"
@@ -141,6 +159,78 @@ class LevelSelectScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func GetUnlockedLevels() {
+        let file = "Players.txt" //this is the file. we will write to and read from it
+        if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+            let path = dir + "/" + file
+            do {
+                var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+                var lineAr = fileText.components(separatedBy: .newlines)
+                if lineAr.count > 0 {
+                    for i in 0..<lineAr.count {
+                        var playerDataAr = lineAr[i].characters.split{$0 == "*"}.map(String.init)
+                        if playerDataAr.count < 6 {
+                            continue
+                        }
+                        if global.currentStudent == playerDataAr[0] {
+                            //spelling
+                            var data = playerDataAr[5].characters.split{$0 == " "}.map(String.init)
+                            if data.count > 0 {
+                                var levelUnlocked = 1
+                                if data[0] == "-1" {
+                                    levelUnlocked = 1
+                                }
+                                else {
+                                    levelUnlocked = data.count + 1
+                                }
+                                levelUnlockedAr["Spelling"] = levelUnlocked
+                            }
+                            //vocabulary
+                            data = playerDataAr[4].characters.split{$0 == " "}.map(String.init)
+                            if data.count > 0 {
+                                var levelUnlocked = 1
+                                if data[0] == "-1" {
+                                    levelUnlocked = 1
+                                }
+                                else {
+                                    levelUnlocked = data.count + 1
+                                }
+                                levelUnlockedAr["Vocabulary"] = levelUnlocked
+                            }
+                            //grammar
+                            data = playerDataAr[3].characters.split{$0 == " "}.map(String.init)
+                            if data.count > 0 {
+                                var levelUnlocked = 1
+                                if data[0] == "-1" {
+                                    levelUnlocked = 1
+                                }
+                                else {
+                                    levelUnlocked = data.count + 1
+                                }
+                                levelUnlockedAr["Grammar"] = levelUnlocked
+                            }
+                            //math
+                            data = playerDataAr[2].characters.split{$0 == " "}.map(String.init)
+                            if data.count > 0 {
+                                var levelUnlocked = 1
+                                if data[0] == "-1" {
+                                    levelUnlocked = 1
+                                }
+                                else {
+                                    levelUnlocked = data.count + 1
+                                }
+                                levelUnlockedAr["Math"] = levelUnlocked
+                            }
+                        }
+                    }
+                }
+            }
+            catch {
+                print("File read error:", error)
+            }
+        }
+    }
+    
     func ScrollAtLocation(location: CGPoint,location2: CGPoint,scrollLeft: Bool)
     {
         var scrollBoxInd = -1
@@ -169,6 +259,9 @@ class LevelSelectScene: SKScene {
                 if scrollX != 0.0 {
                     for hotAirBalloon in hotAirBalloonAr[scrollBoxInd] {
                         hotAirBalloon.run(action)
+                    }
+                    for hotAirBalloonLock in hotAirBalloonLockAr[scrollBoxInd] {
+                        hotAirBalloonLock.run(action)
                     }
                     for hotAirBalloonLabel in hotAirBalloonLabelAr[scrollBoxInd] {
                         hotAirBalloonLabel.run(action)
@@ -216,8 +309,16 @@ class LevelSelectScene: SKScene {
                             if let ind3 : Int = Int(sceneIndStr) {
                                 if ind2 >= minLevel && ind2 <= maxLevel {
                                     if ind3 >= 0 && ind3 < subjectAr.count {
-                                        global.currentLevel = ind2
-                                        TransitionScene(sceneType:subjectAr[ind3])
+                                        if let levelUnlocked = levelUnlockedAr[subjectAr[ind3]] {
+                                            if levelUnlocked >= ind2 {
+                                                global.currentLevel = ind2
+                                                TransitionScene(sceneType:subjectAr[ind3])
+                                            }
+                                            else {
+                                                let playSound = SKAction.playSoundFileNamed("WrongProgress.wav", waitForCompletion: false)
+                                                self.run(SKAction.sequence([playSound]))
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -242,8 +343,6 @@ class LevelSelectScene: SKScene {
         }
         
         let touchLocation = touch.location(in: self)
-        let touchedNode = self.atPoint(touchLocation)
-        
         ScrollAtLocation(location:scrollLocation,location2:touchLocation,scrollLeft: false)
     }
     
@@ -253,7 +352,6 @@ class LevelSelectScene: SKScene {
         }
         
         let touchLocation = touch.location(in: self)
-        let touchedNode = self.atPoint(touchLocation)
         
         isScrolling = false
         scrollLocation = touchLocation
@@ -279,6 +377,8 @@ class LevelSelectScene: SKScene {
     
     func TransitionScene(sceneType:String)
     {
+        global.sceneType = sceneType
+        
         let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
         NotificationCenter.default.post(name: Notification.Name(rawValue: "StopBackgroundSound"), object: self, userInfo:dictToSend)
         
@@ -286,20 +386,20 @@ class LevelSelectScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
-            if sceneType == "Math" {
-                let nextScene = MathDrawScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
+            if global.sceneType == "Math" {
+                let nextScene = MathDrawScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
-            else if sceneType == "Vocabulary" {
-                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
+            else if global.sceneType == "Vocabulary" {
+                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
-            else if sceneType == "Grammar" {
-                let nextScene = WordSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
+            else if global.sceneType == "Grammar" {
+                let nextScene = WordSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
-            else if sceneType == "Spelling" {
-                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:sceneType)
+            else if global.sceneType == "Spelling" {
+                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             

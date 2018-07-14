@@ -156,7 +156,7 @@ class TitleScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
-            let nextScene = PlayerSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"playerselect")
+            let nextScene = PlayerSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"PlayerSelect")
             self.view?.presentScene(nextScene, transition: reveal)
         
         })

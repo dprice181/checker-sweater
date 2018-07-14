@@ -417,7 +417,7 @@ class PlayerSelectScene: SKScene {
                     let dataAr = fileText.components(separatedBy: .newlines)
                     addName = "Student " + String(dataAr.count)
                 }
-                let text = addName + "*" + addGrade
+                let text = addName + "*" + addGrade + "*-1*-1*-1*-1"
                 fileText.append("\n"+text)
                 try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
 
@@ -577,6 +577,22 @@ class PlayerSelectScene: SKScene {
                     }
                 }
             }
+            if shapeNode.name?.contains("progress") != nil && (shapeNode.name?.contains("progress"))!  {
+                if let ind = shapeNode.name?.last {
+                    let strInd : String = String(ind)
+                    if let ind2 : Int = Int(strInd) {
+                        if ind2 < playerAr.count {
+                            if nameAr.count > ind2 {
+                                global.currentStudent = nameAr[ind2]
+                            }
+                            if gradeAr.count > ind2 {
+                                global.currentGrade = gradeAr[ind2]
+                            }
+                            OpenProgressReport()
+                        }
+                    }
+                }                
+            }
             if shapeNode.name?.contains("deletebox") != nil && (shapeNode.name?.contains("deletebox"))!  {
                 if let ind = shapeNode.name?.last {
                     let strInd : String = String(ind)
@@ -589,6 +605,18 @@ class PlayerSelectScene: SKScene {
                 TransitionBack()
             }            
         }
+    }
+    
+    func OpenProgressReport() {
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        let newScene = SKAction.run({
+            let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
+            
+            let nextScene = ProgressReportScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"ProgressReport")
+            self.view?.presentScene(nextScene, transition: reveal)
+            
+        })
+        self.run(SKAction.sequence([playSound,newScene]))
     }
     
     func TransitionBack()

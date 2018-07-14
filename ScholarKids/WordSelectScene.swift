@@ -32,8 +32,7 @@ class WordSelectScene: SKScene {
     var sentence = ""
     
     var currentExtraWordNum = 0
-    var sceneType = ""
-    
+        
     var levelMode = "n"
     var background = SKSpriteNode(imageNamed: "background4.png")
     
@@ -44,7 +43,7 @@ class WordSelectScene: SKScene {
         global.correctAnswers = correctAnswers
         global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
-        self.sceneType = sceneType
+        global.sceneType = sceneType
         
         GetSentence()        
         SetCorrectAnswer()
@@ -306,11 +305,11 @@ class WordSelectScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             if (global.currentSentenceNum % 6) < 3 {
-                let nextScene = WordSelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = WordSelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
         })

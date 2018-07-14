@@ -28,6 +28,7 @@ class Global {
     var correctAnswers = 0
     var incorrectAnswers = 0
     var currentSentenceNum = 0
+    var sceneType : String = ""
 }
 
 let global = Global()
@@ -238,6 +239,8 @@ func DrawLine(scene : SKScene, overlayNode : SKNode, ratio: Int,yPos : CGFloat, 
 }
 
 func DisplayLevelFinished(scene : SKScene) {
+    WriteResultsToFile()
+    
     global.overlayNode.position = CGPoint(x: scene.size.width/2, y: 0)
     global.overlayNode.zPosition = 300
     
@@ -430,6 +433,7 @@ func DisplayLevelFinished(scene : SKScene) {
     if global.correctAnswers >= 9 {
         star3Sound = SKAction.playSoundFileNamed("Star3.wav", waitForCompletion: false)
     }
+    
     let wait = SKAction.wait(forDuration: 0.6)
     let action = SKAction.moveBy(x: 0, y: scene.size.height/2, duration: 1.5)
     action.timingMode = SKActionTimingMode.easeInEaseOut
@@ -446,6 +450,80 @@ func DisplayLevelFinished(scene : SKScene) {
                                             global.currentSentenceNum = 0
                                         })
         ]))
+    
+    
+    
+}
+
+func WriteResultsToFile() {
+    let sceneTypeAr = ["Math","Grammar","Vocabulary","Spelling"]
+    let file = "Players.txt" //this is the file. we will write to and read from it
+    if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+        let path = dir + "/" + file
+        do {
+            var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            var lineAr = fileText.components(separatedBy: .newlines)
+            if lineAr.count > 0 {
+                for i in 0..<lineAr.count {
+                    var playerDataAr = lineAr[i].characters.split{$0 == "*"}.map(String.init)
+                    if playerDataAr.count < 6 {
+                        continue
+                    }
+                    if global.currentStudent == playerDataAr[0] {
+                        for x in 0..<sceneTypeAr.count {
+                            if global.sceneType == sceneTypeAr[x] {
+                                var data = playerDataAr[2+x].characters.split{$0 == " "}.map(String.init)
+                                let levelCompleteCount = data.count
+                                if levelCompleteCount < global.currentLevel {
+                                    data.append(String(global.correctAnswers))
+                                }
+                                else  {
+                                    data[global.currentLevel-1] = String(global.correctAnswers)
+                                }
+                                playerDataAr[2+x] = data.joined(separator: " ")
+                                break
+                            }
+                        }
+//                        if global.sceneType == "Math" {
+//                            var data = playerDataAr[2].characters.split{$0 == " "}.map(String.init)
+//                            let levelCompleteCount = data.count
+//                            if levelCompleteCount < global.currentLevel {
+//                                data.append(String(global.correctAnswers))
+//                            }
+//                            else  {
+//                                data[global.currentLevel-1] = String(global.correctAnswers)
+//                            }
+//                            playerDataAr[2] = data.joined(separator: " ")
+//                        }
+//                        else if global.sceneType == "Grammar" {
+//                            var data = playerDataAr[3].characters.split{$0 == " "}.map(String.init)
+//                            let levelCompleteCount = data.count
+//                            if levelCompleteCount < global.currentLevel {
+//                                data.append(String(global.correctAnswers))
+//                            }
+//                            else  {
+//                                data[global.currentLevel-1] = String(global.correctAnswers)
+//                            }
+//                            playerDataAr[3] = data.joined(separator: " ")
+//                        }
+//                        else if global.sceneType == "Vocabulary" {
+//
+//                        }
+//                        else if global.sceneType == "Spelling" {
+//
+//                        }
+                        
+                        lineAr[i] = playerDataAr.joined(separator: "*")
+                    }
+                }
+            }
+            fileText = lineAr.joined(separator: "\n")
+            try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+        }
+        catch {
+            print("File read error:", error)
+        }
+    }
 }
 
 class GameViewController: UIViewController, SKViewDelegate {

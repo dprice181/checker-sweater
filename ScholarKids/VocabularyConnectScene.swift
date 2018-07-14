@@ -36,7 +36,7 @@ class VocabularyConnectScene: SKScene {
     var circleWordAr2 = [SKShapeNode]()
     
     var currentExtraWordNum = 0
-    var sceneType = ""
+    
     
     var wordAr : [String] = []
     var word1Ar : [String] = []
@@ -68,7 +68,7 @@ class VocabularyConnectScene: SKScene {
         GetSentence()
         
         self.currentExtraWordNum = currentExtraWordNum
-        self.sceneType = sceneType
+        global.sceneType = sceneType        
         
         lineConnections.append(-1)
         lineConnections.append(-1)
@@ -588,11 +588,11 @@ class VocabularyConnectScene: SKScene {
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
             if (global.currentSentenceNum % 12) < 9 {
-                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
         })
@@ -627,7 +627,7 @@ class VocabularyConnectScene: SKScene {
             TransitionScene(playSound:playSound,duration:1.5)
         }
     }
-    
+       
     func IncorrectAnswerSelected() {
         for line in lineAr {
             line.removeFromParent()

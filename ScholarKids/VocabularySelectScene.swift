@@ -37,7 +37,7 @@ class VocabularySelectScene: SKScene {
     var correctAnswer = 0
     
     var currentExtraWordNum = 0
-    var sceneType = ""
+    
     
     var wordAr : [String] = []
     var wordAlt1Ar : [String] = []
@@ -59,7 +59,7 @@ class VocabularySelectScene: SKScene {
         global.correctAnswers = correctAnswers
         global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
-        self.sceneType = sceneType
+        global.sceneType = sceneType
         
         InitLetterStrings()
         GetSentence()
@@ -70,7 +70,7 @@ class VocabularySelectScene: SKScene {
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*5/6)
         fullTitle.zPosition = 100.0
         
-        if sceneType == "Spelling" {
+        if global.sceneType == "Spelling" {
             labelTitle.text = "SPELLING"
         }
         else {
@@ -95,7 +95,7 @@ class VocabularySelectScene: SKScene {
         
         addChild(fullTitle)
         
-        if sceneType == "Spelling" {
+        if global.sceneType == "Spelling" {
             labelInstr.text = "Select the correct spelling below."
         }
         else {
@@ -136,7 +136,7 @@ class VocabularySelectScene: SKScene {
         labelVocabularyWord.text = vocabularyWord
         labelVocabularyWord.fontSize = 45
         labelVocabularyWord.fontColor = global.purple
-        if sceneType == "Spelling" {
+        if global.sceneType == "Spelling" {
             labelVocabularyWord.position = CGPoint(x: self.size.width/2, y: self.size.height*14.5/24)
         }
         else {
@@ -147,7 +147,7 @@ class VocabularySelectScene: SKScene {
         labelVocabularyWordShadow = CreateShadowLabel(label: labelVocabularyWord,offset: 1)
         addChild(labelVocabularyWordShadow)
         
-        if sceneType == "Spelling" {
+        if global.sceneType == "Spelling" {
             AddSpellingDefinition()
         }
 
@@ -307,7 +307,7 @@ class VocabularySelectScene: SKScene {
     
     func GetFileName() -> String {
         var fileName = "Vocabulary" + global.currentGrade
-//        if sceneType == "Spelling" {
+//        if global.sceneType == "Spelling" {
 //            fileName = "Spelling1"
 //            switch (global.currentGrade) {
 //                case "K","1":
@@ -339,7 +339,7 @@ class VocabularySelectScene: SKScene {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
             
-            if sceneType == "Spelling" {
+            if global.sceneType == "Spelling" {
                 spellingDefinition = lineAr[global.currentSentenceNum*2+1]
                 
                 vocabularyDefinition = lineAr[global.currentSentenceNum*2]  //this is actually the spellingWord
@@ -544,14 +544,26 @@ class VocabularySelectScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
 
-            if (global.currentSentenceNum % 12) < 9 {
-                let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
-                self.view?.presentScene(nextScene, transition: reveal)
+            if global.sceneType == "Spelling" {
+                if (global.currentSentenceNum % 6) < 3 {
+                    let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
+                    self.view?.presentScene(nextScene, transition: reveal)
+                }
+                else {
+                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
+                    self.view?.presentScene(nextScene, transition: reveal)
+                }
             }
             else {
-                let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
-                self.view?.presentScene(nextScene, transition: reveal)
-            }        
+                if (global.currentSentenceNum % 12) < 9 {
+                    let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
+                    self.view?.presentScene(nextScene, transition: reveal)
+                }
+                else {
+                    let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
+                    self.view?.presentScene(nextScene, transition: reveal)
+                }
+            }
         })
         self.run(SKAction.sequence([playSound,wait,newScene]))
     }

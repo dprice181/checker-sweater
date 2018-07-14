@@ -18,6 +18,7 @@
 		040B60C420D1C14A0009ED9C /* Spelling3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 040B60BE20D1C14A0009ED9C /* Spelling3.txt */; };
 		040B60C520D1C14A0009ED9C /* Spelling5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 040B60BF20D1C14A0009ED9C /* Spelling5.txt */; };
 		040B60C620D1C14A0009ED9C /* Spelling7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 040B60C020D1C14A0009ED9C /* Spelling7.txt */; };
+		041354DB20F90E8100CC606D /* ProgressReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041354DA20F90E8100CC606D /* ProgressReportScene.swift */; };
 		0437526820E19DD700E791F0 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 0437526520E19DD700E791F0 /* next.png */; };
 		0437526920E19DD700E791F0 /* retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 0437526620E19DD700E791F0 /* retry.png */; };
 		0437526A20E19DD700E791F0 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0437526720E19DD700E791F0 /* home.png */; };
@@ -43,6 +44,7 @@
 		043752B420E4861A00E791F0 /* pencils.png in Resources */ = {isa = PBXBuildFile; fileRef = 043752AF20E4861A00E791F0 /* pencils.png */; };
 		043752B520E4861A00E791F0 /* pies.png in Resources */ = {isa = PBXBuildFile; fileRef = 043752B020E4861A00E791F0 /* pies.png */; };
 		043752B620E4861A00E791F0 /* cookies.png in Resources */ = {isa = PBXBuildFile; fileRef = 043752B120E4861A00E791F0 /* cookies.png */; };
+		04421FE020FA935C00DAD821 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 04421FDF20FA935B00DAD821 /* lock.png */; };
 		0445EC5820DC07A5006098ED /* RedLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5720DC07A5006098ED /* RedLeft.png */; };
 		0445EC5B20DC7B73006098ED /* GoldStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5920DC7B73006098ED /* GoldStar.png */; };
 		0445EC5C20DC7B73006098ED /* BlackStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5A20DC7B73006098ED /* BlackStar.png */; };
@@ -77,7 +79,6 @@
 		84C36AC520B4DB7B00ED9C19 /* VocabularySelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C36AC420B4DB7B00ED9C19 /* VocabularySelectScene.swift */; };
 		84E8A4B920B24B4000AF7C4C /* Sentences1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84E8A4B820B24B4000AF7C4C /* Sentences1.txt */; };
 		84E8A4C920B3432800AF7C4C /* WordDragScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8A4C820B3432800AF7C4C /* WordDragScene.swift */; };
-		84E8A4CD20B3610400AF7C4C /* AttributedLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8A4CC20B3610400AF7C4C /* AttributedLabelNode.swift */; };
 		84E8A4CF20B3AD4300AF7C4C /* Adjectives1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84E8A4CE20B3AD4300AF7C4C /* Adjectives1.txt */; };
 		84E8A4D120B3AD4700AF7C4C /* Verbs1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84E8A4D020B3AD4700AF7C4C /* Verbs1.txt */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		040B60BE20D1C14A0009ED9C /* Spelling3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling3.txt; path = ScholarKids/Sentences/Spelling3.txt; sourceTree = SOURCE_ROOT; };
 		040B60BF20D1C14A0009ED9C /* Spelling5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling5.txt; path = ScholarKids/Sentences/Spelling5.txt; sourceTree = SOURCE_ROOT; };
 		040B60C020D1C14A0009ED9C /* Spelling7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling7.txt; path = ScholarKids/Sentences/Spelling7.txt; sourceTree = SOURCE_ROOT; };
+		041354DA20F90E8100CC606D /* ProgressReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressReportScene.swift; sourceTree = "<group>"; };
 		0437526520E19DD700E791F0 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		0437526620E19DD700E791F0 /* retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retry.png; sourceTree = "<group>"; };
 		0437526720E19DD700E791F0 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		043752AF20E4861A00E791F0 /* pencils.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencils.png; sourceTree = "<group>"; };
 		043752B020E4861A00E791F0 /* pies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pies.png; sourceTree = "<group>"; };
 		043752B120E4861A00E791F0 /* cookies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cookies.png; sourceTree = "<group>"; };
+		04421FDF20FA935B00DAD821 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		0445EC5720DC07A5006098ED /* RedLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedLeft.png; sourceTree = "<group>"; };
 		0445EC5920DC7B73006098ED /* GoldStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldStar.png; sourceTree = "<group>"; };
 		0445EC5A20DC7B73006098ED /* BlackStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackStar.png; sourceTree = "<group>"; };
@@ -174,7 +177,6 @@
 		84C36AC420B4DB7B00ED9C19 /* VocabularySelectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySelectScene.swift; sourceTree = "<group>"; };
 		84E8A4B820B24B4000AF7C4C /* Sentences1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sentences1.txt; sourceTree = "<group>"; };
 		84E8A4C820B3432800AF7C4C /* WordDragScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDragScene.swift; sourceTree = "<group>"; };
-		84E8A4CC20B3610400AF7C4C /* AttributedLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedLabelNode.swift; sourceTree = "<group>"; };
 		84E8A4CE20B3AD4300AF7C4C /* Adjectives1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adjectives1.txt; sourceTree = "<group>"; };
 		84E8A4D020B3AD4700AF7C4C /* Verbs1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Verbs1.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,13 +234,13 @@
 				8400BBD920B7939F0040CC24 /* TitleScene.swift */,
 				840B92AD20B8C6FC001F8FA3 /* PlayerSelectScene.swift */,
 				840B92AF20B8C771001F8FA3 /* LevelSelectScene.swift */,
+				041354DA20F90E8100CC606D /* ProgressReportScene.swift */,
 				0459362D20C12080003D1A6B /* MathDrawScene.swift */,
 				04B22B0020D71C9700F3AA69 /* MathDragScene.swift */,
 				84A6950F20B0EAEC00D5E212 /* WordSelectScene.swift */,
 				84E8A4C820B3432800AF7C4C /* WordDragScene.swift */,
 				84C36AC420B4DB7B00ED9C19 /* VocabularySelectScene.swift */,
 				0437529120E2AE7F00E791F0 /* VocabularyConnectScene.swift */,
-				84E8A4CC20B3610400AF7C4C /* AttributedLabelNode.swift */,
 				84004A8C20AF3C3100761FB6 /* Main.storyboard */,
 				84004A8220AF3C3100761FB6 /* AppDelegate.swift */,
 				84004A8420AF3C3100761FB6 /* GameScene.sks */,
@@ -300,6 +302,7 @@
 		84409F1C20B4E6320008F6D5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04421FDF20FA935B00DAD821 /* lock.png */,
 				043752AE20E4861A00E791F0 /* books.png */,
 				043752AD20E4861A00E791F0 /* cakes.png */,
 				043752B120E4861A00E791F0 /* cookies.png */,
@@ -475,6 +478,7 @@
 				040B60B620CF34D00009ED9C /* QuizWrong.wav in Resources */,
 				0437527D20E1CAE800E791F0 /* WrongProgress.wav in Resources */,
 				0445EC5B20DC7B73006098ED /* GoldStar.png in Resources */,
+				04421FE020FA935C00DAD821 /* lock.png in Resources */,
 				043752B220E4861A00E791F0 /* cakes.png in Resources */,
 				845A42FA20B1312000996714 /* free-backgrounds-17.jpg in Resources */,
 				043752B420E4861A00E791F0 /* pencils.png in Resources */,
@@ -540,12 +544,12 @@
 				84E8A4C920B3432800AF7C4C /* WordDragScene.swift in Sources */,
 				84004A8920AF3C3100761FB6 /* GameScene.swift in Sources */,
 				8400BBDA20B7939F0040CC24 /* TitleScene.swift in Sources */,
-				84E8A4CD20B3610400AF7C4C /* AttributedLabelNode.swift in Sources */,
 				84004A8B20AF3C3100761FB6 /* GameViewController.swift in Sources */,
 				84A6951020B0EAEC00D5E212 /* WordSelectScene.swift in Sources */,
 				0459362E20C12080003D1A6B /* MathDrawScene.swift in Sources */,
 				84004A8320AF3C3100761FB6 /* AppDelegate.swift in Sources */,
 				840B92B020B8C771001F8FA3 /* LevelSelectScene.swift in Sources */,
+				041354DB20F90E8100CC606D /* ProgressReportScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

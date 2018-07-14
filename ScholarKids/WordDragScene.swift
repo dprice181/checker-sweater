@@ -48,12 +48,12 @@ class WordDragScene: SKScene {
     var answerPos = 0    
     var choiceMade = false
     var background = SKSpriteNode(imageNamed: "background4.png")
-    var sceneType = ""
+    
     
     func GetSentence()
     {
         var fileName = "Sentences1"
-        if sceneType == "Vocabulary" || sceneType == "Spelling" {
+        if global.sceneType == "Vocabulary" || global.sceneType == "Spelling" {
             fileName = "VocabularySentences1"
         }
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt")
@@ -87,12 +87,12 @@ class WordDragScene: SKScene {
         var extraWord1 = ""
         var extraWord2 = ""
         var correctWord = wordAr[correctAnswerAr[0]]
-        if sceneType == "Spelling" {
+        if global.sceneType == "Spelling" {
             var vocabularyWordAr = Misspell(word: correctWord)
             extraWord1 = vocabularyWordAr[1]
             extraWord2 = vocabularyWordAr[2]
         }
-        else if sceneType == "Vocabulary" {
+        else if global.sceneType == "Vocabulary" {
             let fileName = "Vocabulary" + global.currentGrade
             if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -191,7 +191,7 @@ class WordDragScene: SKScene {
         global.correctAnswers = correctAnswers
         global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
-        self.sceneType = sceneType
+        global.sceneType = sceneType
         
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
@@ -205,10 +205,10 @@ class WordDragScene: SKScene {
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*5/6)
         fullTitle.zPosition = 100.0
         
-        if sceneType == "Vocabulary" {
+        if global.sceneType == "Vocabulary" {
             labelTitle.text = "VOCABULARY"
         }
-        else if sceneType == "Spelling" {
+        else if global.sceneType == "Spelling" {
             labelTitle.text = "SPELLING"
         }
         else {
@@ -233,10 +233,10 @@ class WordDragScene: SKScene {
         
         addChild(fullTitle)
         
-        if sceneType == "Vocabulary" {
+        if global.sceneType == "Vocabulary" {
             labelInstr.text = "Drag the correct word"
         }
-        else if sceneType == "Spelling" {
+        else if global.sceneType == "Spelling" {
             labelInstr.text = "Drag the correct spelling"
         }
         else {
@@ -536,23 +536,23 @@ class WordDragScene: SKScene {
         
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
-            if self.sceneType == "Vocabulary" || self.sceneType == "Spelling" {
+            if global.sceneType == "Vocabulary" || global.sceneType == "Spelling" {
                 if (global.currentSentenceNum % 6) < 3 {
-                    let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                    let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
                 else {
-                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
             }
             else {
                 if (global.currentSentenceNum % 6) < 3 {
-                    let nextScene = WordSelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                    let nextScene = WordSelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
                 else {
-                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
             }

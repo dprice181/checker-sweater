@@ -38,7 +38,7 @@ class MathDrawScene: SKScene {
     var negativeNumbers = false
     
     var currentExtraWordNum = 0
-    var sceneType = ""
+    
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -50,7 +50,8 @@ class MathDrawScene: SKScene {
         global.correctAnswers = correctAnswers
         global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
-        self.sceneType = sceneType
+        global.sceneType = sceneType
+                
         
         GetProblem()
         
@@ -769,11 +770,11 @@ class MathDrawScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             if (global.currentSentenceNum % 6) < 3 {
-                let nextScene = MathDrawScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = MathDrawScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
         })

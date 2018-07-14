@@ -14,7 +14,7 @@ class MathDragScene: SKScene {
     let SELECTTEXT_FONTSIZE : CGFloat = 17.0
     
     var currentExtraWordNum = 0
-    var sceneType = ""
+    
     
     let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
@@ -77,13 +77,11 @@ class MathDragScene: SKScene {
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         
-        global.currentStudent = "Amandas"
-        
         physicsWorld.gravity = .zero
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         
         self.currentExtraWordNum = currentExtraWordNum
-        self.sceneType = sceneType
+        global.sceneType = sceneType
         
         GetSentence()
         
@@ -125,8 +123,8 @@ class MathDragScene: SKScene {
         submitButton.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48)
         addChild(submitButton)
         
-        submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.9,
-                                            height: (self.size.height*2/48)*0.9),cornerRadius: 30.0)
+        submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.85,
+                                            height: (self.size.height*2/48)*0.85),cornerRadius: 10.0)
         submitButtonShadow.name = "bshadow"
         submitButtonShadow.fillColor = SKColor.black
         submitButtonShadow.strokeColor = SKColor.black
@@ -931,11 +929,11 @@ class MathDragScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             if (global.currentSentenceNum % 6) < 3 {
-                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:self.sceneType)
+                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
         })
