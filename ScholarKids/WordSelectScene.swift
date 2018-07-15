@@ -11,7 +11,7 @@ import GameplayKit
 
 class WordSelectScene: SKScene {
 
-    let SELECTTEXT_FONTSIZE : CGFloat = 17.0
+    let SELECTTEXT_FONTSIZE : CGFloat = 26.0
     
     var labelAr = [SKLabelNode]()
     var labelSpaceAr = [SKLabelNode]()
@@ -21,13 +21,18 @@ class WordSelectScene: SKScene {
     let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelInstr = SKLabelNode(fontNamed: "Arial")
+    let labelInstrR2 = SKLabelNode(fontNamed: "Arial")
+    let labelInstr2 = SKLabelNode(fontNamed: "Arial")
     let labelCorrect = SKLabelNode(fontNamed: "Arial")
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
     var labelTitleShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     var labelSubtitleShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     var labelInstrShadow = SKLabelNode(fontNamed: "Arial")
+    var labelInstrR2Shadow = SKLabelNode(fontNamed: "Arial")
+    var labelInstr2Shadow = SKLabelNode(fontNamed: "Arial")
     var labelCorrectShadow = SKLabelNode(fontNamed: "Arial")
     var labelIncorrectShadow = SKLabelNode(fontNamed: "Arial")
+    var lineTitle2 = SKShapeNode()
     let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
     var sentence = ""
     
@@ -50,63 +55,23 @@ class WordSelectScene: SKScene {
         
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         
-        let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*5/6)
-        fullTitle.zPosition = 100.0
-
-        labelTitle.text = "NOUNS"
-        labelTitle.fontSize = 45
-        labelTitle.fontColor = SKColor.red
-        labelTitle.position = .zero
-        labelTitle.zPosition = 100.0
-        fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
-        fullTitle.addChild(labelTitleShadow)
+        DrawTitle()
+        DrawInstructions()
+        DrawScoreNode()
+        DrawSentence()
         
-        labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 40
-        labelSubtitle.fontColor = SKColor.red
-        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
-        labelSubtitle.zPosition = 100.0
-        fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
-        fullTitle.addChild(labelSubtitleShadow)
-
-        addChild(fullTitle)
+        background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
+        background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
+        addChild(background)
         
-        
-        labelInstr.text = "Select the noun from the sentence below."
-        labelInstr.fontSize = 18
-        labelInstr.fontColor = SKColor.purple
-        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
-        labelInstr.zPosition = 100.0
-        addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
-        addChild(labelInstrShadow)
-        
-        let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/6)
-        scoreNode.zPosition = 100.0
-        
-        labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
-        labelCorrect.fontColor = SKColor.red
-        labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
-        scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
-        scoreNode.addChild(labelCorrectShadow)
-        
-        
-        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
-        labelIncorrect.fontColor = SKColor.red
-        labelIncorrect.position = .zero
-        scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
-        scoreNode.addChild(labelIncorrectShadow)
-        addChild(scoreNode)
-        
-        
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
+    }
+    
+    func DrawSentence() {
         let mySentence: NSString = sentence as NSString
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
         var widthSentence = sizeSentence.width
@@ -142,7 +107,7 @@ class WordSelectScene: SKScene {
             labelAr[i].fontSize = SELECTTEXT_FONTSIZE
             labelAr[i].fontColor = global.lightBlue
             labelAr[i].horizontalAlignmentMode = .left
-            labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 12 / 24)
+            labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 11 / 24)
             widthSum = widthSum + widthWord
             addChild(labelAr[i])
             addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
@@ -150,24 +115,96 @@ class WordSelectScene: SKScene {
             i = i + 1
             
             if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
-                startY = startY - sizeWord.height * 1.25  //give a bit of extra space between rows
+                startY = startY - sizeWord.height * 1.35  //give a bit of extra space between rows
                 widthSum = 0.0
             }
         }
-            
-        background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
-        background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
-        addChild(background)
-        
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func DrawTitle() {
+        let fullTitle = SKNode()
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
+        fullTitle.zPosition = 100.0
+        
+        labelTitle.text = "NOUNS"
+        labelTitle.fontSize = 55
+        labelTitle.fontColor = SKColor.red
+        labelTitle.position = .zero
+        labelTitle.zPosition = 100.0
+        fullTitle.addChild(labelTitle)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        fullTitle.addChild(labelTitleShadow)
+        
+        labelSubtitle.text = "Level " + String(global.currentLevel)
+        labelSubtitle.fontSize = 45
+        labelSubtitle.fontColor = SKColor.red
+        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
+        labelSubtitle.zPosition = 100.0
+        fullTitle.addChild(labelSubtitle)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        fullTitle.addChild(labelSubtitleShadow)
+        
+        addChild(fullTitle)
+    }
+    
+    func DrawInstructions() {
+        labelInstr.text = "Select the noun"
+        labelInstr.fontSize = 24
+        labelInstr.fontColor = SKColor.purple
+        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
+        labelInstr.zPosition = 100.0
+        addChild(labelInstr)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        addChild(labelInstrShadow)
+        
+        labelInstrR2.text = "from the sentence below."
+        labelInstrR2.fontSize = 24
+        labelInstrR2.fontColor = SKColor.purple
+        labelInstrR2.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
+        labelInstrR2.zPosition = 100.0
+        addChild(labelInstrR2)
+        labelInstrR2Shadow = CreateShadowLabel(label: labelInstrR2,offset: 1)
+        addChild(labelInstrR2Shadow)
+        
+        labelInstr2.text = "(A Noun is the name of a person place or thing)"
+        labelInstr2.fontSize = 16
+        labelInstr2.fontColor = SKColor.red
+        labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*14.5/24)
+        labelInstr2.zPosition = 100.0
+        addChild(labelInstr2)
+        labelInstr2Shadow = CreateShadowLabel(label: labelInstr2,offset: 1)
+        addChild(labelInstr2Shadow)
+        
+        var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*3/4, y:0.0)]
+        lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
+        lineTitle2.position = CGPoint(x:self.size.width/8,y:self.size.height*14.2/24)
+        lineTitle2.lineWidth = 2.0
+        lineTitle2.strokeColor = SKColor.red
+        self.addChild(lineTitle2)
+    }
+    
+    func DrawScoreNode() {
+        let scoreNode = SKNode()
+        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
+        scoreNode.zPosition = 100.0
+        
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
+        labelCorrect.fontSize = 15
+        labelCorrect.fontColor = SKColor.red
+        labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
+        scoreNode.addChild(labelCorrect)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        scoreNode.addChild(labelCorrectShadow)
+        
+        
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
+        labelIncorrect.fontSize = 15
+        labelIncorrect.fontColor = SKColor.red
+        labelIncorrect.position = .zero
+        scoreNode.addChild(labelIncorrect)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        scoreNode.addChild(labelIncorrectShadow)
+        addChild(scoreNode)
     }
     
     func GetSentence()
@@ -176,12 +213,14 @@ class WordSelectScene: SKScene {
         {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
-            let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            //let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            let sentenceAr = lineAr[global.grammarSelectNum].characters.split{$0 == "*"}.map(String.init)
             sentence = sentenceAr[0]
             let sentenceData = sentenceAr[1]
             wordAr = sentence.characters.split{$0 == " "}.map(String.init)
             sentenceDataAr = sentenceData.characters.split{$0 == " "}.map(String.init)
             global.currentSentenceNum = global.currentSentenceNum + 1
+            global.currentSentenceNum = global.grammarSelectNum + 1
         }
         else
         {
@@ -356,5 +395,9 @@ class WordSelectScene: SKScene {
             let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
             TransitionScene(playSound:playSound,duration:4.0)
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

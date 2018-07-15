@@ -15,7 +15,6 @@ class MathDrawScene: SKScene {
     var problemAr = [String]()
     var labelAnswer = SKLabelNode(fontNamed: "Arial")
     var labelAnswerShadow = SKLabelNode(fontNamed: "Arial")
-    //var buttonAr = [SKShapeNode]()
     var buttonAr = [SKSpriteNode]()
     var buttonShadowAr = [SKShapeNode]()
     var buttonLabelAr = [SKLabelNode]()
@@ -54,32 +53,15 @@ class MathDrawScene: SKScene {
                 
         
         GetProblem()
+        DrawTitle()
+        DrawProblem()
+        DrawNumberButtons()
+        DrawOtherButtons()
+        DrawCorrectLabels()
         
-        labelTitle.text = "Answer with the numbers below"
-        labelTitle.fontSize = 21
-        labelTitle.fontColor = SKColor.black
-        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.2/24)
-        labelTitle.zPosition = 100.0
-        addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
-        addChild(labelTitleShadow)
-        
-        labelTitle2.text = "(Write your work with your finger)"
-        labelTitle2.fontSize = 21
-        labelTitle2.fontColor = SKColor.red
-        labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*21.3/24)
-        labelTitle2.zPosition = 100.0
-        addChild(labelTitle2)
-        labelTitleShadow2 = CreateShadowLabel(label: labelTitle2,offset: 1)
-        addChild(labelTitleShadow2)
-        
-        var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*3/4, y:0.0)]
-        lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
-        lineTitle2.position = CGPoint(x:self.size.width/8,y:self.size.height*21/24)
-        lineTitle2.lineWidth = 2.0
-        lineTitle2.strokeColor = SKColor.red
-        self.addChild(lineTitle2)
-        
+    }
+    
+    func DrawProblem() {
         if oper1 == "/" {
             AddDivision()
         }
@@ -121,11 +103,33 @@ class MathDrawScene: SKScene {
             labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: 1.5)
             addChild(labelAnswerShadow)
         }
+    }
+    
+    func DrawTitle() {
+        labelTitle.text = "Answer with the numbers below"
+        labelTitle.fontSize = 21
+        labelTitle.fontColor = SKColor.black
+        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.2/24)
+        labelTitle.zPosition = 100.0
+        addChild(labelTitle)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        addChild(labelTitleShadow)
         
-        DrawNumberButtons()
-        DrawOtherButtons()
-        DrawCorrectLabels()
+        labelTitle2.text = "(Write your work with your finger)"
+        labelTitle2.fontSize = 21
+        labelTitle2.fontColor = SKColor.red
+        labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*21.3/24)
+        labelTitle2.zPosition = 100.0
+        addChild(labelTitle2)
+        labelTitleShadow2 = CreateShadowLabel(label: labelTitle2,offset: 1)
+        addChild(labelTitleShadow2)
         
+        var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*3/4, y:0.0)]
+        lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
+        lineTitle2.position = CGPoint(x:self.size.width/8,y:self.size.height*21/24)
+        lineTitle2.lineWidth = 2.0
+        lineTitle2.strokeColor = SKColor.red
+        self.addChild(lineTitle2)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -762,7 +766,7 @@ class MathDrawScene: SKScene {
         for child in global.overlayNode.children {
             child.removeFromParent()
         }
-        global.overlayNode.removeFromParent()
+        global.overlayNode.removeFromParent()        
         global.currentSentenceNum = global.currentSentenceNum + 1
         
         let wait = SKAction.wait(forDuration: duration)

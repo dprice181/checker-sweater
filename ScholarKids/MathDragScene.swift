@@ -123,12 +123,12 @@ class MathDragScene: SKScene {
         submitButton.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48)
         addChild(submitButton)
         
-        submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.85,
-                                            height: (self.size.height*2/48)*0.85),cornerRadius: 10.0)
+        submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.75,
+                                            height: (self.size.height*2/48)*0.75),cornerRadius: 30.0)
         submitButtonShadow.name = "bshadow"
         submitButtonShadow.fillColor = SKColor.black
         submitButtonShadow.strokeColor = SKColor.black
-        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-1.2, y: self.size.height*1.5/48+1.2)
+        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-2.5, y: self.size.height*1.5/48+2.5)
         submitButtonShadow.zPosition = 100.0
         submitButtonShadow.lineWidth = 2.0
         addChild(submitButtonShadow)
@@ -751,10 +751,10 @@ class MathDragScene: SKScene {
         if let path = Bundle.main.path(forResource: "WordProblems1", ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
-            if lineAr.count < global.currentSentenceNum {
+            if lineAr.count < global.wordProblemsNum {
                 return
             }
-            let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "#"}.map(String.init)
+            let sentenceAr = lineAr[global.wordProblemsNum].characters.split{$0 == "#"}.map(String.init)
             if sentenceAr.count < 3 {
                 return
             }
@@ -923,17 +923,18 @@ class MathDragScene: SKScene {
         global.overlayNode.removeFromParent()
         
         global.currentSentenceNum = global.currentSentenceNum + 1
+        global.wordProblemsNum = global.wordProblemsNum + 1
         
         let wait = SKAction.wait(forDuration: duration)
         
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
-            if (global.currentSentenceNum % 6) < 3 {
-                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
+            if (global.wordProblemsNum % 6) < 3 {
+                let nextScene = MathDrawScene(size: self.size,currentSentenceNum:global.wordProblemsNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else {
-                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
+                let nextScene = MathDragScene(size: self.size,currentSentenceNum:global.wordProblemsNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
         })

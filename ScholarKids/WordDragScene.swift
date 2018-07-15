@@ -61,20 +61,58 @@ class WordDragScene: SKScene {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
             lineAr.shuffle()  //FIX should be done once per launch, not per screen
-            while (lineAr[global.currentSentenceNum] == "") {
+            //while (lineAr[global.currentSentenceNum] == "") {
+            var curSentenceNum = global.spellingDragNum
+            if global.sceneType == "Grammar" {
+                curSentenceNum = global.grammarDragNum
+            }
+            
+            while (lineAr[curSentenceNum] == "") {
                 global.currentSentenceNum = global.currentSentenceNum + 1
+                if global.sceneType == "Spelling" {
+                    global.spellingDragNum = global.spellingDragNum + 1
+                    if global.spellingDragNum >= lineAr.count {
+                        global.spellingDragNum = 0
+                        break
+                    }
+                }
+                else {  //Grammar
+                    global.grammarDragNum = global.grammarDragNum + 1
+                    if global.grammarDragNum >= lineAr.count {
+                        global.grammarDragNum = 0
+                        break
+                    }
+                }
                 if global.currentSentenceNum >= lineAr.count {
                     global.currentSentenceNum = 0
                     break
                 }
+                
             }
-            let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            
+            curSentenceNum = global.spellingDragNum
+            if global.sceneType == "Grammar" {
+                curSentenceNum = global.grammarDragNum
+            }
+            let sentenceAr = lineAr[curSentenceNum].characters.split{$0 == "*"}.map(String.init)
             
             sentence = sentenceAr[0]
             let sentenceData = sentenceAr[1]
             wordAr = sentence.characters.split{$0 == " "}.map(String.init)
             sentenceDataAr = sentenceData.characters.split{$0 == " "}.map(String.init)
             global.currentSentenceNum = global.currentSentenceNum + 1
+            if global.sceneType == "Spelling" {
+                global.spellingDragNum = global.spellingDragNum + 1
+                if global.spellingDragNum >= lineAr.count {
+                    global.spellingDragNum = 0                    
+                }
+            }
+            else {  //Grammar
+                global.grammarDragNum = global.grammarDragNum + 1
+                if global.grammarDragNum >= lineAr.count {
+                    global.grammarDragNum = 0
+                }
+            }
         }
         else
         {

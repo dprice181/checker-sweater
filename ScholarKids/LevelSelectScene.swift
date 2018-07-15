@@ -181,7 +181,12 @@ class LevelSelectScene: SKScene {
                                     levelUnlocked = 1
                                 }
                                 else {
-                                    levelUnlocked = data.count + 1
+                                    levelUnlocked = data.count
+                                    if let val = Int(data[data.count-1]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            levelUnlocked = data.count + 1
+                                        }
+                                    }
                                 }
                                 levelUnlockedAr["Spelling"] = levelUnlocked
                             }
@@ -193,7 +198,12 @@ class LevelSelectScene: SKScene {
                                     levelUnlocked = 1
                                 }
                                 else {
-                                    levelUnlocked = data.count + 1
+                                    levelUnlocked = data.count
+                                    if let val = Int(data[data.count-1]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            levelUnlocked = data.count + 1
+                                        }
+                                    }
                                 }
                                 levelUnlockedAr["Vocabulary"] = levelUnlocked
                             }
@@ -205,7 +215,12 @@ class LevelSelectScene: SKScene {
                                     levelUnlocked = 1
                                 }
                                 else {
-                                    levelUnlocked = data.count + 1
+                                    levelUnlocked = data.count
+                                    if let val = Int(data[data.count-1]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            levelUnlocked = data.count + 1
+                                        }
+                                    }
                                 }
                                 levelUnlockedAr["Grammar"] = levelUnlocked
                             }
@@ -217,7 +232,12 @@ class LevelSelectScene: SKScene {
                                     levelUnlocked = 1
                                 }
                                 else {
-                                    levelUnlocked = data.count + 1
+                                    levelUnlocked = data.count
+                                    if let val = Int(data[data.count-1]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            levelUnlocked = data.count + 1
+                                        }
+                                    }
                                 }
                                 levelUnlockedAr["Math"] = levelUnlocked
                             }

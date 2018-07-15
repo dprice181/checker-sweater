@@ -333,15 +333,24 @@ class VocabularyConnectScene: SKScene {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
             
-            vocabularyWord = lineAr[global.currentSentenceNum*2]
-            vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
+            //vocabularyWord = lineAr[global.currentSentenceNum*2]
+            vocabularyWord = lineAr[global.vocabularyConnectNum*2]
+            //vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
+            vocabularyDefinition = lineAr[global.vocabularyConnectNum*2 + 1]
             global.currentSentenceNum = global.currentSentenceNum + 1
-            vocabularyWord1 = lineAr[global.currentSentenceNum*2]
-            vocabularyDefinition1 = lineAr[global.currentSentenceNum*2 + 1]
+            global.vocabularyConnectNum = global.vocabularyConnectNum + 1
+            //vocabularyWord1 = lineAr[global.currentSentenceNum*2]
+            vocabularyWord1 = lineAr[global.vocabularyConnectNum*2]
+            //vocabularyDefinition1 = lineAr[global.currentSentenceNum*2 + 1]
+            vocabularyDefinition1 = lineAr[global.vocabularyConnectNum*2 + 1]
             global.currentSentenceNum = global.currentSentenceNum + 1
-            vocabularyWord2 = lineAr[global.currentSentenceNum*2]
-            vocabularyDefinition2 = lineAr[global.currentSentenceNum*2 + 1]
+            global.vocabularyConnectNum = global.vocabularyConnectNum + 1
+            //vocabularyWord2 = lineAr[global.currentSentenceNum*2]
+            vocabularyWord2 = lineAr[global.vocabularyConnectNum*2]
+            //vocabularyDefinition2 = lineAr[global.currentSentenceNum*2 + 1]
+            vocabularyDefinition2 = lineAr[global.vocabularyConnectNum*2 + 1]
             global.currentSentenceNum = global.currentSentenceNum + 1
+            global.vocabularyConnectNum = global.vocabularyConnectNum + 1
             
             vocabularyWordAr.append(vocabularyWord)
             vocabularyWordAr.append(vocabularyWord1)

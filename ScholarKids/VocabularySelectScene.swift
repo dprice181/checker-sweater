@@ -340,9 +340,11 @@ class VocabularySelectScene: SKScene {
             var lineAr = fileText.components(separatedBy: .newlines)
             
             if global.sceneType == "Spelling" {
-                spellingDefinition = lineAr[global.currentSentenceNum*2+1]
+                //spellingDefinition = lineAr[global.currentSentenceNum*2+1]
+                spellingDefinition = lineAr[global.spellingSelectNum*2+1]
                 
-                vocabularyDefinition = lineAr[global.currentSentenceNum*2]  //this is actually the spellingWord
+                //vocabularyDefinition = lineAr[global.currentSentenceNum*2]  //this is actually the spellingWord
+                vocabularyDefinition = lineAr[global.spellingSelectNum*2]  //this is actually the spellingWord
                 var vocabularyWordAr = Misspell(word: vocabularyDefinition)
                 vocabularyWord = vocabularyWordAr[0]
                 
@@ -359,11 +361,13 @@ class VocabularySelectScene: SKScene {
                     vocabularyDefinitionAr.append(vocabularyDefinition)
                 }
             }
-            else {
+            else {  //Vocabulary
                 lineAr.shuffle()  //FIX should be done once per launch, not per screen
                 
-                vocabularyWord = lineAr[global.currentSentenceNum*2]
-                vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
+                //vocabularyWord = lineAr[global.currentSentenceNum*2]
+                vocabularyWord = lineAr[global.vocabularySelectNum*2]
+                //vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
+                vocabularyDefinition = lineAr[global.vocabularySelectNum*2 + 1]
                 let vocabCount = lineAr.count / 2
                 var randomAlt1 = Int(arc4random_uniform(UInt32(vocabCount)))
                 while randomAlt1 == global.currentSentenceNum {
@@ -391,6 +395,12 @@ class VocabularySelectScene: SKScene {
             }
             
             global.currentSentenceNum = global.currentSentenceNum + 1
+            if global.sceneType == "Vocabulary" {
+                global.vocabularySelectNum = global.vocabularySelectNum + 1
+            }
+            else {  //Spelling
+                global.spellingSelectNum = global.spellingSelectNum + 1
+            }
         }
         else
         {

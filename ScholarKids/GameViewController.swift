@@ -28,7 +28,15 @@ class Global {
     var correctAnswers = 0
     var incorrectAnswers = 0
     var currentSentenceNum = 0
+    var wordProblemsNum = 0
     var sceneType : String = ""
+    var minimumCorrectToUnlock = 9
+    var vocabularySelectNum = 0
+    var vocabularyConnectNum = 0
+    var grammarSelectNum = 0
+    var grammarDragNum = 0
+    var spellingSelectNum = 0
+    var spellingDragNum = 0
 }
 
 let global = Global()
@@ -66,10 +74,10 @@ func TransitionBackFromScene(myScene: SKScene)
 }
 
 func ReplaceFirstOccurence(myString: String,substring: String,replaceStr: String) -> String {
-    var chars = Array(myString.characters)
+    let chars = Array(myString.characters)
     var newChars = [Character]()
-    var subchars = Array(substring.characters)
-    var replacechars = Array(replaceStr.characters)
+    let subchars = Array(substring.characters)
+    let replacechars = Array(replaceStr.characters)
     var i = 0
     var match = false
     for _ in 0..<chars.count {
@@ -276,7 +284,7 @@ func DisplayLevelFinished(scene : SKScene) {
     let shadowComplete = CreateShadowLabel(label: labelComplete,offset: 0.6)
     global.overlayNode.addChild(shadowComplete)
     
-    if global.correctAnswers >= 9 {
+    if global.correctAnswers >= global.minimumCorrectToUnlock {
         let labelComplete2 = SKLabelNode(fontNamed: "Arial")
         labelComplete2.text = "You unlocked the next level!"
         labelComplete2.fontSize = 20
@@ -290,7 +298,7 @@ func DisplayLevelFinished(scene : SKScene) {
     }
     else {
         let labelComplete2 = SKLabelNode(fontNamed: "Arial")
-        labelComplete2.text = "Get at least 9/12 correct"
+        labelComplete2.text = "Get at least " + String(global.minimumCorrectToUnlock) + "/12 correct"
         labelComplete2.fontSize = 16
         labelComplete2.fontColor = global.purple
         labelComplete2.position = CGPoint(x: 0, y: scene.size.height*2/24)
@@ -371,7 +379,7 @@ func DisplayLevelFinished(scene : SKScene) {
     let shadowRetry = CreateShadowLabel(label: labelRetry,offset: 0.6)
     global.overlayNode.addChild(shadowRetry)
     
-    if global.correctAnswers >= 9 {
+    if global.correctAnswers >= global.minimumCorrectToUnlock {
         let next = SKSpriteNode(imageNamed: "next.png")
         next.name = "next"
         next.position = CGPoint(x: scene.size.width/5, y: -scene.size.height*5/24)
