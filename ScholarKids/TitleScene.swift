@@ -40,6 +40,16 @@ class TitleScene: SKScene {
         
         timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.updateLabelText), userInfo: nil, repeats: true)
         
+        DrawTitle()
+        DrawButtons()
+        
+        
+        background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
+        background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
+        addChild(background)
+    }
+    
+    func DrawTitle() {
         let fullTitle = SKNode()
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*3/4)
         fullTitle.zPosition = 100.0
@@ -64,8 +74,9 @@ class TitleScene: SKScene {
         labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 2)
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
-        
-        
+    }
+    
+    func DrawButtons() {
         buttonBackground = SKShapeNode(rectOf: CGSize(width: self.size.width*3/4,height: self.size.height*16/48),cornerRadius: 20.0)
         buttonBackground.name = "buttonbackground"
         buttonBackground.fillColor = SKColor(red: 200/255, green: 200/255, blue: 245/255, alpha: 0.6)
@@ -92,7 +103,7 @@ class TitleScene: SKScene {
         startButtonLabel.text = "START"
         startButtonLabel.name = "startbuttonlabel"
         startButtonLabel.fontSize = 30
-        startButtonLabel.fontColor = SKColor(red: 165/255, green: 60/255, blue: 165/255, alpha: 1.0)
+        startButtonLabel.fontColor = global.realPurple
         startButtonLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*11.3/24 - self.size.height/96)
         startButtonLabel.zPosition = 100.0
         addChild(startButtonLabel)
@@ -116,15 +127,11 @@ class TitleScene: SKScene {
         optionsButtonLabel.text = "OPTIONS"
         optionsButtonLabel.name = "optionsbuttonlabel"
         optionsButtonLabel.fontSize = 30
-        optionsButtonLabel.fontColor = SKColor(red: 165/255, green: 60/255, blue: 165/255, alpha: 1.0)
+        optionsButtonLabel.fontColor = global.realPurple
         optionsButtonLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*8.3/24 - self.size.height/96)
         optionsButtonLabel.zPosition = 100.0
         addChild(optionsButtonLabel)
         addChild(CreateShadowLabel(label: optionsButtonLabel,offset: 1))
-        
-        background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
-        background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
-        addChild(background)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -159,6 +166,20 @@ class TitleScene: SKScene {
             let nextScene = PlayerSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"PlayerSelect")
             self.view?.presentScene(nextScene, transition: reveal)
         
+        })
+        self.run(SKAction.sequence([playSound,newScene]))
+    }
+    
+    func TransitionSceneOptions()
+    {
+        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        
+        let newScene = SKAction.run({
+            let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
+            
+            let nextScene = OptionsScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Options")
+            self.view?.presentScene(nextScene, transition: reveal)
+            
         })
         self.run(SKAction.sequence([playSound,newScene]))
     }
@@ -237,7 +258,7 @@ class TitleScene: SKScene {
                 TransitionSceneStart()
             }
             if shapeNode.name?.contains("optionsbutton") != nil && (shapeNode.name?.contains("optionsbutton"))!  {
-                
+                TransitionSceneOptions()
             }
             
         }

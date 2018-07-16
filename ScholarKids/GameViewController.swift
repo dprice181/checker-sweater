@@ -24,6 +24,8 @@ class Global {
     let veryLightBlue = SKColor(red: 225/255, green: 225/255, blue: 255/255, alpha: 0.8)
     let purple = SKColor(red: 55/255, green: 15/255, blue: 200/255, alpha: 1)
     let greyBlue = SKColor(red: 240/255, green: 240/255, blue: 255/255, alpha: 0.8)
+    let lightPink = SKColor(red: 240/255, green:128/255, blue:128/255, alpha: 0.8)
+    let realPurple = SKColor(red: 165/255, green: 60/255, blue: 165/255, alpha: 1.0)
     let overlayNode = SKNode()
     var correctAnswers = 0
     var incorrectAnswers = 0
