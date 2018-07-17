@@ -52,6 +52,7 @@
 		04902DDE20FADCBE008B24CC /* WordProblems5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04902DDC20FADCBD008B24CC /* WordProblems5.txt */; };
 		04902DDF20FADCBE008B24CC /* WordProblemsK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04902DDD20FADCBD008B24CC /* WordProblemsK.txt */; };
 		04902DE120FCFBCE008B24CC /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04902DE020FCFBCE008B24CC /* OptionsScene.swift */; };
+		04902DE320FD809C008B24CC /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04902DE220FD809C008B24CC /* CreditsScene.swift */; };
 		04B22B0120D71C9700F3AA69 /* MathDragScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B22B0020D71C9700F3AA69 /* MathDragScene.swift */; };
 		04B22B0820DB6E0E00F3AA69 /* RedButtonSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0220DB6E0E00F3AA69 /* RedButtonSmall.png */; };
 		04B22B0920DB6E0E00F3AA69 /* BackwardsClean.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0320DB6E0E00F3AA69 /* BackwardsClean.png */; };
@@ -148,6 +149,7 @@
 		04902DDC20FADCBD008B24CC /* WordProblems5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems5.txt; path = ScholarKids/Sentences/WordProblems5.txt; sourceTree = SOURCE_ROOT; };
 		04902DDD20FADCBD008B24CC /* WordProblemsK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblemsK.txt; path = ScholarKids/Sentences/WordProblemsK.txt; sourceTree = SOURCE_ROOT; };
 		04902DE020FCFBCE008B24CC /* OptionsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
+		04902DE220FD809C008B24CC /* CreditsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 		04B22B0020D71C9700F3AA69 /* MathDragScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathDragScene.swift; sourceTree = "<group>"; };
 		04B22B0220DB6E0E00F3AA69 /* RedButtonSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonSmall.png; sourceTree = "<group>"; };
 		04B22B0320DB6E0E00F3AA69 /* BackwardsClean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackwardsClean.png; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				84004A8820AF3C3100761FB6 /* GameScene.swift */,
 				8400BBD920B7939F0040CC24 /* TitleScene.swift */,
 				04902DE020FCFBCE008B24CC /* OptionsScene.swift */,
+				04902DE220FD809C008B24CC /* CreditsScene.swift */,
 				840B92AD20B8C6FC001F8FA3 /* PlayerSelectScene.swift */,
 				840B92AF20B8C771001F8FA3 /* LevelSelectScene.swift */,
 				041354DA20F90E8100CC606D /* ProgressReportScene.swift */,
@@ -555,6 +558,7 @@
 				84004A8B20AF3C3100761FB6 /* GameViewController.swift in Sources */,
 				84A6951020B0EAEC00D5E212 /* WordSelectScene.swift in Sources */,
 				0459362E20C12080003D1A6B /* MathDrawScene.swift in Sources */,
+				04902DE320FD809C008B24CC /* CreditsScene.swift in Sources */,
 				84004A8320AF3C3100761FB6 /* AppDelegate.swift in Sources */,
 				840B92B020B8C771001F8FA3 /* LevelSelectScene.swift in Sources */,
 				041354DB20F90E8100CC606D /* ProgressReportScene.swift in Sources */,

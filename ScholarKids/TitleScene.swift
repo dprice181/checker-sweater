@@ -259,8 +259,7 @@ class TitleScene: SKScene {
             }
             if shapeNode.name?.contains("optionsbutton") != nil && (shapeNode.name?.contains("optionsbutton"))!  {
                 TransitionSceneOptions()
-            }
-            
+            }            
         }
     }
 }
