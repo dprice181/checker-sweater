@@ -40,6 +40,7 @@ class TitleScene: SKScene {
         
         timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.updateLabelText), userInfo: nil, repeats: true)
         
+        ReadAndSetOptions()
         DrawTitle()
         DrawButtons()
         
@@ -47,6 +48,12 @@ class TitleScene: SKScene {
         background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
         background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
         addChild(background)
+    }
+    
+    func ReadAndSetOptions() {
+        CreateOptionsFileIfNecessary()
+        ReadOptionsFile()
+        UpdateOptions()
     }
     
     func DrawTitle() {

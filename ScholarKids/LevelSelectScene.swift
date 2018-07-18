@@ -84,16 +84,18 @@ class LevelSelectScene: SKScene {
                 addChild(hotAirBalloonAr[n][i])
                 
                 //lock
-                if let levelUnlocked = levelUnlockedAr[subject] {
-                    if levelUnlocked <= i {
-                        hotAirBalloonLockAr[n].append(SKSpriteNode(imageNamed: "lock.png"))
-                        let ind = hotAirBalloonLockAr[n].count - 1
-                        hotAirBalloonLockAr[n][ind].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17 - SUB_SPACING*CGFloat(n))/24)
-                        hotAirBalloonLockAr[n][ind].scale(to: CGSize(width: self.size.height*1.5/48,height: self.size.height*1.5/48))
-                        hotAirBalloonLockAr[n][ind].name = "hotairballoon" + String(n) + ":" + String(i)
-                        hotAirBalloonLockAr[n][ind].zPosition = 101.5
-                        hotAirBalloonLockAr[n][ind].alpha = 1.0
-                        addChild(hotAirBalloonLockAr[n][ind])
+                if !GlobalUnlocked(subject:subject) {
+                    if let levelUnlocked = levelUnlockedAr[subject] {
+                        if levelUnlocked <= i {
+                            hotAirBalloonLockAr[n].append(SKSpriteNode(imageNamed: "lock.png"))
+                            let ind = hotAirBalloonLockAr[n].count - 1
+                            hotAirBalloonLockAr[n][ind].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17 - SUB_SPACING*CGFloat(n))/24)
+                            hotAirBalloonLockAr[n][ind].scale(to: CGSize(width: self.size.height*1.5/48,height: self.size.height*1.5/48))
+                            hotAirBalloonLockAr[n][ind].name = "hotairballoon" + String(n) + ":" + String(i)
+                            hotAirBalloonLockAr[n][ind].zPosition = 101.5
+                            hotAirBalloonLockAr[n][ind].alpha = 1.0
+                            addChild(hotAirBalloonLockAr[n][ind])
+                        }
                     }
                 }
                 
@@ -155,6 +157,30 @@ class LevelSelectScene: SKScene {
         addChild(backButton)
     }
     
+    func GlobalUnlocked(subject:String) -> Bool {
+        switch subject {
+        case "Math":
+            if global.mathUnlocked > 0 {
+                return true
+            }
+        case "Grammar":
+            if global.grammarUnlocked > 0 {
+                return true
+            }
+        case "Vocabulary":
+            if global.vocabularyUnlocked > 0 {
+                return true
+            }
+        case "Spelling":
+            if global.spellingUnlocked > 0 {
+                return true
+            }
+        default:
+            return false
+        }
+        return false
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -189,6 +215,9 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 levelUnlockedAr["Spelling"] = levelUnlocked
+                                if global.spellingUnlocked > 0 {
+                                    levelUnlockedAr["Spelling"] = global.maxLevels
+                                }
                             }
                             //vocabulary
                             data = playerDataAr[4].characters.split{$0 == " "}.map(String.init)
@@ -206,6 +235,9 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 levelUnlockedAr["Vocabulary"] = levelUnlocked
+                                if global.vocabularyUnlocked > 0 {
+                                    levelUnlockedAr["Vocabulary"] = global.maxLevels
+                                }
                             }
                             //grammar
                             data = playerDataAr[3].characters.split{$0 == " "}.map(String.init)
@@ -223,6 +255,9 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 levelUnlockedAr["Grammar"] = levelUnlocked
+                                if global.grammarUnlocked > 0 {
+                                    levelUnlockedAr["Grammar"] = global.maxLevels
+                                }
                             }
                             //math
                             data = playerDataAr[2].characters.split{$0 == " "}.map(String.init)
@@ -240,6 +275,9 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 levelUnlockedAr["Math"] = levelUnlocked
+                                if global.mathUnlocked > 0 {
+                                    levelUnlockedAr["Math"] = global.maxLevels
+                                }
                             }
                         }
                     }

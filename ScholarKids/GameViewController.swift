@@ -32,13 +32,21 @@ class Global {
     var currentSentenceNum = 0
     var wordProblemsNum = 0
     var sceneType : String = ""
-    var minimumCorrectToUnlock = 9
     var vocabularySelectNum = 0
     var vocabularyConnectNum = 0
     var grammarSelectNum = 0
     var grammarDragNum = 0
     var spellingSelectNum = 0
     var spellingDragNum = 0
+    var mathUnlocked = 0
+    var grammarUnlocked = 0
+    var vocabularyUnlocked = 0
+    var spellingUnlocked = 0
+    var musicOption = 1
+    var soundOption = 2
+    var minimumCorrectToUnlock = 9
+    var optionAr = [String]()
+    var maxLevels = 20
 }
 
 let global = Global()
@@ -53,6 +61,47 @@ func CreateShadowLabel(label : SKLabelNode,offset: CGFloat) -> SKLabelNode
     }
     
     return SKLabelNode()
+}
+
+func UpdateOptions() {
+    global.mathUnlocked = Int(global.optionAr[7])!
+    global.grammarUnlocked = Int(global.optionAr[9])!
+    global.vocabularyUnlocked = Int(global.optionAr[11])!
+    global.spellingUnlocked = Int(global.optionAr[13])!
+    global.musicOption = Int(global.optionAr[1])!
+    global.soundOption = Int(global.optionAr[3])!
+    global.minimumCorrectToUnlock = (Int(global.optionAr[5])!) * 3
+}
+
+func CreateOptionsFileIfNecessary() {
+    let file = "Options.txt"
+    if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+        let path = dir + "/" + file
+        do {
+            let fileText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        }
+        catch {
+            print("File read error:", error)
+            let fileText = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
+            try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+        }
+    }
+}
+
+func ReadOptionsFile() {
+    let file = "Options.txt" //this is the file. we will write to and read from it
+    if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+        let path = dir + "/" + file
+        do {
+            //let fileText2 = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
+            //try! fileText2.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+            var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            global.optionAr = fileText.characters.split{$0 == "*"}.map(String.init)
+        }
+        catch {
+            print("File read error:", error)
+        }
+    }
 }
 
 func TransitionBackFromScene(myScene: SKScene)

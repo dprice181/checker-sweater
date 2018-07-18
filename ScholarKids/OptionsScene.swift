@@ -20,47 +20,27 @@ class OptionsScene: SKScene {
     var clickButtonAr = [SKShapeNode]()
     var clickButtonShadowAr = [SKShapeNode]()
     var buttonLabelAr = [SKLabelNode]()
-    
-    var optionAr = [String]()
+        
     var optionsStrings = ["Music":1,"Sound":3,"Correct":5,"Math":7,"Grammar":9,"Vocabulary":11,"Spelling":13]
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
-        CreateFileIfNecessary()
+        CreateOptionsFileIfNecessary()
         ReadOptionsFile()
         DrawTitle()
         DrawOptions()
         DrawBackButton()
     }
     
-    func CreateFileIfNecessary()
-    {
-        let file = "Options.txt"
-        if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let path = dir + "/" + file
-            do {
-                let fileText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            }
-            catch {
-                print("File read error:", error)
-                let fileText = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
-                try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-            }
-        }
-    }
-    
-    func ReadOptionsFile()
-    {
+    func WriteOptionsToFile() {
         let file = "Options.txt" //this is the file. we will write to and read from it
         if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
             let path = dir + "/" + file
             do {
-                var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-                optionAr = fileText.characters.split{$0 == "*"}.map(String.init)
-                
-                //try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+                let fileText = global.optionAr.joined(separator: "*")
+                try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
             }
             catch {
                 print("File read error:", error)
@@ -71,37 +51,37 @@ class OptionsScene: SKScene {
     func IsButtonSelected(text:String,text2:String,i:Int) -> Bool {
         var returnVal = false
         if text == "Music" {
-            if optionAr[optionsStrings["Music"]!] == String(i) {
+            if global.optionAr[optionsStrings["Music"]!] == String(i) {
                 returnVal = true
             }
         }
         if text == "Sound Effects" {
-            if optionAr[optionsStrings["Sound"]!] == String(i) {
+            if global.optionAr[optionsStrings["Sound"]!] == String(i) {
                 returnVal = true
             }
         }
         if text == "# Correct To Advance Level" {
-            if optionAr[optionsStrings["Correct"]!] == String(i) {
+            if global.optionAr[optionsStrings["Correct"]!] == String(i) {
                 returnVal = true
             }
         }
         if text2 == "Math" {
-            if optionAr[optionsStrings["Math"]!] == "1" {
+            if global.optionAr[optionsStrings["Math"]!] == "1" {
                 returnVal = true
             }
         }
         if text2 == "Grammar" {
-            if optionAr[optionsStrings["Grammar"]!] == "1" {
+            if global.optionAr[optionsStrings["Grammar"]!] == "1" {
                 returnVal = true
             }
         }
         if text2 == "Vocabulary" {
-            if optionAr[optionsStrings["Vocabulary"]!] == "1" {
+            if global.optionAr[optionsStrings["Vocabulary"]!] == "1" {
                 returnVal = true
             }
         }
         if text2 == "Spelling" {
-            if optionAr[optionsStrings["Spelling"]!] == "1" {
+            if global.optionAr[optionsStrings["Spelling"]!] == "1" {
                 returnVal = true
             }
         }
@@ -125,7 +105,7 @@ class OptionsScene: SKScene {
         DrawOption(ind:2,text:"# Correct To Advance Level",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:30,fontColor:global.purple,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
-        textAr2 = []
+        textAr2 = ["Unlocked","Unlocked","Unlocked","Unlocked"]
         offY = -self.size.height*22/48
         DrawOption(ind:3,text:"Unlock All Levels",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:16,fontColor:SKColor.red,boxColor:global.realPurple,boxColorSelected:global.realPurple,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
         
@@ -182,16 +162,21 @@ class OptionsScene: SKScene {
         
         for i in 0..<textAr1.count {
             let isButtonSelected = IsButtonSelected(text:text,text2:textAr1[i],i:i)
+            let unlocked = (lock && isButtonSelected == true)
+            var myBoxColorSelected = boxColorSelected
+            if unlocked {
+                myBoxColorSelected = SKColor.blue
+            }
             
             let fullButton = SKNode()
             fullButton.position = CGPoint(x: self.size.width/24, y: self.size.height*42.5/48 + myOffY)
             fullButton.zPosition = 100.0
             
             buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6 + extraBoxWidth,height: self.size.height*4/48),cornerRadius: 20.0))
-            buttonAr.last!.name = "optionbutton" + String(ind)
+            buttonAr.last!.name = String(i) + "optionbutton" + String(ind)
             buttonAr.last!.fillColor = backgroundColor
             if isButtonSelected {
-                buttonAr.last!.strokeColor = boxColorSelected
+                buttonAr.last!.strokeColor = myBoxColorSelected
             }
             else {
                 buttonAr.last!.strokeColor = boxColor
@@ -202,10 +187,10 @@ class OptionsScene: SKScene {
             
             labelAr.append(SKLabelNode(fontNamed: "Arial"))
             labelAr.last!.text = textAr1[i]
-            labelAr.last!.name = "optionbutton" + String(ind)
+            labelAr.last!.name = String(i) + "optionbutton" + String(ind)
             labelAr.last!.fontSize = fontSize2
             if isButtonSelected {
-                labelAr.last!.fontColor = boxColorSelected
+                labelAr.last!.fontColor = myBoxColorSelected
             }
             else {
                 labelAr.last!.fontColor = boxColor
@@ -214,7 +199,7 @@ class OptionsScene: SKScene {
             labelAr.last!.zPosition = 100.0
             fullButton.addChild(labelAr.last!)
             labelShadowAr.append(CreateShadowLabel(label: labelAr.last!,offset: 1))
-            labelShadowAr.last!.name = "optionshadow" + String(ind)
+            labelShadowAr.last!.name = String(i) + "optionshadow" + String(ind)
             if isButtonSelected == false && lock==false {  //always hightlight the unlock levels
                 labelShadowAr.last!.isHidden = true
             }
@@ -223,10 +208,10 @@ class OptionsScene: SKScene {
             if textAr2.count > i {
                 labelAr.append(SKLabelNode(fontNamed: "Arial"))
                 labelAr.last!.text = textAr2[i]
-                labelAr.last!.name = "optionbutton" + String(ind)
+                labelAr.last!.name = String(i) + "secondoptionbutton" + String(ind)
                 labelAr.last!.fontSize = fontSize2
                 if isButtonSelected {
-                    labelAr.last!.fontColor = boxColorSelected
+                    labelAr.last!.fontColor = myBoxColorSelected
                 }
                 else {
                     labelAr.last!.fontColor = boxColor
@@ -235,11 +220,15 @@ class OptionsScene: SKScene {
                 labelAr.last!.zPosition = 100.0
                 fullButton.addChild(labelAr.last!)
                 labelShadowAr.append(CreateShadowLabel(label: labelAr.last!,offset: 1))
-                labelShadowAr.last!.name = "optionshadow" + String(ind)
+                labelShadowAr.last!.name = String(i) + "optionshadow" + String(ind)
                 if isButtonSelected == false && lock==false {  //always hightlight the unlock levels
                     labelShadowAr.last!.isHidden = true
                 }
                 fullButton.addChild(labelShadowAr.last!)
+                if ind==3 && !unlocked {
+                    labelAr.last!.isHidden = true
+                    labelShadowAr.last!.isHidden = true
+                }
             }
             
             if lock && isButtonSelected == false {
@@ -337,37 +326,39 @@ class OptionsScene: SKScene {
         
         if buttonNode.name?.contains("optionbutton") != nil && (buttonNode.name?.contains("optionbutton"))!  {
             let ind = String(buttonNode.name!.last!)
-            if (buttonNode.name?.contains("optionbutton" + ind))! {
-                for child in buttonAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.strokeColor = global.lightPink
-                    }
-                }
-                for child in labelAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.fontColor = global.lightPink
-                    }
-                }
-                for child in labelShadowAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.fontColor = global.lightPink
-                        child.isHidden = true
-                    }
-                }
-            }
-            
-            if let parentNode = buttonNode.parent {
-                for child in parentNode.children {
-                    if let box = child as? SKShapeNode {
-                        box.strokeColor = SKColor.red
-                    }
-                    if let label = child as? SKLabelNode {
-                        if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
-                            label.fontColor = SKColor.red
+            if Int(ind)! < 3 {  //music, sound, #correct
+                if (buttonNode.name?.contains("optionbutton" + ind))! {
+                    for child in buttonAr {
+                        if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                            child.strokeColor = global.lightPink
                         }
-                        else {
-                            label.fontColor = SKColor.black
-                            label.isHidden = false
+                    }
+                    for child in labelAr {
+                        if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                            child.fontColor = global.lightPink
+                        }
+                    }
+                    for child in labelShadowAr {
+                        if child.name?.contains("optionshadow" + ind) != nil && (child.name?.contains("optionshadow" + ind))! {
+                            child.fontColor = global.lightPink
+                            child.isHidden = true
+                        }
+                    }
+                }
+            
+                if let parentNode = buttonNode.parent {
+                    for child in parentNode.children {
+                        if let box = child as? SKShapeNode {
+                            box.strokeColor = SKColor.red
+                        }
+                        if let label = child as? SKLabelNode {
+                            if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
+                                label.fontColor = SKColor.red
+                            }
+                            else {
+                                label.fontColor = SKColor.black
+                                label.isHidden = false
+                            }
                         }
                     }
                 }
@@ -401,37 +392,39 @@ class OptionsScene: SKScene {
         
         if buttonNode.name?.contains("optionbutton") != nil && (buttonNode.name?.contains("optionbutton"))!  {
             let ind = String(buttonNode.name!.last!)
-            if (buttonNode.name?.contains("optionbutton" + ind))! {
-                for child in buttonAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.strokeColor = global.lightPink
-                    }
-                }
-                for child in labelAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.fontColor = global.lightPink
-                    }
-                }
-                for child in labelShadowAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.fontColor = global.lightPink
-                        child.isHidden = true
-                    }
-                }
-            }
-            
-            if let parentNode = buttonNode.parent {
-                for child in parentNode.children {
-                    if let box = child as? SKShapeNode {
-                        box.strokeColor = SKColor.red
-                    }
-                    if let label = child as? SKLabelNode {
-                        if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
-                            label.fontColor = SKColor.red
+            if Int(ind)! < 3 {  //music, sound, #correct
+                if (buttonNode.name?.contains("optionbutton" + ind))! {
+                    for child in buttonAr {
+                        if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                            child.strokeColor = global.lightPink
                         }
-                        else {
-                            label.fontColor = SKColor.black
-                            label.isHidden = false
+                    }
+                    for child in labelAr {
+                        if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                            child.fontColor = global.lightPink
+                        }
+                    }
+                    for child in labelShadowAr {
+                        if child.name?.contains("optionshadow" + ind) != nil && (child.name?.contains("optionshadow" + ind))! {
+                            child.fontColor = global.lightPink
+                            child.isHidden = true
+                        }
+                    }
+                }
+
+                if let parentNode = buttonNode.parent {
+                    for child in parentNode.children {
+                        if let box = child as? SKShapeNode {
+                            box.strokeColor = SKColor.red
+                        }
+                        if let label = child as? SKLabelNode {
+                            if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
+                                label.fontColor = SKColor.red
+                            }
+                            else {
+                                label.fontColor = SKColor.black
+                                label.isHidden = false
+                            }
                         }
                     }
                 }
@@ -461,38 +454,42 @@ class OptionsScene: SKScene {
         let buttonNode = self.atPoint(touchLocation)
         
         if buttonNode.name?.contains("optionbutton") != nil && (buttonNode.name?.contains("optionbutton"))!  {
-            let ind = String(buttonNode.name!.last!)
-            if (buttonNode.name?.contains("optionbutton" + ind))! {
-                for child in buttonAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.strokeColor = global.lightPink
-                    }
-                }
-                for child in labelAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.fontColor = global.lightPink
-                    }
-                }
-                for child in labelShadowAr {
-                    if child.name?.contains(ind) != nil && (child.name?.contains(ind))! {
-                        child.fontColor = global.lightPink
-                        child.isHidden = true
-                    }
-                }
-            }
+            UpdateOptionArray(node:buttonNode)
             
-            if let parentNode = buttonNode.parent {
-                for child in parentNode.children {
-                    if let box = child as? SKShapeNode {
-                        box.strokeColor = SKColor.red
-                    }
-                    if let label = child as? SKLabelNode {
-                        if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
-                            label.fontColor = SKColor.red
+            let ind = String(buttonNode.name!.last!)
+            if Int(ind)! < 3 {  //music, sound, #correct
+                if (buttonNode.name?.contains("optionbutton" + ind))! {
+                    for child in buttonAr {
+                        if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                            child.strokeColor = global.lightPink
                         }
-                        else {
-                            label.fontColor = SKColor.black
-                            label.isHidden = false
+                    }
+                    for child in labelAr {
+                        if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                            child.fontColor = global.lightPink
+                        }
+                    }
+                    for child in labelShadowAr {
+                        if child.name?.contains("optionshadow" + ind) != nil && (child.name?.contains("optionshadow" + ind))! {
+                            child.fontColor = global.lightPink
+                            child.isHidden = true
+                        }
+                    }
+                }
+                
+                if let parentNode = buttonNode.parent {
+                    for child in parentNode.children {
+                        if let box = child as? SKShapeNode {
+                            box.strokeColor = SKColor.red
+                        }
+                        if let label = child as? SKLabelNode {
+                            if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
+                                label.fontColor = SKColor.red
+                            }
+                            else {  //shadowlabel
+                                label.fontColor = SKColor.black
+                                label.isHidden = false
+                            }
                         }
                     }
                 }
@@ -508,15 +505,152 @@ class OptionsScene: SKScene {
         }
         
         if buttonNode.name?.contains("clickbutton1") != nil && (buttonNode.name?.contains("clickbutton1"))!  {
-            //TransitionSceneStart()
+            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all subject levels for 2.99?  This will also remove all ads!",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
         }
         if buttonNode.name?.contains("clickbutton2") != nil && (buttonNode.name?.contains("clickbutton2"))!  {
             TransitionSceneCredits()
         }
     }
     
+    func UpdateOptionArray(node:SKNode) {
+        let optionInd = String(node.name!.first!)
+        if var sectionInd = Int(String(node.name!.last!)) {
+            if sectionInd < 3 {  //music, sound, #correct
+                global.optionAr[sectionInd*2+1] = optionInd
+            }
+            if sectionInd == 3 {  //The unlock levels section
+                if let optionIndInt = Int(optionInd) {
+                    sectionInd = sectionInd + optionIndInt
+                    var subject = "Math"
+                    switch optionIndInt {
+                    case 0:
+                        subject = "Math"
+                    case 1:
+                        subject = "Grammar"
+                    case 2:
+                        subject = "Vocabulary"
+                    case 3:
+                        subject = "Spelling"
+                    default:
+                        subject = "Math"
+                    }
+                    if global.optionAr[sectionInd*2+1] == "0" {
+                        MessageBox(title:"Unlock " + subject,message:"Would you like to unlock all levels in " + subject + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:sectionInd,subject:subject,node:node,allSubjects:false)
+                    }
+                    else {  //already unlocked
+                        MessageBox(title:subject + " Already Unlocked",message:subject + " is already unlocked!  Thanks for your previous purchase!",cancelButton:false,sectionInd: -1,subject:subject,node:node,allSubjects:false)
+                    }
+                }
+            }
+        }
+        
+        UpdateOptions()
+        WriteOptionsToFile()
+    }
+    
+    func UnlockAllLevels() {
+        let ind = "3"  //unlock all levels
+        for child in buttonAr {
+            if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                child.strokeColor = SKColor.blue
+            }
+        }
+        for child in labelAr {
+            if child.name?.contains("secondoptionbutton" + ind) != nil && (child.name?.contains("secondoptionbutton" + ind))! {
+                child.fontColor = SKColor.blue
+                child.isHidden = false
+            }
+            else if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
+                child.fontColor = SKColor.blue
+            }            
+        }
+        for child in labelShadowAr {
+            if child.name?.contains("optionshadow" + ind) != nil && (child.name?.contains("optionshadow" + ind))! {
+                child.fontColor = SKColor.black
+                child.isHidden = false
+            }
+        }
+        for child in lockAr {
+            child.removeFromParent()
+        }
+    }
+    
+    func UnlockLevel(node:SKNode) {
+        if let parentNode = node.parent {
+            for child in parentNode.children {
+                if child.name?.contains("lock") != nil && (child.name?.contains("lock"))! {
+                    child.removeFromParent()
+                    continue
+                }
+                if let box = child as? SKShapeNode {
+                    box.strokeColor = SKColor.blue
+                }
+                if let label = child as? SKLabelNode {
+                    if label.name?.contains("secondoptionbutton") != nil && (label.name?.contains("secondoptionbutton"))! {
+                        label.fontColor = SKColor.blue
+                        label.isHidden = false
+                    }
+                    else if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
+                        label.fontColor = SKColor.blue
+                    }
+                    else {  //shadow label
+                        label.fontColor = SKColor.black
+                        label.isHidden = false
+                    }
+                }
+            }
+        }
+    }
+    
+    func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subject:String,node:SKNode,allSubjects:Bool)
+    {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            if allSubjects {
+                global.optionAr[7] = "1"  //Math
+                global.optionAr[9] = "1"
+                global.optionAr[11] = "1"
+                global.optionAr[13] = "1" //Spelling
+                self.WriteOptionsToFile()
+                self.UnlockAllLevels()
+                self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
+            }
+            else {
+                if sectionInd > 0 {
+                    global.optionAr[sectionInd*2+1] = "1"
+                    self.WriteOptionsToFile()
+                    self.UnlockLevel(node:node)
+                    self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
+                }
+            }
+            
+        })
+        UpdateOptions()  //put here since we can't access global function form inside lambda
+        
+        dialogMessage.addAction(ok)
+        if cancelButton {
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) -> Void in
+                print("Cancel button tapped")
+            }
+            dialogMessage.addAction(cancel)
+        }
+        topMostController()?.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    func topMostController() -> UIViewController? {
+        var topController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
+        while ((topController?.presentedViewController) != nil) {
+            topController = topController?.presentedViewController
+        }
+        return topController
+    }
+    
     func TransitionSceneCredits()
     {
+        UpdateOptions()
+        WriteOptionsToFile()
+        
         for child in global.overlayNode.children {
             child.removeFromParent()
         }
@@ -534,6 +668,9 @@ class OptionsScene: SKScene {
     
     func TransitionBack()
     {
+        UpdateOptions()
+        WriteOptionsToFile()
+        
         for child in global.overlayNode.children {
             child.removeFromParent()
         }

@@ -195,8 +195,7 @@ class WordSelectScene: SKScene {
         scoreNode.addChild(labelCorrect)
         labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
         scoreNode.addChild(labelCorrectShadow)
-        
-        
+                
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrect.fontSize = 15
         labelIncorrect.fontColor = SKColor.red
@@ -209,8 +208,7 @@ class WordSelectScene: SKScene {
     
     func GetSentence()
     {
-        if let path = Bundle.main.path(forResource: "Sentences1", ofType: "txt")
-        {
+        if let path = Bundle.main.path(forResource: "Sentences1", ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
             //let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
@@ -222,8 +220,7 @@ class WordSelectScene: SKScene {
             global.currentSentenceNum = global.currentSentenceNum + 1
             global.currentSentenceNum = global.grammarSelectNum + 1
         }
-        else
-        {
+        else {
             print("file not found")
         }
     }
@@ -231,19 +228,16 @@ class WordSelectScene: SKScene {
     func SetCorrectAnswer()
     {
         var ind = 0
-        for var ans in sentenceDataAr
-        {
+        for var ans in sentenceDataAr {
             //pronouns count as nouns
-            if levelMode == "n"
-            {
+            if levelMode == "n" {
                 if ans == "o"
                 {
                     ans = "n"
                 }
             }
             
-            if ans == levelMode
-            {
+            if ans == levelMode {
                 correctAnswerAr.append(ind)
             }
             
@@ -253,8 +247,7 @@ class WordSelectScene: SKScene {
     
     func GetSentenceLength(wordAr : [String]) -> Int {
         var count = 1  //Add 1 for the period at the end
-        for word in wordAr
-        {
+        for word in wordAr {
             count += (word.characters.count + 1)
         }
         
