@@ -449,7 +449,10 @@ class VocabularyConnectScene: SKScene {
             }
         }
         if fingerDown == true {
-            let playSound = SKAction.playSoundFileNamed("Star1.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("Star1.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             self.run(SKAction.sequence([playSound]))
         }
     }
@@ -569,7 +572,10 @@ class VocabularyConnectScene: SKScene {
                 if lineConnections[0] > -1 && lineConnections[1] > -1 && lineConnections[2] > -1 {
                     CheckAnswer()
                 }
-                let playSound = SKAction.playSoundFileNamed("Star3.wav", waitForCompletion: false)
+                var playSound = SKAction.playSoundFileNamed("Star3.wav", waitForCompletion: false)
+                if global.soundOption > 0 {
+                    playSound = SKAction.wait(forDuration: 0.0001)
+                }
                 self.run(SKAction.sequence([playSound]))
             }
         }
@@ -632,7 +638,10 @@ class VocabularyConnectScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound,duration:1.5)
         }
     }
@@ -672,7 +681,10 @@ class VocabularyConnectScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound,duration:4.0)
         }
     }

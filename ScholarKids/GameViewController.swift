@@ -47,6 +47,7 @@ class Global {
     var minimumCorrectToUnlock = 9
     var optionAr = [String]()
     var maxLevels = 20
+    var musicStarted = false
 }
 
 let global = Global()
@@ -64,6 +65,7 @@ func CreateShadowLabel(label : SKLabelNode,offset: CGFloat) -> SKLabelNode
 }
 
 func UpdateOptions() {
+    let oldMusicOption = global.musicOption
     global.mathUnlocked = Int(global.optionAr[7])!
     global.grammarUnlocked = Int(global.optionAr[9])!
     global.vocabularyUnlocked = Int(global.optionAr[11])!
@@ -71,6 +73,16 @@ func UpdateOptions() {
     global.musicOption = Int(global.optionAr[1])!
     global.soundOption = Int(global.optionAr[3])!
     global.minimumCorrectToUnlock = (Int(global.optionAr[5])!) * 3
+    
+    if  global.musicOption == 2 && oldMusicOption < 2 {
+        let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "StopBackgroundSound"), object: SKScene(), userInfo:dictToSend)
+    }
+    if  global.musicOption < 2 && oldMusicOption == 2 && !global.musicStarted{
+        let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: SKScene(), userInfo:dictToSend)
+    }
+
 }
 
 func CreateOptionsFileIfNecessary() {
@@ -104,16 +116,20 @@ func ReadOptionsFile() {
     }
 }
 
-func TransitionBackFromScene(myScene: SKScene)
-{
+func TransitionBackFromScene(myScene: SKScene) {
     for child in global.overlayNode.children {
         child.removeFromParent()
     }
     global.overlayNode.removeFromParent()
-    let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
-    NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: myScene, userInfo:dictToSend)
+    if global.musicOption == 1 && !global.musicStarted {  //music menu only
+        let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: myScene, userInfo:dictToSend)
+    }
     
-    let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+    var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+    if global.soundOption == 2 {
+        playSound = SKAction.wait(forDuration: 0.0001)
+    }
     let newScene = SKAction.run({
         let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
         
@@ -474,23 +490,41 @@ func DisplayLevelFinished(scene : SKScene) {
     var correctProgressSound = SKAction.wait(forDuration: 0.001)
     if global.correctAnswers > 0 {
         correctProgressSound = SKAction.playSoundFileNamed("CorrectProgress.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            correctProgressSound = SKAction.wait(forDuration: 0.0001)
+        }
     }
     if global.incorrectAnswers > 0 {
         wrongProgressSound = SKAction.playSoundFileNamed("WrongProgress.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            wrongProgressSound = SKAction.wait(forDuration: 0.0001)
+        }
     }
     
-    let levelCompleteSound = SKAction.playSoundFileNamed("LevelCompleted.wav", waitForCompletion: false)
+    var levelCompleteSound = SKAction.playSoundFileNamed("LevelCompleted.wav", waitForCompletion: false)
+    if global.soundOption == 2 {
+        levelCompleteSound = SKAction.wait(forDuration: 0.0001)
+    }
     var star1Sound = SKAction.wait(forDuration: 0.001)
     var star2Sound = SKAction.wait(forDuration: 0.001)
     var star3Sound = SKAction.wait(forDuration: 0.001)
     if global.correctAnswers >= 3 {
         star1Sound = SKAction.playSoundFileNamed("Star1.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            star1Sound = SKAction.wait(forDuration: 0.0001)
+        }
     }
     if global.correctAnswers >= 6 {
         star2Sound = SKAction.playSoundFileNamed("Star2.wav", waitForCompletion: false)
-    }
+        if global.soundOption == 2 {
+            star2Sound = SKAction.wait(forDuration: 0.0001)
+        }
+    }    
     if global.correctAnswers >= 9 {
         star3Sound = SKAction.playSoundFileNamed("Star3.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            star3Sound = SKAction.wait(forDuration: 0.0001)
+        }
     }
     
     let wait = SKAction.wait(forDuration: 0.6)
@@ -534,6 +568,11 @@ func WriteResultsToFile() {
                                 var data = playerDataAr[2+x].characters.split{$0 == " "}.map(String.init)
                                 let levelCompleteCount = data.count
                                 if levelCompleteCount < global.currentLevel {
+                                    if levelCompleteCount < global.currentLevel-1 {
+                                        for _ in levelCompleteCount..<global.currentLevel-1 {
+                                            data.append("0")
+                                        }
+                                    }
                                     data.append(String(global.correctAnswers))
                                 }
                                 else  {
@@ -543,35 +582,6 @@ func WriteResultsToFile() {
                                 break
                             }
                         }
-//                        if global.sceneType == "Math" {
-//                            var data = playerDataAr[2].characters.split{$0 == " "}.map(String.init)
-//                            let levelCompleteCount = data.count
-//                            if levelCompleteCount < global.currentLevel {
-//                                data.append(String(global.correctAnswers))
-//                            }
-//                            else  {
-//                                data[global.currentLevel-1] = String(global.correctAnswers)
-//                            }
-//                            playerDataAr[2] = data.joined(separator: " ")
-//                        }
-//                        else if global.sceneType == "Grammar" {
-//                            var data = playerDataAr[3].characters.split{$0 == " "}.map(String.init)
-//                            let levelCompleteCount = data.count
-//                            if levelCompleteCount < global.currentLevel {
-//                                data.append(String(global.correctAnswers))
-//                            }
-//                            else  {
-//                                data[global.currentLevel-1] = String(global.correctAnswers)
-//                            }
-//                            playerDataAr[3] = data.joined(separator: " ")
-//                        }
-//                        else if global.sceneType == "Vocabulary" {
-//
-//                        }
-//                        else if global.sceneType == "Spelling" {
-//
-//                        }
-                        
                         lineAr[i] = playerDataAr.joined(separator: "*")
                     }
                 }
@@ -626,7 +636,8 @@ class GameViewController: UIViewController, SKViewDelegate {
         
     }
     
-    func playBackgroundSound(_ notification: Notification) {        
+    func playBackgroundSound(_ notification: Notification) {
+        global.musicStarted = true
         //get the name of the file to play from the data passed in with the notification
         let name = (notification as NSNotification).userInfo!["fileToPlay"] as! String
         
@@ -657,6 +668,7 @@ class GameViewController: UIViewController, SKViewDelegate {
     }
     
     func stopBackgroundSound() {
+        global.musicStarted = false
         //if the bgSoundPlayer isn't nil, then stop it
         if (bgSoundPlayer != nil){
             bgSoundPlayer!.stop()

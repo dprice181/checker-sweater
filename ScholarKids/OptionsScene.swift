@@ -655,7 +655,11 @@ class OptionsScene: SKScene {
             child.removeFromParent()
         }
         global.overlayNode.removeFromParent()
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
+        
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
@@ -675,7 +679,11 @@ class OptionsScene: SKScene {
             child.removeFromParent()
         }
         global.overlayNode.removeFromParent()
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
+        
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             

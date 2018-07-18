@@ -21,10 +21,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         physicsWorld.gravity = .zero
-       
-        let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]  
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: self, userInfo:dictToSend)
-        
+                
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         
         //global.currentGrade = "K"

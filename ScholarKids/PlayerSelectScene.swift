@@ -295,7 +295,10 @@ class PlayerSelectScene: SKScene {
     
     func RemoveDialog(studentIndex: Int)
     {
-        let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         self.run(SKAction.sequence([playSound]))
         
         let dialogMessage = UIAlertController(title: "Remove Student", message: "Are you sure you want to remove this student?", preferredStyle: .alert)
@@ -457,7 +460,10 @@ class PlayerSelectScene: SKScene {
     
     func AddPlayer()
     {
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         self.run(SKAction.sequence([playSound]))
         GetStudentName()
     }
@@ -608,7 +614,10 @@ class PlayerSelectScene: SKScene {
     }
     
     func OpenProgressReport() {
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
@@ -625,7 +634,10 @@ class PlayerSelectScene: SKScene {
             child.removeFromParent()
         }
         global.overlayNode.removeFromParent()
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
@@ -638,7 +650,10 @@ class PlayerSelectScene: SKScene {
     
     func TransitionScene()
     {
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             

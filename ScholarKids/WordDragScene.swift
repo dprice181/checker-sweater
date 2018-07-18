@@ -553,12 +553,18 @@ class WordDragScene: SKScene {
                 TransitionBackFromScene(myScene: self)
             }
             if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
-                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                if global.soundOption > 0 {
+                    playSound = SKAction.wait(forDuration: 0.0001)
+                }
                 TransitionScene(playSound:playSound,duration:0.0)
             }
             if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
                 global.currentLevel = global.currentLevel + 1
-                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                if global.soundOption > 0 {
+                    playSound = SKAction.wait(forDuration: 0.0001)
+                }
                 TransitionScene(playSound:playSound,duration:0.0)
             }
         }
@@ -598,8 +604,7 @@ class WordDragScene: SKScene {
         self.run(SKAction.sequence([playSound,wait,newScene]))
     }
     
-    func CorrectAnswerSelected()
-    {
+    func CorrectAnswerSelected() {
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.lightBlue
         labelInstr.fontSize = 30
@@ -614,13 +619,15 @@ class WordDragScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound,duration: 1.5)
         }
     }
     
-    func IncorrectAnswerSelected()
-    {
+    func IncorrectAnswerSelected() {
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
         labelInstr.fontSize = 30
@@ -635,13 +642,15 @@ class WordDragScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound, duration: 4.0)
         }
     }
     
-    func ChoiceBoxMovedToAnswerBox(choicebox: SKSpriteNode, answerbox: SKSpriteNode)
-    {
+    func ChoiceBoxMovedToAnswerBox(choicebox: SKSpriteNode, answerbox: SKSpriteNode) {
         choiceMade = true
         answerboxPos = answerbox.position
         answerbox.removeFromParent()
@@ -657,8 +666,7 @@ class WordDragScene: SKScene {
 }
 
 
-extension WordDragScene: SKPhysicsContactDelegate {
-    
+extension WordDragScene: SKPhysicsContactDelegate {    
     func didBegin(_ contact: SKPhysicsContact) {
         // 1
         var firstBody: SKPhysicsBody

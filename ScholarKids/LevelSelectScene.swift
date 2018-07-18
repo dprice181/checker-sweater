@@ -25,8 +25,7 @@ class LevelSelectScene: SKScene {
     var minX : CGFloat = 0.0
     var maxX : CGFloat = 0.0
     var curX : [CGFloat] = [0.0,0.0,0.0,0.0,0.0]
-    
-    //let subjectAr = ["Math","Grammar","Vocabulary","Spelling","Reading"]
+        
     let subjectAr = ["Math","Grammar","Vocabulary","Spelling"]
 
     var scrollLocation = CGPoint.zero
@@ -373,7 +372,10 @@ class LevelSelectScene: SKScene {
                                                 TransitionScene(sceneType:subjectAr[ind3])
                                             }
                                             else {
-                                                let playSound = SKAction.playSoundFileNamed("WrongProgress.wav", waitForCompletion: false)
+                                                var playSound = SKAction.playSoundFileNamed("WrongProgress.wav", waitForCompletion: false)
+                                                if global.soundOption == 2 {
+                                                    playSound = SKAction.wait(forDuration: 0.0001)
+                                                }
                                                 self.run(SKAction.sequence([playSound]))
                                             }
                                         }
@@ -422,7 +424,10 @@ class LevelSelectScene: SKScene {
             child.removeFromParent()
         }
         global.overlayNode.removeFromParent()
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
@@ -437,10 +442,15 @@ class LevelSelectScene: SKScene {
     {
         global.sceneType = sceneType
         
-        let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "StopBackgroundSound"), object: self, userInfo:dictToSend)
+        if global.musicOption == 1 {
+            let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "StopBackgroundSound"), object: self, userInfo:dictToSend)
+        }
         
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             

@@ -35,9 +35,7 @@ class MathDrawScene: SKScene {
     var correctAnswer = 0
     var correctAnswerRemainder = 0
     var negativeNumbers = false
-    
     var currentExtraWordNum = 0
-    
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -50,7 +48,6 @@ class MathDrawScene: SKScene {
         global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
         global.sceneType = sceneType
-                
         
         GetProblem()
         DrawTitle()
@@ -58,7 +55,6 @@ class MathDrawScene: SKScene {
         DrawNumberButtons()
         DrawOtherButtons()
         DrawCorrectLabels()
-        
     }
     
     func DrawProblem() {
@@ -635,7 +631,7 @@ class MathDrawScene: SKScene {
                 buttonShadow.isHidden = false
             }
 
-            fingerDown = true;
+            fingerDown = true
             if let shapeNode = touchedNode as? SKNode {
                 if shapeNode.name?.contains("circle") != nil && (shapeNode.name?.contains("circle"))!  {
                     if let charInd = shapeNode.name?.last {
@@ -656,6 +652,15 @@ class MathDrawScene: SKScene {
                     }
                 }
                 if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
+                    fingerDown = false;  //no drawing if they clicked a button
+                }
+                if shapeNode.name?.contains("home") != nil && (shapeNode.name?.contains("home"))!  {
+                    fingerDown = false;  //no drawing if they clicked a button
+                }
+                if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
+                    fingerDown = false;  //no drawing if they clicked a button
+                }
+                if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
                     fingerDown = false;  //no drawing if they clicked a button
                 }
             }
@@ -749,12 +754,18 @@ class MathDrawScene: SKScene {
                     TransitionBackFromScene(myScene: self)
                 }
                 if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
-                    let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                    var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                    if global.soundOption > 0 {
+                        playSound = SKAction.wait(forDuration: 0.0001)
+                    }
                     TransitionScene(playSound:playSound,duration:0.0)
                 }
                 if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
                     global.currentLevel = global.currentLevel + 1
-                    let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                    var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                    if global.soundOption > 0 {
+                        playSound = SKAction.wait(forDuration: 0.0001)
+                    }
                     TransitionScene(playSound:playSound,duration:0.0)
                 }
             }
@@ -822,7 +833,10 @@ class MathDrawScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound,duration:1.5)
         }
     }
@@ -856,7 +870,10 @@ class MathDrawScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound,duration:4.0)
         }
     }

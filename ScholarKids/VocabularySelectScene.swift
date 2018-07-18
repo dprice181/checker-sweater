@@ -532,12 +532,18 @@ class VocabularySelectScene: SKScene {
                 TransitionBackFromScene(myScene: self)
             }
             if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
-                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                if global.soundOption > 0 {
+                    playSound = SKAction.wait(forDuration: 0.0001)
+                }
                 TransitionScene(playSound:playSound,duration:0.0)
             }
             if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
                 global.currentLevel = global.currentLevel + 1
-                let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                if global.soundOption > 0 {
+                    playSound = SKAction.wait(forDuration: 0.0001)
+                }
                 TransitionScene(playSound:playSound,duration:0.0)
             }
         }
@@ -593,7 +599,10 @@ class VocabularySelectScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound,duration:1.5)
         }
     }
@@ -671,7 +680,10 @@ class VocabularySelectScene: SKScene {
             DisplayLevelFinished(scene:self)
         }
         else {
-            let playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            var playSound = SKAction.playSoundFileNamed("QuizWrong.wav", waitForCompletion: false)
+            if global.soundOption > 0 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
             TransitionScene(playSound:playSound,duration:4.0)
         }
         

@@ -41,6 +41,11 @@ class TitleScene: SKScene {
         timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.updateLabelText), userInfo: nil, repeats: true)
         
         ReadAndSetOptions()
+        if global.musicOption < 2 && !global.musicStarted {
+            let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: self, userInfo:dictToSend)            
+        }
+        
         DrawTitle()
         DrawButtons()
         
@@ -165,7 +170,10 @@ class TitleScene: SKScene {
     
     func TransitionSceneStart()
     {
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
@@ -179,7 +187,10 @@ class TitleScene: SKScene {
     
     func TransitionSceneOptions()
     {
-        let playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+        if global.soundOption == 2 {
+            playSound = SKAction.wait(forDuration: 0.0001)
+        }
         
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
