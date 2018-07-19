@@ -39,7 +39,7 @@ class CreditsScene: SKScene {
     
     func DrawCredits() {
         var creditAr = ["Programming","Graphics","Music"]
-        var authorAr = ["Douglas Price","Julie Witzmann","Some Dude"]
+        var authorAr = ["Douglas Price","Julie Witzmann","Scott Holmes"]
         
         var offY : CGFloat = self.size.height*38/48
         let offYInc : CGFloat = self.size.height*10/48

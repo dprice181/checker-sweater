@@ -166,17 +166,7 @@ class VocabularyConnectScene: SKScene {
             labelWord.zPosition = 100.0
             labelWord.name = "wordlabel" + String(i)
             nodeWordAr[i].addChild(labelWord)
-            nodeWordAr[i].addChild(CreateShadowLabel(label: labelWord,offset: 1))
-            
-            //hidden circle to expand clickable area
-//            circleWordAr2.append(SKShapeNode(circleOfRadius: 11.0))
-//            circleWordAr2[i].name = "wordcircle" + String(i)
-//            circleWordAr2[i].fillColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
-//            circleWordAr2[i].strokeColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
-//            circleWordAr2[i].lineWidth = 2
-//            circleWordAr2[i].position = CGPoint(x:0,y:self.size.height*2/24)
-//            circleWordAr2[i].zPosition = -1
-//            nodeWordAr[i].addChild(circleWordAr2[i])
+            nodeWordAr[i].addChild(CreateShadowLabel(label: labelWord,offset: 1))        
             
             circleWordAr.append(SKShapeNode(circleOfRadius: 7.0))
             circleWordAr[i].name = "wordcircle" + String(i)
@@ -304,16 +294,6 @@ class VocabularyConnectScene: SKScene {
             choiceboxDefinitionAr[i].position = .zero
             nodeDefinitionAr[i].addChild(choiceboxDefinitionAr[i])
             
-            //hidden circle to expand clickable area
-//            circleDefinitionAr2.append(SKShapeNode(circleOfRadius: 11.0))
-//            circleDefinitionAr2[i].name = "choicecircle" + String(i)
-//            circleDefinitionAr2[i].fillColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
-//            circleDefinitionAr2[i].strokeColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
-//            circleDefinitionAr2[i].lineWidth = 2
-//            circleDefinitionAr2[i].position = CGPoint(x:0,y:self.size.height*2/24)
-//            circleDefinitionAr2[i].zPosition = -1
-//            nodeDefinitionAr[i].addChild(circleDefinitionAr2[i])
-            
             circleDefinitionAr.append(SKShapeNode(circleOfRadius: 7.0))
             circleDefinitionAr[i].name = "choicecircle" + String(i)
             circleDefinitionAr[i].fillColor = SKColor.red
@@ -351,6 +331,8 @@ class VocabularyConnectScene: SKScene {
             vocabularyDefinition2 = lineAr[global.vocabularyConnectNum*2 + 1]
             global.currentSentenceNum = global.currentSentenceNum + 1
             global.vocabularyConnectNum = global.vocabularyConnectNum + 1
+            
+            global.vocabularyConnectNum = global.vocabularyConnectNum % (lineAr.count/2)  //wrap around at eof
             
             vocabularyWordAr.append(vocabularyWord)
             vocabularyWordAr.append(vocabularyWord1)

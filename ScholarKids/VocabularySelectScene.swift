@@ -397,9 +397,11 @@ class VocabularySelectScene: SKScene {
             global.currentSentenceNum = global.currentSentenceNum + 1
             if global.sceneType == "Vocabulary" {
                 global.vocabularySelectNum = global.vocabularySelectNum + 1
+                global.vocabularySelectNum = global.vocabularySelectNum % (lineAr.count/2)  //wrap around at eof
             }
             else {  //Spelling
                 global.spellingSelectNum = global.spellingSelectNum + 1
+                global.spellingSelectNum = global.spellingSelectNum % (lineAr.count/2)  //wrap around at eof
             }
         }
         else

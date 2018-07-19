@@ -29,13 +29,10 @@
 		0437527D20E1CAE800E791F0 /* WrongProgress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0437527B20E1CAE800E791F0 /* WrongProgress.wav */; };
 		0437527E20E1CAE800E791F0 /* CorrectProgress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0437527C20E1CAE800E791F0 /* CorrectProgress.wav */; };
 		0437529220E2AE8000E791F0 /* VocabularyConnectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437529120E2AE7F00E791F0 /* VocabularyConnectScene.swift */; };
-		0437529C20E4560400E791F0 /* Vocabulary1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529320E4560400E791F0 /* Vocabulary1.txt */; };
-		0437529D20E4560400E791F0 /* Vocabulary2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529420E4560400E791F0 /* Vocabulary2.txt */; };
 		0437529E20E4560400E791F0 /* Vocabulary3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529520E4560400E791F0 /* Vocabulary3.txt */; };
 		0437529F20E4560400E791F0 /* Vocabulary7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529620E4560400E791F0 /* Vocabulary7.txt */; };
 		043752A020E4560400E791F0 /* Vocabulary4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529720E4560400E791F0 /* Vocabulary4.txt */; };
 		043752A120E4560400E791F0 /* Vocabulary8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529820E4560400E791F0 /* Vocabulary8.txt */; };
-		043752A220E4560400E791F0 /* VocabularyK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529920E4560400E791F0 /* VocabularyK.txt */; };
 		043752A320E4560400E791F0 /* Vocabulary5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529A20E4560400E791F0 /* Vocabulary5.txt */; };
 		043752A420E4560400E791F0 /* Vocabulary6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529B20E4560400E791F0 /* Vocabulary6.txt */; };
 		043752A620E4725300E791F0 /* WordProblems1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 043752A520E4725300E791F0 /* WordProblems1.txt */; };
@@ -126,13 +123,10 @@
 		0437527B20E1CAE800E791F0 /* WrongProgress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = WrongProgress.wav; sourceTree = "<group>"; };
 		0437527C20E1CAE800E791F0 /* CorrectProgress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CorrectProgress.wav; sourceTree = "<group>"; };
 		0437529120E2AE7F00E791F0 /* VocabularyConnectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabularyConnectScene.swift; path = /Users/boojawitzmann/Projects/ScholarKids/ScholarKids/VocabularyConnectScene.swift; sourceTree = "<absolute>"; };
-		0437529320E4560400E791F0 /* Vocabulary1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary1.txt; path = ScholarKids/Sentences/Vocabulary1.txt; sourceTree = SOURCE_ROOT; };
-		0437529420E4560400E791F0 /* Vocabulary2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary2.txt; path = ScholarKids/Sentences/Vocabulary2.txt; sourceTree = SOURCE_ROOT; };
 		0437529520E4560400E791F0 /* Vocabulary3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary3.txt; path = ScholarKids/Sentences/Vocabulary3.txt; sourceTree = SOURCE_ROOT; };
 		0437529620E4560400E791F0 /* Vocabulary7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary7.txt; path = ScholarKids/Sentences/Vocabulary7.txt; sourceTree = SOURCE_ROOT; };
 		0437529720E4560400E791F0 /* Vocabulary4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary4.txt; path = ScholarKids/Sentences/Vocabulary4.txt; sourceTree = SOURCE_ROOT; };
 		0437529820E4560400E791F0 /* Vocabulary8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary8.txt; path = ScholarKids/Sentences/Vocabulary8.txt; sourceTree = SOURCE_ROOT; };
-		0437529920E4560400E791F0 /* VocabularyK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VocabularyK.txt; path = ScholarKids/Sentences/VocabularyK.txt; sourceTree = SOURCE_ROOT; };
 		0437529A20E4560400E791F0 /* Vocabulary5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary5.txt; path = ScholarKids/Sentences/Vocabulary5.txt; sourceTree = SOURCE_ROOT; };
 		0437529B20E4560400E791F0 /* Vocabulary6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary6.txt; path = ScholarKids/Sentences/Vocabulary6.txt; sourceTree = SOURCE_ROOT; };
 		043752A520E4725300E791F0 /* WordProblems1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems1.txt; path = ScholarKids/Sentences/WordProblems1.txt; sourceTree = SOURCE_ROOT; };
@@ -285,9 +279,6 @@
 				04902DDD20FADCBD008B24CC /* WordProblemsK.txt */,
 				043752A520E4725300E791F0 /* WordProblems1.txt */,
 				04902DDC20FADCBD008B24CC /* WordProblems5.txt */,
-				0437529920E4560400E791F0 /* VocabularyK.txt */,
-				0437529320E4560400E791F0 /* Vocabulary1.txt */,
-				0437529420E4560400E791F0 /* Vocabulary2.txt */,
 				0437529520E4560400E791F0 /* Vocabulary3.txt */,
 				0437529720E4560400E791F0 /* Vocabulary4.txt */,
 				0437529A20E4560400E791F0 /* Vocabulary5.txt */,
@@ -473,13 +464,11 @@
 				043752B320E4861A00E791F0 /* books.png in Resources */,
 				840B92B820B9DB14001F8FA3 /* green_plus-2.png in Resources */,
 				043752A120E4560400E791F0 /* Vocabulary8.txt in Resources */,
-				0437529D20E4560400E791F0 /* Vocabulary2.txt in Resources */,
 				04902DDE20FADCBE008B24CC /* WordProblems5.txt in Resources */,
 				043752B520E4861A00E791F0 /* pies.png in Resources */,
 				04B22B0F20DB6EC200F3AA69 /* SilverButton.png in Resources */,
 				04B22B0C20DB6E0E00F3AA69 /* GreenPlus.png in Resources */,
 				043752A420E4560400E791F0 /* Vocabulary6.txt in Resources */,
-				0437529C20E4560400E791F0 /* Vocabulary1.txt in Resources */,
 				043752B620E4861A00E791F0 /* cookies.png in Resources */,
 				84E8A4D120B3AD4700AF7C4C /* Verbs1.txt in Resources */,
 				040B60C320D1C14A0009ED9C /* Spelling4.txt in Resources */,
@@ -513,7 +502,6 @@
 				04B22B0D20DB6E0E00F3AA69 /* RedButtonBig.png in Resources */,
 				04B22B0920DB6E0E00F3AA69 /* BackwardsClean.png in Resources */,
 				0437527720E1C71300E791F0 /* Star1.wav in Resources */,
-				043752A220E4560400E791F0 /* VocabularyK.txt in Resources */,
 				043752A020E4560400E791F0 /* Vocabulary4.txt in Resources */,
 				0437527620E1C71300E791F0 /* Star3.wav in Resources */,
 				84004A8720AF3C3100761FB6 /* Actions.sks in Resources */,

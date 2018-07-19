@@ -15,7 +15,6 @@ class MathDragScene: SKScene {
     
     var currentExtraWordNum = 0
     
-    
     let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     let labelInstr = SKLabelNode(fontNamed: "Arial")
@@ -74,6 +73,8 @@ class MathDragScene: SKScene {
     var labelWordProblemAr = [SKLabelNode]()
     var labelWordProblemShadowAr = [SKLabelNode]()
     
+    var studentStartsWithGoods = false
+    
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         
@@ -85,10 +86,25 @@ class MathDragScene: SKScene {
         
         GetSentence()
         
+        DrawTitle()
+        DrawSentence()
+        DrawItems()
+        DrawFirstBox()
+        DrawSecondBox()
+        DrawCorrectLabels()
+        DrawSubmitButton()
+        DrawBackButton()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func DrawTitle() {
         let fullTitle = SKNode()
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*9/10)
         fullTitle.zPosition = 100.0
-                
+        
         labelTitle.text = "WORD PROBLEMS"
         labelTitle.fontSize = 40
         labelTitle.fontColor = SKColor.red
@@ -107,15 +123,9 @@ class MathDragScene: SKScene {
         labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
-        
-        DrawSentence()
-        DrawItems()
-        
-        DrawFirstBox()
-        DrawSecondBox()
-        
-        DrawCorrectLabels()
-        
+    }
+    
+    func DrawSubmitButton() {
         let submitButton = SKSpriteNode(imageNamed: "RedButtonSmall.png")
         submitButton.scale(to: CGSize(width: (self.size.width/5.5)*0.9,height: (self.size.height*2.5/48)*0.9))
         submitButton.name = "submitbutton"
@@ -124,7 +134,7 @@ class MathDragScene: SKScene {
         addChild(submitButton)
         
         submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.75,
-                                            height: (self.size.height*2/48)*0.75),cornerRadius: 30.0)
+                                                        height: (self.size.height*2/48)*0.75),cornerRadius: 30.0)
         submitButtonShadow.name = "bshadow"
         submitButtonShadow.fillColor = SKColor.black
         submitButtonShadow.strokeColor = SKColor.black
@@ -142,16 +152,6 @@ class MathDragScene: SKScene {
         submitLabel.text = "Submit"
         addChild(submitLabel)
         addChild(CreateShadowLabel(label: submitLabel,offset: 1))
-        
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func DrawCorrectLabels() {
@@ -191,7 +191,12 @@ class MathDragScene: SKScene {
         boxSmallFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*17.75/48)
         addChild(boxSmallFirstName)
         
-        labelCountFirstName.text = String(X)
+        if studentStartsWithGoods {
+            labelCountFirstName.text = "0"
+        }
+        else {
+            labelCountFirstName.text = String(X)
+        }
         labelCountFirstName.fontColor = SKColor.blue
         if Z > -1 || B > -1 {
             labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*19/48)
@@ -208,7 +213,12 @@ class MathDragScene: SKScene {
         
         if Z > -1 || B > -1 {
             if Z > -1 {
-                labelCount2FirstName.text = String(Z)
+                if studentStartsWithGoods {
+                    labelCount2FirstName.text = "0"
+                }
+                else {
+                    labelCount2FirstName.text = String(Z)
+                }
             }
             else if B > -1 {
                 labelCount2FirstName.text = "0"
@@ -282,7 +292,12 @@ class MathDragScene: SKScene {
             labelCountSecondName.fontSize = 30
             labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
         }
-        labelCountSecondName.text = "0"
+        if studentStartsWithGoods {
+            labelCountSecondName.text = String(X)
+        }
+        else {
+            labelCountSecondName.text = "0"
+        }
         labelCountSecondName.fontColor = SKColor.red
         labelCountSecondName.zPosition = 100.0
         addChild(labelCountSecondName)
@@ -291,7 +306,17 @@ class MathDragScene: SKScene {
         
         if Z > -1 || B > -1 {
             labelCount2SecondName.fontSize = 20
-            labelCount2SecondName.text = "0"
+            if Z > -1 {
+                if studentStartsWithGoods {
+                    labelCount2SecondName.text = String(Z)
+                }
+                else {
+                    labelCount2SecondName.text = "0"
+                }
+            }
+            else if B > -1 {
+                labelCount2SecondName.text = "0"
+            }
             labelCount2SecondName.fontColor = SKColor.red
             labelCount2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*4.5/48)
             labelCount2SecondName.zPosition = 100.0
@@ -374,8 +399,6 @@ class MathDragScene: SKScene {
     }
     
     func CorrectAnswerSelected() {
-        //RemoveLabels()
-        
         for label in labelWordProblemAr {
             label.removeFromParent()
         }
@@ -411,8 +434,6 @@ class MathDragScene: SKScene {
     }
     
     func IncorrectAnswerSelected() {
-        //RemoveLabels()
-        
         for label in labelWordProblemAr {
             label.removeFromParent()
         }
@@ -509,6 +530,11 @@ class MathDragScene: SKScene {
         offY2.append(frame.size.height/18)
         offY2.append(frame.size.height/18)
         
+        var offYStudent : CGFloat = 0
+        if studentStartsWithGoods {
+           offYStudent = -self.size.height*12/48
+        }
+        
         if A > 0 {
             for i in 0...A-1 {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
@@ -533,7 +559,7 @@ class MathDragScene: SKScene {
             for i in 0...X-1 {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
                 itemNodeAr[i].name = "item1"
-                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count])
+                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count]+offYStudent)
                 itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
@@ -543,7 +569,7 @@ class MathDragScene: SKScene {
             for i in X...X+Z-1 {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
                 itemNodeAr[i].name = "item2"
-                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count])
+                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count]+offYStudent)
                 itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
@@ -612,7 +638,6 @@ class MathDragScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
             return
         }
@@ -665,7 +690,6 @@ class MathDragScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
             return
         }
@@ -684,7 +708,6 @@ class MathDragScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
             return
         }                
@@ -759,8 +782,16 @@ class MathDragScene: SKScene {
         }
     }
     
+    func DrawBackButton() {
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
+    }
+    
     func GetSentence() {
-        if let path = Bundle.main.path(forResource: "WordProblems1", ofType: "txt") {
+        if let path = Bundle.main.path(forResource: "WordProblems" + global.currentGrade, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
             if lineAr.count < global.wordProblemsNum {
@@ -789,22 +820,23 @@ class MathDragScene: SKScene {
             item2 = itemAr[rand3]
             
             sentence = sentenceAr[0]
+            let maxItems = GetMaxItems()
             
             var string = "\\A"
             if sentence.range(of:string) != nil {
-                A = Int(arc4random_uniform(UInt32(22))+1)
+                A = Int(arc4random_uniform(UInt32(maxItems))+1)
             }
             string = "\\B"
             if sentence.range(of:string) != nil {
-                B = Int(arc4random_uniform(UInt32(22))+1)
+                B = Int(arc4random_uniform(UInt32(maxItems))+1)
             }
             string = "\\X"
             if sentence.range(of:string) != nil {
-                X = Int(arc4random_uniform(UInt32(22))+2)
+                X = Int(arc4random_uniform(UInt32(maxItems))+2)
             }
             string = "\\E"
             if sentence.range(of:string) != nil {
-                X = ( Int(arc4random_uniform(UInt32(22))+2) / 2 ) * 2
+                X = ( Int(arc4random_uniform(UInt32(maxItems))+2) / 2 ) * 2
             }
             string = "\\M"
             var replaceMString = "\\M"
@@ -812,13 +844,13 @@ class MathDragScene: SKScene {
                 let range = sentence.range(of:string)
                 let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
                 if let multiplier = Int(String(sentence[ind])) {
-                    X = ( Int(arc4random_uniform(UInt32(22))+2) / multiplier ) * multiplier
+                    X = ( Int(arc4random_uniform(UInt32(maxItems))+2) / multiplier ) * multiplier
                     if X < multiplier {
                         X = multiplier
                     }
                 }
                 else {
-                    X = ( Int(arc4random_uniform(UInt32(22))+2))
+                    X = ( Int(arc4random_uniform(UInt32(maxItems))+2))
                 }
                 replaceMString = "\\M" + String(sentence[ind])
             }
@@ -833,7 +865,7 @@ class MathDragScene: SKScene {
             }
             string = "\\Z"
             if sentence.range(of:string) != nil {
-                Z = Int(arc4random_uniform(UInt32(22))+1)
+                Z = Int(arc4random_uniform(UInt32(maxItems))+1)
             }
             string = "\\W"
             if sentence.range(of:string) != nil {
@@ -845,18 +877,8 @@ class MathDragScene: SKScene {
                 }
             }
             
-            sentence = sentence.replacingOccurrences(of: "Alice", with: person1)
-            sentence = sentence.replacingOccurrences(of: "Student", with: global.currentStudent)
-            sentence = sentence.replacingOccurrences(of: "items2", with: item2)
-            sentence = sentence.replacingOccurrences(of: "items", with: item)
-            sentence = sentence.replacingOccurrences(of: "\\A", with: String(A))
-            sentence = sentence.replacingOccurrences(of: "\\B", with: String(B))
-            sentence = sentence.replacingOccurrences(of: "\\E", with: String(X))
-            sentence = sentence.replacingOccurrences(of: replaceMString, with: String(X))
-            sentence = sentence.replacingOccurrences(of: "\\X", with: String(X))
-            sentence = sentence.replacingOccurrences(of: "\\Y", with: String(Y))
-            sentence = sentence.replacingOccurrences(of: "\\Z", with: String(Z))
-            sentence = sentence.replacingOccurrences(of: "\\W", with: String(W))
+            studentStartsWithGoods = IsStudentFirst(sentence:sentence)
+            ReplaceSentenceKeywords(sentence:&sentence,replaceMString:replaceMString)
             
             var ansString = sentenceAr[1]
             ansString = ansString.replacingOccurrences(of: "\\A", with: String(A))
@@ -922,10 +944,54 @@ class MathDragScene: SKScene {
                 person2Answer2 = result
             }
             
+            global.currentSentenceNum = global.currentSentenceNum + 1
+            global.wordProblemsNum = global.wordProblemsNum + 1
+            global.wordProblemsNum = global.wordProblemsNum % lineAr.count  //wrap around at eof
         }
         else {
             print("file not found")
         }
+    }
+    
+    func ReplaceSentenceKeywords(sentence:inout String,replaceMString:String)  {
+        sentence = sentence.replacingOccurrences(of: "Alice", with: person1)
+        sentence = sentence.replacingOccurrences(of: "Student", with: global.currentStudent)
+        sentence = sentence.replacingOccurrences(of: "items2", with: item2)
+        sentence = sentence.replacingOccurrences(of: "items", with: item)
+        sentence = sentence.replacingOccurrences(of: "\\A", with: String(A))
+        sentence = sentence.replacingOccurrences(of: "\\B", with: String(B))
+        sentence = sentence.replacingOccurrences(of: "\\E", with: String(X))
+        sentence = sentence.replacingOccurrences(of: replaceMString, with: String(X))
+        sentence = sentence.replacingOccurrences(of: "\\X", with: String(X))
+        sentence = sentence.replacingOccurrences(of: "\\Y", with: String(Y))
+        sentence = sentence.replacingOccurrences(of: "\\Z", with: String(Z))
+        sentence = sentence.replacingOccurrences(of: "\\W", with: String(W))
+    }
+    
+    func GetMaxItems() -> Int {
+        if global.currentGrade == "K" {
+            return 10
+        }
+        if global.currentGrade == "1" {
+            return 15
+        }
+        
+        return 22
+    }
+    
+    func IsStudentFirst(sentence:String) -> Bool {
+        let studentLen = sentence.index(sentence.startIndex, offsetBy: 7)
+        var studentStr = ""
+        for index in sentence.characters.indices {
+            if index == studentLen {
+                studentStr = sentence.substring(to: index)
+                break
+            }
+        }
+        if studentStr == "Student" {
+            return true
+        }
+        return false
     }
     
     func TransitionScene(playSound: SKAction,duration: TimeInterval) {
@@ -933,9 +999,6 @@ class MathDragScene: SKScene {
             child.removeFromParent()
         }
         global.overlayNode.removeFromParent()
-        
-        global.currentSentenceNum = global.currentSentenceNum + 1
-        global.wordProblemsNum = global.wordProblemsNum + 1
         
         let wait = SKAction.wait(forDuration: duration)
         

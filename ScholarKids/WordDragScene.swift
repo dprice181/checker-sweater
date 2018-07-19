@@ -40,8 +40,7 @@ class WordDragScene: SKScene {
     var choiceWordAr = [String]()
     var selectedNode = SKSpriteNode()
     
-    var answerboxPos = CGPoint(x:0,y:0)
-    
+    var answerboxPos = CGPoint(x:0,y:0)    
     var currentExtraWordNum = 0
     
     var levelMode = "n"
@@ -50,8 +49,7 @@ class WordDragScene: SKScene {
     var background = SKSpriteNode(imageNamed: "background4.png")
     
     
-    func GetSentence()
-    {
+    func GetSentence() {
         var fileName = "Sentences1"
         if global.sceneType == "Vocabulary" || global.sceneType == "Spelling" {
             fileName = "VocabularySentences1"
@@ -357,26 +355,11 @@ class WordDragScene: SKScene {
             choiceNode.addChild(labelChoice)
             choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: 1))
             
-            
-//            let boxChoice = SKShapeNode(rectOf: sizeWordChoice,cornerRadius: 20.0)
-//            boxChoice.name = "choicebox"
-//            boxChoice.fillColor = SKColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
-//            boxChoice.strokeColor = SKColor.red
-//            boxChoice.position = .zero
-//            choiceNode.addChild(boxChoice)
             let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
             boxChoice.name = "choicebox"
             boxChoice.position = .zero
             boxChoice.scale(to: sizeWordChoice)
             choiceNode.addChild(boxChoice)
-            
-//            let boxChoiceShadow = SKShapeNode(rectOf: sizeWordChoice,cornerRadius: 30.0)
-//            boxChoiceShadow.fillColor = SKColor.black
-//            boxChoiceShadow.strokeColor = SKColor.black
-//            boxChoiceShadow.zPosition = -1.0
-//            boxChoice.position = CGPoint(x:-1.0,y:1.0)
-//            choiceNode.addChild(boxChoiceShadow)
-        
             addChild(choiceNode)
             
             posX = posX + self.size.width*2/6

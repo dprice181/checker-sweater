@@ -382,8 +382,7 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                             }
-                        }
-                        
+                        }                        
                     }
                 }
                 if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
@@ -454,23 +453,30 @@ class LevelSelectScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
+            global.currentSentenceNum = 0
             if global.sceneType == "Math" {
+                global.wordProblemsNum = 6 * (global.currentLevel-1)
                 let nextScene = MathDrawScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if global.sceneType == "Vocabulary" {
+                global.vocabularySelectNum = 6 * (global.currentLevel-1)
+                global.vocabularyConnectNum = 18 * (global.currentLevel-1)
                 let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if global.sceneType == "Grammar" {
+                global.grammarSelectNum = 6 * (global.currentLevel-1)
+                global.grammarDragNum = 6 * (global.currentLevel-1)
                 let nextScene = WordSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if global.sceneType == "Spelling" {
+                global.spellingSelectNum = 6 * (global.currentLevel-1)
+                global.spellingDragNum = 6 * (global.currentLevel-1)
                 let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
-            
         })
         self.run(SKAction.sequence([playSound,newScene]))
     }

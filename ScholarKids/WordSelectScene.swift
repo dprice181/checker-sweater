@@ -218,7 +218,8 @@ class WordSelectScene: SKScene {
             wordAr = sentence.characters.split{$0 == " "}.map(String.init)
             sentenceDataAr = sentenceData.characters.split{$0 == " "}.map(String.init)
             global.currentSentenceNum = global.currentSentenceNum + 1
-            global.currentSentenceNum = global.grammarSelectNum + 1
+            global.grammarSelectNum = global.grammarSelectNum + 1
+            global.grammarSelectNum = global.grammarSelectNum % lineAr.count  //wrap around at eof
         }
         else {
             print("file not found")
