@@ -48,6 +48,7 @@ class MathDragScene: SKScene {
     var person2Answer2 = -1
     var person3Answer = -1
     
+    let NPCGenderAr = ["F","M","F","M","F","M","F","M"]
     let NPCAr = ["Alice","Bob","Susan","Gary","Deborah","Steve","Kathy","David"]
     let itemAr = ["cookies","pies","cakes","pencils","books"]
     
@@ -810,6 +811,8 @@ class MathDragScene: SKScene {
                 rand = Int(arc4random_uniform(UInt32(NPCAr.count)))
             }
             person1 = NPCAr[rand]
+            let npcGender = NPCGenderAr[rand]
+            
             let rand2 = Int(arc4random_uniform(UInt32(itemAr.count)))
             item = itemAr[rand2]
             
@@ -829,6 +832,22 @@ class MathDragScene: SKScene {
             string = "\\B"
             if sentence.range(of:string) != nil {
                 B = Int(arc4random_uniform(UInt32(maxItems))+1)
+            }
+            string = "\\V"
+            var replaceVString = "\\V"
+            if sentence.range(of:string) != nil {
+                let range = sentence.range(of:string)
+                let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
+                if let multiplier = Int(String(sentence[ind])) {
+                    B = ( Int(arc4random_uniform(UInt32(maxItems))+2) / multiplier ) * multiplier
+                    if B < multiplier {
+                        B = multiplier
+                    }
+                }
+                else {
+                    B = ( Int(arc4random_uniform(UInt32(maxItems))+2))
+                }
+                replaceVString = "\\V" + String(sentence[ind])
             }
             string = "\\X"
             if sentence.range(of:string) != nil {
@@ -854,6 +873,22 @@ class MathDragScene: SKScene {
                 }
                 replaceMString = "\\M" + String(sentence[ind])
             }
+            string = "\\Q"
+            var replaceQString = "\\Q"
+            if sentence.range(of:string) != nil {
+                let range = sentence.range(of:string)
+                let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
+                if let multiplier = Int(String(sentence[ind])) {
+                    A = ( Int(arc4random_uniform(UInt32(maxItems))+2) / multiplier ) * multiplier
+                    if A < multiplier {
+                        A = multiplier
+                    }
+                }
+                else {
+                    A = ( Int(arc4random_uniform(UInt32(maxItems))+2))
+                }
+                replaceQString = "\\Q" + String(sentence[ind])
+            }
             string = "\\Y"
             if sentence.range(of:string) != nil {
                 if A > -1 {
@@ -867,6 +902,22 @@ class MathDragScene: SKScene {
             if sentence.range(of:string) != nil {
                 Z = Int(arc4random_uniform(UInt32(maxItems))+1)
             }
+            string = "\\R"
+            var replaceRString = "\\R"
+            if sentence.range(of:string) != nil {
+                let range = sentence.range(of:string)
+                let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
+                if let multiplier = Int(String(sentence[ind])) {
+                    Z = ( Int(arc4random_uniform(UInt32(maxItems))+2) / multiplier ) * multiplier
+                    if Z < multiplier {
+                        Z = multiplier
+                    }
+                }
+                else {
+                    Z = ( Int(arc4random_uniform(UInt32(maxItems))+2))
+                }
+                replaceRString = "\\R" + String(sentence[ind])
+            }
             string = "\\W"
             if sentence.range(of:string) != nil {
                 if B > -1 {
@@ -878,13 +929,17 @@ class MathDragScene: SKScene {
             }
             
             studentStartsWithGoods = IsStudentFirst(sentence:sentence)
-            ReplaceSentenceKeywords(sentence:&sentence,replaceMString:replaceMString)
+            ReplaceSentenceKeywords(sentence:&sentence,replaceMString:replaceMString,replaceQString:replaceQString,
+                                    replaceRString:replaceRString,replaceVString:replaceVString,npcGender:npcGender)
             
             var ansString = sentenceAr[1]
             ansString = ansString.replacingOccurrences(of: "\\A", with: String(A))
             ansString = ansString.replacingOccurrences(of: "\\B", with: String(B))
             ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
             ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceQString, with: String(A))
+            ansString = ansString.replacingOccurrences(of: replaceRString, with: String(Z))
+            ansString = ansString.replacingOccurrences(of: replaceVString, with: String(B))
             ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
             ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
             ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
@@ -899,6 +954,9 @@ class MathDragScene: SKScene {
             ansString = ansString.replacingOccurrences(of: "\\B", with: String(B))
             ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
             ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceQString, with: String(A))
+            ansString = ansString.replacingOccurrences(of: replaceRString, with: String(Z))
+            ansString = ansString.replacingOccurrences(of: replaceVString, with: String(B))
             ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
             ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
             ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
@@ -922,6 +980,9 @@ class MathDragScene: SKScene {
             ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
             ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
             ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceQString, with: String(A))
+            ansString = ansString.replacingOccurrences(of: replaceRString, with: String(Z))
+            ansString = ansString.replacingOccurrences(of: replaceVString, with: String(B))
             ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
             ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
             ansString = ansString.replacingOccurrences(of: "\\W", with: String(W))
@@ -936,6 +997,9 @@ class MathDragScene: SKScene {
             ansString = ansString.replacingOccurrences(of: "\\X", with: String(X))
             ansString = ansString.replacingOccurrences(of: "\\E", with: String(X))
             ansString = ansString.replacingOccurrences(of: replaceMString, with: String(X))
+            ansString = ansString.replacingOccurrences(of: replaceQString, with: String(A))
+            ansString = ansString.replacingOccurrences(of: replaceRString, with: String(Z))
+            ansString = ansString.replacingOccurrences(of: replaceVString, with: String(B))
             ansString = ansString.replacingOccurrences(of: "\\Y", with: String(Y))
             ansString = ansString.replacingOccurrences(of: "\\Z", with: String(Z))
             ansString = ansString.replacingOccurrences(of: "\\W", with: String(W))
@@ -953,7 +1017,7 @@ class MathDragScene: SKScene {
         }
     }
     
-    func ReplaceSentenceKeywords(sentence:inout String,replaceMString:String)  {
+    func ReplaceSentenceKeywords(sentence:inout String,replaceMString:String,replaceQString:String,replaceRString:String,replaceVString:String,npcGender:String)  {
         sentence = sentence.replacingOccurrences(of: "Alice", with: person1)
         sentence = sentence.replacingOccurrences(of: "Student", with: global.currentStudent)
         sentence = sentence.replacingOccurrences(of: "items2", with: item2)
@@ -962,10 +1026,17 @@ class MathDragScene: SKScene {
         sentence = sentence.replacingOccurrences(of: "\\B", with: String(B))
         sentence = sentence.replacingOccurrences(of: "\\E", with: String(X))
         sentence = sentence.replacingOccurrences(of: replaceMString, with: String(X))
+        sentence = sentence.replacingOccurrences(of: replaceQString, with: String(A))
+        sentence = sentence.replacingOccurrences(of: replaceRString, with: String(Z))
+        sentence = sentence.replacingOccurrences(of: replaceVString, with: String(B))
         sentence = sentence.replacingOccurrences(of: "\\X", with: String(X))
         sentence = sentence.replacingOccurrences(of: "\\Y", with: String(Y))
         sentence = sentence.replacingOccurrences(of: "\\Z", with: String(Z))
         sentence = sentence.replacingOccurrences(of: "\\W", with: String(W))
+        if npcGender == "M" {
+            sentence = sentence.replacingOccurrences(of: "her", with: "his")
+        }
+        
     }
     
     func GetMaxItems() -> Int {

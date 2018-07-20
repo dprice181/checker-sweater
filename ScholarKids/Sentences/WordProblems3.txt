@@ -22,14 +22,5 @@ Alice had \M4 items and gave Student one-fourth (1/4).  How many items did Alice
 There are \Q3 items and \V3 items2.  Alice took one-third (1/3) of the items and one-third (1/3) of the items2 and Student took one-third (1/3) of the items and one-third (1/3) of the items2 as well.  How many did Alice and Student take?#\Q3/3#\V3/3#\Q3/3#\V3/3
 There are \Q3 items and \V3 items2.  Alice took one-third (1/3) of the items and one-third (1/3) of the items2 and Student took the rest.  How many did Alice and Student take?#\Q3/3#\V3/3#\Q3*2/3#\V3*2/3
 There are \Q3 items and \V3 items2.  Student took one-third (1/3) of the items and one-third (1/3) of the items2 and Alice took the rest.  How many did Alice and Student take?#\Q3*2/3#\V3*2/3#\Q3/3#\V3/3
-Alice had \M5 items and gave Student four-fifths (4/5).  How many items did Alice have left?#\M5/5#\M5*4/5
-Alice had \M5 items and gave Student three-fifths (3/5).  How many items did Alice have left?#\M5*2/5#\M5*3/5
-Alice had \M5 items and gave Student two-fifths (2/5).  How many items did Alice have left?#\M5*3/5#\M5*2/5
-Alice had \M5 items and gave Student one-fifth (1/5).  How many items did Alice have left?#\M5*4/5#\M5/5
 Student had \M3 items and \R3 items2 and gave Alice one-third (1/3) of the items and one-third (1/3) of the items2.  How many items and items2 did Student have left?#\M3/3#\R3/3#\M3*2/3#\R3*2/3
 Alice had \M3 items and \R3 items2 and gave Student one-third (1/3) of the items and one-third (1/3) of her items2.  How many items and items2 did Alice have left?#\M3*2/3#\R3*2/3#\M3/3#\R3/3
-Alice had \M6 items and gave Student five-sixths (5/6).  How many items did Alice have left?#\M6/6#\M6*5/6
-Alice had \M6 items and gave Student four-sixths (4/6).  How many items did Alice have left?#\M6*2/6#\M6*4/6
-Alice had \M6 items and gave Student three-sixths (3/6).  How many items did Alice have left?#\M6*3/6#\M6*3/6
-Alice had \M6 items and gave Student two-sixths (2/6).  How many items did Alice have left?#\M6*4/6#\M6*2/6
-Alice had \M6 items and gave Student one-sixths (1/6).  How many items did Alice have left?#\M6*5/6#\M6/6

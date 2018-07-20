@@ -1,14 +1,52 @@
-There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W
-Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
-There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
+Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
 Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
-Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
-Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
-There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
-There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
-Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
 Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
 There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
-There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
+Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
+There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
 Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
+Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
 There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
+There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W
+Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
+Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
+There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
+Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
+Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
+There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
+There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W
+Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
+Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
+There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
+Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
+Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
+There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
+There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W
+Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
+Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
+There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
+Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
+Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
+There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
+There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W
+Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
+Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
+There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
+Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
+Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
+There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
+There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W
+Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
+Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
+There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
+Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
+Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
+There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
+There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W

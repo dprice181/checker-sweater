@@ -50,6 +50,15 @@
 		04902DDF20FADCBE008B24CC /* WordProblemsK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04902DDD20FADCBD008B24CC /* WordProblemsK.txt */; };
 		04902DE120FCFBCE008B24CC /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04902DE020FCFBCE008B24CC /* OptionsScene.swift */; };
 		04902DE320FD809C008B24CC /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04902DE220FD809C008B24CC /* CreditsScene.swift */; };
+		04A2CF0A21025625006282B3 /* WordProblems2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF0921025625006282B3 /* WordProblems2.txt */; };
+		04A2CF1421025D47006282B3 /* Vocabulary1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF1121025D46006282B3 /* Vocabulary1.txt */; };
+		04A2CF1521025D47006282B3 /* VocabularyK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF1221025D46006282B3 /* VocabularyK.txt */; };
+		04A2CF1621025D47006282B3 /* Vocabulary2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF1321025D47006282B3 /* Vocabulary2.txt */; };
+		04A2CF1C2102680F006282B3 /* WordProblems3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF172102680E006282B3 /* WordProblems3.txt */; };
+		04A2CF1D2102680F006282B3 /* WordProblems4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF182102680E006282B3 /* WordProblems4.txt */; };
+		04A2CF1E2102680F006282B3 /* WordProblems6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF192102680E006282B3 /* WordProblems6.txt */; };
+		04A2CF1F2102680F006282B3 /* WordProblems8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF1A2102680E006282B3 /* WordProblems8.txt */; };
+		04A2CF202102680F006282B3 /* WordProblems7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04A2CF1B2102680F006282B3 /* WordProblems7.txt */; };
 		04B22B0120D71C9700F3AA69 /* MathDragScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B22B0020D71C9700F3AA69 /* MathDragScene.swift */; };
 		04B22B0820DB6E0E00F3AA69 /* RedButtonSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0220DB6E0E00F3AA69 /* RedButtonSmall.png */; };
 		04B22B0920DB6E0E00F3AA69 /* BackwardsClean.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0320DB6E0E00F3AA69 /* BackwardsClean.png */; };
@@ -144,6 +153,15 @@
 		04902DDD20FADCBD008B24CC /* WordProblemsK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblemsK.txt; path = ScholarKids/Sentences/WordProblemsK.txt; sourceTree = SOURCE_ROOT; };
 		04902DE020FCFBCE008B24CC /* OptionsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		04902DE220FD809C008B24CC /* CreditsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
+		04A2CF0921025625006282B3 /* WordProblems2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = WordProblems2.txt; sourceTree = "<group>"; };
+		04A2CF1121025D46006282B3 /* Vocabulary1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary1.txt; path = ScholarKids/Sentences/Vocabulary1.txt; sourceTree = SOURCE_ROOT; };
+		04A2CF1221025D46006282B3 /* VocabularyK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VocabularyK.txt; path = ScholarKids/Sentences/VocabularyK.txt; sourceTree = SOURCE_ROOT; };
+		04A2CF1321025D47006282B3 /* Vocabulary2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary2.txt; path = ScholarKids/Sentences/Vocabulary2.txt; sourceTree = SOURCE_ROOT; };
+		04A2CF172102680E006282B3 /* WordProblems3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems3.txt; path = ScholarKids/Sentences/WordProblems3.txt; sourceTree = SOURCE_ROOT; };
+		04A2CF182102680E006282B3 /* WordProblems4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems4.txt; path = ScholarKids/Sentences/WordProblems4.txt; sourceTree = SOURCE_ROOT; };
+		04A2CF192102680E006282B3 /* WordProblems6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems6.txt; path = ScholarKids/Sentences/WordProblems6.txt; sourceTree = SOURCE_ROOT; };
+		04A2CF1A2102680E006282B3 /* WordProblems8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems8.txt; path = ScholarKids/Sentences/WordProblems8.txt; sourceTree = SOURCE_ROOT; };
+		04A2CF1B2102680F006282B3 /* WordProblems7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems7.txt; path = ScholarKids/Sentences/WordProblems7.txt; sourceTree = SOURCE_ROOT; };
 		04B22B0020D71C9700F3AA69 /* MathDragScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathDragScene.swift; sourceTree = "<group>"; };
 		04B22B0220DB6E0E00F3AA69 /* RedButtonSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonSmall.png; sourceTree = "<group>"; };
 		04B22B0320DB6E0E00F3AA69 /* BackwardsClean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackwardsClean.png; sourceTree = "<group>"; };
@@ -278,7 +296,16 @@
 			children = (
 				04902DDD20FADCBD008B24CC /* WordProblemsK.txt */,
 				043752A520E4725300E791F0 /* WordProblems1.txt */,
+				04A2CF0921025625006282B3 /* WordProblems2.txt */,
+				04A2CF172102680E006282B3 /* WordProblems3.txt */,
+				04A2CF182102680E006282B3 /* WordProblems4.txt */,
 				04902DDC20FADCBD008B24CC /* WordProblems5.txt */,
+				04A2CF192102680E006282B3 /* WordProblems6.txt */,
+				04A2CF1B2102680F006282B3 /* WordProblems7.txt */,
+				04A2CF1A2102680E006282B3 /* WordProblems8.txt */,
+				04A2CF1221025D46006282B3 /* VocabularyK.txt */,
+				04A2CF1121025D46006282B3 /* Vocabulary1.txt */,
+				04A2CF1321025D47006282B3 /* Vocabulary2.txt */,
 				0437529520E4560400E791F0 /* Vocabulary3.txt */,
 				0437529720E4560400E791F0 /* Vocabulary4.txt */,
 				0437529A20E4560400E791F0 /* Vocabulary5.txt */,
@@ -463,6 +490,7 @@
 				04902DDF20FADCBE008B24CC /* WordProblemsK.txt in Resources */,
 				043752B320E4861A00E791F0 /* books.png in Resources */,
 				840B92B820B9DB14001F8FA3 /* green_plus-2.png in Resources */,
+				04A2CF1F2102680F006282B3 /* WordProblems8.txt in Resources */,
 				043752A120E4560400E791F0 /* Vocabulary8.txt in Resources */,
 				04902DDE20FADCBE008B24CC /* WordProblems5.txt in Resources */,
 				043752B520E4861A00E791F0 /* pies.png in Resources */,
@@ -470,22 +498,29 @@
 				04B22B0C20DB6E0E00F3AA69 /* GreenPlus.png in Resources */,
 				043752A420E4560400E791F0 /* Vocabulary6.txt in Resources */,
 				043752B620E4861A00E791F0 /* cookies.png in Resources */,
+				04A2CF1521025D47006282B3 /* VocabularyK.txt in Resources */,
 				84E8A4D120B3AD4700AF7C4C /* Verbs1.txt in Resources */,
 				040B60C320D1C14A0009ED9C /* Spelling4.txt in Resources */,
 				040B60C220D1C14A0009ED9C /* Spelling2.txt in Resources */,
 				0437526920E19DD700E791F0 /* retry.png in Resources */,
 				0437527E20E1CAE800E791F0 /* CorrectProgress.wav in Resources */,
 				040B60B620CF34D00009ED9C /* QuizWrong.wav in Resources */,
+				04A2CF202102680F006282B3 /* WordProblems7.txt in Resources */,
 				0437527D20E1CAE800E791F0 /* WrongProgress.wav in Resources */,
 				0445EC5B20DC7B73006098ED /* GoldStar.png in Resources */,
 				04421FE020FA935C00DAD821 /* lock.png in Resources */,
 				043752B220E4861A00E791F0 /* cakes.png in Resources */,
+				04A2CF1D2102680F006282B3 /* WordProblems4.txt in Resources */,
 				845A42FA20B1312000996714 /* free-backgrounds-17.jpg in Resources */,
 				043752B420E4861A00E791F0 /* pencils.png in Resources */,
 				0437526A20E19DD700E791F0 /* home.png in Resources */,
 				840B92B420B8D330001F8FA3 /* Players.txt in Resources */,
 				84004A8E20AF3C3100761FB6 /* Main.storyboard in Resources */,
+				04A2CF1621025D47006282B3 /* Vocabulary2.txt in Resources */,
+				04A2CF0A21025625006282B3 /* WordProblems2.txt in Resources */,
+				04A2CF1421025D47006282B3 /* Vocabulary1.txt in Resources */,
 				04B22B0820DB6E0E00F3AA69 /* RedButtonSmall.png in Resources */,
+				04A2CF1C2102680F006282B3 /* WordProblems3.txt in Resources */,
 				84004A8520AF3C3100761FB6 /* GameScene.sks in Resources */,
 				84004A9020AF3C3100761FB6 /* Assets.xcassets in Resources */,
 				040B60C120D1C14A0009ED9C /* Spelling1.txt in Resources */,
@@ -501,6 +536,7 @@
 				040B60B820CF5B7B0009ED9C /* backwards.png in Resources */,
 				04B22B0D20DB6E0E00F3AA69 /* RedButtonBig.png in Resources */,
 				04B22B0920DB6E0E00F3AA69 /* BackwardsClean.png in Resources */,
+				04A2CF1E2102680F006282B3 /* WordProblems6.txt in Resources */,
 				0437527720E1C71300E791F0 /* Star1.wav in Resources */,
 				043752A020E4560400E791F0 /* Vocabulary4.txt in Resources */,
 				0437527620E1C71300E791F0 /* Star3.wav in Resources */,
