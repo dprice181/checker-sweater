@@ -206,9 +206,22 @@ class WordSelectScene: SKScene {
         addChild(scoreNode)
     }
     
-    func GetSentence()
-    {
-        if let path = Bundle.main.path(forResource: "Sentences1", ofType: "txt") {
+    func GetFileName() -> String {
+        switch global.currentGrade {
+        case "K","1","2":
+            return "Sentences1.txt"
+        case "3","4","5":
+            return "Sentences2.txt"
+        case "6","7","8":
+            return "Sentences3.txt"
+        default:
+            return "Sentences1.txt"
+        }
+        return "Sentences1.txt"
+    }
+    
+    func GetSentence() {
+        if let path = Bundle.main.path(forResource: GetFileName(), ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
             //let sentenceAr = lineAr[global.currentSentenceNum].characters.split{$0 == "*"}.map(String.init)
@@ -358,7 +371,7 @@ class WordSelectScene: SKScene {
     func CorrectAnswerSelected()
     {
         labelInstr.text = "Answer Is Correct!!!"
-        labelInstr.fontColor = SKColor.blue
+        labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30

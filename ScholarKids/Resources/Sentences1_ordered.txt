@@ -127,7 +127,7 @@ What are this place?* a v a n
 What are this thing?* a v a n
 What are this chapter?* a v a n
 What are this story?* a v a n
-Why do people listen?* a v a n
+Why do people listen?* a v a v
 Why do people cheat?* a v n v
 Why do people steal?* a v n v
 Why do people argue?* a v n v

@@ -408,7 +408,7 @@ class MathDragScene: SKScene {
         }
         labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*18/24)
         labelWordProblemAr[0].text = "Answer Is Correct!"
-        labelWordProblemAr[0].fontColor = SKColor.blue
+        labelWordProblemAr[0].fontColor = global.blue
         labelWordProblemAr[0].fontSize = 30
         addChild(labelWordProblemAr[0])
         

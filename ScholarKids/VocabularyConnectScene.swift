@@ -607,7 +607,7 @@ class VocabularyConnectScene: SKScene {
     
     func CorrectAnswerSelected() {
         labelInstr.text = "Answer Is Correct!!!"
-        labelInstr.fontColor = SKColor.blue
+        labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30

@@ -303,37 +303,10 @@ class VocabularySelectScene: SKScene {
                 totalWordsSoFar = totalWordsSoFar + countWords
             }
         }
-    }
-    
-    func GetFileName() -> String {
-        var fileName = "Vocabulary" + global.currentGrade
-//        if global.sceneType == "Spelling" {
-//            fileName = "Spelling1"
-//            switch (global.currentGrade) {
-//                case "K","1":
-//                    fileName = "Spelling1"
-//                case "2":
-//                    fileName = "Spelling2"
-//                case "3":
-//                    fileName = "Spelling3"
-//                case "4":
-//                    fileName = "Spelling4"
-//                case "5","6":
-//                    fileName = "Spelling5"
-//                case "7","8","9","10","11","12":
-//                    fileName = "Spelling7"
-//                default:
-//                    fileName = "Spelling1"
-//            }
-//        }
-//
-//        //FIX
-//        fileName = "Vocabulary1"
-        return fileName
-    }
+    }       
     
     func GetSentence() {
-        let fileName = GetFileName()
+        let fileName = "Vocabulary" + global.currentGrade
         
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -362,7 +335,7 @@ class VocabularySelectScene: SKScene {
                 }
             }
             else {  //Vocabulary
-                lineAr.shuffle()  //FIX should be done once per launch, not per screen
+                //lineAr.shuffle()  //FIX should be done once per launch, not per screen
                 
                 //vocabularyWord = lineAr[global.currentSentenceNum*2]
                 vocabularyWord = lineAr[global.vocabularySelectNum*2]
@@ -588,7 +561,7 @@ class VocabularySelectScene: SKScene {
     
     func CorrectAnswerSelected() {
         labelInstr.text = "Answer Is Correct!!!"
-        labelInstr.fontColor = SKColor.blue
+        labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30

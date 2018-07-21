@@ -19,7 +19,7 @@ class Global {
     var letterStrings = [[String]]()
     let titleColor = SKColor(red: 185/255, green: 80/255, blue: 185/255, alpha: 1.0)
     let blue = SKColor(red:90/255,green:90/255,blue:215/255,alpha:1)
-    let lightBlue = SKColor(red:130/255,green:130/255,blue:225/255,alpha:1)
+    let lightBlue = SKColor(red:130/255,green:130/255,blue:225/255,alpha:1)    
     let lightPurple = SKColor(red: 245/255, green: 225/255, blue: 245/255, alpha: 0.8)
     let veryLightBlue = SKColor(red: 225/255, green: 225/255, blue: 255/255, alpha: 0.8)
     let purple = SKColor(red: 55/255, green: 15/255, blue: 200/255, alpha: 1)

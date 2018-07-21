@@ -49,8 +49,22 @@ class WordDragScene: SKScene {
     var background = SKSpriteNode(imageNamed: "background4.png")
     
     
+    func GetFileName() -> String {
+        switch global.currentGrade {
+        case "K","1","2":
+            return "Sentences1"
+        case "3","4","5":
+            return "Sentences2"
+        case "6","7","8":
+            return "Sentences3"
+        default:
+            return "Sentences1"
+        }
+        return "Sentences1"
+    }
+    
     func GetSentence() {
-        var fileName = "Sentences1"
+        var fileName = GetFileName()
         if global.sceneType == "Vocabulary" || global.sceneType == "Spelling" {
             fileName = "VocabularySentences1"
         }
@@ -58,7 +72,7 @@ class WordDragScene: SKScene {
         {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
-            lineAr.shuffle()  //FIX should be done once per launch, not per screen
+            //lineAr.shuffle()  //FIX should be done once per launch, not per screen
             //while (lineAr[global.currentSentenceNum] == "") {
             var curSentenceNum = global.spellingDragNum
             if global.sceneType == "Grammar" {
@@ -133,7 +147,7 @@ class WordDragScene: SKScene {
             if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
-                lineAr.shuffle()  //FIX should be done once per launch, not per screen
+                //lineAr.shuffle()  //FIX should be done once per launch, not per screen
                 
                 extraWord1 = lineAr[currentExtraWordNum*2]
             }
@@ -143,7 +157,7 @@ class WordDragScene: SKScene {
             if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
-                lineAr.shuffle()  //FIX should be done once per launch, not per screen
+                //lineAr.shuffle()  //FIX should be done once per launch, not per screen
                 
                 extraWord2 = lineAr[currentExtraWordNum*2]
             }
@@ -151,7 +165,7 @@ class WordDragScene: SKScene {
                 print("file not found")
             }
         }
-        else {
+        else {  //Grammar
             if let path = Bundle.main.path(forResource: "Verbs1", ofType: "txt")  {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
@@ -589,7 +603,7 @@ class WordDragScene: SKScene {
     
     func CorrectAnswerSelected() {
         labelInstr.text = "Answer Is Correct!!!"
-        labelInstr.fontColor = global.lightBlue
+        labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30

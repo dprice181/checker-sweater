@@ -819,7 +819,7 @@ class MathDrawScene: SKScene {
         
         labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)
         labelTitle2.text = "Answer Is Correct!!!"
-        labelTitle2.fontColor = SKColor.blue
+        labelTitle2.fontColor = global.blue
         labelTitle2.fontSize = 30
         labelTitleShadow2.position = CGPoint(x: self.size.width/2 - 1, y: self.size.height*20/24 + 1)
         labelTitleShadow2.text = "Answer Is Correct!!!"

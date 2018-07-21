@@ -1,0 +1,240 @@
+Is that a rock?* v n t n
+That is not a church.* n v d t n
+That is not a kid.* n v d t n
+That is not a house.* n v d t n
+That is a backpack.* n v t n
+Big kids are mean.* a n v a
+That is a dog.* n v t n
+Is that a car?* v n t n
+That is a chair.* n v t n
+Is that a sign?* v n t n
+Is that a building?* v n t n
+Red dogs are rare.* a n v a
+The dog barked very loudly at night.* t n v d d p n
+Where is the homework?* a v t n
+Those are not pencils.* o v d o
+There are no tables.* n v t n
+Why is the house big?* a v t n a
+Is that a room?* v n t n
+Why is the sky blue?* a v t n a
+Is that a pen?* v n t n
+These children are very obedient.* a n v d a
+The cow is slow.* t n v a
+Big houses are rare.* a n v a
+Why do people cheat?* a v n v
+I like my computer.* n v a n
+There are many friends.* n v a n
+The children are messy.* t n v a
+This is the worst!* n v t a
+What are this animal?* a v a n
+The rocks look heavy.* t n v d
+Your stairs are white.* a n v a
+He watches too much tv.* n v a a n
+I like to sweep the floor.* n v p v t n
+These people are very wild.* a n v d a
+There are no cats.* n v t n
+Squares have four sides.* n v a n
+The child is sleepy.* t n v a
+This woman is very smart.* a n v d a
+I like my dog.* n v a n
+The sun will rise soon.* t n v v d
+The monkey is friendly.* t n v a
+The place will fill soon.* t n v v d
+What is this dog?* a v a n
+My pool is blue.* a n v a
+There are seven cookies.* n v a n
+There are no burgers.* n v t n
+Why do people argue?* a v n v
+That is not a pencil.* n v d t n
+The lake is very blue.* t n v d a
+The mother is angry.* t n v a
+There is no tomorrow.* n v t n
+I want to compete.* n v p v
+Your table is grey.* a n v a
+There are twenty steps.* n v a n
+The cat is smelly.* t n v a
+This is the best!* n v t a
+What are this game?* a v a n
+What are this class?* a v a n
+The room is small.* t n v a
+These are books.* o v n
+I want to nap.* n v p v
+The girl chatted very frequently.* t n v d d
+Why are there birds?* a v a n
+I like my pants.* n v a n
+This is the smallest child!* n v t a n
+This is the smallest bug!* n v t a n
+This is a magazine.* n v t n
+The table was messy.* t n v a
+Why is the man tall?* a v t n a
+This is a book.* n v t n
+I like your cat.* n v a n
+The clay pot sits in the corner.* t a n v p t n
+The cat is messy.* t n v a
+I wish I was having fun.* n v n v v a
+This shoe is very small.* a n v d a
+The door is long.* t n v a
+What are this chapter?* a v a n
+This person is very tall.* a n v d a
+The dog is loud.* t n v a
+These cats are not friendly.* a n v d a
+When are you coming? a v n v
+What is this page?* a v a n
+The people are hungry.* t n v a
+Circles have zero sides.* n v a n
+The mouse squeaked very quietly.* t n v d d
+Where is the cat?* a v t n
+What is this chair?* a v a n
+The pigeons are happy.* t n v a
+What are this food?* a v a n
+Why are there skies?* a v a n
+The sun will set soon.* t n v v d
+My backpack is blue.* a n v a
+The children are disobedient.* t n v a
+These couches are not big.* a n v d a
+That is a pencil.* n v t n
+Triangles have three sides.* n v a n
+Why are there dogs?* a v a n
+The girl studied very well.* t n v d d
+This game is not fun.* a n v d a
+Why are there snakes?* a v a n
+My toy is red.* a n v a
+The boy is cranky.* t n v a
+The boy lied very often.* t n v d d
+This is a house.* n v t n
+I like your toys.* n v a n
+Your cat is black.* a n v a
+The dog is frisky.* t n v a
+What is this insect?* a v a n
+There are three chairs.* n v a n
+There are no adults.* n v t n
+These dogs are not loud.* a n v d a
+Your milk is white.* a n v a
+What is this book?* a v a n
+Sweep the floor!* v t n
+This broom is not useable.* a n v d a
+What are these?* o v o
+I want to eat.* n v p v
+The girl sits quietly.* t n v d
+This man is very humble.* a n v d a
+This girl is not happy.* a n v d a
+The room is small but tidy.* t n v a c a
+I want to play.* n v p v
+What is this bug?* a v a n
+What is this rock?* a v a n
+When will we get there? a v n v n
+The lion roared very confidently.* t n v d d
+I like my pencil.* n v a n
+The hat is pointy.* t n v a
+What are this thing?* a v a n
+Rachel and Amanda swam in the pool.* n c n v p t n
+The turtle is angry.* t n v a
+The girl walks slowly.* t n v d
+Why do people play?* a v n v
+This is really fun!* n v d a
+This is a lake.* n v t n
+This is a car.* n v t n
+This backpack is not cute.* a n v d a
+Is that a pencil?* v n t n
+This staircase is not useful.* a n v d a
+Where is the brownie?* a v t n
+Why are there animals?* a v a n
+These monkeys are very crazy.* a n v d a
+This is a big house.* o v t a n
+Are these books?* v n n
+Why do people work?* a v n v
+The people argued very noisily.* t n v d d
+What is this table?* a v a n
+The mother is busy.* t n v a
+Rectangles have four sides.* n v a n
+Is this a book?* v n t n
+I like my backpack.* n v a n
+My pencil is green.* a n v a
+This is a test.* n v a n
+I want to jump.* n v p v
+Where is the boy?* a v t n
+Why are there people?* a v a n
+There are three chickens.* n v a n
+Why is the monkey funny?* a v t n a
+Where is the girl?* a v t n
+The boy ran very quickly.* t n v d d
+The chars are large.* t n v a
+These mothers are very busy.* a n v d a
+These doors are not heavy.* a n v d a
+Those are pencils.* o v n
+Why is the grass green?* a v t n a
+My dog is brown.* a n v a
+These squirrels are not hungry.* a n v d a
+The girl drummed very noisily.* t n v d d
+This is a park.* n v t n
+I like your game.* n v a n
+Why is the ocean blue?* a v t n a
+There are two paintings.* n v a n
+What is this magazine?* a v a n
+This is the craziest kid!* n v t a n
+Where is the man?* a v t n
+The man is smelly.* t n v a
+What are this place?* a v a n
+This is a rock.* n v t n
+The frog is friendly.* t n v a
+Books are fun to read.* n v a p v
+I want to swim.* n v p v
+This is the smelliest one!* n v t a n
+June is a wonderful wife and mother.* n v t a n c n
+Why do people sleep?* a v n v
+Boardgames are very fun!* n v a a
+Where is the backpack?* a v t n
+Are those pencils?* v o n
+Why is the air smelly?* a v t n a
+The girl is happy.* t n v a
+This is the best part!* n v t a n
+What are this story?* a v a n
+The chicken is dirty.* t n v a
+I want to watch.* n v p v
+Why do people hunt?* a v n v
+I want to sleep.* n v p v
+Small children are happy.* a n v a
+This is the biggest thing!* n v t a n
+There are many snakes.* n v a n
+What are this subject?* a v a n
+There are no kids.* n v t n
+What is that?* o v n
+I like my shoes.* n v a n
+Why do people listen?* a v a v
+The wall is flat.* t n v a
+There are no chairs.* n v t n
+There are five children.* n v a n
+Your cookie is brown.* a n v a
+There are many cats.* n v a n
+Where is the frog?* a v t n
+There are many people.* n v a n
+There are many parks.* n v a n
+There are no fries.* n v t n
+I like your teacher.* n v a n
+What is it?* o v n
+Why do people steal?* a v n v
+Small cats are mean.* a n v a
+There are many animals.* n v a n
+There are many children.* n v a n
+The box is small.* t n v a
+The cat purred very often.* t n v d d
+Big men are happy.* a n v a
+The father is happy.* t n v a
+Is that a broom?* v n t n
+Is that a book?* v n t n
+There are no houses.* n v t n
+There are no couches.* n v t n
+Is that a house?* v n t n
+Why is the car small?* a v t n a
+Green eyes are pretty.* a n v a
+The girls like to read books.* t n v p v n
+That is a girl.* n v t n
+Big dogs are friendly.* a n v a
+There are many dogs.* n v a n
+Is that an eraser?* v n t n
+That is a book.* n v t n
+That is a car.* n v t n
+That is not a boy.* n v d t n
+These chairs are very comfortable.* a n v d a
+That is not a street.* n v d t n
+That is not a road.* n v d t n

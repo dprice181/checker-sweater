@@ -92,22 +92,22 @@ class OptionsScene: SKScene {
         var textAr1 = ["Always","Menus","Always"]
         var textAr2 = ["On","Only","Off"]
         var offY : CGFloat = 0.0
-        DrawOption(ind:0,text:"Music",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:global.purple,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
+        DrawOption(ind:0,text:"Music",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["Always","Menus","Always"]
         textAr2 = ["On","Only","Off"]
         offY = -self.size.height*7/48
-        DrawOption(ind:1,text:"Sound Effects",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:global.purple,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
+        DrawOption(ind:1,text:"Sound Effects",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["0","3","6","9","12"]
         textAr2 = []
         offY = -self.size.height*14/48
-        DrawOption(ind:2,text:"# Correct To Advance Level",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:30,fontColor:global.purple,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
+        DrawOption(ind:2,text:"# Correct To Advance Level",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:30,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
         textAr2 = ["Unlocked","Unlocked","Unlocked","Unlocked"]
-        offY = -self.size.height*22/48
-        DrawOption(ind:3,text:"Unlock All Levels",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:16,fontColor:SKColor.red,boxColor:global.realPurple,boxColorSelected:global.realPurple,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
+        offY = -self.size.height*23/48
+        DrawOption(ind:3,text:"Unlock All Levels",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:16,fontColor:global.blue,boxColor:global.blue,boxColorSelected:global.blue,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
         
         DrawButtons()
     }
@@ -165,7 +165,7 @@ class OptionsScene: SKScene {
             let unlocked = (lock && isButtonSelected == true)
             var myBoxColorSelected = boxColorSelected
             if unlocked {
-                myBoxColorSelected = SKColor.blue
+                myBoxColorSelected = global.realPurple
             }
             
             let fullButton = SKNode()
@@ -247,8 +247,8 @@ class OptionsScene: SKScene {
     }
     
     func DrawButtons() {
-        DrawButton(text:"Unlock All Subject Levels",offY:self.size.height*9.5/48,i:1)
-        DrawButton(text:"Credits",offY:self.size.height*3.5/48,i:2)
+        DrawButton(text:"Unlock All Subject Levels",offY:self.size.height*8/48,i:1)
+        //DrawButton(text:"Credits",offY:self.size.height*3.5/48,i:2)
     }
     
     func DrawButton(text: String,offY:CGFloat,i:Int) {
@@ -270,7 +270,7 @@ class OptionsScene: SKScene {
         clickButtonAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: 30.0))
         clickButtonAr.last!.name = "clickbutton" + String(i)
         clickButtonAr.last!.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        clickButtonAr.last!.strokeColor = SKColor.purple
+        clickButtonAr.last!.strokeColor = global.blue
         clickButtonAr.last!.position = CGPoint(x: 0, y: 0)
         clickButton.addChild(clickButtonAr.last!)
         
@@ -278,7 +278,7 @@ class OptionsScene: SKScene {
         buttonLabelAr.last!.text = text
         buttonLabelAr.last!.name = "labelclickbutton" + String(i)
         buttonLabelAr.last!.fontSize = 25
-        buttonLabelAr.last!.fontColor = SKColor(red: 165/255, green: 60/255, blue: 165/255, alpha: 1.0)
+        buttonLabelAr.last!.fontColor = global.blue //SKColor(red: 165/255, green: 60/255, blue: 165/255, alpha: 1.0)
         buttonLabelAr.last!.position = CGPoint(x: 0, y: -self.size.height/64)
         buttonLabelAr.last!.zPosition = 100.0
         clickButton.addChild(buttonLabelAr.last!)
@@ -552,16 +552,16 @@ class OptionsScene: SKScene {
         let ind = "3"  //unlock all levels
         for child in buttonAr {
             if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
-                child.strokeColor = SKColor.blue
+                child.strokeColor = global.realPurple
             }
         }
         for child in labelAr {
             if child.name?.contains("secondoptionbutton" + ind) != nil && (child.name?.contains("secondoptionbutton" + ind))! {
-                child.fontColor = SKColor.blue
+                child.fontColor = global.realPurple
                 child.isHidden = false
             }
             else if child.name?.contains("optionbutton" + ind) != nil && (child.name?.contains("optionbutton" + ind))! {
-                child.fontColor = SKColor.blue
+                child.fontColor = global.realPurple
             }            
         }
         for child in labelShadowAr {
@@ -583,15 +583,15 @@ class OptionsScene: SKScene {
                     continue
                 }
                 if let box = child as? SKShapeNode {
-                    box.strokeColor = SKColor.blue
+                    box.strokeColor = global.realPurple
                 }
                 if let label = child as? SKLabelNode {
                     if label.name?.contains("secondoptionbutton") != nil && (label.name?.contains("secondoptionbutton"))! {
-                        label.fontColor = SKColor.blue
+                        label.fontColor = global.realPurple
                         label.isHidden = false
                     }
                     else if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
-                        label.fontColor = SKColor.blue
+                        label.fontColor = global.realPurple
                     }
                     else {  //shadow label
                         label.fontColor = SKColor.black
