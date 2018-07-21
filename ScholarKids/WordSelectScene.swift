@@ -39,6 +39,10 @@ class WordSelectScene: SKScene {
     var currentExtraWordNum = 0
         
     var levelMode = "n"
+    var titleAr = ["n":"NOUNS","v":"VERBS","a":"ADJECTIVES","p":"PREPOSITIONS","d":"ADVERBS"]
+    var instrAr = ["n":"noun","v":"verb","a":"adjective","p":"preposition","d":"adverb"]
+    var instrAr2 = ["n":"(A Noun is the name of a person place or thing)","v":"(A Verb is an action word)","a":"(An Adjective describes a noun)","p":"(A Preposition relates the noun to the sentence)","d":"(An adverb describes a verb, adjective, or other adverb)"]
+    
     var background = SKSpriteNode(imageNamed: "background4.png")
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
@@ -49,6 +53,8 @@ class WordSelectScene: SKScene {
         global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
         global.sceneType = sceneType
+        
+        GetLevelMode()
         
         GetSentence()        
         SetCorrectAnswer()
@@ -71,12 +77,101 @@ class WordSelectScene: SKScene {
         addChild(backButton)
     }
     
+    func GetLevelMode() {
+        if global.currentGrade == "K" {
+            if global.currentLevel < 10 {
+                levelMode = "n"
+            }
+            else {
+                if (global.currentLevel % 2) == 1 {
+                    levelMode = "n"
+                }
+                else {
+                    levelMode = "a"
+                }
+            }
+        }
+        else if global.currentGrade == "1" {
+            if (global.currentLevel % 2) == 1 {
+                levelMode = "n"
+            }
+            else {
+                levelMode = "v"
+            }
+        }
+        else if global.currentGrade == "2" {
+            if global.currentLevel < 10 {
+                if (global.currentLevel % 2) == 1 {
+                    levelMode = "n"
+                }
+                else {
+                    levelMode = "v"
+                }
+            }
+            else {
+                if (global.currentLevel % 3) == 1 {
+                    levelMode = "n"
+                }
+                else if (global.currentLevel % 3) == 2 {
+                    levelMode = "v"
+                }
+                else {
+                    levelMode = "a"
+                }
+            }
+        }
+        else if global.currentGrade == "2" {
+            if global.currentLevel < 10 {
+                if (global.currentLevel % 3) == 1 {
+                    levelMode = "n"
+                }
+                else if (global.currentLevel % 3) == 2 {
+                    levelMode = "v"
+                }
+                else {
+                    levelMode = "a"
+                }
+            }
+            else {
+                if (global.currentLevel % 4) == 1 {
+                    levelMode = "n"
+                }
+                else if (global.currentLevel % 4) == 2 {
+                    levelMode = "v"
+                }
+                else if (global.currentLevel % 4) == 3 {
+                    levelMode = "a"
+                }
+                else {
+                    levelMode = "p"
+                }
+            }
+        }
+        else {
+            if (global.currentLevel % 5) == 1 {
+                levelMode = "n"
+            }
+            else if (global.currentLevel % 5) == 2 {
+                levelMode = "v"
+            }
+            else if (global.currentLevel % 5) == 3 {
+                levelMode = "a"
+            }
+            else if (global.currentLevel % 5) == 4 {
+                levelMode = "p"
+            }
+            else {
+                levelMode = "d"
+            }
+        }
+    }
+    
     func DrawSentence() {
         let mySentence: NSString = sentence as NSString
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
         var widthSentence = sizeSentence.width
         
-        let displayWidth = size.width * 9 / 10
+        let displayWidth = size.width * 8 / 10
         
         let space = "  "
         let mySpace: NSString = space as NSString
@@ -126,7 +221,7 @@ class WordSelectScene: SKScene {
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
         fullTitle.zPosition = 100.0
         
-        labelTitle.text = "NOUNS"
+        labelTitle.text = titleAr[levelMode]!
         labelTitle.fontSize = 55
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
@@ -148,7 +243,7 @@ class WordSelectScene: SKScene {
     }
     
     func DrawInstructions() {
-        labelInstr.text = "Select the noun"
+        labelInstr.text = "Select the " + instrAr[levelMode]!
         labelInstr.fontSize = 24
         labelInstr.fontColor = SKColor.purple
         labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
@@ -166,8 +261,10 @@ class WordSelectScene: SKScene {
         labelInstrR2Shadow = CreateShadowLabel(label: labelInstrR2,offset: 1)
         addChild(labelInstrR2Shadow)
         
-        labelInstr2.text = "(A Noun is the name of a person place or thing)"
-        labelInstr2.fontSize = 16
+        var fontSize : CGFloat = 20
+        fontSize = GetFontSize(fontSize:fontSize)
+        labelInstr2.text = instrAr2[levelMode]!
+        labelInstr2.fontSize = fontSize
         labelInstr2.fontColor = SKColor.red
         labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*14.5/24)
         labelInstr2.zPosition = 100.0
@@ -181,6 +278,23 @@ class WordSelectScene: SKScene {
         lineTitle2.lineWidth = 2.0
         lineTitle2.strokeColor = SKColor.red
         self.addChild(lineTitle2)
+    }
+    
+    func GetFontSize(fontSize:CGFloat) -> CGFloat {
+        var myFontSize = fontSize
+        let mySentence: NSString = instrAr2[levelMode]! as NSString
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
+        var widthSentence = sizeSentence.width
+        let displayWidth = size.width * 9.8 / 10
+        
+        while widthSentence > displayWidth && myFontSize > 8 {
+            myFontSize = myFontSize - 1
+            let mySentence: NSString = instrAr2[levelMode]! as NSString
+            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
+            widthSentence = sizeSentence.width
+        }
+        
+        return myFontSize
     }
     
     func DrawScoreNode() {
@@ -209,15 +323,15 @@ class WordSelectScene: SKScene {
     func GetFileName() -> String {
         switch global.currentGrade {
         case "K","1","2":
-            return "Sentences1.txt"
+            return "Sentences1"
         case "3","4","5":
-            return "Sentences2.txt"
+            return "Sentences2"
         case "6","7","8":
-            return "Sentences3.txt"
+            return "Sentences3"
         default:
-            return "Sentences1.txt"
+            return "Sentences1"
         }
-        return "Sentences1.txt"
+        return "Sentences1"
     }
     
     func GetSentence() {
@@ -239,8 +353,7 @@ class WordSelectScene: SKScene {
         }
     }
     
-    func SetCorrectAnswer()
-    {
+    func SetCorrectAnswer() {
         var ind = 0
         for var ans in sentenceDataAr {
             //pronouns count as nouns
@@ -249,6 +362,18 @@ class WordSelectScene: SKScene {
                 {
                     ans = "n"
                 }
+            }
+            else if levelMode == "v" {
+                ans = "v"
+            }
+            else if levelMode == "a" {
+                ans = "a"
+            }
+            else if levelMode == "d" {
+                ans = "d"
+            }
+            else {  //prepositions
+                ans = "p"
             }
             
             if ans == levelMode {
@@ -368,13 +493,17 @@ class WordSelectScene: SKScene {
         self.run(SKAction.sequence([playSound,wait,newScene]))
     }
     
-    func CorrectAnswerSelected()
-    {
+    func CorrectAnswerSelected() {
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30
+        
+        labelInstrR2.removeFromParent()
+        labelInstrR2Shadow.removeFromParent()
+        labelInstr2.removeFromParent()
+        labelInstr2Shadow.removeFromParent()
         
         global.correctAnswers = global.correctAnswers + 1
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -392,13 +521,17 @@ class WordSelectScene: SKScene {
         }
     }
     
-    func IncorrectAnswerSelected()
-    {
+    func IncorrectAnswerSelected() {
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
         labelInstrShadow.fontSize = 30
+        
+        labelInstrR2.removeFromParent()
+        labelInstrR2Shadow.removeFromParent()
+        labelInstr2.removeFromParent()
+        labelInstr2Shadow.removeFromParent()
         
         global.incorrectAnswers = global.incorrectAnswers + 1
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
