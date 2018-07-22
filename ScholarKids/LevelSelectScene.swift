@@ -417,8 +417,7 @@ class LevelSelectScene: SKScene {
         prevLocation = touchLocation
     }
     
-    func TransitionBack()
-    {
+    func TransitionBack() {
         for child in global.overlayNode.children {
             child.removeFromParent()
         }
@@ -437,8 +436,7 @@ class LevelSelectScene: SKScene {
         self.run(SKAction.sequence([playSound,newScene]))
     }
     
-    func TransitionScene(sceneType:String)
-    {
+    func TransitionScene(sceneType:String) {
         global.sceneType = sceneType
         
         if global.musicOption == 1 {
@@ -453,7 +451,8 @@ class LevelSelectScene: SKScene {
         let newScene = SKAction.run({
             let reveal = SKTransition.reveal(with:SKTransitionDirection.left, duration:1.0)
             
-            global.currentSentenceNum = 0
+            global.correctAnswers = 0
+            global.incorrectAnswers = 0
             if global.sceneType == "Math" {
                 global.wordProblemsNum = 6 * (global.currentLevel-1)
                 global.currentSentenceNum = 12 * (global.currentLevel-1)

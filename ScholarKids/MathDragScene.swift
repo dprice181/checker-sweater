@@ -157,9 +157,8 @@ class MathDragScene: SKScene {
     }
     
     func DrawCorrectLabels() {
-        let scoreNode = SKNode()
-        
-        scoreNode.position = CGPoint(x: self.size.width*1/10, y: size.height*14/24)
+        let scoreNode = SKNode()        
+        scoreNode.position = CGPoint(x: self.size.width*1.2/10, y: size.height*13.7/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -518,8 +517,8 @@ class MathDragScene: SKScene {
         
         var offX2 = [0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,frame.size.width/4,-frame.size.width/4,frame.size.width/4,
                     -frame.size.width/4,frame.size.width/4,-frame.size.width/4]
-        offX2.append(-frame.size.width*3/8)
-        offX2.append(-frame.size.width*3/8)
+        offX2.append(frame.size.width*3/8)
+        offX2.append(frame.size.width*3/8)
         offX2.append(frame.size.width*3/8)
         offX2.append(-frame.size.width*3/8)
         offX2.append(-frame.size.width*2.5/8)
@@ -610,7 +609,7 @@ class MathDragScene: SKScene {
             labelWordProblemAr[0].text = sentence
             labelWordProblemAr[0].fontSize = SELECTTEXT_FONTSIZE
             labelWordProblemAr[0].fontColor = global.purple
-            labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*19/24)
+            labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*19.5/24)
             labelWordProblemAr[0].zPosition = 100.0
             labelWordProblemAr[0].name = "spellingdefinition"
             addChild(labelWordProblemAr[0])
@@ -634,7 +633,7 @@ class MathDragScene: SKScene {
                 labelWordProblemAr[n].text = definitionLine
                 labelWordProblemAr[n].fontSize = SELECTTEXT_FONTSIZE
                 labelWordProblemAr[n].fontColor = global.purple
-                labelWordProblemAr[n].position = CGPoint(x: self.size.width/2, y: self.size.height*19/24 - sentenceHeight * CGFloat(n))
+                labelWordProblemAr[n].position = CGPoint(x: self.size.width/2, y: self.size.height*19.5/24 - sentenceHeight * CGFloat(n))
                 labelWordProblemAr[n].zPosition = 100.0
                 labelWordProblemAr[n].name = "spellingdefinition"
                 addChild(labelWordProblemAr[n])
@@ -838,12 +837,14 @@ class MathDragScene: SKScene {
             item2 = itemAr[rand3]
             
             sentence = sentenceAr[0]
-            let maxItems = GetMaxItems()
+            var maxItems = GetMaxItems()
+            
             var maxItemsTop = maxItems
             if maxItemsTop > 18 {
                 maxItemsTop = 18
             }
             let maxItemsTwoTop = 22
+            let maxItemsTwo = 30
             
             var string = "\\A"
             if sentence.range(of:string) != nil {
@@ -929,15 +930,24 @@ class MathDragScene: SKScene {
             }
             string = "\\Z"
             if sentence.range(of:string) != nil {
-                Z = Int(arc4random_uniform(UInt32(maxItems))+1)
+                var maxZ = maxItems
+                if X + maxItems > maxItemsTwo {
+                    maxZ = maxItemsTwo - X
+                }
+                Z = Int(arc4random_uniform(UInt32(maxZ))+1)
             }
             string = "\\R"
             var replaceRString = "\\R"
             if sentence.range(of:string) != nil {
+                var maxZ = maxItems
+                if X + maxItems > maxItemsTwo {
+                    maxZ = maxItemsTwo - X
+                }
+                
                 let range = sentence.range(of:string)
                 let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
                 if let multiplier = Int(String(sentence[ind])) {
-                    Z = ( Int(arc4random_uniform(UInt32(maxItems))+2) / multiplier ) * multiplier
+                    Z = ( Int(arc4random_uniform(UInt32(maxZ))+2) / multiplier ) * multiplier
                     if Z < multiplier {
                         Z = multiplier
                     }
@@ -1043,10 +1053,12 @@ class MathDragScene: SKScene {
     }
     
     func ReplaceSentenceKeywords(sentence:inout String,replaceMString:String,replaceQString:String,replaceRString:String,replaceVString:String,npcGender:String)  {
+        var itemNoS = "1 " + item
+        itemNoS.removeLast()
+        var item2NoS = "1 " + item2
+        item2NoS.removeLast()
         sentence = sentence.replacingOccurrences(of: "Alice", with: person1)
         sentence = sentence.replacingOccurrences(of: "Student", with: global.currentStudent)
-        sentence = sentence.replacingOccurrences(of: "items2", with: item2)
-        sentence = sentence.replacingOccurrences(of: "items", with: item)
         sentence = sentence.replacingOccurrences(of: "\\A", with: String(A))
         sentence = sentence.replacingOccurrences(of: "\\B", with: String(B))
         sentence = sentence.replacingOccurrences(of: "\\E", with: String(X))
@@ -1058,10 +1070,13 @@ class MathDragScene: SKScene {
         sentence = sentence.replacingOccurrences(of: "\\Y", with: String(Y))
         sentence = sentence.replacingOccurrences(of: "\\Z", with: String(Z))
         sentence = sentence.replacingOccurrences(of: "\\W", with: String(W))
+        sentence = sentence.replacingOccurrences(of: "1 items2", with: item2NoS)
+        sentence = sentence.replacingOccurrences(of: "1 items", with: itemNoS)
+        sentence = sentence.replacingOccurrences(of: "items2", with: item2)
+        sentence = sentence.replacingOccurrences(of: "items", with: item)
         if npcGender == "M" {
             sentence = sentence.replacingOccurrences(of: "her", with: "his")
         }
-        
     }
     
     func GetMaxItems() -> Int {

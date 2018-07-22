@@ -23,6 +23,7 @@ class GameScene: SKScene {
         physicsWorld.gravity = .zero
                 
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        global.heightWidthRat = size.height/size.width
         
         //global.currentGrade = "1"
         //global.currentStudent = "Rachels"

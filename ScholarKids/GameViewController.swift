@@ -48,6 +48,7 @@ class Global {
     var optionAr = [String]()
     var maxLevels = 20
     var musicStarted = false
+    var heightWidthRat :CGFloat = 0
 }
 
 let global = Global()

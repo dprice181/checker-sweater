@@ -569,24 +569,28 @@ class MathDrawScene: SKScene {
     
     func DrawNumberButtons() {
         for i in 1...10 {
+            var offY = 1.3*(2 - global.heightWidthRat)
+            if offY < 0 {
+                offY = 0
+            }
             let numText = i % 10
             var secondRow :CGFloat = 0.0
             if (i-1)/5 > 0 {
-                secondRow = 2.4
+                secondRow = 2.4 + offY
             }
             var filename = "SilverButton.png"
             if (i&1) == 1 {
                 filename = "GoldButton.png"
             }
             let circle = SKSpriteNode(imageNamed: filename)
-            circle.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(4-secondRow)/24)
+            circle.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(offY+4-secondRow)/24)
             circle.name = "circle" + String(i-1)
             circle.zPosition = 100.0
             circle.scale(to: CGSize(width: self.size.width/5, height: self.size.width/5))
             self.addChild(circle)
       
             circleShadowAr.append(SKShapeNode(circleOfRadius: 35))
-            circleShadowAr[i-1].position = CGPoint(x:-3.0+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:3.0+size.height*(4-secondRow)/24)
+            circleShadowAr[i-1].position = CGPoint(x:-3.0+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:3.0+size.height*(offY+4-secondRow)/24)
             circleShadowAr[i-1].name = "cirshadow" + String(i-1)
             circleShadowAr[i-1].strokeColor = SKColor.black
             circleShadowAr[i-1].fillColor = SKColor.black
@@ -602,7 +606,7 @@ class MathDrawScene: SKScene {
             else {
                 numberLabel.fontColor = SKColor(red: 229/255,green:222/255,blue:162/255,alpha:1)
             }
-            numberLabel.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(3.6-secondRow)/24)
+            numberLabel.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(offY+3.6-secondRow)/24)
             numberLabel.zPosition = 102.0
             numberLabel.name = "circle" + String(i-1)
             addChild(numberLabel)            
@@ -914,8 +918,7 @@ class MathDrawScene: SKScene {
                             answer = String(answer.prefix(upTo: index))
                             
                             if let answerInt = Int(answer) {
-                                if let remainderInt = Int(remainder) {
-                                    print(answerInt,remainderInt,correctAnswer,correctAnswerRemainder)
+                                if let remainderInt = Int(remainder) {                                    
                                     if correctAnswer == answerInt && correctAnswerRemainder == remainderInt {
                                         answerCorrect = true
                                     }
