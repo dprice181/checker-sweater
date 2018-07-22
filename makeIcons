@@ -15,4 +15,4 @@ sips -Z 120 --out generated/iPadSpotlight-60x60@2x.png sourceIcon.png
 sips -Z 180 --out generated/iPadSpotlight-60x60@3x.png sourceIcon.png
 sips -Z 76 --out generated/iPadApp-76x76.png sourceIcon.png
 sips -Z 152 --out generated/iPadApp-76x76@2x.png sourceIcon.png
-sips -Z 83.5 --out generated/iPadApp-83.5x83.5.png sourceIcon.png
+sips -Z 167 --out generated/iPadApp-83.5x83.5x2.png sourceIcon.png
