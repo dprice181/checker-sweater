@@ -456,24 +456,28 @@ class LevelSelectScene: SKScene {
             global.currentSentenceNum = 0
             if global.sceneType == "Math" {
                 global.wordProblemsNum = 6 * (global.currentLevel-1)
+                global.currentSentenceNum = 12 * (global.currentLevel-1)
                 let nextScene = MathDrawScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if global.sceneType == "Vocabulary" {
                 global.vocabularySelectNum = 6 * (global.currentLevel-1)
                 global.vocabularyConnectNum = 18 * (global.currentLevel-1)
+                global.currentSentenceNum = 24 * (global.currentLevel-1)
                 let nextScene = VocabularyConnectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if global.sceneType == "Grammar" {
                 global.grammarSelectNum = 6 * (global.currentLevel-1)
                 global.grammarDragNum = 6 * (global.currentLevel-1)
+                global.currentSentenceNum = 12 * (global.currentLevel-1)
                 let nextScene = WordSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }
             else if global.sceneType == "Spelling" {
                 global.spellingSelectNum = 6 * (global.currentLevel-1)
                 global.spellingDragNum = 6 * (global.currentLevel-1)
+                global.currentSentenceNum = 12 * (global.currentLevel-1)
                 let nextScene = VocabularySelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:global.sceneType)
                 self.view?.presentScene(nextScene, transition: reveal)
             }

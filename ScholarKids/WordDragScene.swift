@@ -9,16 +9,9 @@
 import SpriteKit
 import GameplayKit
 
-struct PhysicsCategory {
-    static let none      : UInt32 = 0
-    static let all       : UInt32 = UInt32.max
-    static let answerbox : UInt32 = 0b1       // 1
-    static let choicebox : UInt32 = 0b10      // 2
-}
-
-class WordDragScene: SKScene {
-    
-    let SELECTTEXT_FONTSIZE : CGFloat = 17.0
+class WordDragScene: SKScene {    
+    let SELECTTEXT_FONTSIZE : CGFloat = 22.0
+    let SELECTTEXT_FONTSIZE_CHOICE : CGFloat = 15.0
     
     var labelAr = [SKLabelNode]()
     var labelSpaceAr = [SKLabelNode]()
@@ -42,12 +35,282 @@ class WordDragScene: SKScene {
     
     var answerboxPos = CGPoint(x:0,y:0)    
     var currentExtraWordNum = 0
+    var sentenceData = ""
     
     var levelMode = "n"
+    var titleAr = ["n":"NOUNS","v":"VERBS","a":"ADJECTIVES","p":"PREPOSITIONS","d":"ADVERBS"]
+    var instrAr = ["n":"noun","v":"verb","a":"adjective","p":"preposition","d":"adverb"]
+    var extraFileAr = ["Nouns","Verbs","Adjectives","Prepositions","Adverbs"]
+    
     var answerPos = 0    
     var choiceMade = false
     var background = SKSpriteNode(imageNamed: "background4.png")
     
+    var emptyCorrectAnswer = 0
+    var answerSelected = false
+    
+    init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
+        super.init(size: size)
+        
+        self.currentExtraWordNum = currentExtraWordNum
+        global.sceneType = sceneType
+        
+        physicsWorld.gravity = .zero
+        physicsWorld.contactDelegate = self
+        backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
+        
+        GetLevelMode(levelMode:&levelMode)
+        GetSentence(increment:true)
+        SetCorrectAnswer()
+        DrawTitle()
+        DrawScoreNode()
+        GetChoiceArray()
+        DrawChoiceBoxes()
+        DrawSentence()
+        DrawBackground()
+        DrawBackButton()
+    }
+    
+    func DrawSentence() {
+        let mySentence: NSString = sentence as NSString
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        var widthSentence = sizeSentence.width
+        
+        let space = "  "
+        let mySpace: NSString = space as NSString
+        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let widthSpace = sizeSpace.width
+        
+        widthSentence = widthSentence + CGFloat(widthSpace) * CGFloat(wordAr.count)
+        let widthSentenceHalf = widthSentence / 2
+        var startX = size.width / 2 - widthSentenceHalf
+        if startX < size.width * 0.05 {
+            startX = size.width * 0.05
+        }
+        var startY:CGFloat = 0.0
+        var widthSum:CGFloat = 0.0
+        let displayWidth = size.width * 9 / 10
+        
+        var i = 0
+        for var word in wordAr {
+            word = word + "   "
+            let myWord: NSString = word as NSString
+            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+            let widthWord = sizeWord.width
+            
+            if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
+                startY = startY - sizeWord.height * 1.25  //give a bit of extra space between rows
+                widthSum = 0.0
+            }
+            
+            labelAr.append(SKLabelNode(fontNamed: "Verdana"))
+            labelAr[i].zPosition = 100.0
+            labelAr[i].name = "word"
+            labelAr[i].text = word
+            labelAr[i].fontSize = SELECTTEXT_FONTSIZE
+            labelAr[i].fontColor = global.lightBlue
+            labelAr[i].horizontalAlignmentMode = .left
+            labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 9 / 24)
+            
+            if emptyCorrectAnswer == i {
+                //parent node with physics body for collision
+                let answerBoxNode = SKSpriteNode()
+                answerBoxNode.position = CGPoint(x: startX + widthSum + sizeWord.width/2, y: startY + self.size.height * 9 / 24 + sizeWord.height/2)
+                answerBoxNode.name = "answerbox"
+                answerBoxNode.physicsBody = SKPhysicsBody(rectangleOf: sizeWord)
+                answerBoxNode.physicsBody?.isDynamic = true
+                answerBoxNode.physicsBody?.categoryBitMask = PhysicsCategory.answerbox
+                answerBoxNode.physicsBody?.contactTestBitMask = PhysicsCategory.choicebox
+                answerBoxNode.physicsBody?.collisionBitMask = PhysicsCategory.none
+                answerBoxNode.physicsBody?.usesPreciseCollisionDetection = true
+                
+                let box = SKShapeNode(rectOf: sizeWord,cornerRadius: 20.0)
+                box.name = "answerboxrect"
+                box.fillColor = SKColor.lightGray
+                box.strokeColor = SKColor.red
+                box.position = .zero
+                answerBoxNode.addChild(box)
+                addChild(answerBoxNode)
+                
+                if i == wordAr.count-1 {  //add punctuation
+                    let punctuation = GetPunctuation(word:word)
+                    labelAr.append(SKLabelNode(fontNamed: "Verdana"))
+                    labelAr[i].zPosition = 100.0
+                    labelAr[i].name = "word"
+                    labelAr[i].text = punctuation
+                    labelAr[i].fontSize = SELECTTEXT_FONTSIZE
+                    labelAr[i].fontColor = global.lightBlue
+                    labelAr[i].horizontalAlignmentMode = .left
+                    labelAr[i].position = CGPoint(x: startX + widthSum + widthWord, y: startY + self.size.height * 9 / 24)
+                    addChild(labelAr[i])
+                    addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
+                }
+                
+                widthSum = widthSum + widthWord / 4   //give extra space for the blank
+            }
+            else {
+                addChild(labelAr[i])
+                addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
+            }
+            
+            widthSum = widthSum + widthWord
+            i = i + 1
+        }
+    }
+    
+    func GetPunctuation(word:String) -> String {
+        var str = word
+        while str.last == " " {
+            str.removeLast()
+        }
+        if let punctuation = str.last {
+            return String(punctuation)
+        }
+        
+        return "."
+    }
+    
+    func DrawChoiceBoxes() {
+        var posX = self.size.width/6
+        //add three choice boxes
+        for n in 0...2 {
+            var correctWord = choiceWordAr[n]
+            let myWord: NSString = correctWord as NSString
+            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE_CHOICE)])
+            sizeWordChoice.width = sizeWordChoice.width * 1.45
+            sizeWordChoice.height = sizeWordChoice.height * 2.0
+            
+            //parent node with physics body for collision
+            let choiceNode = SKSpriteNode()
+            choiceNode.position = CGPoint(x: posX, y: self.size.height * 13 / 24)
+            choiceNode.zPosition = 100.0
+            choiceNode.name = "choice" + String(n)
+            choiceNode.physicsBody = SKPhysicsBody(rectangleOf: sizeWordChoice)
+            choiceNode.physicsBody?.isDynamic = true
+            choiceNode.physicsBody?.categoryBitMask = PhysicsCategory.choicebox
+            choiceNode.physicsBody?.contactTestBitMask = PhysicsCategory.answerbox
+            choiceNode.physicsBody?.collisionBitMask = PhysicsCategory.none
+            choiceNode.physicsBody?.usesPreciseCollisionDetection = true
+            
+            correctWord = correctWord.replacingOccurrences(of: ".", with: "")
+            let labelChoice = SKLabelNode(fontNamed: "Verdana")
+            labelChoice.zPosition = 100.0
+            labelChoice.name = "choicelabel"
+            labelChoice.text = correctWord.lowercased()
+            labelChoice.fontSize = SELECTTEXT_FONTSIZE_CHOICE
+            labelChoice.fontColor = SKColor.white
+            labelChoice.horizontalAlignmentMode = .center
+            labelChoice.position = CGPoint(x:  0, y: -sizeWordChoice.height/4)
+            choiceNode.addChild(labelChoice)
+            choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: 1))
+            
+            let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
+            boxChoice.name = "choicebox"
+            boxChoice.position = .zero
+            boxChoice.scale(to: sizeWordChoice)
+            choiceNode.addChild(boxChoice)
+            addChild(choiceNode)
+            
+            posX = posX + self.size.width*2/6
+        }
+    }
+    
+    func DrawTitle() {
+        let fullTitle = SKNode()
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
+        fullTitle.zPosition = 100.0
+        
+        if global.sceneType == "Vocabulary" {
+            labelTitle.text = "VOCABULARY"
+        }
+        else if global.sceneType == "Spelling" {
+            labelTitle.text = "SPELLING"
+        }
+        else {
+            labelTitle.text = titleAr[levelMode]!
+        }
+        labelTitle.fontSize = 55
+        labelTitle.fontColor = SKColor.red
+        labelTitle.position = .zero
+        labelTitle.zPosition = 100.0
+        fullTitle.addChild(labelTitle)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        fullTitle.addChild(labelTitleShadow)
+        
+        labelSubtitle.text = "Level " + String(global.currentLevel)
+        labelSubtitle.fontSize = 45
+        labelSubtitle.fontColor = SKColor.red
+        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
+        labelSubtitle.zPosition = 100.0
+        fullTitle.addChild(labelSubtitle)
+        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        fullTitle.addChild(labelSubtitleShadow)
+        
+        addChild(fullTitle)
+        
+        if global.sceneType == "Vocabulary" {
+            labelInstr.text = "Drag the correct word"
+        }
+        else if global.sceneType == "Spelling" {
+            labelInstr.text = "Drag the correct spelling"
+        }
+        else {
+            labelInstr.text = "Drag the " + instrAr[levelMode]!
+        }
+        labelInstr.fontSize = 25
+        labelInstr.fontColor = SKColor.purple
+        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
+        labelInstr.zPosition = 100.0
+        addChild(labelInstr)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        addChild(labelInstrShadow)
+        
+        labelInstr2.text = "to the sentence below."
+        labelInstr2.fontSize = 25
+        labelInstr2.fontColor = SKColor.purple
+        labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*15/24)
+        labelInstr2.zPosition = 100.0
+        addChild(labelInstr2)
+        labelInstrShadow2 = CreateShadowLabel(label: labelInstr2,offset: 1)
+        addChild(labelInstrShadow2)
+    }
+    
+    func DrawScoreNode() {
+        let scoreNode = SKNode()
+        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/6)
+        scoreNode.zPosition = 100.0
+        
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
+        labelCorrect.fontSize = 15
+        labelCorrect.fontColor = SKColor.red
+        labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
+        scoreNode.addChild(labelCorrect)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        scoreNode.addChild(labelCorrectShadow)
+        
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
+        labelIncorrect.fontSize = 15
+        labelIncorrect.fontColor = SKColor.red
+        labelIncorrect.position = .zero
+        scoreNode.addChild(labelIncorrect)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        scoreNode.addChild(labelIncorrectShadow)
+        addChild(scoreNode)
+    }
+    
+    func DrawBackground() {
+        background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
+        background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
+        addChild(background)
+    }
+    
+    func DrawBackButton() {
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
+        addChild(backButton)
+    }
     
     func GetFileName() -> String {
         switch global.currentGrade {
@@ -63,80 +326,59 @@ class WordDragScene: SKScene {
         return "Sentences1"
     }
     
-    func GetSentence() {
+    func GetSentence(increment:Bool) {
         var fileName = GetFileName()
-        if global.sceneType == "Vocabulary" || global.sceneType == "Spelling" {
-            fileName = "VocabularySentences1"
-        }
-        if let path = Bundle.main.path(forResource: fileName, ofType: "txt")
-        {
+        if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
-            //lineAr.shuffle()  //FIX should be done once per launch, not per screen
-            //while (lineAr[global.currentSentenceNum] == "") {
-            var curSentenceNum = global.spellingDragNum
-            if global.sceneType == "Grammar" {
-                curSentenceNum = global.grammarDragNum
-            }
-            
-            while (lineAr[curSentenceNum] == "") {
-                global.currentSentenceNum = global.currentSentenceNum + 1
+            global.currentSentenceNum = global.currentSentenceNum % lineAr.count
+            let curSentenceNum = global.currentSentenceNum
+            let sentenceAr = lineAr[curSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            global.currentSentenceNum = (global.currentSentenceNum + 1) % lineAr.count
+            if increment {
                 if global.sceneType == "Spelling" {
-                    global.spellingDragNum = global.spellingDragNum + 1
-                    if global.spellingDragNum >= lineAr.count {
-                        global.spellingDragNum = 0
-                        break
-                    }
+                    global.spellingDragNum = (global.spellingDragNum + 1) % lineAr.count
                 }
                 else {  //Grammar
-                    global.grammarDragNum = global.grammarDragNum + 1
-                    if global.grammarDragNum >= lineAr.count {
-                        global.grammarDragNum = 0
-                        break
-                    }
+                    global.grammarDragNum = (global.grammarDragNum + 1) % lineAr.count
                 }
-                if global.currentSentenceNum >= lineAr.count {
-                    global.currentSentenceNum = 0
-                    break
-                }
-                
             }
             
-            curSentenceNum = global.spellingDragNum
-            if global.sceneType == "Grammar" {
-                curSentenceNum = global.grammarDragNum
+            if sentenceAr.count > 1 {
+                sentence = sentenceAr[0]
+                sentenceData = sentenceAr[1]
+                wordAr = sentence.characters.split{$0 == " "}.map(String.init)
+                sentenceDataAr = sentenceData.characters.split{$0 == " "}.map(String.init)
             }
-            let sentenceAr = lineAr[curSentenceNum].characters.split{$0 == "*"}.map(String.init)
+            else {
+                GetSentence(increment:false)
+            }
             
-            sentence = sentenceAr[0]
-            let sentenceData = sentenceAr[1]
-            wordAr = sentence.characters.split{$0 == " "}.map(String.init)
-            sentenceDataAr = sentenceData.characters.split{$0 == " "}.map(String.init)
-            global.currentSentenceNum = global.currentSentenceNum + 1
-            if global.sceneType == "Spelling" {
-                global.spellingDragNum = global.spellingDragNum + 1
-                if global.spellingDragNum >= lineAr.count {
-                    global.spellingDragNum = 0                    
-                }
-            }
-            else {  //Grammar
-                global.grammarDragNum = global.grammarDragNum + 1
-                if global.grammarDragNum >= lineAr.count {
-                    global.grammarDragNum = 0
-                }
+            var i = 0
+            while !SentenceContainsLevelMode() && i < 249 {
+                GetSentence(increment:false)  //get the next sentence if it doesn't contain the levelType (nouns, verbs, etc.)
+                i = i + 1
             }
         }
-        else
-        {
+        else {
             print("file not found")
         }
     }
     
-    func GetChoiceArray()
-    {
+    func SentenceContainsLevelMode() -> Bool {
+        if sentenceData.contains(levelMode) {
+            return true
+        }
+        return false
+    }
+    
+    func GetChoiceArray() {
+        var rand = Int(arc4random_uniform(UInt32(correctAnswerAr.count)))
+        emptyCorrectAnswer = correctAnswerAr[rand]
+        
         var extraWord1 = ""
         var extraWord2 = ""
-        var correctWord = wordAr[correctAnswerAr[0]]
+        var correctWord = TrimPunctuation(inStr:wordAr[emptyCorrectAnswer])
         if global.sceneType == "Spelling" {
             var vocabularyWordAr = Misspell(word: correctWord)
             extraWord1 = vocabularyWordAr[1]
@@ -166,23 +408,45 @@ class WordDragScene: SKScene {
             }
         }
         else {  //Grammar
-            if let path = Bundle.main.path(forResource: "Verbs1", ofType: "txt")  {
-                let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-                var lineAr = fileText.components(separatedBy: .newlines)
-                lineAr.shuffle()  //FIX should be done once per launch, not per screen
-                
-                extraWord1 = lineAr[currentExtraWordNum]
+            var levelModeFullName = "Nouns"
+            if levelMode == "n" || levelMode == "o" {
+                levelModeFullName = "Nouns"
             }
-            else {
-                print("file not found")
+            if levelMode == "v" {
+                levelModeFullName = "Verbs"
             }
+            if levelMode == "a" {
+                levelModeFullName = "Adjectives"
+            }
+            if levelMode == "p" {
+                levelModeFullName = "Prepositions"
+            }
+            if levelMode == "d" {
+                levelModeFullName = "Adverbs"
+            }
+            var rand = Int(arc4random_uniform(UInt32(extraFileAr.count)))
+            while extraFileAr[rand] == levelModeFullName {
+                rand = Int(arc4random_uniform(UInt32(extraFileAr.count)))
+            }
+            let fileName = extraFileAr[rand]
             
-            if let path = Bundle.main.path(forResource: "Adjectives1", ofType: "txt") {
+            if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
                 let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
                 lineAr.shuffle()  //FIX should be done once per launch, not per screen
                 
-                extraWord2 = lineAr[currentExtraWordNum]
+                var n = 0
+                extraWord1 = TrimPunctuation(inStr:lineAr[n])
+                n = n + 1
+                while extraWord1 == correctWord {
+                    extraWord1 = TrimPunctuation(inStr:lineAr[n])
+                    n = n + 1
+                }
+                extraWord2 = TrimPunctuation(inStr:lineAr[n])
+                while extraWord2 == correctWord {
+                    extraWord2 = TrimPunctuation(inStr:lineAr[n])
+                    n = n + 1
+                }                
             }
             else {
                 print("file not found")
@@ -205,8 +469,15 @@ class WordDragScene: SKScene {
         }
     }
     
-    func SetCorrectAnswer()
-    {
+    func TrimPunctuation(inStr: String) -> String {
+        var str = inStr
+        if str.last == "." || str.last == "?" || str.last == "!" {
+            str.removeLast()
+        }
+        return str
+    }
+    
+    func SetCorrectAnswer() {
         var ind = 0
         for var ans in sentenceDataAr {
             //pronouns count as nouns
@@ -224,246 +495,13 @@ class WordDragScene: SKScene {
         }
     }
     
-    func GetSentenceLength(wordAr : [String]) -> Int
-    {
+    func GetSentenceLength(wordAr : [String]) -> Int {
         var count = 1  //Add 1 for the period at the end
         for word in wordAr {
             count += (word.characters.count + 1)
         }
         
         return count
-    }
-    
-    init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
-        super.init(size: size)
-        
-        global.currentSentenceNum = currentSentenceNum
-        global.correctAnswers = correctAnswers
-        global.incorrectAnswers = incorrectAnswers
-        self.currentExtraWordNum = currentExtraWordNum
-        global.sceneType = sceneType
-        
-        physicsWorld.gravity = .zero
-        physicsWorld.contactDelegate = self
-        
-        GetSentence()
-        SetCorrectAnswer()
-        
-        backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
-        
-        let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*5/6)
-        fullTitle.zPosition = 100.0
-        
-        if global.sceneType == "Vocabulary" {
-            labelTitle.text = "VOCABULARY"
-        }
-        else if global.sceneType == "Spelling" {
-            labelTitle.text = "SPELLING"
-        }
-        else {
-            labelTitle.text = "NOUNS"
-        }
-        labelTitle.fontSize = 45
-        labelTitle.fontColor = SKColor.red
-        labelTitle.position = .zero
-        labelTitle.zPosition = 100.0
-        fullTitle.addChild(labelTitle)
-        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
-        fullTitle.addChild(labelTitleShadow)
-        
-        labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 40
-        labelSubtitle.fontColor = SKColor.red
-        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
-        labelSubtitle.zPosition = 100.0
-        fullTitle.addChild(labelSubtitle)
-        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
-        fullTitle.addChild(labelSubtitleShadow)
-        
-        addChild(fullTitle)
-        
-        if global.sceneType == "Vocabulary" {
-            labelInstr.text = "Drag the correct word"
-        }
-        else if global.sceneType == "Spelling" {
-            labelInstr.text = "Drag the correct spelling"
-        }
-        else {
-            labelInstr.text = "Drag the noun"
-        }
-        labelInstr2.text = "to the sentence below."
-        labelInstr.fontSize = 22
-        labelInstr.fontColor = SKColor.purple
-        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
-        labelInstr.zPosition = 100.0
-        addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
-        addChild(labelInstrShadow)
-    
-        labelInstr2.fontSize = 22
-        labelInstr2.fontColor = SKColor.purple
-        labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*15/24)
-        labelInstr2.zPosition = 100.0
-        addChild(labelInstr2)
-        labelInstrShadow2 = CreateShadowLabel(label: labelInstr2,offset: 1)
-        addChild(labelInstrShadow2)
-        
-        let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/6)
-        scoreNode.zPosition = 100.0
-        
-        labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
-        labelCorrect.fontColor = SKColor.red
-        labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
-        scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
-        scoreNode.addChild(labelCorrectShadow)
-        
-        
-        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
-        labelIncorrect.fontColor = SKColor.red
-        labelIncorrect.position = .zero
-        scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
-        scoreNode.addChild(labelIncorrectShadow)
-        
-        addChild(scoreNode)
-        
-        GetChoiceArray()
-        
-        var posX = self.size.width/6
-        
-        //add three choice boxes
-        for n in 0...2
-        {
-            var correctWord = choiceWordAr[n]
-            let myWord: NSString = correctWord as NSString
-            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE-2.0)])
-            sizeWordChoice.width = sizeWordChoice.width * 1.45
-            sizeWordChoice.height = sizeWordChoice.height * 2.0
-            
-            //parent node with physics body for collision
-            let choiceNode = SKSpriteNode()
-            choiceNode.position = CGPoint(x: posX, y: self.size.height * 13 / 24)
-            choiceNode.zPosition = 100.0
-            choiceNode.name = "choice" + String(n)
-            choiceNode.physicsBody = SKPhysicsBody(rectangleOf: sizeWordChoice)
-            choiceNode.physicsBody?.isDynamic = true
-            choiceNode.physicsBody?.categoryBitMask = PhysicsCategory.choicebox
-            choiceNode.physicsBody?.contactTestBitMask = PhysicsCategory.answerbox
-            choiceNode.physicsBody?.collisionBitMask = PhysicsCategory.none
-            choiceNode.physicsBody?.usesPreciseCollisionDetection = true
-            
-            correctWord = correctWord.replacingOccurrences(of: ".", with: "")
-            let labelChoice = SKLabelNode(fontNamed: "Verdana")
-            labelChoice.zPosition = 100.0
-            labelChoice.name = "choicelabel"
-            labelChoice.text = correctWord.lowercased()
-            labelChoice.fontSize = SELECTTEXT_FONTSIZE-2.0
-            labelChoice.fontColor = SKColor.white
-            labelChoice.horizontalAlignmentMode = .center
-            labelChoice.position = CGPoint(x:  0, y: -sizeWordChoice.height/4)
-            choiceNode.addChild(labelChoice)
-            choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: 1))
-            
-            let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
-            boxChoice.name = "choicebox"
-            boxChoice.position = .zero
-            boxChoice.scale(to: sizeWordChoice)
-            choiceNode.addChild(boxChoice)
-            addChild(choiceNode)
-            
-            posX = posX + self.size.width*2/6
-        }
-        
-        let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-        var widthSentence = sizeSentence.width
-        
-        let space = "  "
-        let mySpace: NSString = space as NSString
-        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-        let widthSpace = sizeSpace.width
-        
-        widthSentence = widthSentence + CGFloat(widthSpace) * CGFloat(wordAr.count)
-        
-        let widthSentenceHalf = widthSentence / 2
-        var startX = size.width / 2 - widthSentenceHalf
-        if startX < size.width * 0.05 {
-            startX = size.width * 0.05
-        }
-        var startY:CGFloat = 0.0
-        var widthSum:CGFloat = 0.0
-        
-        let displayWidth = size.width * 9 / 10
-        
-        let firstCorrectAnswer = correctAnswerAr[0]
-        
-        var i = 0
-        for var word in wordAr
-        {
-            word = word + "   "
-            let myWord: NSString = word as NSString
-            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-            let widthWord = sizeWord.width
-            
-            if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
-                startY = startY - sizeWord.height * 1.25  //give a bit of extra space between rows
-                widthSum = 0.0
-            }
-            
-            labelAr.append(SKLabelNode(fontNamed: "Verdana"))
-            labelAr[i].zPosition = 100.0
-            labelAr[i].name = "word"
-            labelAr[i].text = word
-            labelAr[i].fontSize = SELECTTEXT_FONTSIZE
-            labelAr[i].fontColor = global.lightBlue
-            labelAr[i].horizontalAlignmentMode = .left
-            labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 9 / 24)
-            
-            if firstCorrectAnswer == i {
-                //parent node with physics body for collision
-                let answerBoxNode = SKSpriteNode()
-                answerBoxNode.position = CGPoint(x: startX + widthSum + sizeWord.width/2, y: startY + self.size.height * 9 / 24 + sizeWord.height/2)
-                answerBoxNode.name = "answerbox"
-                answerBoxNode.physicsBody = SKPhysicsBody(rectangleOf: sizeWord)
-                answerBoxNode.physicsBody?.isDynamic = true
-                answerBoxNode.physicsBody?.categoryBitMask = PhysicsCategory.answerbox
-                answerBoxNode.physicsBody?.contactTestBitMask = PhysicsCategory.choicebox
-                answerBoxNode.physicsBody?.collisionBitMask = PhysicsCategory.none
-                answerBoxNode.physicsBody?.usesPreciseCollisionDetection = true
-                
-                let box = SKShapeNode(rectOf: sizeWord,cornerRadius: 20.0)
-                box.name = "answerboxrect"
-                box.fillColor = SKColor.lightGray
-                box.strokeColor = SKColor.red
-                box.position = .zero
-                answerBoxNode.addChild(box)
-                addChild(answerBoxNode)
-                
-                widthSum = widthSum + widthWord / 4   //give extra space for the blank
-            }
-            else {
-                addChild(labelAr[i])
-                addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
-            }
-            
-            widthSum = widthSum + widthWord
-            i = i + 1
-        }
-        
-        background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
-        background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
-        addChild(background)
-        
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -473,7 +511,7 @@ class WordDragScene: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
-        }
+        }        
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
@@ -494,6 +532,9 @@ class WordDragScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
+            return
+        }
+        if answerSelected {
             return
         }
 
@@ -519,8 +560,10 @@ class WordDragScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
+            return
+        }
+        if answerSelected {
             return
         }
 
@@ -567,8 +610,7 @@ class WordDragScene: SKScene {
         }
     }
     
-    func TransitionScene(playSound: SKAction,duration : TimeInterval)
-    {
+    func TransitionScene(playSound: SKAction,duration : TimeInterval) {
         for child in global.overlayNode.children {
             child.removeFromParent()
         }
@@ -588,7 +630,8 @@ class WordDragScene: SKScene {
                 }
             }
             else {
-                if (global.currentSentenceNum % 6) < 3 {
+                let totalCount = global.grammarSelectNum + global.grammarDragNum
+                if (totalCount % 6) < 3 {
                     let nextScene = WordSelectScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
@@ -602,17 +645,23 @@ class WordDragScene: SKScene {
     }
     
     func CorrectAnswerSelected() {
+        answerSelected = true
+        
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = 30
         
+        labelInstr2.removeFromParent()
+        labelInstrShadow2.removeFromParent()
+        
         global.correctAnswers = global.correctAnswers + 1
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
         labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {
@@ -625,17 +674,23 @@ class WordDragScene: SKScene {
     }
     
     func IncorrectAnswerSelected() {
+        answerSelected = true
+        
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
         labelInstr.fontSize = 30
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
         labelInstrShadow.fontSize = 30
         
+        labelInstr2.removeFromParent()
+        labelInstrShadow2.removeFromParent()
+        
         global.incorrectAnswers = global.incorrectAnswers + 1
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {
@@ -662,10 +717,8 @@ class WordDragScene: SKScene {
     }
 }
 
-
-extension WordDragScene: SKPhysicsContactDelegate {    
+extension WordDragScene : SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        // 1
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -676,7 +729,6 @@ extension WordDragScene: SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        // 2
         if ((firstBody.categoryBitMask & PhysicsCategory.answerbox != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.choicebox != 0)) {
             if let answerbox = firstBody.node as? SKSpriteNode,

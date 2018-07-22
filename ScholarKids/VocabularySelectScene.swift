@@ -48,91 +48,30 @@ class VocabularySelectScene: SKScene {
     var vocabularyDefinition = ""
     var vocabularyDefinitionAlt1 = ""
     var vocabularyDefinitionAlt2 = ""
+    var answerSelected = false
     
     var vocabularyDefinitionAr : [String] = []
     var background = SKSpriteNode(imageNamed: "background4.png")
     
+    
      init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         
-        global.currentSentenceNum = currentSentenceNum
-        global.correctAnswers = correctAnswers
-        global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
         global.sceneType = sceneType
+        backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         
         InitLetterStrings()
         GetSentence()
-        
-        backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
-        
-        let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*5/6)
-        fullTitle.zPosition = 100.0
-        
-        if global.sceneType == "Spelling" {
-            labelTitle.text = "SPELLING"
-        }
-        else {
-            labelTitle.text = "VOCABULARY"
-        }
-        labelTitle.fontSize = 45
-        labelTitle.fontColor = SKColor.red
-        labelTitle.position = .zero
-        labelTitle.zPosition = 100.0
-        fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
-        fullTitle.addChild(labelTitleShadow)
-        
-        labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 40
-        labelSubtitle.fontColor = SKColor.red
-        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
-        labelSubtitle.zPosition = 100.0
-        fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
-        fullTitle.addChild(labelSubtitleShadow)
-        
-        addChild(fullTitle)
-        
-        if global.sceneType == "Spelling" {
-            labelInstr.text = "Select the correct spelling below."
-        }
-        else {
-            labelInstr.text = "Select the correct definition below."
-        }
-        labelInstr.fontSize = 20
-        labelInstr.fontColor = SKColor.purple
-        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
-        labelInstr.zPosition = 100.0
-        addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
-        addChild(labelInstrShadow)
-        
-        let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
-        scoreNode.zPosition = 100.0
-
-        labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
-        labelCorrect.fontColor = SKColor.red
-        labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
-        scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
-        scoreNode.addChild(labelCorrectShadow)
-        
-        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
-        labelIncorrect.fontColor = SKColor.red
-        labelIncorrect.position = .zero
-        scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
-        scoreNode.addChild(labelIncorrectShadow)
-
-        addChild(scoreNode)
-        
+        DrawTitle()
+        DrawInstructions()
+        DrawSentence()
+        DrawBackground()
+        DrawBackButton()
+    }
+    
+    func DrawSentence() {
         let displayWidth = size.width * 8 / 10
-        
         labelVocabularyWord.text = vocabularyWord
         labelVocabularyWord.fontSize = 45
         labelVocabularyWord.fontColor = global.purple
@@ -150,7 +89,7 @@ class VocabularySelectScene: SKScene {
         if global.sceneType == "Spelling" {
             AddSpellingDefinition()
         }
-
+        
         for i in 0...2  {
             let mySentence: NSString = vocabularyDefinitionAr[i] as NSString
             let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
@@ -208,7 +147,7 @@ class VocabularySelectScene: SKScene {
                         defAr = defAr.dropLast(wordAr.count - (countWords+totalWordsSoFar))
                     }
                     let definitionLine = defAr.joined(separator: " ")
-
+                    
                     let labelDefinition = SKLabelNode(fontNamed: "Arial")
                     labelDefinition.text = definitionLine
                     labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
@@ -231,16 +170,88 @@ class VocabularySelectScene: SKScene {
             
             addChild(nodeDefinitionAr[i])
         }
-        
-        background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
-        background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
-        addChild(background)
-        
+    }
+    
+    func DrawBackButton() {        
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
         addChild(backButton)
+    }
+    
+    func DrawBackground() {
+        background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
+        background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
+        addChild(background)
+    }
+    
+    func DrawTitle() {
+        let fullTitle = SKNode()
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
+        fullTitle.zPosition = 100.0
+        
+        if global.sceneType == "Spelling" {
+            labelTitle.text = "SPELLING"
+        }
+        else {
+            labelTitle.text = "VOCABULARY"
+        }
+        labelTitle.fontSize = 55
+        labelTitle.fontColor = SKColor.red
+        labelTitle.position = .zero
+        labelTitle.zPosition = 100.0
+        fullTitle.addChild(labelTitle)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        fullTitle.addChild(labelTitleShadow)
+        
+        labelSubtitle.text = "Level " + String(global.currentLevel)
+        labelSubtitle.fontSize = 45
+        labelSubtitle.fontColor = SKColor.red
+        labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
+        labelSubtitle.zPosition = 100.0
+        fullTitle.addChild(labelSubtitle)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        fullTitle.addChild(labelSubtitleShadow)
+        addChild(fullTitle)
+    }
+    
+    func DrawInstructions() {
+        if global.sceneType == "Spelling" {
+        labelInstr.text = "Select the correct spelling below."
+        }
+        else {
+        labelInstr.text = "Select the correct definition below."
+        }
+        labelInstr.fontSize = 20
+        labelInstr.fontColor = SKColor.purple
+        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
+        labelInstr.zPosition = 100.0
+        addChild(labelInstr)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        addChild(labelInstrShadow)
+        
+        let scoreNode = SKNode()
+        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
+        scoreNode.zPosition = 100.0
+        
+        labelCorrect.text = "Correct : " + String(global.correctAnswers)
+        labelCorrect.fontSize = 15
+        labelCorrect.fontColor = SKColor.red
+        labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
+        scoreNode.addChild(labelCorrect)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        scoreNode.addChild(labelCorrectShadow)
+        
+        labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
+        labelIncorrect.fontSize = 15
+        labelIncorrect.fontColor = SKColor.red
+        labelIncorrect.position = .zero
+        scoreNode.addChild(labelIncorrect)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        scoreNode.addChild(labelIncorrectShadow)
+        
+        addChild(scoreNode)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -311,13 +322,14 @@ class VocabularySelectScene: SKScene {
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
+            global.currentSentenceNum = global.currentSentenceNum % (lineAr.count/2)
             
             if global.sceneType == "Spelling" {
-                //spellingDefinition = lineAr[global.currentSentenceNum*2+1]
-                spellingDefinition = lineAr[global.spellingSelectNum*2+1]
+                spellingDefinition = lineAr[global.currentSentenceNum*2+1]
+                //spellingDefinition = lineAr[global.spellingSelectNum*2+1]
                 
-                //vocabularyDefinition = lineAr[global.currentSentenceNum*2]  //this is actually the spellingWord
-                vocabularyDefinition = lineAr[global.spellingSelectNum*2]  //this is actually the spellingWord
+                vocabularyDefinition = lineAr[global.currentSentenceNum*2]  //this is actually the spellingWord
+                //vocabularyDefinition = lineAr[global.spellingSelectNum*2]  //this is actually the spellingWord
                 var vocabularyWordAr = Misspell(word: vocabularyDefinition)
                 vocabularyWord = vocabularyWordAr[0]
                 
@@ -337,10 +349,10 @@ class VocabularySelectScene: SKScene {
             else {  //Vocabulary
                 //lineAr.shuffle()  //FIX should be done once per launch, not per screen
                 
-                //vocabularyWord = lineAr[global.currentSentenceNum*2]
-                vocabularyWord = lineAr[global.vocabularySelectNum*2]
-                //vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
-                vocabularyDefinition = lineAr[global.vocabularySelectNum*2 + 1]
+                vocabularyWord = lineAr[global.currentSentenceNum*2]
+                //vocabularyWord = lineAr[global.vocabularySelectNum*2]
+                vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
+                //vocabularyDefinition = lineAr[global.vocabularySelectNum*2 + 1]
                 let vocabCount = lineAr.count / 2
                 var randomAlt1 = Int(arc4random_uniform(UInt32(vocabCount)))
                 while randomAlt1 == global.currentSentenceNum {
@@ -367,24 +379,20 @@ class VocabularySelectScene: SKScene {
                 }
             }
             
-            global.currentSentenceNum = global.currentSentenceNum + 1
+            global.currentSentenceNum = (global.currentSentenceNum + 1) % (lineAr.count/2)  //wrap around at eof
             if global.sceneType == "Vocabulary" {
-                global.vocabularySelectNum = global.vocabularySelectNum + 1
-                global.vocabularySelectNum = global.vocabularySelectNum % (lineAr.count/2)  //wrap around at eof
+                global.vocabularySelectNum = (global.vocabularySelectNum + 1) % (lineAr.count/2)  //wrap around at eof
             }
             else {  //Spelling
-                global.spellingSelectNum = global.spellingSelectNum + 1
-                global.spellingSelectNum = global.spellingSelectNum % (lineAr.count/2)  //wrap around at eof
+                global.spellingSelectNum = (global.spellingSelectNum + 1) % (lineAr.count/2)  //wrap around at eof                
             }
         }
-        else
-        {
+        else {
             print("file not found")
         }
     }
     
-    func GetSentenceLength(wordAr : [String]) -> Int
-    {
+    func GetSentenceLength(wordAr : [String]) -> Int {
         var count = 1  //Add 1 for the period at the end
         for word in wordAr {
             count += (word.characters.count + 1)
@@ -476,6 +484,9 @@ class VocabularySelectScene: SKScene {
         guard let touch = touches.first else {
             return
         }
+        if answerSelected {
+            return
+        }
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
@@ -560,6 +571,8 @@ class VocabularySelectScene: SKScene {
     }
     
     func CorrectAnswerSelected() {
+        answerSelected = true
+        
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
@@ -571,6 +584,7 @@ class VocabularySelectScene: SKScene {
         labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {
@@ -583,6 +597,8 @@ class VocabularySelectScene: SKScene {
     }
     
     func IncorrectAnswerSelected() {
+        answerSelected = true
+        
         for node in nodeDefinitionAr {
             node.removeFromParent()
         }
@@ -652,6 +668,7 @@ class VocabularySelectScene: SKScene {
         }
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {

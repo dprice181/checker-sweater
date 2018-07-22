@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040379E221040D4B0005B965 /* SpellingDragScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040379E121040D4B0005B965 /* SpellingDragScene.swift */; };
 		040B60B220CF2D340009ED9C /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 040B60B120CF2D340009ED9C /* BackgroundMusic.mp3 */; };
 		040B60B520CF34D00009ED9C /* QuizRight.wav in Resources */ = {isa = PBXBuildFile; fileRef = 040B60B320CF34CF0009ED9C /* QuizRight.wav */; };
 		040B60B620CF34D00009ED9C /* QuizWrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 040B60B420CF34CF0009ED9C /* QuizWrong.wav */; };
@@ -117,6 +118,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040379E121040D4B0005B965 /* SpellingDragScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingDragScene.swift; sourceTree = "<group>"; };
 		040B60B120CF2D340009ED9C /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
 		040B60B320CF34CF0009ED9C /* QuizRight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = QuizRight.wav; sourceTree = "<group>"; };
 		040B60B420CF34CF0009ED9C /* QuizWrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = QuizWrong.wav; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				84E8A4C820B3432800AF7C4C /* WordDragScene.swift */,
 				84C36AC420B4DB7B00ED9C19 /* VocabularySelectScene.swift */,
 				0437529120E2AE7F00E791F0 /* VocabularyConnectScene.swift */,
+				040379E121040D4B0005B965 /* SpellingDragScene.swift */,
 				84004A8C20AF3C3100761FB6 /* Main.storyboard */,
 				84004A8220AF3C3100761FB6 /* AppDelegate.swift */,
 				84004A8420AF3C3100761FB6 /* GameScene.sks */,
@@ -611,6 +614,7 @@
 				84A6951020B0EAEC00D5E212 /* WordSelectScene.swift in Sources */,
 				0459362E20C12080003D1A6B /* MathDrawScene.swift in Sources */,
 				04902DE320FD809C008B24CC /* CreditsScene.swift in Sources */,
+				040379E221040D4B0005B965 /* SpellingDragScene.swift in Sources */,
 				84004A8320AF3C3100761FB6 /* AppDelegate.swift in Sources */,
 				840B92B020B8C771001F8FA3 /* LevelSelectScene.swift in Sources */,
 				041354DB20F90E8100CC606D /* ProgressReportScene.swift in Sources */,

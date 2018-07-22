@@ -168,8 +168,7 @@ class TitleScene: SKScene {
         }
     }
     
-    func TransitionSceneStart()
-    {
+    func TransitionSceneStart() {
         var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         if global.soundOption == 2 {
             playSound = SKAction.wait(forDuration: 0.0001)
@@ -185,8 +184,7 @@ class TitleScene: SKScene {
         self.run(SKAction.sequence([playSound,newScene]))
     }
     
-    func TransitionSceneOptions()
-    {
+    func TransitionSceneOptions() {
         var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         if global.soundOption == 2 {
             playSound = SKAction.wait(forDuration: 0.0001)
@@ -235,7 +233,6 @@ class TitleScene: SKScene {
             return
         }
         
-        
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
         
@@ -260,7 +257,6 @@ class TitleScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
             return
         }

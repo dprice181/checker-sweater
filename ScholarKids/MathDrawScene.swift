@@ -36,6 +36,7 @@ class MathDrawScene: SKScene {
     var correctAnswerRemainder = 0
     var negativeNumbers = false
     var currentExtraWordNum = 0
+    var answerSelected = false
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -43,9 +44,6 @@ class MathDrawScene: SKScene {
         physicsWorld.gravity = .zero
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         
-        global.currentSentenceNum = currentSentenceNum
-        global.correctAnswers = correctAnswers
-        global.incorrectAnswers = incorrectAnswers
         self.currentExtraWordNum = currentExtraWordNum
         global.sceneType = sceneType
         
@@ -815,6 +813,7 @@ class MathDrawScene: SKScene {
     }
     
     func CorrectAnswerSelected() {
+        answerSelected = true
         RemoveLabels()
         
         labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)
@@ -830,6 +829,7 @@ class MathDrawScene: SKScene {
         labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {
@@ -841,8 +841,8 @@ class MathDrawScene: SKScene {
         }
     }
     
-    func IncorrectAnswerSelected()
-    {
+    func IncorrectAnswerSelected() {
+        answerSelected = true
         RemoveLabels()
     
         labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*20/24)
@@ -867,6 +867,7 @@ class MathDrawScene: SKScene {
         labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {

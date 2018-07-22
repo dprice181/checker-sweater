@@ -60,6 +60,8 @@ class VocabularyConnectScene: SKScene {
     var lineConnections = [Int]()
     var lineAr = [SKShapeNode]()
     
+    var answerSelected = false
+    
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         physicsWorld.gravity = .zero
@@ -77,11 +79,19 @@ class VocabularyConnectScene: SKScene {
         lineAr.append(SKShapeNode())
         lineAr.append(SKShapeNode())
         
+        DrawTitle()
+        DrawInstructions()
+        AddWords()
+        AddDefinitions()
+        DrawBackButton()
+    }
+    
+    func DrawTitle() {
         let fullTitle = SKNode()
         fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*9/10)
         fullTitle.zPosition = 100.0
         
-        labelTitle.text = "VOCABULARY"        
+        labelTitle.text = "VOCABULARY"
         labelTitle.fontSize = 45
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
@@ -99,8 +109,10 @@ class VocabularyConnectScene: SKScene {
         labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
-        
-        labelInstr.text = "Connect the 3 words to their definitions."        
+    }
+    
+    func DrawInstructions() {
+        labelInstr.text = "Connect the 3 words to their definitions."
         labelInstr.fontSize = 20
         labelInstr.fontColor = SKColor.purple
         labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*19/24)
@@ -128,12 +140,10 @@ class VocabularyConnectScene: SKScene {
         scoreNode.addChild(labelIncorrect)
         labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
         scoreNode.addChild(labelIncorrectShadow)
-        
         addChild(scoreNode)
-        
-        AddWords()
-        AddDefinitions()
-
+    }
+    
+    func DrawBackButton() {
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
@@ -312,27 +322,26 @@ class VocabularyConnectScene: SKScene {
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
+            global.currentSentenceNum = global.currentSentenceNum % (lineAr.count/2)
             
-            //vocabularyWord = lineAr[global.currentSentenceNum*2]
-            vocabularyWord = lineAr[global.vocabularyConnectNum*2]
-            //vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
-            vocabularyDefinition = lineAr[global.vocabularyConnectNum*2 + 1]
-            global.currentSentenceNum = global.currentSentenceNum + 1
-            global.vocabularyConnectNum = global.vocabularyConnectNum + 1
-            //vocabularyWord1 = lineAr[global.currentSentenceNum*2]
-            vocabularyWord1 = lineAr[global.vocabularyConnectNum*2]
-            //vocabularyDefinition1 = lineAr[global.currentSentenceNum*2 + 1]
-            vocabularyDefinition1 = lineAr[global.vocabularyConnectNum*2 + 1]
-            global.currentSentenceNum = global.currentSentenceNum + 1
-            global.vocabularyConnectNum = global.vocabularyConnectNum + 1
-            //vocabularyWord2 = lineAr[global.currentSentenceNum*2]
-            vocabularyWord2 = lineAr[global.vocabularyConnectNum*2]
-            //vocabularyDefinition2 = lineAr[global.currentSentenceNum*2 + 1]
-            vocabularyDefinition2 = lineAr[global.vocabularyConnectNum*2 + 1]
-            global.currentSentenceNum = global.currentSentenceNum + 1
-            global.vocabularyConnectNum = global.vocabularyConnectNum + 1
-            
-            global.vocabularyConnectNum = global.vocabularyConnectNum % (lineAr.count/2)  //wrap around at eof
+            vocabularyWord = lineAr[global.currentSentenceNum*2]
+            //vocabularyWord = lineAr[global.vocabularyConnectNum*2]
+            vocabularyDefinition = lineAr[global.currentSentenceNum*2 + 1]
+            //vocabularyDefinition = lineAr[global.vocabularyConnectNum*2 + 1]
+            global.currentSentenceNum = (global.currentSentenceNum + 1) % (lineAr.count/2)  //wrap around at eof
+            global.vocabularyConnectNum = (global.vocabularyConnectNum + 1) % (lineAr.count/2)  //wrap around at eof
+            vocabularyWord1 = lineAr[global.currentSentenceNum*2]
+            //vocabularyWord1 = lineAr[global.vocabularyConnectNum*2]
+            vocabularyDefinition1 = lineAr[global.currentSentenceNum*2 + 1]
+            //vocabularyDefinition1 = lineAr[global.vocabularyConnectNum*2 + 1]
+            global.currentSentenceNum = (global.currentSentenceNum + 1) % (lineAr.count/2)  //wrap around at eof
+            global.vocabularyConnectNum = (global.vocabularyConnectNum + 1) % (lineAr.count/2)  //wrap around at eof
+            vocabularyWord2 = lineAr[global.currentSentenceNum*2]
+            //vocabularyWord2 = lineAr[global.vocabularyConnectNum*2]
+            vocabularyDefinition2 = lineAr[global.currentSentenceNum*2 + 1]
+            //vocabularyDefinition2 = lineAr[global.vocabularyConnectNum*2 + 1]
+            global.currentSentenceNum = (global.currentSentenceNum + 1) % (lineAr.count/2)  //wrap around at eof
+            global.vocabularyConnectNum = (global.vocabularyConnectNum + 1) % (lineAr.count/2)  //wrap around at eof
             
             vocabularyWordAr.append(vocabularyWord)
             vocabularyWordAr.append(vocabularyWord1)
@@ -493,6 +502,9 @@ class VocabularyConnectScene: SKScene {
         guard let touch = touches.first else {
             return
         }
+        if answerSelected {
+            return
+        }
         
         var location = touch.location(in: self)
         let touchedNode = self.atPoint(location)
@@ -606,6 +618,8 @@ class VocabularyConnectScene: SKScene {
     }
     
     func CorrectAnswerSelected() {
+        answerSelected = true
+        
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
         labelInstr.fontSize = 30
@@ -617,6 +631,7 @@ class VocabularyConnectScene: SKScene {
         labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {
@@ -629,6 +644,8 @@ class VocabularyConnectScene: SKScene {
     }
        
     func IncorrectAnswerSelected() {
+        answerSelected = true
+        
         for line in lineAr {
             line.removeFromParent()
         }
@@ -660,6 +677,7 @@ class VocabularyConnectScene: SKScene {
         labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {

@@ -10,7 +10,7 @@ That is a chair.* n v t n
 Is that a sign?* v n t n
 Is that a building?* v n t n
 Red dogs are rare.* a n v a
-The dog barked very loudly at night.* t n v d d p n
+The dog barked extremely loudly at night.* t n v d d p n
 Where is the homework?* a v t n
 Those are not pencils.* o v d o
 There are no tables.* n v t n
@@ -31,11 +31,11 @@ The rocks look heavy.* t n v d
 Your stairs are white.* a n v a
 He watches too much tv.* n v a a n
 I like to sweep the floor.* n v p v t n
-These people are very wild.* a n v d a
+These people are extremely wild.* a n v d a
 There are no cats.* n v t n
 Squares have four sides.* n v a n
 The child is sleepy.* t n v a
-This woman is very smart.* a n v d a
+This woman is particulary smart.* a n v d a
 I like my dog.* n v a n
 The sun will rise soon.* t n v v d
 The monkey is friendly.* t n v a
@@ -46,7 +46,7 @@ There are seven cookies.* n v a n
 There are no burgers.* n v t n
 Why do people argue?* a v n v
 That is not a pencil.* n v d t n
-The lake is very blue.* t n v d a
+The lake is extremely blue.* t n v d a
 The mother is angry.* t n v a
 There is no tomorrow.* n v t n
 I want to compete.* n v p v
@@ -72,13 +72,13 @@ I like your cat.* n v a n
 The clay pot sits in the corner.* t a n v p t n
 The cat is messy.* t n v a
 I wish I was having fun.* n v n v v a
-This shoe is very small.* a n v d a
+This shoe is particulary small.* a n v d a
 The door is long.* t n v a
 What are this chapter?* a v a n
-This person is very tall.* a n v d a
+This person is extremely tall.* a n v d a
 The dog is loud.* t n v a
 These cats are not friendly.* a n v d a
-When are you coming? a v n v
+When are you coming?* a v n v
 What is this page?* a v a n
 The people are hungry.* t n v a
 Circles have zero sides.* n v a n
@@ -95,12 +95,12 @@ These couches are not big.* a n v d a
 That is a pencil.* n v t n
 Triangles have three sides.* n v a n
 Why are there dogs?* a v a n
-The girl studied very well.* t n v d d
+The girl studied particulary well.* t n v d d
 This game is not fun.* a n v d a
 Why are there snakes?* a v a n
 My toy is red.* a n v a
 The boy is cranky.* t n v a
-The boy lied very often.* t n v d d
+The boy lied extremely often.* t n v d d
 This is a house.* n v t n
 I like your toys.* n v a n
 Your cat is black.* a n v a
@@ -122,8 +122,8 @@ The room is small but tidy.* t n v a c a
 I want to play.* n v p v
 What is this bug?* a v a n
 What is this rock?* a v a n
-When will we get there? a v n v n
-The lion roared very confidently.* t n v d d
+When will we get there?* a v n v n
+The lion roared particulary confidently.* t n v d d
 I like my pencil.* n v a n
 The hat is pointy.* t n v a
 What are this thing?* a v a n
@@ -139,7 +139,7 @@ Is that a pencil?* v n t n
 This staircase is not useful.* a n v d a
 Where is the brownie?* a v t n
 Why are there animals?* a v a n
-These monkeys are very crazy.* a n v d a
+These monkeys are extremely crazy.* a n v d a
 This is a big house.* o v t a n
 Are these books?* v n n
 Why do people work?* a v n v
@@ -157,9 +157,9 @@ Why are there people?* a v a n
 There are three chickens.* n v a n
 Why is the monkey funny?* a v t n a
 Where is the girl?* a v t n
-The boy ran very quickly.* t n v d d
+The boy ran particulary quickly.* t n v d d
 The chars are large.* t n v a
-These mothers are very busy.* a n v d a
+These mothers are extremely busy.* a n v d a
 These doors are not heavy.* a n v d a
 Those are pencils.* o v n
 Why is the grass green?* a v t n a
@@ -182,7 +182,7 @@ I want to swim.* n v p v
 This is the smelliest one!* n v t a n
 June is a wonderful wife and mother.* n v t a n c n
 Why do people sleep?* a v n v
-Boardgames are very fun!* n v a a
+Boardgames are very fun!* n v d a
 Where is the backpack?* a v t n
 Are those pencils?* v o n
 Why is the air smelly?* a v t n a
@@ -217,7 +217,7 @@ Small cats are mean.* a n v a
 There are many animals.* n v a n
 There are many children.* n v a n
 The box is small.* t n v a
-The cat purred very often.* t n v d d
+The cat purred extremely often.* t n v d d
 Big men are happy.* a n v a
 The father is happy.* t n v a
 Is that a broom?* v n t n
@@ -235,6 +235,11 @@ Is that an eraser?* v n t n
 That is a book.* n v t n
 That is a car.* n v t n
 That is not a boy.* n v d t n
-These chairs are very comfortable.* a n v d a
+These chairs are particulary comfortable.* a n v d a
 That is not a street.* n v d t n
 That is not a road.* n v d t n
+That is not a bike.* n v d t n
+That is not a basket.* n v d t n
+That is not a rabbit.* n v d t n
+That is not a floor.* n v d t n
+That is not a house.* n v d t n

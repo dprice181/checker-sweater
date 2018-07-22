@@ -52,6 +52,13 @@ class Global {
 
 let global = Global()
 
+struct PhysicsCategory {
+    static let none      : UInt32 = 0
+    static let all       : UInt32 = UInt32.max
+    static let answerbox : UInt32 = 0b1       // 1
+    static let choicebox : UInt32 = 0b10      // 2
+}
+
 func CreateShadowLabel(label : SKLabelNode,offset: CGFloat) -> SKLabelNode
 {
     if let shadowLabel = label.copy() as? SKLabelNode {
@@ -176,6 +183,95 @@ func ReplaceFirstOccurence(myString: String,substring: String,replaceStr: String
     
     let modifiedString = String(newChars)
     return modifiedString
+}
+
+func GetLevelMode(levelMode: inout String) {
+    if global.currentGrade == "K" {
+        if global.currentLevel < 10 {
+            levelMode = "n"
+        }
+        else {
+            if (global.currentLevel % 2) == 1 {
+                levelMode = "n"
+            }
+            else {
+                levelMode = "a"
+            }
+        }
+    }
+    else if global.currentGrade == "1" {
+        if (global.currentLevel % 2) == 1 {
+            levelMode = "n"
+        }
+        else {
+            levelMode = "v"
+        }
+    }
+    else if global.currentGrade == "2" {
+        if global.currentLevel < 10 {
+            if (global.currentLevel % 2) == 1 {
+                levelMode = "n"
+            }
+            else {
+                levelMode = "v"
+            }
+        }
+        else {
+            if (global.currentLevel % 3) == 1 {
+                levelMode = "n"
+            }
+            else if (global.currentLevel % 3) == 2 {
+                levelMode = "v"
+            }
+            else {
+                levelMode = "a"
+            }
+        }
+    }
+    else if global.currentGrade == "3" {
+        if global.currentLevel < 10 {
+            if (global.currentLevel % 3) == 1 {
+                levelMode = "n"
+            }
+            else if (global.currentLevel % 3) == 2 {
+                levelMode = "v"
+            }
+            else {
+                levelMode = "a"
+            }
+        }
+        else {
+            if (global.currentLevel % 4) == 1 {
+                levelMode = "n"
+            }
+            else if (global.currentLevel % 4) == 2 {
+                levelMode = "v"
+            }
+            else if (global.currentLevel % 4) == 3 {
+                levelMode = "a"
+            }
+            else {
+                levelMode = "p"
+            }
+        }
+    }
+    else {
+        if (global.currentLevel % 5) == 1 {
+            levelMode = "n"
+        }
+        else if (global.currentLevel % 5) == 2 {
+            levelMode = "v"
+        }
+        else if (global.currentLevel % 5) == 3 {
+            levelMode = "a"
+        }
+        else if (global.currentLevel % 5) == 4 {
+            levelMode = "p"
+        }
+        else {
+            levelMode = "d"
+        }
+    }
 }
 
 func InitLetterStrings() {

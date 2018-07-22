@@ -75,6 +75,7 @@ class MathDragScene: SKScene {
     var labelWordProblemShadowAr = [SKLabelNode]()
     
     var studentStartsWithGoods = false
+    var answerSelected = false
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -400,6 +401,8 @@ class MathDragScene: SKScene {
     }
     
     func CorrectAnswerSelected() {
+        answerSelected = true
+        
         for label in labelWordProblemAr {
             label.removeFromParent()
         }
@@ -423,6 +426,7 @@ class MathDragScene: SKScene {
         labelCorrectShadow.text = "Correct : " + String(global.correctAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {
@@ -435,6 +439,8 @@ class MathDragScene: SKScene {
     }
     
     func IncorrectAnswerSelected() {
+        answerSelected = true
+        
         for label in labelWordProblemAr {
             label.removeFromParent()
         }
@@ -474,6 +480,7 @@ class MathDragScene: SKScene {
         labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
+            answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
         }
         else {
@@ -711,7 +718,10 @@ class MathDragScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
-        }                
+        }
+        if answerSelected {
+            return
+        }
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
@@ -795,10 +805,15 @@ class MathDragScene: SKScene {
         if let path = Bundle.main.path(forResource: "WordProblems" + global.currentGrade, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
+            global.wordProblemsNum = global.wordProblemsNum % lineAr.count
             if lineAr.count < global.wordProblemsNum {
                 return
             }
             let sentenceAr = lineAr[global.wordProblemsNum].characters.split{$0 == "#"}.map(String.init)
+            
+            global.currentSentenceNum = (global.currentSentenceNum + 1) % lineAr.count  //wrap around at eof
+            global.wordProblemsNum = (global.wordProblemsNum + 1) % lineAr.count  //wrap around at eof
+            
             if sentenceAr.count < 3 {
                 return
             }
@@ -824,28 +839,42 @@ class MathDragScene: SKScene {
             
             sentence = sentenceAr[0]
             let maxItems = GetMaxItems()
+            var maxItemsTop = maxItems
+            if maxItemsTop > 18 {
+                maxItemsTop = 18
+            }
+            let maxItemsTwoTop = 22
             
             var string = "\\A"
             if sentence.range(of:string) != nil {
-                A = Int(arc4random_uniform(UInt32(maxItems))+1)
+                A = Int(arc4random_uniform(UInt32(maxItemsTop))+1)
             }
             string = "\\B"
             if sentence.range(of:string) != nil {
-                B = Int(arc4random_uniform(UInt32(maxItems))+1)
+                var maxB = maxItemsTop
+                if A + maxItemsTop > maxItemsTwoTop {
+                    maxB = maxItemsTwoTop - A
+                }
+                B = Int(arc4random_uniform(UInt32(maxB))+1)
             }
             string = "\\V"
             var replaceVString = "\\V"
             if sentence.range(of:string) != nil {
+                var maxB = maxItemsTop
+                if A + maxItemsTop > maxItemsTwoTop {
+                    maxB = maxItemsTwoTop - A
+                }
+                
                 let range = sentence.range(of:string)
                 let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
                 if let multiplier = Int(String(sentence[ind])) {
-                    B = ( Int(arc4random_uniform(UInt32(maxItems))+2) / multiplier ) * multiplier
+                    B = ( Int(arc4random_uniform(UInt32(maxB))+2) / multiplier ) * multiplier
                     if B < multiplier {
                         B = multiplier
                     }
                 }
                 else {
-                    B = ( Int(arc4random_uniform(UInt32(maxItems))+2))
+                    B = ( Int(arc4random_uniform(UInt32(maxB))+2))
                 }
                 replaceVString = "\\V" + String(sentence[ind])
             }
@@ -879,13 +908,13 @@ class MathDragScene: SKScene {
                 let range = sentence.range(of:string)
                 let ind = sentence.index((range?.lowerBound)!, offsetBy: 2)
                 if let multiplier = Int(String(sentence[ind])) {
-                    A = ( Int(arc4random_uniform(UInt32(maxItems))+2) / multiplier ) * multiplier
+                    A = ( Int(arc4random_uniform(UInt32(maxItemsTop))+2) / multiplier ) * multiplier
                     if A < multiplier {
                         A = multiplier
                     }
                 }
                 else {
-                    A = ( Int(arc4random_uniform(UInt32(maxItems))+2))
+                    A = ( Int(arc4random_uniform(UInt32(maxItemsTop))+2))
                 }
                 replaceQString = "\\Q" + String(sentence[ind])
             }
@@ -1007,10 +1036,6 @@ class MathDragScene: SKScene {
             if let result = exp.expressionValue(with: nil, context: nil) as? Int {
                 person2Answer2 = result
             }
-            
-            global.currentSentenceNum = global.currentSentenceNum + 1
-            global.wordProblemsNum = global.wordProblemsNum + 1
-            global.wordProblemsNum = global.wordProblemsNum % lineAr.count  //wrap around at eof
         }
         else {
             print("file not found")
