@@ -333,7 +333,7 @@ class WordSelectScene: SKScene {
         
         if let labelNode = touchedNode as? SKLabelNode {
             if labelNode.name == "word"  {
-                labelNode.fontColor = global.blue
+                labelNode.fontColor = SKColor.red
             }
         }
     }
@@ -356,8 +356,7 @@ class WordSelectScene: SKScene {
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
-        if let labelNode = touchedNode as? SKLabelNode
-        {
+        if let labelNode = touchedNode as? SKLabelNode {
             if labelNode.name == "word"  {
                 labelNode.fontColor = SKColor.red
             }

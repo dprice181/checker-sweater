@@ -702,34 +702,17 @@ class GameViewController: UIViewController, SKViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.playBackgroundSound(_:)), name: NSNotification.Name(rawValue: "PlayBackgroundSound"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.stopBackgroundSound), name: NSNotification.Name(rawValue: "StopBackgroundSound"), object: nil)
-        /*
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
- */
+       
         let scene = GameScene(size: view.bounds.size)
         let skView = view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        skView.showsFPS = false
+        skView.showsNodeCount = false
         skView.ignoresSiblingOrder = true
         global.view = skView
         scene.scaleMode = .resizeFill
         //skView.delegate = self as SKViewDelegate
         scene.viewController = self
-        skView.presentScene(scene)
-        
+        skView.presentScene(scene)        
     }
     
     func playBackgroundSound(_ notification: Notification) {
@@ -772,18 +755,16 @@ class GameViewController: UIViewController, SKViewDelegate {
         }
     }
     
-    /*
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return .portrait
+    }
+  /*
     override var shouldAutorotate: Bool {
         return true
     }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
+ */
+ /*
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

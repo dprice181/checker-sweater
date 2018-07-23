@@ -1057,9 +1057,9 @@ class MathDragScene: SKScene {
     }
     
     func ReplaceSentenceKeywords(sentence:inout String,replaceMString:String,replaceQString:String,replaceRString:String,replaceVString:String,npcGender:String)  {
-        var itemNoS = "1 " + item
+        var itemNoS = " 1 " + item
         itemNoS.removeLast()
-        var item2NoS = "1 " + item2
+        var item2NoS = " 1 " + item2
         item2NoS.removeLast()
         sentence = sentence.replacingOccurrences(of: "Alice", with: person1)
         sentence = sentence.replacingOccurrences(of: "Student", with: global.currentStudent)
@@ -1074,8 +1074,8 @@ class MathDragScene: SKScene {
         sentence = sentence.replacingOccurrences(of: "\\Y", with: String(Y))
         sentence = sentence.replacingOccurrences(of: "\\Z", with: String(Z))
         sentence = sentence.replacingOccurrences(of: "\\W", with: String(W))
-        sentence = sentence.replacingOccurrences(of: "1 items2", with: item2NoS)
-        sentence = sentence.replacingOccurrences(of: "1 items", with: itemNoS)
+        sentence = sentence.replacingOccurrences(of: " 1 items2", with: item2NoS)
+        sentence = sentence.replacingOccurrences(of: " 1 items", with: itemNoS)
         sentence = sentence.replacingOccurrences(of: "items2", with: item2)
         sentence = sentence.replacingOccurrences(of: "items", with: item)
         if npcGender == "M" {

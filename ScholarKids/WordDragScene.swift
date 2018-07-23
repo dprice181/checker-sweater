@@ -175,9 +175,9 @@ class WordDragScene: SKScene {
         //add three choice boxes
         for n in 0...2 {
             var correctWord = choiceWordAr[n]
-            let myWord: NSString = correctWord as NSString
+            let myWord: NSString = correctWord + "     " as NSString
             var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE_CHOICE)])
-            sizeWordChoice.width = sizeWordChoice.width * 1.45
+            sizeWordChoice.width = sizeWordChoice.width * 1.2
             sizeWordChoice.height = sizeWordChoice.height * 2.0
             
             //parent node with physics body for collision
@@ -277,7 +277,7 @@ class WordDragScene: SKScene {
     
     func DrawScoreNode() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/6)
+        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -537,7 +537,7 @@ class WordDragScene: SKScene {
         if answerSelected {
             return
         }
-
+        
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
 
