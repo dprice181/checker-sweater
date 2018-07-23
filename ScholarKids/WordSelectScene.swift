@@ -94,7 +94,7 @@ class WordSelectScene: SKScene {
             let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
             let widthWord = sizeWord.width
             
-            labelAr.append(SKLabelNode(fontNamed: "Verdana"))
+            labelAr.append(SKLabelNode(fontNamed: "Arial"))
             labelAr[i].zPosition = 100.0
             labelAr[i].name = "word"
             labelAr[i].text = word

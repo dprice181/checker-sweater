@@ -157,14 +157,14 @@ class MathDragScene: SKScene {
     }
     
     func DrawCorrectLabels() {
-        let scoreNode = SKNode()        
-        scoreNode.position = CGPoint(x: self.size.width*1.2/10, y: size.height*13.7/24)
+        let scoreNode = SKNode()
+        scoreNode.position = CGPoint(x: self.size.width*1.6/10, y: size.height*0.3/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
         labelCorrect.fontSize = 15
         labelCorrect.fontColor = SKColor.red
-        labelCorrect.position = CGPoint(x: 0, y: self.size.height/36)
+        labelCorrect.position = CGPoint(x: 0, y: self.size.height/40)
         scoreNode.addChild(labelCorrect)
         labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
         scoreNode.addChild(labelCorrectShadow)
@@ -518,7 +518,9 @@ class MathDragScene: SKScene {
         var offX2 = [0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,frame.size.width/4,-frame.size.width/4,frame.size.width/4,
                     -frame.size.width/4,frame.size.width/4,-frame.size.width/4]
         offX2.append(frame.size.width*3/8)
-        offX2.append(frame.size.width*3/8)
+        offX2.append(frame.size.width*3/8)        
+        offX2.append(-frame.size.width*3/8)
+        offX2.append(-frame.size.width*3/8)
         offX2.append(frame.size.width*3/8)
         offX2.append(-frame.size.width*3/8)
         offX2.append(-frame.size.width*2.5/8)
@@ -528,6 +530,8 @@ class MathDragScene: SKScene {
         
         var offY2 = [0,0,0,-frame.size.height/18,-frame.size.height/18,-frame.size.height/18,frame.size.height/18,frame.size.height/18,frame.size.height/18,0,0,-frame.size.height/18,-frame.size.height/18,frame.size.height/18]
         offY2.append(frame.size.height/18)
+        offY2.append(0)
+        offY2.append(-frame.size.height/18)
         offY2.append(0)
         offY2.append(-frame.size.height/18)
         offY2.append(frame.size.height/18)

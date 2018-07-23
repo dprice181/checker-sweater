@@ -103,7 +103,7 @@ class WordDragScene: SKScene {
                 widthSum = 0.0
             }
             
-            labelAr.append(SKLabelNode(fontNamed: "Verdana"))
+            labelAr.append(SKLabelNode(fontNamed: "Arial"))
             labelAr[i].zPosition = 100.0
             labelAr[i].name = "word"
             labelAr[i].text = word
@@ -134,7 +134,7 @@ class WordDragScene: SKScene {
                 
                 if i == wordAr.count-1 {  //add punctuation
                     let punctuation = GetPunctuation(word:word)
-                    labelAr.append(SKLabelNode(fontNamed: "Verdana"))
+                    labelAr.append(SKLabelNode(fontNamed: "Arial"))
                     labelAr[i].zPosition = 100.0
                     labelAr[i].name = "word"
                     labelAr[i].text = punctuation
@@ -193,7 +193,7 @@ class WordDragScene: SKScene {
             choiceNode.physicsBody?.usesPreciseCollisionDetection = true
             
             correctWord = correctWord.replacingOccurrences(of: ".", with: "")
-            let labelChoice = SKLabelNode(fontNamed: "Verdana")
+            let labelChoice = SKLabelNode(fontNamed: "Arial")
             labelChoice.zPosition = 100.0
             labelChoice.name = "choicelabel"
             labelChoice.text = correctWord.lowercased()

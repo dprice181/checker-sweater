@@ -18,8 +18,7 @@ class GameScene: SKScene {
     
     var viewController: GameViewController!
     
-    override func didMove(to view: SKView) {
-        
+    override func didMove(to view: SKView) {        
         physicsWorld.gravity = .zero
                 
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)

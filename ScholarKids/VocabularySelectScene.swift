@@ -535,8 +535,7 @@ class VocabularySelectScene: SKScene {
         }
     }
     
-    func TransitionScene(playSound: SKAction,duration: Double)
-    {
+    func TransitionScene(playSound: SKAction,duration: Double) {
         for child in global.overlayNode.children {
             child.removeFromParent()
         }
@@ -552,7 +551,7 @@ class VocabularySelectScene: SKScene {
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
                 else {
-                    let nextScene = WordDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
+                    let nextScene = SpellingDragScene(size: self.size,currentSentenceNum:global.currentSentenceNum,correctAnswers:global.correctAnswers,incorrectAnswers:global.incorrectAnswers,currentExtraWordNum:self.currentExtraWordNum,sceneType:global.sceneType)
                     self.view?.presentScene(nextScene, transition: reveal)
                 }
             }
@@ -634,9 +633,14 @@ class VocabularySelectScene: SKScene {
         
         if numLines == 1 {
             labelVocabularyWord.text = vocabularyDefinition
-            labelVocabularyWord.fontSize = 20
             labelVocabularyWordShadow.text = vocabularyDefinition
-            labelVocabularyWordShadow.fontSize = 20
+            if global.sceneType != "Spelling" {
+                labelVocabularyWord.fontSize = 20
+                labelVocabularyWordShadow.fontSize = 20
+            }
+            else {
+                labelVocabularyWord.fontColor = SKColor.red
+            }
         }
         else {
             labelVocabularyWord.removeFromParent()
@@ -656,8 +660,13 @@ class VocabularySelectScene: SKScene {
                 
                 let labelDefinition = SKLabelNode(fontNamed: "Arial")
                 labelDefinition.text = definitionLine
-                labelDefinition.fontSize = 20
                 labelDefinition.fontColor = global.purple
+                if global.sceneType != "Spelling" {
+                    labelDefinition.fontSize = 20
+                }
+                else {
+                    labelDefinition.fontColor = SKColor.red
+                }
                 labelDefinition.position = CGPoint(x: self.size.width/2, y: self.size.height*12.5 / 24 - sentenceHeight * CGFloat(n))
                 labelDefinition.zPosition = 100.0
                 labelDefinition.name = "correctAnswerLabel"

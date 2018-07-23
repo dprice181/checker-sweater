@@ -298,8 +298,7 @@ func InitLetterStrings() {
     global.letterStrings.append(["zz","ss","z","s"])
 }
 
-func Misspell(word: String) -> [String] {
-    
+func Misspell(word: String) -> [String] {    
     var returnAr = [String]()
     if word.count < 2 {
         returnAr.append(word)
