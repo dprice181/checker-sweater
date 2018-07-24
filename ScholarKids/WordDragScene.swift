@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class WordDragScene: SKScene {    
-    let SELECTTEXT_FONTSIZE : CGFloat = 22.0
+    let SELECTTEXT_FONTSIZE : CGFloat = 23.0
     let SELECTTEXT_FONTSIZE_CHOICE : CGFloat = 15.0
     
     var labelAr = [SKLabelNode]()
@@ -96,10 +96,10 @@ class WordDragScene: SKScene {
             word = word + "   "
             let myWord: NSString = word as NSString
             let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-            let widthWord = sizeWord.width
+            var widthWord = sizeWord.width
             
             if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
-                startY = startY - sizeWord.height * 1.25  //give a bit of extra space between rows
+                startY = startY - sizeWord.height * 1.35  //give a bit of extra space between rows
                 widthSum = 0.0
             }
             
@@ -113,9 +113,11 @@ class WordDragScene: SKScene {
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 9 / 24)
             
             if emptyCorrectAnswer == i {
+                let sizeBox = CGSize(width:size.width/6,height:sizeWord.height)  //make box standard size
+                widthWord = sizeBox.width
                 //parent node with physics body for collision
                 let answerBoxNode = SKSpriteNode()
-                answerBoxNode.position = CGPoint(x: startX + widthSum + sizeWord.width/2, y: startY + self.size.height * 9 / 24 + sizeWord.height/2)
+                answerBoxNode.position = CGPoint(x: startX + widthSum + sizeBox.width/2, y: startY + self.size.height * 9 / 24 + sizeWord.height/2)
                 answerBoxNode.name = "answerbox"
                 answerBoxNode.physicsBody = SKPhysicsBody(rectangleOf: sizeWord)
                 answerBoxNode.physicsBody?.isDynamic = true
@@ -124,7 +126,7 @@ class WordDragScene: SKScene {
                 answerBoxNode.physicsBody?.collisionBitMask = PhysicsCategory.none
                 answerBoxNode.physicsBody?.usesPreciseCollisionDetection = true
                 
-                let box = SKShapeNode(rectOf: sizeWord,cornerRadius: 20.0)
+                let box = SKShapeNode(rectOf: sizeBox,cornerRadius: 20.0)
                 box.name = "answerboxrect"
                 box.fillColor = SKColor.lightGray
                 box.strokeColor = SKColor.red
@@ -175,9 +177,8 @@ class WordDragScene: SKScene {
         //add three choice boxes
         for n in 0...2 {
             var correctWord = choiceWordAr[n]
-            let myWord: NSString = correctWord + "     " as NSString
+            let myWord: NSString = correctWord + "      " as NSString
             var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE_CHOICE)])
-            sizeWordChoice.width = sizeWordChoice.width * 1.2
             sizeWordChoice.height = sizeWordChoice.height * 2.0
             
             //parent node with physics body for collision
@@ -593,6 +594,7 @@ class WordDragScene: SKScene {
                 TransitionBackFromScene(myScene: self)
             }
             if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
+                global.currentSentenceNum = 12 * (global.currentLevel-1)
                 var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
                 if global.soundOption > 0 {
                     playSound = SKAction.wait(forDuration: 0.0001)
@@ -601,6 +603,7 @@ class WordDragScene: SKScene {
             }
             if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
                 global.currentLevel = global.currentLevel + 1
+                global.currentSentenceNum = 12 * (global.currentLevel-1)
                 var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
                 if global.soundOption > 0 {
                     playSound = SKAction.wait(forDuration: 0.0001)

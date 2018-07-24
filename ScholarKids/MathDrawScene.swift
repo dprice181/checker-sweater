@@ -756,6 +756,7 @@ class MathDrawScene: SKScene {
                     TransitionBackFromScene(myScene: self)
                 }
                 if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
+                    global.currentSentenceNum = 12 * (global.currentLevel-1)
                     var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
                     if global.soundOption > 0 {
                         playSound = SKAction.wait(forDuration: 0.0001)
@@ -764,6 +765,7 @@ class MathDrawScene: SKScene {
                 }
                 if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
                     global.currentLevel = global.currentLevel + 1
+                    global.currentSentenceNum = 12 * (global.currentLevel-1)
                     var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
                     if global.soundOption > 0 {
                         playSound = SKAction.wait(forDuration: 0.0001)

@@ -377,6 +377,8 @@ class LevelSelectScene: SKScene {
                                                     playSound = SKAction.wait(forDuration: 0.0001)
                                                 }
                                                 self.run(SKAction.sequence([playSound]))
+                                                MessageBox(title:"Unlock " + subjectAr[ind3],message:"Would you like to unlock all " + String(global.maxLevels)
+                                                    + " levels in " + subjectAr[ind3] + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:ind3+3,subjectInd:ind3)
                                             }
                                         }
                                     }
@@ -434,6 +436,71 @@ class LevelSelectScene: SKScene {
             
         })
         self.run(SKAction.sequence([playSound,newScene]))
+    }
+    
+    func topMostController() -> UIViewController? {
+        var topController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
+        while ((topController?.presentedViewController) != nil) {
+            topController = topController?.presentedViewController
+        }
+        return topController
+    }
+    
+    func UnlockLevel(subjectInd:Int) {
+        if hotAirBalloonLockAr.count > subjectInd {
+            for hotAirBalloonLock in hotAirBalloonLockAr[subjectInd] {
+                hotAirBalloonLock.removeFromParent()
+            }
+        }
+        
+//        if let parentNode = node.parent {
+//            for child in parentNode.children {
+//                if child.name?.contains("lock") != nil && (child.name?.contains("lock"))! {
+//                    child.removeFromParent()
+//                    continue
+//                }
+//                if let box = child as? SKShapeNode {
+//                    box.strokeColor = global.realPurple
+//                }
+//                if let label = child as? SKLabelNode {
+//                    if label.name?.contains("secondoptionbutton") != nil && (label.name?.contains("secondoptionbutton"))! {
+//                        label.fontColor = global.realPurple
+//                        label.isHidden = false
+//                    }
+//                    else if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
+//                        label.fontColor = global.realPurple
+//                    }
+//                    else {  //shadow label
+//                        label.fontColor = SKColor.black
+//                        label.isHidden = false
+//                    }
+//                }
+//            }
+//        }
+    }
+    
+    func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subjectInd:Int) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            if sectionInd > 0 {
+                let subject = self.subjectAr[subjectInd]
+                global.optionAr[sectionInd*2+1] = "1"
+                WriteOptionsToFile()
+                self.UnlockLevel(subjectInd:subjectInd)
+                self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subjectInd:subjectInd)
+            }
+        })
+        UpdateOptions()  //put here since we can't access global function form inside lambda
+        
+        dialogMessage.addAction(ok)
+        if cancelButton {
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) -> Void in
+                print("Cancel button tapped")
+            }
+            dialogMessage.addAction(cancel)
+        }
+        topMostController()?.present(dialogMessage, animated: true, completion: nil)
     }
     
     func TransitionScene(sceneType:String) {

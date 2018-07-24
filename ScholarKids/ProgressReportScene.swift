@@ -249,7 +249,7 @@ class ProgressReportScene: SKScene {
         
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = "PROGRESS REPORT"
-        labelTitle.fontSize = 40
+        labelTitle.fontSize = 36
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0

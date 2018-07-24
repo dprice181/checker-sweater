@@ -6,8 +6,6 @@
 //  Copyright © 2018 Doug Price. All rights reserved.
 //
 
-//purchase levels
-//give credit to music guy
 import SpriteKit
 import GameplayKit
 
@@ -32,21 +30,7 @@ class OptionsScene: SKScene {
         DrawTitle()
         DrawOptions()
         DrawBackButton()
-    }
-    
-    func WriteOptionsToFile() {
-        let file = "Options.txt" //this is the file. we will write to and read from it
-        if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let path = dir + "/" + file
-            do {
-                let fileText = global.optionAr.joined(separator: "*")
-                try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-            }
-            catch {
-                print("File read error:", error)
-            }
-        }
-    }
+    }        
     
     func IsButtonSelected(text:String,text2:String,i:Int) -> Bool {
         var returnVal = false
@@ -107,7 +91,7 @@ class OptionsScene: SKScene {
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
         textAr2 = ["Unlocked","Unlocked","Unlocked","Unlocked"]
         offY = -self.size.height*23/48
-        DrawOption(ind:3,text:"Unlock All Levels",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:16,fontColor:global.blue,boxColor:global.blue,boxColorSelected:global.blue,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
+        DrawOption(ind:3,text:"Unlock All Levels",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:15,fontColor:global.blue,boxColor:global.blue,boxColorSelected:global.blue,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
         
         DrawButtons()
     }
@@ -505,7 +489,7 @@ class OptionsScene: SKScene {
         }
         
         if buttonNode.name?.contains("clickbutton1") != nil && (buttonNode.name?.contains("clickbutton1"))!  {
-            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all subject levels for 2.99?  This will also remove all ads!",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
+            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all " + String(global.maxLevels) + " levels of all subjects for 2.99?  This will also remove all ads!",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
         }
         if buttonNode.name?.contains("clickbutton2") != nil && (buttonNode.name?.contains("clickbutton2"))!  {
             TransitionSceneCredits()
@@ -535,7 +519,8 @@ class OptionsScene: SKScene {
                         subject = "Math"
                     }
                     if global.optionAr[sectionInd*2+1] == "0" {
-                        MessageBox(title:"Unlock " + subject,message:"Would you like to unlock all levels in " + subject + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:sectionInd,subject:subject,node:node,allSubjects:false)
+                        MessageBox(title:"Unlock " + subject,message:"Would you like to unlock all " + String(global.maxLevels)
+                            + " levels in " + subject + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:sectionInd,subject:subject,node:node,allSubjects:false)
                     }
                     else {  //already unlocked
                         MessageBox(title:subject + " Already Unlocked",message:subject + " is already unlocked!  Thanks for your previous purchase!",cancelButton:false,sectionInd: -1,subject:subject,node:node,allSubjects:false)
@@ -602,8 +587,7 @@ class OptionsScene: SKScene {
         }
     }
     
-    func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subject:String,node:SKNode,allSubjects:Bool)
-    {
+    func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subject:String,node:SKNode,allSubjects:Bool) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
@@ -612,14 +596,14 @@ class OptionsScene: SKScene {
                 global.optionAr[9] = "1"
                 global.optionAr[11] = "1"
                 global.optionAr[13] = "1" //Spelling
-                self.WriteOptionsToFile()
+                WriteOptionsToFile()
                 self.UnlockAllLevels()
                 self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
             }
             else {
                 if sectionInd > 0 {
                     global.optionAr[sectionInd*2+1] = "1"
-                    self.WriteOptionsToFile()
+                    WriteOptionsToFile()
                     self.UnlockLevel(node:node)
                     self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
                 }
@@ -646,8 +630,7 @@ class OptionsScene: SKScene {
         return topController
     }
     
-    func TransitionSceneCredits()
-    {
+    func TransitionSceneCredits() {
         UpdateOptions()
         WriteOptionsToFile()
         
@@ -670,8 +653,7 @@ class OptionsScene: SKScene {
         self.run(SKAction.sequence([playSound,newScene]))
     }
     
-    func TransitionBack()
-    {
+    func TransitionBack() {
         UpdateOptions()
         WriteOptionsToFile()
         

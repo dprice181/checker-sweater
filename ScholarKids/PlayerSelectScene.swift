@@ -165,7 +165,8 @@ class PlayerSelectScene: SKScene {
             gradeboxAr.append(SKShapeNode(rectOf: CGSize(width: size.width/5,height: self.size.height*4/48-2)))
             gradeboxAr[i].name = "playerboxgrade" + String(i)
             gradeboxAr[i].fillColor = SKColor(red: 225/255, green: 245/255, blue: 225/255, alpha: 1)
-            gradeboxAr[i].strokeColor = SKColor(red: 185/255, green: 80/255, blue: 185/255, alpha: 1.0)
+            gradeboxAr[i].strokeColor = SKColor(red: 225/255, green: 245/255, blue: 225/255, alpha: 1)
+            //gradeboxAr[i].strokeColor = SKColor(red: 185/255, green: 80/255, blue: 185/255, alpha: 1.0)
             gradeboxAr[i].position = CGPoint(x:self.size.width/32,y:0)
             gradeboxAr[i].zPosition = 101.0
             nodeDefinitionAr[i].addChild(gradeboxAr[i])
@@ -240,7 +241,7 @@ class PlayerSelectScene: SKScene {
             nodeDefinitionAr[i].zPosition = 100.0
             nodeDefinitionAr[i].name = "playerbox" + String(i)
             
-            let greenPlus = SKSpriteNode(imageNamed: "GreenPlus.png")
+            let greenPlus = SKSpriteNode(imageNamed: "BluePlus.png")
             greenPlus.position = CGPoint(x: -self.size.width/3,y:0)
             greenPlus.scale(to: CGSize(width: self.size.height*3/48,height: self.size.height*3/48))
             nodeDefinitionAr[i].addChild(greenPlus)

@@ -11,7 +11,7 @@ import GameplayKit
 
 class WordSelectScene: SKScene {
 
-    let SELECTTEXT_FONTSIZE : CGFloat = 25.0
+    let SELECTTEXT_FONTSIZE : CGFloat = 23.0
     
     var labelAr = [SKLabelNode]()
     var labelSpaceAr = [SKLabelNode]()
@@ -70,7 +70,7 @@ class WordSelectScene: SKScene {
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
         var widthSentence = sizeSentence.width
         
-        let displayWidth = size.width * 8.5 / 10
+        let displayWidth = size.width * 9 / 10
         
         let space = "  "
         let mySpace: NSString = space as NSString
@@ -94,6 +94,11 @@ class WordSelectScene: SKScene {
             let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
             let widthWord = sizeWord.width
             
+            if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
+                startY = startY - sizeWord.height * 1.35  //give a bit of extra space between rows
+                widthSum = 0.0
+            }
+            
             labelAr.append(SKLabelNode(fontNamed: "Arial"))
             labelAr[i].zPosition = 100.0
             labelAr[i].name = "word"
@@ -102,16 +107,11 @@ class WordSelectScene: SKScene {
             labelAr[i].fontColor = global.blue
             labelAr[i].horizontalAlignmentMode = .left
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 11 / 24)
-            widthSum = widthSum + widthWord
             addChild(labelAr[i])
             addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
+            widthSum = widthSum + widthWord
             
             i = i + 1
-            
-            if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
-                startY = startY - sizeWord.height * 1.35  //give a bit of extra space between rows
-                widthSum = 0.0
-            }
         }
     }
     
@@ -396,6 +396,7 @@ class WordSelectScene: SKScene {
                 TransitionBackFromScene(myScene: self)
             }
             if shapeNode.name?.contains("retry") != nil && (shapeNode.name?.contains("retry"))!  {
+                global.currentSentenceNum = 12 * (global.currentLevel-1)
                 var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
                 if global.soundOption > 0 {
                     playSound = SKAction.wait(forDuration: 0.0001)
@@ -404,6 +405,7 @@ class WordSelectScene: SKScene {
             }
             if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
                 global.currentLevel = global.currentLevel + 1
+                global.currentSentenceNum = 12 * (global.currentLevel-1)
                 var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
                 if global.soundOption > 0 {
                     playSound = SKAction.wait(forDuration: 0.0001)

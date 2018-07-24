@@ -24,10 +24,13 @@ class GameScene: SKScene {
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         global.heightWidthRat = size.height/size.width
         
-        //global.currentGrade = "1"
-        //global.currentStudent = "Rachels"
         let wordSelectScene = TitleScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Title")
         self.view?.presentScene(wordSelectScene, transition: reveal)
+        
+//        global.currentGrade = "1"
+//        global.currentStudent = "Rachels"
+//        let wordSelectScene = WordSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Grammar")
+//        self.view?.presentScene(wordSelectScene, transition: reveal)
         
         
         /*

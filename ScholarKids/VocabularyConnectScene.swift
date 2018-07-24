@@ -81,8 +81,8 @@ class VocabularyConnectScene: SKScene {
         
         DrawTitle()
         DrawInstructions()
-        AddWords()
-        AddDefinitions()
+        DrawWords()
+        DrawDefinitions()
         DrawBackButton()
     }
     
@@ -155,7 +155,7 @@ class VocabularyConnectScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func AddWords() {
+    func DrawWords() {
         for i in 0...2  {
             nodeWordAr.append(SKNode())
             nodeWordAr[i].position = CGPoint(x: self.size.width/5.1, y: self.size.height*(15-5.5 * CGFloat(i))/24)
@@ -189,131 +189,123 @@ class VocabularyConnectScene: SKScene {
         }
     }
     
-    func AddDefinitions() {
-        let displayWidth = size.width * 3 / 10
+    func DrawDefinitions() {
+        let displayWidth = size.width * 5 / 10
         for i in 0...2  {
-            let mySentence: NSString = vocabularyDefinitionAr[i] as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+            let sizeSentence = GetTextSize(text:vocabularyDefinitionAr[i],fontSize:SELECTTEXT_FONTSIZE)            
             let sentenceWidth = sizeSentence.width
-            let sentenceHeight = sizeSentence.height
-            var numLines = 1
-            var countWordsPerLine = 0
-            if sentenceWidth > displayWidth {
-                numLines = Int(sentenceWidth / displayWidth) + 1
-                wordAr = vocabularyDefinitionAr[i].characters.split{$0 == " "}.map(String.init)
-                countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
-                if countWordsPerLine * (numLines-2) >= wordAr.count {
-                    numLines = numLines - 2
-                }
-                else if countWordsPerLine * (numLines-1) >= wordAr.count {
-                    numLines = numLines - 1
-                }
-            }
             
             nodeDefinitionAr.append(SKNode())
             nodeDefinitionAr[i].position = CGPoint(x: self.size.width*0.7, y: self.size.height*(15-5.5 * CGFloat(i))/24)
             nodeDefinitionAr[i].zPosition = 100.0
             nodeDefinitionAr[i].name = "choicenode" + String(i)
             
-            if numLines == 1 {
+            if sentenceWidth < displayWidth {
                 let labelDefinition = SKLabelNode(fontNamed: "Arial")
                 labelDefinition.text = vocabularyDefinitionAr[i]
                 labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
-                labelDefinition.fontColor = global.purple
+                labelDefinition.fontColor = global.lightBlue
                 labelDefinition.position = .zero
                 labelDefinition.zPosition = 100.0
                 labelDefinition.name = "choicelabel" + String(i)
                 nodeDefinitionAr[i].addChild(labelDefinition)
                 nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
             }
-            else {
-                if numLines > 4 {
-                    var definition = wordAr.joined(separator: " ")
-                    let defAr = definition.characters.split{$0 == ";"}.map(String.init)
-                    definition = defAr[0]
-                    if defAr.count > 2 {
-                        for i in 1...defAr.count - 2 {
-                            definition = definition + ";" + defAr[i]
-                        }
+            else {  //multi-line definition
+                var curX : CGFloat = 0
+                var offY : CGFloat = 0
+                var offset : CGFloat = GetDefinitionOffset(definition:vocabularyDefinitionAr[i],displayWidth:displayWidth)
+                wordAr = vocabularyDefinitionAr[i].characters.split{$0 == " "}.map(String.init)
+                var lineString = ""
+                for word in wordAr {
+                    let sizeWord = GetTextSize(text:word + " ",fontSize:SELECTTEXT_FONTSIZE-1.0)
+                    if curX + sizeWord.width > displayWidth {
+                        //next line
+                        DrawDefinitionLine(definition:lineString,i:i,offY:offY+offset)
+                        offY = offY - sizeWord.height
+                        curX = 0
+                        lineString = ""
                     }
-                    let mySentence: NSString = definition as NSString
-                    let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-                    let sentenceWidth = sizeSentence.width
-                    wordAr = definition.characters.split{$0 == " "}.map(String.init)
-                    numLines = Int(sentenceWidth / displayWidth) + 1
-                    if numLines > 5 {
-                        numLines = 5
-                    }
-                    countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
                     
-                }
-                if countWordsPerLine * (numLines-2) >= wordAr.count {
-                    numLines = numLines - 2
-                }
-                else if countWordsPerLine * (numLines-1) >= wordAr.count {
-                    numLines = numLines - 1
-                }
-                var offset : CGFloat = 0.0
-                if numLines == 3 {
-                    offset = sentenceHeight * 2 / 3
-                }
-                if numLines == 4 {
-                    offset = sentenceHeight * 8 / 7
-                }
-                if numLines == 5 {
-                    offset = sentenceHeight * 1.62
-                }
-                var totalWordsSoFar = 0
-                for n in 0...numLines-1  {
-                    var breakEarly = false
-                    var defAr = wordAr.dropFirst(totalWordsSoFar)
-                    var countWords = countWordsPerLine
-                    if n == numLines-1 {
-                        countWords = wordAr.count - totalWordsSoFar
+                    if lineString == "" {
+                        lineString = word
                     }
                     else {
-                        if countWords+totalWordsSoFar > wordAr.count {
-                            countWords = wordAr.count - totalWordsSoFar
-                            breakEarly = true
-                        }
-                        else {
-                            defAr = defAr.dropLast(wordAr.count - (countWords+totalWordsSoFar))
-                        }
+                        lineString = lineString + " " + word
                     }
-                    let definitionLine = defAr.joined(separator: " ")
-                    let labelDefinition = SKLabelNode(fontNamed: "Arial")
-                    labelDefinition.text = definitionLine
-                    labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
-                    labelDefinition.fontColor = global.purple
-                    labelDefinition.position = CGPoint(x: 0,y: offset - sentenceHeight * CGFloat(n))
-                    labelDefinition.zPosition = 100.0
-                    labelDefinition.name = "choicelabel" + String(i)
-                    nodeDefinitionAr[i].addChild(labelDefinition)
-                    nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
-                    totalWordsSoFar = totalWordsSoFar + countWords
-                    if breakEarly == true {
-                        break
-                    }
+                    curX = curX + sizeWord.width
+                }
+                if lineString != "" {
+                    DrawDefinitionLine(definition:lineString,i:i,offY:offY+offset)
                 }
             }
             
-            choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/1.85,height: self.size.height*7/48)))
-            choiceboxDefinitionAr[i].name = "choicebox" + String(i)
-            choiceboxDefinitionAr[i].fillColor = global.greyBlue
-            choiceboxDefinitionAr[i].strokeColor = SKColor.purple
-            choiceboxDefinitionAr[i].position = .zero
-            nodeDefinitionAr[i].addChild(choiceboxDefinitionAr[i])
-            
-            circleDefinitionAr.append(SKShapeNode(circleOfRadius: 7.0))
-            circleDefinitionAr[i].name = "choicecircle" + String(i)
-            circleDefinitionAr[i].fillColor = SKColor.red
-            circleDefinitionAr[i].strokeColor = SKColor.black
-            circleDefinitionAr[i].lineWidth = 2
-            circleDefinitionAr[i].position = CGPoint(x:0,y:self.size.height*2/24)
-            nodeDefinitionAr[i].addChild(circleDefinitionAr[i])
-            
+            DrawDefinitionBoxAndCircle(i:i)
             addChild(nodeDefinitionAr[i])
         }
+    }
+    
+    func GetDefinitionOffset(definition:String,displayWidth:CGFloat) -> CGFloat {
+        var offset : CGFloat = 0
+        var numLines = 1
+        //get numLines
+        var curX : CGFloat = 0
+        wordAr = definition.characters.split{$0 == " "}.map(String.init)
+        var sizeWord = GetTextSize(text:"best ",fontSize:SELECTTEXT_FONTSIZE-1.0)  //get line height
+        for word in wordAr {
+            sizeWord = GetTextSize(text:word + " ",fontSize:SELECTTEXT_FONTSIZE-1.0)
+            if curX + sizeWord.width > displayWidth {
+                //next line
+                numLines = numLines + 1
+                curX = 0
+            }
+            curX = curX + sizeWord.width
+        }
+        if numLines == 2 {
+            offset = sizeWord.height * 0.4
+        }
+        if numLines == 3 {
+            offset = sizeWord.height * 0.75
+        }
+        if numLines == 4 {
+            offset = sizeWord.height * 8 / 7
+        }
+        if numLines == 5 {
+            offset = sizeWord.height * 1.62
+        }
+        if numLines >= 6 {
+            offset = sizeWord.height * 2.15
+        }
+        return offset
+    }
+    
+    func DrawDefinitionLine(definition:String,i:Int,offY:CGFloat) {
+        let labelDefinition = SKLabelNode(fontNamed: "Arial")
+        labelDefinition.text = definition
+        labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
+        labelDefinition.fontColor = global.lightBlue
+        labelDefinition.position = CGPoint(x: 0,y: offY)
+        labelDefinition.zPosition = 100.0
+        labelDefinition.name = "choicelabel" + String(i)
+        nodeDefinitionAr[i].addChild(labelDefinition)
+        nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+    }
+    
+    func DrawDefinitionBoxAndCircle(i:Int) {
+        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/1.85,height: self.size.height*7/48)))
+        choiceboxDefinitionAr[i].name = "choicebox" + String(i)
+        choiceboxDefinitionAr[i].fillColor = global.greyBlue
+        choiceboxDefinitionAr[i].strokeColor = SKColor.purple
+        choiceboxDefinitionAr[i].position = .zero
+        nodeDefinitionAr[i].addChild(choiceboxDefinitionAr[i])
+        
+        circleDefinitionAr.append(SKShapeNode(circleOfRadius: 7.0))
+        circleDefinitionAr[i].name = "choicecircle" + String(i)
+        circleDefinitionAr[i].fillColor = SKColor.red
+        circleDefinitionAr[i].strokeColor = SKColor.black
+        circleDefinitionAr[i].lineWidth = 2
+        circleDefinitionAr[i].position = CGPoint(x:0,y:self.size.height*2/24)
+        nodeDefinitionAr[i].addChild(circleDefinitionAr[i])
     }
     
     func GetSentence() {
@@ -498,7 +490,6 @@ class VocabularyConnectScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
             return
         }

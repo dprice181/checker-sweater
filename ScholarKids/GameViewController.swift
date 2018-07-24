@@ -72,6 +72,20 @@ func CreateShadowLabel(label : SKLabelNode,offset: CGFloat) -> SKLabelNode
     return SKLabelNode()
 }
 
+func WriteOptionsToFile() {
+    let file = "Options.txt" //this is the file. we will write to and read from it
+    if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+        let path = dir + "/" + file
+        do {
+            let fileText = global.optionAr.joined(separator: "*")
+            try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+        }
+        catch {
+            print("File read error:", error)
+        }
+    }
+}
+
 func UpdateOptions() {
     let oldMusicOption = global.musicOption
     global.mathUnlocked = Int(global.optionAr[7])!
@@ -374,6 +388,11 @@ func Misspell(word: String) -> [String] {
     return returnAr
 }
 
+func GetTextSize(text:String,fontSize:CGFloat) -> CGSize {
+    let mySentence: NSString = text as NSString
+    return mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)])
+}
+
 func DrawLine(scene : SKScene, overlayNode : SKNode, ratio: Int,yPos : CGFloat, color : SKColor) {
     var startX = -scene.size.width/3
     var al = [SKAction]()
@@ -415,6 +434,8 @@ func DisplayLevelFinished(scene : SKScene) {
     global.overlayNode.position = CGPoint(x: scene.size.width/2, y: 0)
     global.overlayNode.zPosition = 300
     
+    let correctAnswers = global.correctAnswers
+    let incorrectAnswers = global.incorrectAnswers
     let overlay = SKShapeNode(rectOf: CGSize(width: scene.size.width*8/10,height: scene.size.height*25/48),cornerRadius: 30.0)
     overlay.name = "overlay"
     overlay.fillColor = SKColor.white
@@ -447,7 +468,7 @@ func DisplayLevelFinished(scene : SKScene) {
     let shadowComplete = CreateShadowLabel(label: labelComplete,offset: 0.6)
     global.overlayNode.addChild(shadowComplete)
     
-    if global.correctAnswers >= global.minimumCorrectToUnlock {
+    if correctAnswers >= global.minimumCorrectToUnlock {
         let labelComplete2 = SKLabelNode(fontNamed: "Arial")
         labelComplete2.text = "You unlocked the next level!"
         labelComplete2.fontSize = 20
@@ -484,7 +505,7 @@ func DisplayLevelFinished(scene : SKScene) {
     }
     
     let labelCorrect = SKLabelNode(fontNamed: "Arial")
-    labelCorrect.text = "Correct Answers: " + String(global.correctAnswers) + " / 12"
+    labelCorrect.text = "Correct Answers: " + String(correctAnswers) + " / 12"
     labelCorrect.fontSize = 18
     labelCorrect.fontColor = SKColor.blue
     labelCorrect.position = CGPoint(x: 0, y: -scene.size.height*0.5/24)
@@ -495,7 +516,7 @@ func DisplayLevelFinished(scene : SKScene) {
     global.overlayNode.addChild(shadowCorrect)
     
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
-    labelIncorrect.text = "Incorrect Answers: " + String(global.incorrectAnswers) + " / 12"
+    labelIncorrect.text = "Incorrect Answers: " + String(incorrectAnswers) + " / 12"
     labelIncorrect.fontSize = 18
     labelIncorrect.fontColor = SKColor.red
     labelIncorrect.position = CGPoint(x: 0, y: -scene.size.height*2.5/24)
@@ -542,7 +563,7 @@ func DisplayLevelFinished(scene : SKScene) {
     let shadowRetry = CreateShadowLabel(label: labelRetry,offset: 0.6)
     global.overlayNode.addChild(shadowRetry)
     
-    if global.correctAnswers >= global.minimumCorrectToUnlock {
+    if correctAnswers >= global.minimumCorrectToUnlock {
         let next = SKSpriteNode(imageNamed: "next.png")
         next.name = "next"
         next.position = CGPoint(x: scene.size.width/5, y: -scene.size.height*5/24)
@@ -566,7 +587,7 @@ func DisplayLevelFinished(scene : SKScene) {
     for i in 0...2 {
         addStars.append(SKAction.run({
             var star = SKSpriteNode(imageNamed: "BlackStar.png")
-            if (i+1)*3 <= global.correctAnswers {
+            if (i+1)*3 <= correctAnswers {
                 star = SKSpriteNode(imageNamed: "GoldStar.png")
             }
             var offset :CGFloat = 0.0
@@ -584,13 +605,13 @@ func DisplayLevelFinished(scene : SKScene) {
     
     var wrongProgressSound = SKAction.wait(forDuration: 0.001)
     var correctProgressSound = SKAction.wait(forDuration: 0.001)
-    if global.correctAnswers > 0 {
+    if correctAnswers > 0 {
         correctProgressSound = SKAction.playSoundFileNamed("CorrectProgress.wav", waitForCompletion: false)
         if global.soundOption == 2 {
             correctProgressSound = SKAction.wait(forDuration: 0.0001)
         }
     }
-    if global.incorrectAnswers > 0 {
+    if incorrectAnswers > 0 {
         wrongProgressSound = SKAction.playSoundFileNamed("WrongProgress.wav", waitForCompletion: false)
         if global.soundOption == 2 {
             wrongProgressSound = SKAction.wait(forDuration: 0.0001)
@@ -604,24 +625,27 @@ func DisplayLevelFinished(scene : SKScene) {
     var star1Sound = SKAction.wait(forDuration: 0.001)
     var star2Sound = SKAction.wait(forDuration: 0.001)
     var star3Sound = SKAction.wait(forDuration: 0.001)
-    if global.correctAnswers >= 3 {
+    if correctAnswers >= 3 {
         star1Sound = SKAction.playSoundFileNamed("Star1.wav", waitForCompletion: false)
         if global.soundOption == 2 {
             star1Sound = SKAction.wait(forDuration: 0.0001)
         }
     }
-    if global.correctAnswers >= 6 {
+    if correctAnswers >= 6 {
         star2Sound = SKAction.playSoundFileNamed("Star2.wav", waitForCompletion: false)
         if global.soundOption == 2 {
             star2Sound = SKAction.wait(forDuration: 0.0001)
         }
     }    
-    if global.correctAnswers >= 9 {
+    if correctAnswers >= 9 {
         star3Sound = SKAction.playSoundFileNamed("Star3.wav", waitForCompletion: false)
         if global.soundOption == 2 {
             star3Sound = SKAction.wait(forDuration: 0.0001)
         }
     }
+    
+    global.correctAnswers = 0
+    global.incorrectAnswers = 0
     
     let wait = SKAction.wait(forDuration: 0.6)
     let action = SKAction.moveBy(x: 0, y: scene.size.height/2, duration: 1.5)
@@ -629,14 +653,11 @@ func DisplayLevelFinished(scene : SKScene) {
     global.overlayNode.run(SKAction.sequence([levelCompleteSound,action,wait,star1Sound,addStars[0],wait,star2Sound,addStars[1],wait,star3Sound,addStars[2],wait,
                                        correctProgressSound,
                                        SKAction.run({
-                                        DrawLine(scene:scene,overlayNode:global.overlayNode,ratio:global.correctAnswers,yPos:-scene.size.height*2/48,color:SKColor.blue)}),
+                                        DrawLine(scene:scene,overlayNode:global.overlayNode,ratio:correctAnswers,yPos:-scene.size.height*2/48,color:SKColor.blue)}),
                                        wait,wait,
                                        wrongProgressSound,
                                        SKAction.run({
-                                       DrawLine(scene:scene,overlayNode:global.overlayNode,ratio:global.incorrectAnswers,yPos:-scene.size.height*6/48,color:SKColor.red)
-                                            global.correctAnswers = 0
-                                            global.incorrectAnswers = 0
-                                            global.currentSentenceNum = 0
+                                       DrawLine(scene:scene,overlayNode:global.overlayNode,ratio:incorrectAnswers,yPos:-scene.size.height*6/48,color:SKColor.red)
                                         })
         ]))
     
