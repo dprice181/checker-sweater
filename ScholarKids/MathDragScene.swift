@@ -64,18 +64,17 @@ class MathDragScene: SKScene {
     var W = 0
     
     var itemNodeAr = [SKSpriteNode]()
-    
     var selectedNode = SKSpriteNode()
     var itemTouched = false
-    
     var boxFirstName = SKShapeNode()
     var boxSecondName = SKShapeNode()
-    
     var labelWordProblemAr = [SKLabelNode]()
     var labelWordProblemShadowAr = [SKLabelNode]()
-    
     var studentStartsWithGoods = false
     var answerSelected = false
+    let nodeDefinition = SKNode()
+    
+    var startsWithThere : CGFloat = 0
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -376,19 +375,11 @@ class MathDragScene: SKScene {
             person2Ans_2 = Int(labelCount2SecondName.text!)!
         }
         
-        if person3Answer != -1 {
-//            let person3Ans_1 = Int(labelCountThirdName.text!)! + 1
-//            if person1Answer == person1Ans_1 && person2Answer == person2Ans_1 && person3Answer == person3Ans_1 {
-//
-//            }
+        if person1Answer == person1Ans_1 && person2Answer == person2Ans_1 && person1Answer2 == person1Ans_2 && person2Answer2 == person2Ans_2{
+            CorrectAnswerSelected()
         }
         else {
-            if person1Answer == person1Ans_1 && person2Answer == person2Ans_1 && person1Answer2 == person1Ans_2 && person2Answer2 == person2Ans_2{
-                CorrectAnswerSelected()
-            }
-            else {
-                IncorrectAnswerSelected()
-            }
+            IncorrectAnswerSelected()
         }
     }
     
@@ -588,64 +579,110 @@ class MathDragScene: SKScene {
         }
     }
     
-    func DrawSentence() {
-        let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+    func DrawDefinition(definition:String,i:Int,incorrectAnswer:Bool,pos:CGPoint) {
+        var fontColor = global.blue
+        var fontSize = SELECTTEXT_FONTSIZE
+        let position = pos
+        let displayWidth = size.width * 9.25 / 10
+        let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
-        let sentenceHeight = sizeSentence.height
-        var numLines = 1
-        var countWordsPerLine = 0
-        let displayWidth = size.width * 8 / 10
-        if sentenceWidth > displayWidth {
-            numLines = Int(sentenceWidth / displayWidth) + 1
-            wordAr = sentence.characters.split{$0 == " "}.map(String.init)
-            countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
-            if countWordsPerLine * (numLines-2) >= wordAr.count {
-                numLines = numLines - 2
-            }
-            else if countWordsPerLine * (numLines-1) >= wordAr.count {
-                numLines = numLines - 1
-            }
-        }
         
-        if numLines == 1 {
+        nodeDefinition.position = position
+        nodeDefinition.zPosition = 100.0
+        nodeDefinition.name = "choicenode" + String(i)
+        
+        if sentenceWidth < displayWidth {
             labelWordProblemAr.append(SKLabelNode(fontNamed: "Arial"))
-            labelWordProblemAr[0].text = sentence
-            labelWordProblemAr[0].fontSize = SELECTTEXT_FONTSIZE
-            labelWordProblemAr[0].fontColor = global.purple
-            labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*19.5/24)
-            labelWordProblemAr[0].zPosition = 100.0
-            labelWordProblemAr[0].name = "spellingdefinition"
-            addChild(labelWordProblemAr[0])
-            labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr[0],offset: 1))
-            addChild(labelWordProblemShadowAr[0])
+            labelWordProblemAr.last!.text = sentence
+            labelWordProblemAr.last!.fontSize = fontSize
+            labelWordProblemAr.last!.fontColor = global.purple
+            labelWordProblemAr.last!.position = position
+            labelWordProblemAr.last!.zPosition = 100.0
+            labelWordProblemAr.last!.name = "spellingdefinition"
+            nodeDefinition.addChild(labelWordProblemAr.last!)
+            labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr.last!,offset: 1))
+            nodeDefinition.addChild(labelWordProblemShadowAr.last!)
         }
-        else {
-            var totalWordsSoFar = 0
-            for n in 0...numLines-1  {
-                var defAr = wordAr.dropFirst(totalWordsSoFar)
-                var countWords = countWordsPerLine
-                if n == numLines-1 {
-                    countWords = wordAr.count - totalWordsSoFar
+        else {  //multi-line definition
+            var curX : CGFloat = 0
+            var offY : CGFloat = 0
+            let offset : CGFloat = GetDefinitionOffset(definition:definition,displayWidth:displayWidth,fontSize:fontSize,incorrectAnswer:incorrectAnswer)
+            wordAr = definition.characters.split{$0 == " "}.map(String.init)
+            var lineString = ""
+            for word in wordAr {
+                let sizeWord = GetTextSize(text:word + " ",fontSize:fontSize)
+                if curX + sizeWord.width > displayWidth {
+                    //next line
+                    DrawDefinitionLine(definition:lineString,i:i,offY:offY+offset,fontColor:fontColor,fontSize:fontSize)
+                    offY = offY - sizeWord.height
+                    curX = 0
+                    lineString = ""
+                }
+                
+                if lineString == "" {
+                    lineString = word
                 }
                 else {
-                    defAr = defAr.dropLast(wordAr.count - (countWords+totalWordsSoFar))
+                    lineString = lineString + " " + word
                 }
-                let definitionLine = defAr.joined(separator: " ")
-                
-                labelWordProblemAr.append(SKLabelNode(fontNamed: "Arial"))
-                labelWordProblemAr[n].text = definitionLine
-                labelWordProblemAr[n].fontSize = SELECTTEXT_FONTSIZE
-                labelWordProblemAr[n].fontColor = global.purple
-                labelWordProblemAr[n].position = CGPoint(x: self.size.width/2, y: self.size.height*19.5/24 - sentenceHeight * CGFloat(n))
-                labelWordProblemAr[n].zPosition = 100.0
-                labelWordProblemAr[n].name = "spellingdefinition"
-                addChild(labelWordProblemAr[n])
-                labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr[n],offset: 1))
-                addChild(labelWordProblemShadowAr[n])
-                totalWordsSoFar = totalWordsSoFar + countWords
+                curX = curX + sizeWord.width
+            }
+            if lineString != "" {
+                DrawDefinitionLine(definition:lineString,i:i,offY:offY+offset,fontColor:fontColor,fontSize:fontSize)
             }
         }
+    }
+    
+    func GetDefinitionOffset(definition:String,displayWidth:CGFloat,fontSize:CGFloat,incorrectAnswer:Bool) -> CGFloat {
+        var offset : CGFloat = 0
+        var numLines = 1
+        //get numLines
+        var curX : CGFloat = 0
+        wordAr = definition.characters.split{$0 == " "}.map(String.init)
+        var sizeWord = GetTextSize(text:"best ",fontSize:fontSize)  //get line height
+        for word in wordAr {
+            sizeWord = GetTextSize(text:word + " ",fontSize:fontSize)
+            if curX + sizeWord.width > displayWidth {
+                //next line
+                numLines = numLines + 1
+                curX = 0
+            }
+            curX = curX + sizeWord.width
+        }
+        if numLines == 2 || (numLines==1 && incorrectAnswer) {
+            offset = sizeWord.height * 0.4
+        }
+        if numLines == 3 {
+            offset = sizeWord.height * 0.75
+        }
+        if numLines == 4 {
+            offset = sizeWord.height * 8 / 7
+        }
+        if numLines == 5 {
+            offset = sizeWord.height * 1.62
+        }
+        if numLines >= 6 {
+            offset = sizeWord.height * 2.15
+        }
+        return offset
+    }
+    
+    func DrawDefinitionLine(definition:String,i:Int,offY:CGFloat,fontColor:SKColor,fontSize:CGFloat) {
+        labelWordProblemAr.append(SKLabelNode(fontNamed: "Arial"))
+        labelWordProblemAr.last!.text = definition
+        labelWordProblemAr.last!.fontSize = fontSize
+        labelWordProblemAr.last!.fontColor = fontColor
+        labelWordProblemAr.last!.position = CGPoint(x: 0,y: offY)
+        labelWordProblemAr.last!.zPosition = 100.0
+        labelWordProblemAr.last!.name = "spellingdefinition"
+        nodeDefinition.addChild(labelWordProblemAr.last!)
+        labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr.last!,offset: 1))
+        nodeDefinition.addChild(labelWordProblemShadowAr.last!)
+    }
+    
+    func DrawSentence() {
+        DrawDefinition(definition:sentence,i:0,incorrectAnswer:false,pos:CGPoint(x: self.size.width/2, y: self.size.height*(17.7+startsWithThere)/24))
+        addChild(nodeDefinition)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -855,6 +892,7 @@ class MathDragScene: SKScene {
             var string = "\\A"
             if sentence.range(of:string) != nil {
                 A = Int(arc4random_uniform(UInt32(maxItemsTop))+1)
+                startsWithThere = 1.0
             }
             string = "\\B"
             if sentence.range(of:string) != nil {
@@ -863,6 +901,7 @@ class MathDragScene: SKScene {
                     maxB = maxItemsTwoTop - A
                 }
                 B = Int(arc4random_uniform(UInt32(maxB))+1)
+                startsWithThere = 1.0
             }
             string = "\\V"
             var replaceVString = "\\V"
@@ -884,6 +923,7 @@ class MathDragScene: SKScene {
                     B = ( Int(arc4random_uniform(UInt32(maxB))+2))
                 }
                 replaceVString = "\\V" + String(sentence[ind])
+                startsWithThere = 1.0
             }
             string = "\\X"
             if sentence.range(of:string) != nil {
@@ -924,6 +964,7 @@ class MathDragScene: SKScene {
                     A = ( Int(arc4random_uniform(UInt32(maxItemsTop))+2))
                 }
                 replaceQString = "\\Q" + String(sentence[ind])
+                startsWithThere = 1.0
             }
             string = "\\Y"
             if sentence.range(of:string) != nil {

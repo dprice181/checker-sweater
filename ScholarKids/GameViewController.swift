@@ -48,7 +48,7 @@ class Global {
     var optionAr = [String]()
     var maxLevels = 20
     var musicStarted = false
-    var heightWidthRat :CGFloat = 0
+    var heightWidthRat : CGFloat = 0
 }
 
 let global = Global()
@@ -60,8 +60,7 @@ struct PhysicsCategory {
     static let choicebox : UInt32 = 0b10      // 2
 }
 
-func CreateShadowLabel(label : SKLabelNode,offset: CGFloat) -> SKLabelNode
-{
+func CreateShadowLabel(label : SKLabelNode,offset: CGFloat) -> SKLabelNode {
     if let shadowLabel = label.copy() as? SKLabelNode {
         shadowLabel.fontColor = SKColor.black
         shadowLabel.position = CGPoint(x:-offset+shadowLabel.position.x , y:offset+shadowLabel.position.y)
@@ -714,9 +713,9 @@ func WriteResultsToFile() {
 
 class GameViewController: UIViewController, SKViewDelegate {
 
-        var bgSoundPlayer:AVAudioPlayer?
+    var bgSoundPlayer:AVAudioPlayer?
+    var background = SKSpriteNode(imageNamed: "background3.jpg")
     
-        var background = SKSpriteNode(imageNamed: "background3.jpg")
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -742,7 +741,7 @@ class GameViewController: UIViewController, SKViewDelegate {
         let name = (notification as NSNotification).userInfo!["fileToPlay"] as! String
         
         //if the bgSoundPlayer already exists, stop it and make it nil again
-        if (bgSoundPlayer != nil){
+        if (bgSoundPlayer != nil) {
             bgSoundPlayer!.stop()
             bgSoundPlayer = nil
         }

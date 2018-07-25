@@ -65,18 +65,151 @@ class VocabularySelectScene: SKScene {
         GetSentence()
         DrawTitle()
         DrawInstructions()
+        DrawScoreNode()
         DrawSentence()
         DrawBackground()
         DrawBackButton()
     }
     
     func DrawSentence() {
-        let displayWidth = size.width * 8 / 10
+        DrawWord()
+        
+        if global.sceneType == "Spelling" {
+            AddSpellingDefinition()
+        }
+        
+        for i in 0...2  {
+            DrawDefinition(definition:vocabularyDefinitionAr[i],i:i,incorrectAnswer:false,pos:CGPoint(x: self.size.width/2, y: self.size.height*(10-2.5 * CGFloat(i))/24))
+            DrawChoiceBox(i:i)
+            addChild(nodeDefinitionAr.last!)
+        }
+    }
+    
+    func DrawDefinition(definition:String,i:Int,incorrectAnswer:Bool,pos:CGPoint) {
+        var fontColor = global.lightBlue
+        var fontSize = SELECTTEXT_FONTSIZE-1.0
+        if incorrectAnswer {
+            fontSize = SELECTTEXT_FONTSIZE+3.0
+        }
+        let position = pos
+        if incorrectAnswer {
+            fontColor = SKColor.red
+        }
+        let displayWidth = size.width * 9.25 / 10
+        let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
+        let sentenceWidth = sizeSentence.width
+        
+        
+        nodeDefinitionAr.append(SKNode())
+        nodeDefinitionAr.last!.position = position
+        nodeDefinitionAr.last!.zPosition = 100.0
+        nodeDefinitionAr.last!.name = "choicenode" + String(i)
+        
+        if sentenceWidth < displayWidth {
+            if incorrectAnswer && global.sceneType=="Spelling" {
+                fontSize = 28
+            }
+            let labelDefinition = SKLabelNode(fontNamed: "Arial")
+            labelDefinition.text = definition
+            labelDefinition.fontSize = fontSize
+            labelDefinition.fontColor = fontColor
+            labelDefinition.position = .zero
+            labelDefinition.zPosition = 100.0
+            labelDefinition.name = "choicelabel" + String(i)
+            nodeDefinitionAr.last!.addChild(labelDefinition)
+            nodeDefinitionAr.last!.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+        }
+        else {  //multi-line definition
+            var curX : CGFloat = 0
+            var offY : CGFloat = 0
+            let offset : CGFloat = GetDefinitionOffset(definition:definition,displayWidth:displayWidth,fontSize:fontSize,incorrectAnswer:incorrectAnswer)
+            wordAr = definition.characters.split{$0 == " "}.map(String.init)
+            var lineString = ""
+            for word in wordAr {
+                let sizeWord = GetTextSize(text:word + " ",fontSize:fontSize)
+                if curX + sizeWord.width > displayWidth {
+                    //next line
+                    DrawDefinitionLine(definition:lineString,i:i,offY:offY+offset,fontColor:fontColor,fontSize:fontSize)
+                    offY = offY - sizeWord.height
+                    curX = 0
+                    lineString = ""
+                }
+                
+                if lineString == "" {
+                    lineString = word
+                }
+                else {
+                    lineString = lineString + " " + word
+                }
+                curX = curX + sizeWord.width
+            }
+            if lineString != "" {
+                DrawDefinitionLine(definition:lineString,i:i,offY:offY+offset,fontColor:fontColor,fontSize:fontSize)
+            }
+        }
+    }
+    
+    func GetDefinitionOffset(definition:String,displayWidth:CGFloat,fontSize:CGFloat,incorrectAnswer:Bool) -> CGFloat {
+        var offset : CGFloat = 0
+        var numLines = 1
+        //get numLines
+        var curX : CGFloat = 0
+        wordAr = definition.characters.split{$0 == " "}.map(String.init)
+        var sizeWord = GetTextSize(text:"best ",fontSize:fontSize)  //get line height
+        for word in wordAr {
+            sizeWord = GetTextSize(text:word + " ",fontSize:fontSize)
+            if curX + sizeWord.width > displayWidth {
+                //next line
+                numLines = numLines + 1
+                curX = 0
+            }
+            curX = curX + sizeWord.width
+        }
+        if numLines == 2 || (numLines==1 && incorrectAnswer) {
+            offset = sizeWord.height * 0.4
+        }
+        if numLines == 3 {
+            offset = sizeWord.height * 0.75
+        }
+        if numLines == 4 {
+            offset = sizeWord.height * 8 / 7
+        }
+        if numLines == 5 {
+            offset = sizeWord.height * 1.62
+        }
+        if numLines >= 6 {
+            offset = sizeWord.height * 2.15
+        }
+        return offset
+    }
+    
+    func DrawDefinitionLine(definition:String,i:Int,offY:CGFloat,fontColor:SKColor,fontSize:CGFloat) {
+        let labelDefinition = SKLabelNode(fontNamed: "Arial")
+        labelDefinition.text = definition
+        labelDefinition.fontSize = fontSize
+        labelDefinition.fontColor = fontColor
+        labelDefinition.position = CGPoint(x: 0,y: offY)
+        labelDefinition.zPosition = 100.0
+        labelDefinition.name = "choicelabel" + String(i)
+        nodeDefinitionAr.last!.addChild(labelDefinition)
+        nodeDefinitionAr.last!.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+    }
+    
+    func DrawChoiceBox(i:Int) {
+        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-8,height: self.size.height*5/48)))
+        choiceboxDefinitionAr.last!.name = "choicebox" + String(i)
+        choiceboxDefinitionAr.last!.fillColor = global.greyBlue
+        choiceboxDefinitionAr.last!.strokeColor = SKColor.purple
+        choiceboxDefinitionAr.last!.position = .zero
+        nodeDefinitionAr.last!.addChild(choiceboxDefinitionAr[i])
+    }
+    
+    func DrawWord() {
         labelVocabularyWord.text = vocabularyWord
         labelVocabularyWord.fontSize = 45
         labelVocabularyWord.fontColor = global.purple
         if global.sceneType == "Spelling" {
-            labelVocabularyWord.position = CGPoint(x: self.size.width/2, y: self.size.height*14.5/24)
+            labelVocabularyWord.position = CGPoint(x: self.size.width/2, y: self.size.height*15/24)
         }
         else {
             labelVocabularyWord.position = CGPoint(x: self.size.width/2, y: self.size.height*13.5/24)
@@ -85,91 +218,6 @@ class VocabularySelectScene: SKScene {
         addChild(labelVocabularyWord)
         labelVocabularyWordShadow = CreateShadowLabel(label: labelVocabularyWord,offset: 1)
         addChild(labelVocabularyWordShadow)
-        
-        if global.sceneType == "Spelling" {
-            AddSpellingDefinition()
-        }
-        
-        for i in 0...2  {
-            let mySentence: NSString = vocabularyDefinitionAr[i] as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-            let sentenceWidth = sizeSentence.width
-            let sentenceHeight = sizeSentence.height
-            var numLines = 1
-            var countWordsPerLine = 0
-            if sentenceWidth > displayWidth {
-                numLines = Int(sentenceWidth / displayWidth) + 1
-                wordAr = vocabularyDefinitionAr[i].characters.split{$0 == " "}.map(String.init)
-                countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
-                if countWordsPerLine * (numLines-2) >= wordAr.count {
-                    numLines = numLines - 2
-                }
-                else if countWordsPerLine * (numLines-1) >= wordAr.count {
-                    numLines = numLines - 1
-                }
-            }
-            
-            nodeDefinitionAr.append(SKNode())
-            nodeDefinitionAr[i].position = CGPoint(x: self.size.width/2, y: self.size.height*(10-2.5 * CGFloat(i))/24)
-            nodeDefinitionAr[i].zPosition = 100.0
-            nodeDefinitionAr[i].name = "choicenode" + String(i)
-            
-            if numLines == 1 {
-                let labelDefinition = SKLabelNode(fontNamed: "Arial")
-                labelDefinition.text = vocabularyDefinitionAr[i]
-                labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
-                labelDefinition.fontColor = global.purple
-                labelDefinition.position = .zero
-                labelDefinition.zPosition = 100.0
-                labelDefinition.name = "choicelabel" + String(i)
-                nodeDefinitionAr[i].addChild(labelDefinition)
-                nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
-            }
-            else {
-                if numLines > 4 {
-                    numLines = 4
-                }
-                var offset : CGFloat = 0.0
-                if numLines == 3 {
-                    offset = sentenceHeight * 2 / 3
-                }
-                if numLines == 4 {
-                    offset = sentenceHeight * 8 / 7
-                }
-                var totalWordsSoFar = 0
-                for n in 0...numLines-1  {
-                    var defAr = wordAr.dropFirst(totalWordsSoFar)
-                    var countWords = countWordsPerLine
-                    if n == numLines-1 {
-                        countWords = wordAr.count - totalWordsSoFar
-                    }
-                    else {
-                        defAr = defAr.dropLast(wordAr.count - (countWords+totalWordsSoFar))
-                    }
-                    let definitionLine = defAr.joined(separator: " ")
-                    
-                    let labelDefinition = SKLabelNode(fontNamed: "Arial")
-                    labelDefinition.text = definitionLine
-                    labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
-                    labelDefinition.fontColor = global.purple
-                    labelDefinition.position = CGPoint(x: 0,y: offset - sentenceHeight * CGFloat(n))
-                    labelDefinition.zPosition = 100.0
-                    labelDefinition.name = "choicelabel" + String(i)
-                    nodeDefinitionAr[i].addChild(labelDefinition)
-                    nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
-                    totalWordsSoFar = totalWordsSoFar + countWords
-                }
-            }
-            
-            choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-8,height: self.size.height*5/48)))
-            choiceboxDefinitionAr[i].name = "choicebox" + String(i)
-            choiceboxDefinitionAr[i].fillColor = global.greyBlue
-            choiceboxDefinitionAr[i].strokeColor = SKColor.purple
-            choiceboxDefinitionAr[i].position = .zero
-            nodeDefinitionAr[i].addChild(choiceboxDefinitionAr[i])
-            
-            addChild(nodeDefinitionAr[i])
-        }
     }
     
     func DrawBackButton() {        
@@ -188,7 +236,7 @@ class VocabularySelectScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21.5/24)
         fullTitle.zPosition = 100.0
         
         if global.sceneType == "Spelling" {
@@ -197,7 +245,7 @@ class VocabularySelectScene: SKScene {
         else {
             labelTitle.text = "VOCABULARY"
         }
-        labelTitle.fontSize = 55
+        labelTitle.fontSize = 45
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -206,7 +254,7 @@ class VocabularySelectScene: SKScene {
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 45
+        labelSubtitle.fontSize = 40
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
         labelSubtitle.zPosition = 100.0
@@ -218,23 +266,27 @@ class VocabularySelectScene: SKScene {
     
     func DrawInstructions() {
         if global.sceneType == "Spelling" {
-        labelInstr.text = "Select the correct spelling below."
+            labelInstr.text = "Select the correct spelling below."
+            labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*18/24)
         }
         else {
-        labelInstr.text = "Select the correct definition below."
+            labelInstr.text = "Select the correct definition below."
+            labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
         }
         labelInstr.fontSize = 20
         labelInstr.fontColor = SKColor.purple
-        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
+        
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
         labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
         addChild(labelInstrShadow)
-        
+    }
+    
+    func DrawScoreNode() {
         let scoreNode = SKNode()
         scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
         scoreNode.zPosition = 100.0
-        
+    
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
         labelCorrect.fontSize = 15
         labelCorrect.fontColor = SKColor.red
@@ -242,7 +294,7 @@ class VocabularySelectScene: SKScene {
         scoreNode.addChild(labelCorrect)
         labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
         scoreNode.addChild(labelCorrectShadow)
-        
+    
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrect.fontSize = 15
         labelIncorrect.fontColor = SKColor.red
@@ -250,7 +302,7 @@ class VocabularySelectScene: SKScene {
         scoreNode.addChild(labelIncorrect)
         labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
         scoreNode.addChild(labelIncorrectShadow)
-        
+    
         addChild(scoreNode)
     }
     
@@ -260,61 +312,9 @@ class VocabularySelectScene: SKScene {
     
     func AddSpellingDefinition() {
         spellingDefinition = "(" + spellingDefinition + ")"
-        let mySentence: NSString = spellingDefinition as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
-        let sentenceWidth = sizeSentence.width
-        let sentenceHeight = sizeSentence.height
-        var numLines = 1
-        var countWordsPerLine = 0
-        let displayWidth = size.width * 9 / 10
-        if sentenceWidth > displayWidth {
-            numLines = Int(sentenceWidth / displayWidth) + 1
-            wordAr = spellingDefinition.characters.split{$0 == " "}.map(String.init)
-            countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
-            if countWordsPerLine * (numLines-2) >= wordAr.count {
-                numLines = numLines - 2
-            }
-            else if countWordsPerLine * (numLines-1) >= wordAr.count {
-                numLines = numLines - 1
-            }
-        }
-        
-        if numLines == 1 {
-            labelSpellingDefinition.text = spellingDefinition
-            labelSpellingDefinition.fontSize = SELECTTEXT_FONTSIZE
-            labelSpellingDefinition.fontColor = global.lightBlue
-            labelSpellingDefinition.position = CGPoint(x: self.size.width/2, y: self.size.height*13/24)
-            labelSpellingDefinition.zPosition = 100.0
-            labelSpellingDefinition.name = "spellingdefinition"
-            addChild(labelSpellingDefinition)
-            addChild(CreateShadowLabel(label: labelSpellingDefinition,offset: 1))
-        }
-        else {
-            var totalWordsSoFar = 0
-            for n in 0...numLines-1  {
-                var defAr = wordAr.dropFirst(totalWordsSoFar)
-                var countWords = countWordsPerLine
-                if n == numLines-1 {
-                    countWords = wordAr.count - totalWordsSoFar
-                }
-                else {
-                    defAr = defAr.dropLast(wordAr.count - (countWords+totalWordsSoFar))
-                }
-                let definitionLine = defAr.joined(separator: " ")
-                
-                let labelDefinition = SKLabelNode(fontNamed: "Arial")
-                labelDefinition.text = definitionLine
-                labelDefinition.fontSize = SELECTTEXT_FONTSIZE
-                labelDefinition.fontColor = global.lightBlue
-                labelDefinition.position = CGPoint(x: self.size.width/2, y: self.size.height*13/24 - sentenceHeight * CGFloat(n))
-                labelDefinition.zPosition = 100.0
-                labelDefinition.name = "spellingdefinition"
-                addChild(labelDefinition)
-                addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
-                totalWordsSoFar = totalWordsSoFar + countWords
-            }
-        }
-    }       
+        DrawDefinition(definition:spellingDefinition,i:0,incorrectAnswer:false,pos:CGPoint(x: self.size.width/2, y: self.size.height*13/24))
+        addChild(nodeDefinitionAr.last!)
+    }
     
     func GetSentence() {
         let fileName = "Vocabulary" + global.currentGrade
@@ -613,70 +613,8 @@ class VocabularySelectScene: SKScene {
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
 
-        let displayWidth = size.width * 9 / 10
-        
-        let mySentence: NSString = vocabularyDefinition as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 20)])
-        let sentenceWidth = sizeSentence.width
-        let sentenceHeight = sizeSentence.height
-        var numLines = 1
-        var countWordsPerLine = 0
-        if sentenceWidth > displayWidth {
-            numLines = Int(sentenceWidth / displayWidth) + 1
-            wordAr = vocabularyDefinition.characters.split{$0 == " "}.map(String.init)
-            countWordsPerLine = Int(ceil(Double(wordAr.count) / Double(numLines)))
-            if countWordsPerLine * (numLines-2) >= wordAr.count {
-                numLines = numLines - 2
-            }
-            else if countWordsPerLine * (numLines-1) >= wordAr.count {
-                numLines = numLines - 1
-            }
-        }
-        
-        if numLines == 1 {
-            labelVocabularyWord.text = vocabularyDefinition
-            labelVocabularyWordShadow.text = vocabularyDefinition
-            if global.sceneType != "Spelling" {
-                labelVocabularyWord.fontSize = 20
-                labelVocabularyWordShadow.fontSize = 20
-            }
-            else {
-                labelVocabularyWord.fontColor = SKColor.red
-            }
-        }
-        else {
-            labelVocabularyWord.removeFromParent()
-            labelVocabularyWordShadow.removeFromParent()
-            
-            var totalWordsSoFar = 0
-            for n in 0...numLines-1  {
-                var defAr = wordAr.dropFirst(totalWordsSoFar)
-                var countWords = countWordsPerLine
-                if n == numLines-1 {
-                    countWords = wordAr.count - totalWordsSoFar
-                }
-                else {
-                    defAr = defAr.dropLast(wordAr.count - (countWords+totalWordsSoFar))
-                }
-                let definitionLine = defAr.joined(separator: " ")
-                
-                let labelDefinition = SKLabelNode(fontNamed: "Arial")
-                labelDefinition.text = definitionLine
-                labelDefinition.fontColor = global.purple
-                if global.sceneType != "Spelling" {
-                    labelDefinition.fontSize = 20
-                }
-                else {
-                    labelDefinition.fontColor = SKColor.red
-                }
-                labelDefinition.position = CGPoint(x: self.size.width/2, y: self.size.height*12.5 / 24 - sentenceHeight * CGFloat(n))
-                labelDefinition.zPosition = 100.0
-                labelDefinition.name = "correctAnswerLabel"
-                totalWordsSoFar = totalWordsSoFar + countWords
-                addChild(labelDefinition)
-                addChild(CreateShadowLabel(label: labelDefinition, offset: 1))
-            }
-        }
+        DrawDefinition(definition:vocabularyDefinitionAr[correctAnswer],i:correctAnswer,incorrectAnswer:true,pos:CGPoint(x: self.size.width/2, y: self.size.height*11.5 / 24))
+        addChild(nodeDefinitionAr.last!)
         
         if global.correctAnswers + global.incorrectAnswers >= 12 {
             answerSelected = false  //let them touch the screen again

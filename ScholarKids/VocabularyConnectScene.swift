@@ -190,7 +190,7 @@ class VocabularyConnectScene: SKScene {
     }
     
     func DrawDefinitions() {
-        let displayWidth = size.width * 5 / 10
+        let displayWidth = size.width * 5.25 / 10
         for i in 0...2  {
             let sizeSentence = GetTextSize(text:vocabularyDefinitionAr[i],fontSize:SELECTTEXT_FONTSIZE)            
             let sentenceWidth = sizeSentence.width
