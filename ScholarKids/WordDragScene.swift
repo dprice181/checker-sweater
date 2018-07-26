@@ -322,7 +322,7 @@ class WordDragScene: SKScene {
         case "6","7","8":
             return "Sentences3"
         default:
-            return "Sentences1"
+            return "Sentences3"
         }
         return "Sentences1"
     }
@@ -384,30 +384,7 @@ class WordDragScene: SKScene {
             var vocabularyWordAr = Misspell(word: correctWord)
             extraWord1 = vocabularyWordAr[1]
             extraWord2 = vocabularyWordAr[2]
-        }
-        else if global.sceneType == "Vocabulary" {
-            let fileName = "Vocabulary" + global.currentGrade
-            if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
-                let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-                var lineAr = fileText.components(separatedBy: .newlines)
-                //lineAr.shuffle()  //FIX should be done once per launch, not per screen
-                
-                extraWord1 = lineAr[currentExtraWordNum*2]
-            }
-            else {
-                print("file not found")
-            }
-            if let path = Bundle.main.path(forResource: fileName, ofType: "txt")  {
-                let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-                var lineAr = fileText.components(separatedBy: .newlines)
-                //lineAr.shuffle()  //FIX should be done once per launch, not per screen
-                
-                extraWord2 = lineAr[currentExtraWordNum*2]
-            }
-            else {
-                print("file not found")
-            }
-        }
+        }        
         else {  //Grammar
             var levelModeFullName = "Nouns"
             if levelMode == "n" || levelMode == "o" {
@@ -543,7 +520,7 @@ class WordDragScene: SKScene {
         let touchedNode = self.atPoint(touchLocation)
 
         if touchedNode.name == "choicelabel" || touchedNode.name == "choicebox" {
-            if touchedNode.parent == nil {
+            if touchedNode == nil || touchedNode.parent == nil {
                 selectedNode = SKSpriteNode()
             }
             else {
@@ -551,7 +528,7 @@ class WordDragScene: SKScene {
             }
         }
         else if touchedNode.name?.contains("choice") != nil && (touchedNode.name?.contains("choice"))! {
-            if touchedNode.parent == nil {
+            if touchedNode == nil || touchedNode.parent == nil {
                 selectedNode = SKSpriteNode()
             }
             else {

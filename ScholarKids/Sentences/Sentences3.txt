@@ -8,7 +8,7 @@ Those are not black pens.* o v d a o
 I want to nap often.* n v p v d
 What is this large rock?* a v a a n
 The frog is friendly and stubborn.* t n v a t a
-The chars are large and comfortable.* t n v a t a
+The chairs are large and comfortable.* t n v a t a
 Videogames are especially fun!* n v d a
 Where is the difficult homework?* a v t a n
 There are no kids here.* n v t n n

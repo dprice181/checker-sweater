@@ -217,7 +217,7 @@ There are no kids here.* n v t n n
 I like my little dogs.* n v a a n
 This wide staircase is not useful.* a a n v d a
 These useless couches are not big.* a a n v d a
-The chars are large and comfortable.* t n v a t a
+The chairs are large and comfortable.* t n v a t a
 Small children are usually happy.* a n v d a
 This friendly person is extremely tall.* a a n v d a
 There are almost no houses.* n v a t n

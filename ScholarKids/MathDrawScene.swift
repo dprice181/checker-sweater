@@ -359,7 +359,33 @@ class MathDrawScene: SKScene {
             }
             return [oper1,oper2]
         default:
-            return [1,1]
+            var oper1 = 0
+            var oper2 = 0
+            if myOper == "/" {
+                oper1 = Int(arc4random_uniform(UInt32(10 + 10 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(10 + 20 * global.currentLevel)))
+                if oper2 == 0 {
+                    oper2 = 1
+                }
+                else if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+            }
+            else if myOper == "X" {
+                oper1 = Int(arc4random_uniform(UInt32(25 + 10*global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(10 + 10*global.currentLevel)))
+            }
+            else if myOper == "-" {
+                oper1 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
+            }
+            else {  //"+"
+                oper1 = Int(arc4random_uniform(UInt32(50 + 100 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(50 + 100 * global.currentLevel)))
+            }
+            return [oper1,oper2]
             
         }
     }
@@ -392,7 +418,7 @@ class MathDrawScene: SKScene {
         case "4","5","6","7","8","9","10","11","12":
             return Int(arc4random_uniform(4))
         default:
-            return 0
+            return Int(arc4random_uniform(4))
         }
     }
     

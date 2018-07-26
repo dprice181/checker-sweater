@@ -215,10 +215,12 @@ class ProgressReportScene: SKScene {
     
     func DrawBottomNotches(offsetY: CGFloat) {
         let notchHeight = self.size.height/160
+        let levelOffset = -4.5 * notchHeight
         var xPos = graphWindowX - graphWindowWidth/2
         for i in 0...20 {
             var points = [CGPoint]()
             if i % 5 == 0 {
+                DrawLevelNumber(level:i,xPos:xPos,yPos:offsetY + graphWindowY-graphWindowHeight/2 + levelOffset)
                 points = [CGPoint(x:0.0, y:0.0),CGPoint(x:0.0, y:-2 * notchHeight)]
             }
             else {
@@ -240,6 +242,18 @@ class ProgressReportScene: SKScene {
             
             xPos = xPos + graphWindowWidth/20
         }
+    }
+    
+    func DrawLevelNumber(level:Int,xPos:CGFloat,yPos:CGFloat) {
+        let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
+        labelTitle.text = String(level)
+        labelTitle.fontSize = 14
+        labelTitle.fontColor = SKColor.red
+        labelTitle.position = CGPoint(x:xPos,y:yPos)
+        labelTitle.zPosition = 100.0
+        addChild(labelTitle)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        addChild(labelTitleShadow)
     }
     
     func DrawTitle() {

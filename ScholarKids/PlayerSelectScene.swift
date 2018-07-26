@@ -272,15 +272,22 @@ class PlayerSelectScene: SKScene {
             addChild(nodeDefinitionAr[i])
         }
         
-        background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
-        background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
-        addChild(background)
-        
+        DrawBackButton()
+        DrawBackground()
+    }
+    
+    func DrawBackButton() {
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
         addChild(backButton)
+    }
+    
+    func DrawBackground() {
+        background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
+        background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
+        addChild(background)
     }
     
     func DeleteDataArrays() {
@@ -335,8 +342,11 @@ class PlayerSelectScene: SKScene {
             }
             if let gradeInput = gradeTextField?.text {
                 if let addGradeInt = Int(gradeInput) {
-                    if addGradeInt < 1 || addGradeInt > 12 {
+                    if addGradeInt < 1 {
                       self.addGrade = "K"
+                    }
+                    else if addGradeInt > 12 {
+                        self.addGrade = "12"
                     }
                     else  {
                         self.addGrade = gradeInput

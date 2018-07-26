@@ -843,8 +843,17 @@ class MathDragScene: SKScene {
         addChild(backButton)
     }
     
+    func GetFilename() -> String {
+        if let grade = Int(global.currentGrade) {
+            if grade > 8 {
+                return "WordProblems8"
+            }
+        }
+        return "WordProblems" + global.currentGrade
+    }
+    
     func GetSentence() {
-        if let path = Bundle.main.path(forResource: "WordProblems" + global.currentGrade, ofType: "txt") {
+        if let path = Bundle.main.path(forResource: GetFilename(), ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let lineAr = fileText.components(separatedBy: .newlines)
             global.wordProblemsNum = global.wordProblemsNum % lineAr.count

@@ -308,8 +308,17 @@ class VocabularyConnectScene: SKScene {
         nodeDefinitionAr[i].addChild(circleDefinitionAr[i])
     }
     
+    func GetVocabularyFilename() -> String {
+        if let grade = Int(global.currentGrade) {
+            if grade > 8 {
+                return "Vocabulary8"
+            }
+        }
+        return "Vocabulary" + global.currentGrade
+    }
+    
     func GetSentence() {
-        let fileName = "Vocabulary" + global.currentGrade
+        let fileName = GetVocabularyFilename()
         
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)

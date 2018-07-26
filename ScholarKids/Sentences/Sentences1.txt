@@ -158,7 +158,7 @@ There are three chickens.* n v a n
 Why is the monkey funny?* a v t n a
 Where is the girl?* a v t n
 The boy ran particulary quickly.* t n v d d
-The chars are large.* t n v a
+The chairs are large.* t n v a
 These mothers are extremely busy.* a n v d a
 These doors are not heavy.* a n v d a
 Those are pencils.* o v n

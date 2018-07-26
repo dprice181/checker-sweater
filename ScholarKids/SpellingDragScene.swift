@@ -153,7 +153,7 @@ class SpellingDragScene: SKScene {
         
         nodeDefinition.position = position
         nodeDefinition.zPosition = 100.0
-        nodeDefinition.name = "choicenode" + String(i)
+        nodeDefinition.name = "definitionnode" + String(i)
         
         if sentenceWidth < displayWidth {
             if incorrectAnswer && global.sceneType=="Spelling" {
@@ -165,7 +165,7 @@ class SpellingDragScene: SKScene {
             labelDefinition.fontColor = fontColor
             labelDefinition.position = .zero
             labelDefinition.zPosition = 100.0
-            labelDefinition.name = "choicelabel" + String(i)
+            labelDefinition.name = "definitionlabel" + String(i)
             nodeDefinition.addChild(labelDefinition)
             nodeDefinition.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
         }
@@ -240,7 +240,7 @@ class SpellingDragScene: SKScene {
         labelDefinition.fontColor = fontColor
         labelDefinition.position = CGPoint(x: 0,y: offY)
         labelDefinition.zPosition = 100.0
-        labelDefinition.name = "choicelabel" + String(i)
+        labelDefinition.name = "definitionlabel" + String(i)
         nodeDefinition.addChild(labelDefinition)
         nodeDefinition.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
     }
@@ -377,8 +377,17 @@ class SpellingDragScene: SKScene {
         addChild(backButton)
     }
     
+    func GetVocabularyFilename() -> String {
+        if let grade = Int(global.currentGrade) {
+            if grade > 8 {
+                return "Vocabulary8"
+            }
+        }
+        return "Vocabulary" + global.currentGrade
+    }
+    
     func GetSentence(increment:Bool) {
-        let fileName = "Vocabulary" + global.currentGrade
+        let fileName = GetVocabularyFilename()
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
@@ -474,7 +483,7 @@ class SpellingDragScene: SKScene {
         let touchedNode = self.atPoint(touchLocation)
         
         if touchedNode.name == "choicelabel" || touchedNode.name == "choicebox" {
-            if touchedNode.parent == nil {
+            if touchedNode == nil || touchedNode.parent == nil {
                 selectedNode = SKSpriteNode()
             }
             else {
@@ -482,7 +491,7 @@ class SpellingDragScene: SKScene {
             }
         }
         else if touchedNode.name?.contains("choice") != nil && (touchedNode.name?.contains("choice"))! {
-            if touchedNode.parent == nil {
+            if touchedNode == nil || touchedNode.parent == nil {
                 selectedNode = SKSpriteNode()
             }
             else {

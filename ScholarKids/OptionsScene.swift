@@ -75,17 +75,17 @@ class OptionsScene: SKScene {
     func DrawOptions() {
         var textAr1 = ["Always","Menus","Always"]
         var textAr2 = ["On","Only","Off"]
-        var offY : CGFloat = 0.0
+        var offY : CGFloat = -self.size.height*1/48
         DrawOption(ind:0,text:"Music",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["Always","Menus","Always"]
         textAr2 = ["On","Only","Off"]
-        offY = -self.size.height*7/48
+        offY = -self.size.height*8/48
         DrawOption(ind:1,text:"Sound Effects",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["0","3","6","9","12"]
         textAr2 = []
-        offY = -self.size.height*14/48
+        offY = -self.size.height*15/48
         DrawOption(ind:2,text:"# Correct To Advance Level",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:30,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
@@ -219,7 +219,7 @@ class OptionsScene: SKScene {
                 lockAr.append(SKSpriteNode(imageNamed: "lock.png"))
                 lockAr.last!.position = CGPoint(x: xPos, y: -self.size.height*1.6/24 - self.size.height/48)
                 lockAr.last!.scale(to: CGSize(width: self.size.height*1.5/48,height: self.size.height*1.5/48))
-                lockAr.last!.name = "lock"
+                lockAr.last!.name = String(i) + "optionbutton" + String(ind)
                 lockAr.last!.zPosition = 101.5
                 lockAr.last!.alpha = 1.0
                 fullButton.addChild(lockAr.last!)
@@ -272,7 +272,7 @@ class OptionsScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*36.5/40)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*36/40)
         fullTitle.zPosition = 100.0
         
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
@@ -291,7 +291,7 @@ class OptionsScene: SKScene {
     func DrawBackButton() {
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*19/20)
+        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
         addChild(backButton)
     }
@@ -489,6 +489,11 @@ class OptionsScene: SKScene {
         }
         
         if buttonNode.name?.contains("clickbutton1") != nil && (buttonNode.name?.contains("clickbutton1"))!  {
+            var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            if global.soundOption == 2 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
+            self.run(SKAction.sequence([playSound]))
             MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all " + String(global.maxLevels) + " levels of all subjects for 2.99?  This will also remove all ads!",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
         }
         if buttonNode.name?.contains("clickbutton2") != nil && (buttonNode.name?.contains("clickbutton2"))!  {
@@ -519,10 +524,20 @@ class OptionsScene: SKScene {
                         subject = "Math"
                     }
                     if global.optionAr[sectionInd*2+1] == "0" {
+                        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                        if global.soundOption == 2 {
+                            playSound = SKAction.wait(forDuration: 0.0001)
+                        }
+                        self.run(SKAction.sequence([playSound]))
                         MessageBox(title:"Unlock " + subject,message:"Would you like to unlock all " + String(global.maxLevels)
                             + " levels in " + subject + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:sectionInd,subject:subject,node:node,allSubjects:false)
                     }
                     else {  //already unlocked
+                        var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+                        if global.soundOption == 2 {
+                            playSound = SKAction.wait(forDuration: 0.0001)
+                        }
+                        self.run(SKAction.sequence([playSound]))
                         MessageBox(title:subject + " Already Unlocked",message:subject + " is already unlocked!  Thanks for your previous purchase!",cancelButton:false,sectionInd: -1,subject:subject,node:node,allSubjects:false)
                     }
                 }

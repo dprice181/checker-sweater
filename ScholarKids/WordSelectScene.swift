@@ -243,7 +243,7 @@ class WordSelectScene: SKScene {
         case "6","7","8":
             return "Sentences3"
         default:
-            return "Sentences1"
+            return "Sentences3"
         }
         return "Sentences1"
     }

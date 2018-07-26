@@ -21,6 +21,8 @@ class LevelSelectScene: SKScene {
     var hotAirBalloonLabelShadowAr = [[SKLabelNode]]()
     var hotAirBalloonLabelShadow2Ar = [[SKLabelNode]]()
     var levelUnlockedAr = [String:Int]()
+    var recommendedLevel = [String:Int]()
+    
     
     var minX : CGFloat = 0.0
     var maxX : CGFloat = 0.0
@@ -76,7 +78,12 @@ class LevelSelectScene: SKScene {
             hotAirBalloonLabelShadowAr.append([])
             hotAirBalloonLabelShadow2Ar.append([])
             for i in minLevel-1..<maxLevel {
-                hotAirBalloonAr[n].append(SKSpriteNode(imageNamed: "hotairballoon.png"))
+                if recommendedLevel[subject] == i {
+                    hotAirBalloonAr[n].append(SKSpriteNode(imageNamed: "hotairballoonHighlight.png"))
+                }
+                else {
+                    hotAirBalloonAr[n].append(SKSpriteNode(imageNamed: "hotairballoon.png"))
+                }
                 hotAirBalloonAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
                 hotAirBalloonAr[n][i].scale(to: CGSize(width: self.size.height*3/48,height: (self.size.height*3/48)*(4/2.4)))
                 hotAirBalloonAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
@@ -101,7 +108,12 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabelAr[n].append(SKLabelNode(fontNamed: "ChalkDuster"))
                 hotAirBalloonLabelAr[n][i].text = "Level"
                 hotAirBalloonLabelAr[n][i].fontSize = 13
-                hotAirBalloonLabelAr[n][i].fontColor = SKColor.red
+                if recommendedLevel[subject] == i {
+                    hotAirBalloonLabelAr[n][i].fontColor = SKColor(red:252/255,green:54/255,blue:146/255,alpha:1)
+                }
+                else {
+                    hotAirBalloonLabelAr[n][i].fontColor = SKColor.red
+                }
                 hotAirBalloonLabelAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(18.1 - SUB_SPACING*CGFloat(n))/24 )
                 hotAirBalloonLabelAr[n][i].zPosition = 102.0
                 hotAirBalloonLabelAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
@@ -112,7 +124,12 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabel2Ar[n].append(SKLabelNode(fontNamed: "ChalkDuster"))
                 hotAirBalloonLabel2Ar[n][i].text = String(i+1)
                 hotAirBalloonLabel2Ar[n][i].fontSize = 20
-                hotAirBalloonLabel2Ar[n][i].fontColor = SKColor.red
+                if recommendedLevel[subject] == i {
+                    hotAirBalloonLabel2Ar[n][i].fontColor = SKColor(red:252/255,green:54/255,blue:146/255,alpha:1)
+                }
+                else {
+                    hotAirBalloonLabel2Ar[n][i].fontColor = SKColor.red
+                }
                 hotAirBalloonLabel2Ar[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
                 hotAirBalloonLabel2Ar[n][i].zPosition = 102.0
                 hotAirBalloonLabel2Ar[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
@@ -213,6 +230,16 @@ class LevelSelectScene: SKScene {
                                         }
                                     }
                                 }
+                                recommendedLevel["Spelling"] = 0
+                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                    if let val = Int(data[i]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            recommendedLevel["Spelling"] = i + 1
+                                            break
+                                        }
+                                    }
+                                }
+                                
                                 levelUnlockedAr["Spelling"] = levelUnlocked
                                 if global.spellingUnlocked > 0 {
                                     levelUnlockedAr["Spelling"] = global.maxLevels
@@ -233,6 +260,16 @@ class LevelSelectScene: SKScene {
                                         }
                                     }
                                 }
+                                recommendedLevel["Vocabulary"] = 0
+                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                    if let val = Int(data[i]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            recommendedLevel["Vocabulary"] = i + 1
+                                            break
+                                        }
+                                    }
+                                }
+                                
                                 levelUnlockedAr["Vocabulary"] = levelUnlocked
                                 if global.vocabularyUnlocked > 0 {
                                     levelUnlockedAr["Vocabulary"] = global.maxLevels
@@ -253,6 +290,16 @@ class LevelSelectScene: SKScene {
                                         }
                                     }
                                 }
+                                recommendedLevel["Grammar"] = 0
+                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                    if let val = Int(data[i]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            recommendedLevel["Grammar"] = i + 1
+                                            break
+                                        }
+                                    }
+                                }
+                                
                                 levelUnlockedAr["Grammar"] = levelUnlocked
                                 if global.grammarUnlocked > 0 {
                                     levelUnlockedAr["Grammar"] = global.maxLevels
@@ -273,6 +320,16 @@ class LevelSelectScene: SKScene {
                                         }
                                     }
                                 }
+                                recommendedLevel["Math"] = 0
+                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                    if let val = Int(data[i]) {
+                                        if val >= global.minimumCorrectToUnlock {
+                                            recommendedLevel["Math"] = i + 1
+                                            break
+                                        }
+                                    }
+                                }
+                                
                                 levelUnlockedAr["Math"] = levelUnlocked
                                 if global.mathUnlocked > 0 {
                                     levelUnlockedAr["Math"] = global.maxLevels
