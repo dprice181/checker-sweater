@@ -95,7 +95,7 @@ shine brightly, especially with reflected light
 grin
 smile broadly, especially in an unrestrained manner and with the mouth open
 goal
-(in football, soccer, rugby, hockey, and some other games) a pair of posts linked by a crossbar and often with a net attached behind it, forming a space into or over which the ball has to be sent in order to score
+a pair of posts linked by a crossbar and often with a net attached behind it, forming a space into or over which the ball has to be sent in order to score
 scrub
 rub (someone or something) hard so as to clean them, typically with a brush and water
 fix
@@ -137,7 +137,7 @@ a natural desire to satisfy a bodily need, especially for food
 tangled
 twisted together untidily; matted
 caterpillar
-the larva of a butterfly or moth, having a segmented wormlike body with three pairs of true legs and several pairs of leglike appendages  Caterpillars may be hairy, have warning coloration, or be colored to resemble their surroundings
+the larva of a butterfly or moth, having a segmented wormlike body with three pairs of true legs and several pairs of leglike appendages
 protect
 keep safe from harm or injury
 silky
@@ -213,7 +213,7 @@ a person who produces paintings or drawings as a profession or hobby
 pair
 a set of two things used together or regarded as a unit
 autumn
-the third season of the year, when crops and fruits are gathered and leaves fall, in the northern hemisphere from September to November and in the southern hemisphere from March to May
+the third season of the year, when crops and fruits are gathered and leaves fall
 pilot
 a person who operates the flying controls of an aircraft
 plan
@@ -241,7 +241,7 @@ examine (something) in order to determine its accuracy, quality, or condition, o
 filthy
 disgustingly dirty
 firefly
-a soft-bodied beetle related to the glowworm, the winged male and flightless female of which both have luminescent organs  The light is chiefly produced as a signal between the sexes, especially in flashes
+a soft-bodied beetle related to the glowworm, the winged male and flightless female of which both have luminescent organs
 dangle
 hang or swing loosely
 cue
@@ -385,7 +385,7 @@ go or come after (a person or thing proceeding ahead); move or travel behind
 glum
 looking or feeling dejected; morose
 dentist
-a person qualified to treat the diseases and conditions that affect the teeth and gums, especially the repair and extraction of teeth and the insertion of artificial ones
+a person qualified to treat the diseases and conditions that affect the teeth and gums, especially the repair and extraction of teeth
 attach
 fasten; join
 exclaim
@@ -401,7 +401,7 @@ put or keep out of sight; conceal from the view or notice of others
 batch
 a quantity or consignment of goods produced at one time
 leaf
-a flattened structure of a higher plant, typically green and bladelike, that is attached to a stem directly or via a stalk  Leaves are the main organs of photosynthesis and transpiration
+a flattened structure of a higher plant, typically green and bladelike, that is attached to a stem directly or via a stalk  
 equal
 being the same in quantity, size, degree, or value
 chilly
@@ -508,3 +508,101 @@ whimper
 (of a person or animal) make a series of low, feeble sounds expressive of fear, pain, or discontent
 yank
 pull with a jerk
+crowd
+a large number of people gathered together, typically in a disorganized or unruly way
+soil
+the upper layer of earth in which plants grow, a black or dark brown material typically consisting of a mixture of organic remains, clay, and rock particles
+harm
+physical injury, especially that which is deliberately inflicted
+doubt
+a feeling of uncertainty or lack of conviction
+agree
+have the same opinion about something; concur
+exactly
+without discrepancy (used to emphasize the accuracy of a figure or description)
+mention
+refer to something briefly and without going into detail
+cliff
+a steep rock face, especially at the edge of the sea
+base
+the lowest part or edge of something, especially the part on which it rests or is supported
+explore
+travel in or through (an unfamiliar country or area) in order to learn about or familiarize oneself with it
+coward
+a person who lacks the courage to do or endure dangerous or unpleasant things
+greedy
+having or showing an intense and selfish desire for something, especially wealth or power
+custom
+a traditional and widely accepted way of behaving or doing something that is specific to a particular society, place, or time
+motor
+a machine, especially one powered by electricity or internal combustion, that supplies motive power for a vehicle or for some other device with moving parts
+harsh
+unpleasantly rough or jarring to the senses
+discard
+get rid of (someone or something) as no longer useful or desirable
+misery
+a state or feeling of great distress or discomfort of mind or body
+observe
+notice or perceive (something) and register it as being significant
+adopt
+legally take another's child and bring it up as one's own
+limit
+a point or level beyond which something does not or may not extend or pass
+opposite
+having a position on the other or further side of something; facing something, especially something of the same type
+marsh
+an area of low-lying land that is flooded in wet seasons or at high tide, and typically remains waterlogged at all times
+stack
+a pile of objects, typically one that is neatly arranged
+privilege
+a special right, advantage, or immunity granted or available only to a particular person or group of people
+nation
+a large aggregate of people united by common descent, history, culture, or language, inhabiting a particular country or territory
+defend
+resist an attack made on (someone or something); protect from harm or danger
+enable
+give (someone or something) the authority or means to do something
+perform
+carry out, accomplish, or fulfill (an action, task, or function)
+plunge
+jump or dive quickly and energetically
+resident
+a person who lives somewhere permanently or on a long-term basis
+cheer
+shout for joy or in praise or encouragement
+actual
+existing in fact; typically as contrasted with what was intended, expected, or believed
+predict
+say or estimate that (a specified thing) will happen in the future or will be a consequence of something
+remark
+say something as a comment; mention
+atlas
+a book of maps or charts
+cage
+a structure of bars or wires in which birds or other animals are confined
+reverse
+move backward
+steer
+(of a person) guide or control the movement of (a vehicle, vessel, or aircraft), for example by turning a wheel or operating a rudder
+settle
+resolve or reach an agreement about (an argument or problem)
+spoil
+diminish or destroy the value or quality of
+calm
+(of a person, action, or manner) not showing or feeling nervousness, anger, or other emotions
+struggled
+make forceful or violent efforts to get free of restraint or constriction
+damp
+slightly wet
+treasure
+a quantity of precious metals, gems, or other valuable objects
+magnificent
+impressively beautiful, elaborate, or extravagant; striking
+symbol
+a mark or character used as a conventional representation of an object, function, or process
+wander
+walk or move in a leisurely, casual, or aimless way
+starve
+(of a person or animal) suffer severely or die from hunger
+woe
+great sorrow or distress

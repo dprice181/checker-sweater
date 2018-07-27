@@ -107,7 +107,7 @@ the branch of science that deals with celestial objects, space, and the physical
 tiny
 very small
 disease
-a disorder of structure or function in a human, animal, or plant, especially one that produces specific signs or symptoms or that affects a specific location and is not simply a direct result of physical injury
+a disorder of structure or function in a human, animal, or plant, especially one that produces specific signs or symptoms or that affects a specific location
 pale
 light in color or having little color
 leader
@@ -185,7 +185,7 @@ shake involuntarily, typically as a result of anxiety, excitement, or frailty
 career
 an occupation undertaken for a significant period of a person's life and with opportunities for progress
 average
-a number expressing the central or typical value in a set of data, in particular the mode, median, or (most commonly) the mean, which is calculated by dividing the sum of the values in the set by their number
+a number expressing the central or typical value in a set of data, in particular the mean, which is calculated by dividing the sum of the values in the set by their number
 wealthy
 having a great deal of money, resources, or assets; rich
 arrive
@@ -399,10 +399,210 @@ a quantity of precious metals, gems, or other valuable objects
 magnificent
 impressively beautiful, elaborate, or extravagant; striking
 symbol
-a mark or character used as a conventional representation of an object, function, or process, e g , the letter or letters standing for a chemical element or a character in musical notation
+a mark or character used as a conventional representation of an object, function, or process
 wander
 walk or move in a leisurely, casual, or aimless way
 starve
 (of a person or animal) suffer severely or die from hunger
 woe
 great sorrow or distress
+federal
+related to the central or national government; related to the system of federalism, a system in which states or provinces and central governments share power
+foster
+promote the growth or development of something and over a period of time; bring up with care, raise, or rear a child, without being the child's legal parent
+instance
+an occurrence; an example used to demonstrate something
+migration
+the movement of people or animals from one reason to another, based on a variety of different reasons
+dire
+causing or involving great fear or suffering; dreadful
+acceleration
+an increase in speed or rate; the ability of something to go faster
+adult
+a person or animal that is fully developed or fully grown; a mature person or animal
+affable
+kind or friendly; warm and open to others
+highlight
+to stress something; to make something appear more important
+overall
+comprehensive; all-inclusive
+frugal
+sparing or economical in use or expenditure; not wasteful
+engage
+to occupy the attention
+capacity
+the ability to do something; the maximum number of things that a place or object can hold
+complex
+complicated and not easy to understand; involving or made from many different parts
+annex
+to take control or possession over a piece of land without permission and often by the use of force; to add or attach 3.
+index
+an alphabetical list showing all that is included in a book or a larger document; an alphabetical list of the documents in a collection
+detrimental
+causing damage or injury; harmful
+principal
+most important; main
+minute
+extremely small
+slight
+small in size, degree, or amount; treat with disrespect or indifference
+novice
+a person who is new and not experienced in a job or situation
+individual
+a single human being; a person
+ability
+the capacity to do something; a skill or talent in a specific area
+chart
+a drawing or illustration which displays information in an easy to understand way; a graph
+assist
+to support or help; to aid
+period
+an interval or length of time; a full stop
+plastic
+(of substances or materials) capable of being molded or shaped
+recant
+formally or publicly say that your past beliefs or statements were wrong and that you no longer agree with them
+consumer
+a person who purchases goods or services
+credit
+money that is given to someone with the understanding that it will be paid back with interest; recognition or praise
+generation
+a group of people in a society or in a family that were born in the same general age
+core
+the center of something; the most important or essential part of something
+emphasis
+the importance that is specifically placed on something; stress
+cajole
+persuade by flattery or promises; wheedle
+prohibit
+to forbid or ban; to not allow or permit
+mature
+to grow old; to develop
+currency
+money; any other medium of exchange
+procure
+obtain something, especially with care, effort, or difficulty; obtain (a sexual partner, especially woman) for another, for the purpose of prostitution
+grade
+a level or rank; a number or letter that indicates the quality of something
+constant
+unchanging; firm or resolute
+focus
+the center point of something; the center of attention
+rely
+to depend on; to trust
+decline
+a fall in the number of something; a reduction
+release
+to let go or free; to emancipate
+refine
+to purify; to take impurities out of something
+percent
+out of one hundred; a part of one hundred
+rebuke
+to punish or scold someone severely; to express disapproval, often in a sharp way
+regale
+to entertain someone with food or drink; to feast
+project
+a scheme or a plan; a proposal
+scale
+to climb a surface that is steep; to set something according to a scale or measure something by a scale
+demonstrate
+to deliberately show or prove; to make clear
+method
+a way of doing something; an approach
+perspective
+a vista or view; a way of looking at or examining something
+motive
+one of the reasons behind someone's behavior; something that inspires someone to behave in a certain way
+require
+to make something obligatory; to expect
+area
+a geographical region; part of a surface or space
+palpable
+so strong or so obvious that it can be felt; easily noticed
+parch
+to scorch the surface of something through exposure to light or heat; to cause something to become extremely dry
+chapter
+a section of a book or a written work; a branch of a society or group
+obtuse
+annoyingly insensitive or slow to understand explanations or situations quickly
+ramble
+to walk about or move about in an aimless manner; to follow a winding path
+precinct
+a division of a city for policing or political reasons; a specific area which is enclosed or limited, most often by walls
+enforce
+to make someone comply with a law or a rule; to cause or force something
+rigid
+stiff; hard
+adversity
+a difficult, unlucky, or unpleasant situation, condition, or event; misfortune
+relaxed
+not strict; free
+brief
+concise; short in duration
+resource
+material used to do or make something; a supply of something that can be used when required
+purchase
+an object that has been bought; the act of buying something
+respond
+to answer; to react in a favorable way
+assure
+to assure someone that something is true, in hopes of getting rid of doubts; to confidently promise
+secure
+safe; free from danger or worry
+region
+a specific part of the world; a large area of land where the people or land possesses similar characteristics
+precise
+accurate; exact
+reverse
+to overturn; to send in the opposite direction
+commission
+a fee or payment for goods or services rendered; a request to create a specific work for someone
+sequence
+the order or pattern in which things happen or take place; a set of things that is put in a specific order
+negative
+pessimistic; harmful or bad
+account
+an explanation or description of a specific event or situation; a narrative
+sum
+the total of a calculation; an amount of money
+revere
+to honor or respect someone very much; to venerate or worship
+survey
+a poll used to measure public opinion or the incidence of something in a society; an examination of a subject or a situation
+academic
+related to school or scholarly subjects; theoretical
+strategy
+a detailed plan of action; a way to approach a specific goal
+style
+a way of doing or expressing something; fashion
+potent
+extremely powerful or effective; influential
+source
+the place in which something originates or which someone comes from; a point or place of origin
+stark
+very obvious; very plain and easily seen
+temporary
+limited; not lasting or permanent
+survive
+to live through an event; to stay alive
+final
+last; concluding
+achieve
+to accomplish; to reach something through hard work
+tradition
+heritage; behavior and customs that are passed from one generation to the next
+expansion
+growth; the act or process of getting larger
+truant
+a student who avoids school without permission; a lazy person
+robust
+healthy; hardy or strong
+technology
+the use of scientific knowledge for practical purposes, with special reference to its use in industry; applied sciences
+text
+a piece of writing such as a book; all the words that were said in a speech
+volume
+the amount of space taken up by something; an amount of something
+zenith
+the point in the sky that's directly over one's head; the highest point or peak

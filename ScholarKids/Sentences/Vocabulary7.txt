@@ -1,5 +1,5 @@
 referendum
-a direct vote in which the general public votes on the answer to a specific question or issue; a note or letter from a diplomat to his or her home country, asking for instructions
+a direct vote in which the general public votes on the answer to a specific question or issue
 zealot
 a fanatically committed person who is uncompromising in pursuit of their religious, political, or other ideals; an excessively zealous person
 zeal
@@ -81,7 +81,7 @@ difficult or impossible to discipline, control, or rule
 pursue
 to follow someone or something; to hunt for or look for
 resilient
-(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.; able to quickly become strong, healthy, happy, or successful again after an illness, disappointment, or other problem
+(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.
 stoic
 not showing emotion or complaining, even when something bad happens; unemotional
 prior
@@ -275,7 +275,7 @@ threatening or suggestive that something bad is going to occur; inauspicious
 option
 the ability or right to choose; a choice or something that can be chosen
 rhetorical
-of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people and that may not be honest or reasonable
+of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people
 flamboyant
 excessively decorated; ornate
 prudent
@@ -321,7 +321,7 @@ the act of carefully looking at or examining something; the attentive reading or
 restive
 impatient and restless; not willing to be controlled
 saturate
-make something completely wet with water or other liquid so that no more can be absorbed; cause (a substance) to combine with, dissolve, or hold the greatest possible amount of another substance
+make something completely wet with water or other liquid so that no more can be absorbed
 primary
 fundamental; principal
 conflict
@@ -481,7 +481,7 @@ work together, especially in a joint intellectual effort; cooperate with an enem
 consent
 to allow or agree with; to grant permission
 atrophy
-(of body tissue or a part of the body) a wasting or decrease in size because of disease, injury, or lack of use; gradual degeneration, decline, or decrease in effectiveness or vigor due to underuse or neglect
+(of body tissue or a part of the body) a wasting or decrease in size because of disease, injury, or lack of use
 dauntless
 showing fearlessness and determination
 ambiguous
@@ -805,9 +805,9 @@ to get something from a source; to deduce
 minute
 extremely small
 congenial
-(of a person) agreeable, suitable, or pleasing in nature or character; (of a thing) pleasant or agreeable because suited to or adapted in one's spirit, feeling, temper, etc.
+(of a person) agreeable, suitable, or pleasing in nature or character; pleasant or agreeable because suited to or adapted in one's spirit, feeling, temper, etc.
 academy
-a professional organization that is created to regulate or spur interest and development in a specific field; a school that provides special training in a particular field
+a professional organization that is created to regulate or spur interest and development in a specific field
 exclude
 to leave someone or something out; to eject
 mendacious
@@ -859,7 +859,7 @@ extreme greed to get or keep money or possessions; cupidity
 dearth
 a lack of something or an inadequate supply
 indulgent
-allowing someone to do or have what they want, especially when it may not be proper, healthy, appropriate, etc.; indulging or inclined to indulge, especially when you should be strict
+allowing someone to do or have what they want, especially when it may not be proper, healthy, appropriate, etc.
 phenomenon
 an extraordinary person or thing; an observable fact or occurrence
 draft
@@ -891,7 +891,7 @@ topic
 differentiate
 to determine or recognize the difference between two or more things; to distinguish
 iconoclast
-a person who attacks widely accepted ideas, beliefs, traditional institutions, etc.; a person who destroys sacred images used in religious worship or opposes to the religious use of images
+a person who attacks widely accepted ideas, beliefs, traditional institutions, etc.
 expand
 to add details or information; to grow larger
 implicate
@@ -1195,7 +1195,7 @@ likely to change one's opinion; not constant
 olfactory
 related to one's sense of smell
 epiphany
-a moment when you suddenly see or understand the reality or essential meaning of something, usually initiated by some simple, homely, or commonplace occurrence or experience
+a moment when you suddenly see or understand the reality or essential meaning of something, usually initiated by some simple occurrence or experience
 dynamic
 full of energy; enthusiastic
 accord
@@ -1239,7 +1239,7 @@ a duty or an activity that one must perform; a formal event
 confer
 to grant something, like a title, to someone; to discuss or exchange opinions
 asylum
-protection, safety, or the right to stay, especially that given by a government to people who has escaped from war or political trouble in their own country; an institution for the care of the mentally ill, or of the aged, the poor, etc.
+protection, safety, or the right to stay, especially that given by a government to people who has escaped from war or political trouble in their own country
 discord
 disagreement among people or things; dispute or strife
 credulity
@@ -1263,7 +1263,7 @@ a civil or controlled argument between two or more people or groups with opposin
 occur
 to take place; to happen
 hypothesis
-an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study, discussion, or investigation, etc.
+an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study
 inviolable
 incorruptible; indestructible
 decline
@@ -1281,7 +1281,7 @@ spread (something, especially news, information, ideas, etc.) widely; scatter wi
 buttress
 a structure, usually made of brick or stone, built against a wall for support or strengthen it; a source of defense or support
 breach
-an act of breaking or failing to follow a law, rule, trust, faith, promise, agreement, or code of conduct; a hole, opening or space in a wall, fence, barrier, or line of defense, especially during a military attack
+an act of breaking or failing to follow a law, rule, trust, faith, promise, agreement, or code of conduct
 anticipate
 to predict or foresee; to look forward to something
 arbitrary
@@ -1321,7 +1321,7 @@ using very few words in speech, writing, or expression; terse
 lethargic
 sluggish or drowsy; tired or slightly tired
 foster
-promote the growth or development of (something, especially something desirable and over a period of time); bring up with care, raise, or rear a child, usually for a limited time, without being the child's legal parent
+promote the growth or development of something over a period of time; bring up with care, raise, or rear a child without being the child's legal parent
 potential
 possible; able to occur
 opulent
@@ -1381,7 +1381,7 @@ picturesque; old-fashioned
 illicit
 not allowed by law, custom, rule, etc.; prohibited
 discern
-see, recognize, find out, or understand something that is far away or not very clear; perceive or recognize (someone or something) with difficulty by the sight or some other sense
+see, recognize, find out, or understand something that is far away or not very clear
 fluctuate
 to constantly undergo changes; to undulate
 image
@@ -1417,7 +1417,7 @@ to arrange a document in a specific way; to prepare a computer disk to save spec
 epitome
 a person or thing that is a representative or perfect example of a whole class or type; a summary of a written work
 flippant
-showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever, especially when this annoys other people
+showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever
 trivial
 of no real importance; ordinary
 hallowed
@@ -1483,7 +1483,7 @@ a fortified position or place; something protecting a specific belief, condition
 nonentity
 something that doesn't exist; something imaginary
 advocate
-publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things; a person who publicly speaks, writes, pleads, recommends, supports or argues for a cause, particular policy or way of doing things
+publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things
 accessible
 obtainable; easy to enter, speak with, or approach
 patronize
@@ -1579,7 +1579,7 @@ a personal preference towards something; a special liking of something
 laudable
 deserving or worthy of praise
 finesse
-impressive delicacy, skill, or subtlety in action, performance, skill, discrimination, taste, etc.; skillful, subtle handling or manipulating of people or difficult situations
+impressive delicacy, skill, or subtlety in action, performance, skill, discrimination, taste, etc.
 abbreviation
 a shortened form of a name, phrase or word; the act of shortening something
 boisterous
@@ -1779,7 +1779,7 @@ a gathering of people that takes place because the people share a common goal or
 reprimand
 a severe, formal, or official rebuke, disapproval, or censure
 rhetoric
-a style of speaking or writing that is intended to influence people and that may not be honest or reasonable; the art, skill, or study of using language formally and effectively in speaking or writing
+a style of speaking or writing that is intended to influence people and that may not be honest or reasonable
 regime
 a government that is currently in power; a system of rules
 stable

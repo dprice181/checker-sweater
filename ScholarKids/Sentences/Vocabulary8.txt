@@ -3,7 +3,7 @@ a group of people living in the same area or region; a group of people who share
 zealot
 a fanatically committed person who is uncompromising in pursuit of their religious, political, or other ideals; an excessively zealous person
 wry
-using or expressing dry humor, often with a touch of irony; (of a person's face or features) temporarily twisted in an expression of disgust, disappointment, or annoyance
+using or expressing dry humor, often with a touch of irony; temporarily twisted in an expression of disgust, disappointment, or annoyance
 wispy
 quite thin or frail; not clear or distinct
 whimsical
@@ -15,7 +15,7 @@ intentional; done on purpose, especially with the intention of causing harm
 virtuoso
 a person who has special knowledge or skill in in some fine art, especially playing a musical instrument
 waver
-be undecided between two opinions, possibilities, or courses of action or you keep choosing one way and then the other; become unsteady because of weakness, emotion, tiredness, etc.
+be undecided between two opinions, possibilities, or courses of action or you keep choosing one way and then the other
 wanton
 a cruel, malicious or violent action done, shown, used deliberately, unprovokedly and unjustifiably; careless
 trenchant
@@ -193,7 +193,7 @@ very committed or loyal to a person, belief, or cause; not changing, fickle, or 
 subsidy
 money that a government gives a group to help it; financial assistance
 rhetorical
-of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people and that may not be honest or reasonable
+of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people
 reveal
 to show or disclose; to divulge
 stereotype
@@ -287,7 +287,7 @@ lasting for only a very short time
 predominant
 the most powerful; the most common
 bureaucracy
-a large government or administration that is divided into various departments, in which the officials must follow a set of inflexible rules; a complicated management system which requires compliance with an annoying set of rules or regulations
+a large government or administration that is divided into various departments, in which the officials must follow a set of inflexible rules
 reinforce
 to make something stronger; to enhance something
 contentious
@@ -297,7 +297,7 @@ official permission or approval, as for an action; a threat to punish someone fo
 eventually
 in the end; at an unspecified time in the future
 resilient
-(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.; able to quickly become strong, healthy, happy, or successful again after an illness, disappointment, or other problem
+(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.
 exposure
 the disclosure or revealing of something; the state of having no protection from the elements or other harmful agents
 conspicuous
@@ -317,7 +317,7 @@ promote the growth or development of (something, especially something desirable 
 ominous
 threatening or suggestive that something bad is going to occur; inauspicious
 rhetoric
-a style of speaking or writing that is intended to influence people and that may not be honest or reasonable; the art, skill, or study of using language formally and effectively in speaking or writing
+a style of speaking or writing that is intended to influence people and that may not be honest or reasonable
 compromise
 a settlement of differences by mutual concessions; reduce the quality, value, or degree of something
 puerile
@@ -533,7 +533,7 @@ not allowed by law, custom, rule, etc.; prohibited
 controversy
 a disagreement or dispute over a specific subject about which people have differing opinions; a heated discussion or argument
 caucus
-a closed or private meeting of political officials or party members in which party affairs are discussed or candidates are selected; a group of politicians with similar interests
+a closed or private meeting of political officials or party members in which party affairs are discussed or candidates are selected
 elated
 very happy and excited; exultantly proud and joyful
 consummate
@@ -759,7 +759,7 @@ to predict or foresee; to look forward to something
 fundamental
 essential; of great importance
 asylum
-protection, safety, or the right to stay, especially that given by a government to people who has escaped from war or political trouble in their own country; an institution for the care of the mentally ill, or of the aged, the poor, etc.
+protection, safety, or the right to stay, especially that given by a government to people who has escaped from war or political trouble in their own country
 indeterminate
 not clearly known or precisely determined or established; undetermined
 dispel
@@ -837,7 +837,7 @@ to increase something in size, quantity or value; to enlarge
 enumerate
 name (a number of things in a series or list) separately, one by one; determine the number of
 discern
-see, recognize, find out, or understand something that is far away or not very clear; perceive or recognize (someone or something) with difficulty by the sight or some other sense
+see, recognize, find out, or understand something that is far away or not very clear; perceive or recognize something with difficulty by the sight or some other sense
 jurisprudence
 the theory or science of law; a system, body or department of law
 immutable
@@ -897,7 +897,7 @@ to make changes in order to fit a specific situation or purpose; to modify
 illuminate
 to make something brighter; to brighten
 referendum
-a direct vote in which the general public votes on the answer to a specific question or issue; a note or letter from a diplomat to his or her home country, asking for instructions
+a direct vote in which the general public votes on the answer to a specific question or issue; a note or letter from a diplomat to his or her home country
 effigy
 a sculpture or monument of a person; a poorly made dummy that looks like or represents a person and is most often used in protest or ridicule
 interact
@@ -1021,7 +1021,7 @@ a trick with is used with the intent of confusing or deceiving someone; a plan u
 perfidious
 deliberately faithless; treacherous
 advocate
-publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things; a person who publicly speaks, writes, pleads, recommends, supports or argues for a cause, particular policy or way of doing things
+publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things
 create
 to invent something; to develop something new
 acumen
@@ -1051,7 +1051,7 @@ to fasten or join two or more objects; to include
 focus
 the center point of something; the center of attention
 connive
-to secretly plan or work together with another person in order to do something illegal; to not do anything about illegal behavior you know about, showing one's silent compliance with the issue
+to secretly plan or work together with another person in order to do something illegal
 genre
 a category or class; a specific style used in works of art that share common features
 patron
@@ -1175,7 +1175,7 @@ presumptuousness without the ability to see that one's behavior is unacceptable;
 nullify
 to void something, especially a legal agreement or decision; to make something useless or null
 finesse
-impressive delicacy, skill, or subtlety in action, performance, skill, discrimination, taste, etc.; skillful, subtle handling or manipulating of people or difficult situations
+impressive delicacy, skill, or subtlety in action, performance, skill, discrimination, taste, etc.
 ambiguous
 not expressed or understood clearly; open to or having several possible meanings or interpretations
 unique
@@ -1193,17 +1193,17 @@ to become weaker; to suffer through a difficult, unwanted situation over an exte
 deteriorate
 to get or become worse; to depreciate
 indulgent
-allowing someone to do or have what they want, especially when it may not be proper, healthy, appropriate, etc.; indulging or inclined to indulge, especially when you should be strict
+allowing someone to do or have what they want, especially when it may not be proper, healthy, appropriate, etc.
 evolution
 gradual development or change, especially over long periods of time
 obdurate
-stubbornly refusing to do what other people want; stubbornly refusing to change your opinions, plans, or the way you do something despite what anyone else says, in a way that does not seem reasonable
+stubbornly refusing to change your opinions, plans, or the way you do something despite what anyone else says, in a way that does not seem reasonable
 edit
 to revise a document and change whatever errors one sees; to produce a book or document by gathering different works together
 consensus
 majority opinion; an opinion or decision reached by all, or nearly all, members of a group
 demagogue
-a person, especially an orator or political leader, who gains power and popularity by appealing to emotion, passions, prejudice, etc. rather than by using rational argument in order to win them over quickly and so gain power
+a person, especially an orator or political leader, who gains power and popularity by appealing to emotion, passions, or prejudice, rather than by using rational argument
 itinerant
 moving from place to place, especially for work reasons; traveling
 amend
@@ -1211,7 +1211,7 @@ to make changes to; to improve
 expose
 make (something) visible by uncovering it; lay open to danger, attack, harm, etc.
 hypothesis
-an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study, discussion, or investigation, etc.
+an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study
 articulate
 capable of expressing oneself in a clear and coherent manner; clear and well formulated language
 compatible
@@ -1353,7 +1353,7 @@ someone willing to take advantage of any opportunity to get ahead, often paying 
 cringe
 to move away from something or someone suddenly because you are surprised, afraid or embarrassed
 breach
-an act of breaking or failing to follow a law, rule, trust, faith, promise, agreement, or code of conduct; a hole, opening or space in a wall, fence, barrier, or line of defense, especially during a military attack
+an act of breaking or failing to follow a law, rule, trust, faith, promise, agreement, or code of conduct
 motivation
 the enthusiasm, interest or reason for doing something
 disseminate
@@ -1549,7 +1549,7 @@ to succeed at something; to achieve
 placid
 peaceful and undisturbed; serene, with a lack of movement or activity
 flippant
-showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever, especially when this annoys other people
+showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever
 perfidy
 treachery or unfaithfulness; betrayal of trust
 rigid
@@ -1565,7 +1565,7 @@ A matter of interest or importance
 accessible
 obtainable; easy to enter, speak with, or approach
 accessory
-an object that is added to another in order to make it more useful or attractive; a person that helps another person commit a crime, but who does not actually take part in the crime
+an object that is added to another in order to make it more useful; a person that helps another person commit a crime, but who does not take part in the crime
 ebullient
 cheerful, lively, and showing excitement; overflowing with enthusiasm or excitement
 evidence
@@ -1703,7 +1703,7 @@ to limit; to physically confine
 rectify
 correct (something that is wrong) or make something right or better; correct by calculation or adjustment
 iconoclast
-a person who attacks widely accepted ideas, beliefs, traditional institutions, etc.; a person who destroys sacred images used in religious worship or opposes to the religious use of images
+a person who attacks widely accepted ideas, beliefs, traditional institutions, etc.
 revise
 to check something and make changes to make sure that it is acceptable; to change or amend
 radical
@@ -1935,7 +1935,7 @@ not ashamed, embarrassed, or apologetic about openly expressing strong feelings 
 mundane
 ordinary and not interesting or exciting; relating to the world and practical matters instead of heavenly or spiritual ones
 saturate
-make something completely wet with water or other liquid so that no more can be absorbed; cause (a substance) to combine with, dissolve, or hold the greatest possible amount of another substance
+make something completely wet with water or other liquid so that no more can be absorbed
 demur
 to hesitate because you have doubts or object to something; to refuse to do something
 strident

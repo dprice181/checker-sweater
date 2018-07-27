@@ -255,7 +255,7 @@ put (someone or something) into a lower or less important rank or position; refe
 empathy
 the ability to understand and share the feelings, thoughts, attitudes, experiences, and emotions of another
 rhetoric
-a style of speaking or writing that is intended to influence people and that may not be honest or reasonable; the art, skill, or study of using language formally and effectively in speaking or writing
+a style of speaking or writing that is intended to influence people and that may not be honest or reasonable
 alter
 to change or modify; to make something different
 novice
@@ -279,7 +279,7 @@ overwhelm (someone or something) by sending or providing with a large amount of 
 abrasive
 unkind or rude; an abrasive substance that is used in order to grind down, clean or polish objects
 resilient
-(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.; able to quickly become strong, healthy, happy, or successful again after an illness, disappointment, or other problem
+(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.
 amicable
 characterized by or exhibiting friendliness or goodwill, often despite a difficult situation
 germane
@@ -381,7 +381,7 @@ different or separate; unmistakable
 pristine
 unspoiled; uncorrupted
 hackneyed
-(of a phrase, idea, fashion, etc.) have been said or used so often that they no longer seem interesting or original and have become boring and not interesting; not fresh or original
+(of a phrase, idea, fashion, etc.) have been said or used so often that they no longer seem interesting or original and have become boring and not interesting
 gravity
 the force that pulls matter toward a center of attraction; the force that pulls matter to the ground
 network
@@ -623,7 +623,7 @@ to be a name or symbol for; to indicate
 anonymous
 with no name known or acknowledged; made or done by someone unknown
 barrage
-a concentrated artillery bombardment to protect one's own advancing or retreating or to stop the advance of enemy troops; an artificial barrier across a river or estuary to increase the depth of the water, prevent flooding, facilitate irrigation, etc
+a concentrated artillery bombardment to protect one's own advancing or retreating or to stop the advance of enemy troops
 feature
 a part or aspect of something; a quality
 fallacious
@@ -715,7 +715,7 @@ young, healthy, attractive, and able to move and bend in an easy and graceful wa
 professional
 relating to or suitable for a specific profession; performing an activity to earn money instead of to relax or have fun
 rhetorical
-of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people and that may not be honest or reasonable
+of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people
 inevitable
 impossible to avoid, evade, escape, or prevent; sure to happen
 elusive
@@ -791,7 +791,7 @@ dislike of or repugnance toward something or someone; the person or thing that c
 irascible
 becoming angry very easily
 hypothesis
-an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study, discussion, or investigation, etc.
+an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study
 copious
 large in quantity or number; affording ample supply
 environment
@@ -981,7 +981,7 @@ self-pityingly or tearfully sentimental, especially in a foolish or annoying way
 ingenious
 clever, resourceful, original, and inventive
 congenial
-(of a person) agreeable, suitable, or pleasing in nature or character; (of a thing) pleasant or agreeable because suited to or adapted in one's spirit, feeling, temper, etc.
+agreeable, suitable, or pleasing in nature or character; (of a thing) pleasant or agreeable because suited to or adapted in one's spirit, feeling, temper, etc.
 oracle
 a message or answer from God; a message, order or response communicated by God to the prophets
 genre
@@ -1043,7 +1043,7 @@ world-wide; found around the world
 accord
 concurrence of opinions or wills
 academy
-a professional organization that is created to regulate or spur interest and development in a specific field; a school that provides special training in a particular field
+a professional organization that is created to regulate or spur interest and development in a specific field
 deterrent
 something that discourages; tending to deter
 pliable
@@ -1105,7 +1105,7 @@ to degrade; to adulterate
 precise
 accurate; exact
 indulgent
-allowing someone to do or have what they want, especially when it may not be proper, healthy, appropriate, etc.; indulging or inclined to indulge, especially when you should be strict
+allowing someone to do or have what they want, especially when it may not be proper, healthy, appropriate, etc.
 clause
 a provision or stipulation in a contract or another formal document; a phrase containing a subject and a verb that is part of a larger sentence
 austere
@@ -1139,7 +1139,7 @@ noisy, energetic, and lacking in restraint or discipline; (of waves, weather, wi
 ineffable
 too great, powerful, impressive, beautiful, etc., to be described or expressed in words
 iconoclast
-a person who attacks widely accepted ideas, beliefs, traditional institutions, etc.; a person who destroys sacred images used in religious worship or opposes to the religious use of images
+a person who attacks widely accepted ideas, beliefs, traditional institutions, etc.
 buttress
 a structure, usually made of brick or stone, built against a wall for support or strengthen it; a source of defense or support
 jubilant
@@ -1169,7 +1169,7 @@ something that is considered to be extremely important and has the ability to ta
 publish
 to make a document available in digital or print format; to make something public or known
 flippant
-showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever, especially when this annoys other people
+showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever
 contradiction
 a difference between two or more messages or statements which shows that one of the statements must be wrong; an inconsistency
 trend
@@ -1229,7 +1229,7 @@ see, recognize, find out, or understand something that is far away or not very c
 mundane
 ordinary and not interesting or exciting; relating to the world and practical matters instead of heavenly or spiritual ones
 advocate
-publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things; a person who publicly speaks, writes, pleads, recommends, supports or argues for a cause, particular policy or way of doing things
+publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things
 obtain
 to get; to acquire
 rely
@@ -1337,7 +1337,7 @@ prompting thoughts of a similar experience; loud, clear, or deep
 display
 to show or present; to demonstrate
 asylum
-protection, safety, or the right to stay, especially that given by a government to people who has escaped from war or political trouble in their own country; an institution for the care of the mentally ill, or of the aged, the poor, etc.
+protection, safety, or the right to stay, especially that given by a government to people who has escaped from war or political trouble in their own country
 quandary
 a dilemma or a problem; a state of uncertainty
 refurbish
@@ -1351,7 +1351,7 @@ an extraordinary person or thing; an observable fact or occurrence
 draft
 the first draft or copy of something; a sketch
 finesse
-impressive delicacy, skill, or subtlety in action, performance, skill, discrimination, taste, etc.; skillful, subtle handling or manipulating of people or difficult situations
+impressive delicacy, skill, or subtlety in action, performance, skill, discrimination, taste, etc.
 solace
 give comfort to in sorrow, misfortune, or trouble
 augment
@@ -1503,7 +1503,7 @@ showing longing or sad thinking about the past; marked by or inspiring yearning
 welfare
 the well-being of a person or people; financial aid from a government to a person in need
 wry
-using or expressing dry humor, often with a touch of irony; (of a person's face or features) temporarily twisted in an expression of disgust, disappointment, or annoyance
+using or expressing dry humor, often with a touch of irony; temporarily twisted in an expression of disgust, disappointment, or annoyance
 volatile
 (of a substance) vaporizing or evaporating quickly; likely to change suddenly and unexpectedly or suddenly become violent or angry
 zephyr

@@ -190,7 +190,7 @@ class VocabularyConnectScene: SKScene {
     }
     
     func DrawDefinitions() {
-        let displayWidth = size.width * 5.25 / 10
+        let displayWidth = size.width * 5.6 / 10
         for i in 0...2  {
             let sizeSentence = GetTextSize(text:vocabularyDefinitionAr[i],fontSize:SELECTTEXT_FONTSIZE)            
             let sentenceWidth = sizeSentence.width
@@ -273,8 +273,11 @@ class VocabularyConnectScene: SKScene {
         if numLines == 5 {
             offset = sizeWord.height * 1.62
         }
-        if numLines >= 6 {
+        if numLines == 6 {
             offset = sizeWord.height * 2.15
+        }
+        if numLines >= 7 {
+            offset = sizeWord.height * 2.6
         }
         return offset
     }
@@ -292,7 +295,8 @@ class VocabularyConnectScene: SKScene {
     }
     
     func DrawDefinitionBoxAndCircle(i:Int) {
-        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/1.85,height: self.size.height*7/48)))
+//        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/1.75,height: self.size.height*7/48)))
+        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/1.75,height: self.size.height*49/288)))
         choiceboxDefinitionAr[i].name = "choicebox" + String(i)
         choiceboxDefinitionAr[i].fillColor = global.greyBlue
         choiceboxDefinitionAr[i].strokeColor = SKColor.purple
@@ -304,7 +308,7 @@ class VocabularyConnectScene: SKScene {
         circleDefinitionAr[i].fillColor = SKColor.red
         circleDefinitionAr[i].strokeColor = SKColor.black
         circleDefinitionAr[i].lineWidth = 2
-        circleDefinitionAr[i].position = CGPoint(x:0,y:self.size.height*2/24)
+        circleDefinitionAr[i].position = CGPoint(x:0,y:self.size.height*2.3/24)
         nodeDefinitionAr[i].addChild(circleDefinitionAr[i])
     }
     

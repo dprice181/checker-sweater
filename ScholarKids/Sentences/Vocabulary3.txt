@@ -61,7 +61,7 @@ to incorporate something; to soak up or suck up something
 process
 a series of happenings or actions that lead to a specific result; a naturally occurring series of changes
 label
-a piece of material on an object that gives information about the object; a name or phrase assigned to a person to classify them, often in an unfair manner
+a piece of material on an object that gives information about the object; a name or phrase assigned to a person to classify them
 convince
 to make someone believe what you are saying; to persuade
 role
@@ -341,7 +341,7 @@ marked by stubborn determination and persistent in effort to do or get something
 federal
 related to the central or national government; related to the system of federalism, a system in which states or provinces and central governments share power
 foster
-promote the growth or development of (something, especially something desirable and over a period of time); bring up with care, raise, or rear a child, usually for a limited time, without being the child's legal parent
+promote the growth or development of something and over a period of time; bring up with care, raise, or rear a child, without being the child's legal parent
 instance
 an occurrence; an example used to demonstrate something
 migration
@@ -399,7 +399,7 @@ a person who purchases goods or services
 credit
 money that is given to someone with the understanding that it will be paid back with interest; recognition or praise
 generation
-a group of people in a society or in a family that were born in the same general age; a period of around thirty years in which people are born, grow up, and have babies of their own
+a group of people in a society or in a family that were born in the same general age
 core
 the center of something; the most important or essential part of something
 emphasis
@@ -538,3 +538,87 @@ volume
 the amount of space taken up by something; an amount of something
 zenith
 the point in the sky that's directly over one's head; the highest point or peak
+conclude
+to finish; to terminate or cause something to come to an end
+structure
+a free-standing building made from different parts; the way in which something is organized
+prohibit
+to forbid or ban; to not allow or permit
+differentiate
+to determine or recognize the difference between two or more things; to distinguish
+publish
+to make a document available in digital or print format; to make something public or known
+reproach
+express disapproval of, criticism of, or disappointment in (someone), especially for not being successful or not doing what is expected
+section
+a piece of something; a part of a whole object
+gait
+a particular way or manner of walking, stepping, or running; manner of moving on foot
+challenge
+to question or express objection to; to test someone
+amiable
+pleasant and friendly; good-natured and likable
+tape
+a long, thin strip of material which can be used for a variety of purposes
+sum
+the total of a calculation; an amount of money
+appreciate
+to become more valuable or increase in worth; to be grateful or thankful for
+symbol
+a sign; a shape, object or picture which is used to represent something
+quarry
+an open-air pit from which rock is excavated; a person or animal being hunted or searched for
+absent
+not present in a certain time or location; non-existent
+presume
+to believe something is true, despite not knowing whether or not it is; to act in a certain way, even though you don't have the right to behave that way
+similar
+related to something else; nearly the same, but not exactly the same
+range
+a set of things that are similar; the upper and lower limits
+tenacious
+holding firmly; that clings
+sole
+the bottom part of a foot or shoe; the bottom part of an object such as a golf club or a plow
+subsequent
+following; succeeding
+somber
+very sad and serious; gloomy
+technology
+the use of scientific knowledge for practical purposes, with special reference to its use in industry; applied sciences
+resource
+material used to do or make something; a supply of something that can be used when required
+odd
+unable to be divided by two; strange or uncommon
+tradition
+heritage; behavior and customs that are passed from one generation to the next
+suspect
+to distrust someone or something; to think that someone or something is responsible for a specific action or something bad
+tumult
+a loud noise that is produced by a large group of people; a violent or turbulent uprising
+accurate
+meticulous or giving careful consideration to the details; exact
+unique
+special; being the only one of its kind
+subtle
+thin, tenuous, or rarefied, as a fluid or an odor; not obvious, and so slight as to be difficult to notice, see, detect, or describe
+unify
+to join two or more units together in order to create a newer, larger unit; to combine
+valid
+sound; binding
+task
+to assign a job to someone; to place a burden on someone
+summary
+an explanation of something giving the main points or ideas of the original document or argument; a recapitulation
+tense
+tight; pulled to its limit
+skirmish
+a short or small battle; a minor fight in a much larger conflict
+volume
+the amount of space taken up by something; an amount of something
+vision
+sight; the ability to see
+version
+an individual's view about something that happened; an adaptation
+wretched
+very unpleasant, unhappy, ill, or unfortunate state or in very bad condition; poor in quality or ability

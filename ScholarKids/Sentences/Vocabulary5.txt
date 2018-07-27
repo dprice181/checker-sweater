@@ -63,7 +63,7 @@ the link or connection between people or things; a written promise
 technology
 the use of scientific knowledge for practical purposes, with special reference to its use in industry; applied sciences
 resilient
-(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.; able to quickly become strong, healthy, happy, or successful again after an illness, disappointment, or other problem
+(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.
 sparse
 not dense or thick; small in amount and not dense or crowded
 tense
@@ -367,7 +367,7 @@ related to the body; related to something one can see and touch
 nonchalant
 coolly unconcerned, indifferent, or unexcited; relaxed, calm, and not worried about anything
 advocate
-publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things; a person who publicly speaks, writes, pleads, recommends, supports or argues for a cause, particular policy or way of doing things
+publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things
 design
 a sketch or a plan that shows what something will be like when it is produced or constructed; a pattern or plan
 abnormal
@@ -527,7 +527,7 @@ slow or lazy speech that is marked by the prolongation of vowel sounds
 impervious
 (scientific) impenetrable; incapable of being affected or harmed
 bulwark
-something or someone which protects one from negative, dangerous or unpleasant things or gives support and encouragement in bad situations; a wall built for defense
+something or someone which protects one from negative, dangerous or unpleasant things or gives support and encouragement in bad situations
 mode
 a fashion; a way of doing something or performing a task
 individual
@@ -643,7 +643,7 @@ to find someone or something unexpectedly; to stumble across
 nuclear
 related to or employing nuclear weapons or energy; related to the nucleus of an atom
 hypothesis
-an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study, discussion, or investigation, etc.
+an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study
 remorse
 strong pain or sadness about something you have done and feel guilty about; regret
 credible
@@ -761,7 +761,7 @@ to set up
 generate
 to create or bring about; to produce
 generation
-a group of people in a society or in a family that were born in the same general age; a period of around thirty years in which people are born, grow up, and have babies of their own
+a group of people in a society or in a family that were born in the same general age
 estate
 a rather large piece of property; all of one's possessions at death
 coherent
@@ -779,7 +779,7 @@ outdated or old-fashioned; no longer in use
 affect
 to impact someone emotionally or mentally; to produce a change in
 complacency
-a feeling of contentment or self-satisfaction with your own abilities or situation that prevents you from trying harder, often while unaware of some potential danger, defect, or the like
+a feeling of contentment or self-satisfaction with your own abilities or situation that prevents you from trying harder, often while unaware of some potential danger
 percent
 out of one hundred; a part of one hundred
 candor
@@ -1077,7 +1077,7 @@ to understand something in a certain way; to explain something or make it possib
 discrete
 distinct; separate
 rhetorical
-of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people and that may not be honest or reasonable
+of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people
 analogy
 a comparison designed to show that two or more things are similar; partial resemblance
 secure

@@ -205,7 +205,7 @@ an explanation or description of a specific event or situation; a narrative
 detect
 to note or to feel something; to discover or catch
 inspect
-to carefully examine something, especially in search of problems or flaws; to make an official visit to ensure that rules are being followed or complied with
+to carefully examine something, especially in search of problems or flaws; to make an official visit to ensure that rules are being followed
 contrary
 opposite or completely different; obstinate
 incantation
@@ -221,7 +221,7 @@ having or showing a lack of seriousness or respect for official, important, or h
 capacity
 the ability to do something; the maximum number of things that a place or object can hold
 flippant
-showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever, especially when this annoys other people
+showing a lack of proper respect or seriousness about a serious subject or situation, in an attempt to be funny or to appear clever
 physical
 related to the body; related to something one can see and touch
 forsake
@@ -267,7 +267,7 @@ to make something become hard or stone like; to freeze with horror or fear
 counterfeit
 to forge a copy of something, often for illegal or dishonest reasons; to create a high-quality copy of something with the intention of defrauding someone
 grandiose
-(in a good sense) large and impressive, in size, effect, grandeur, or extent; (in a bad sense) seeming or trying to seem very important, but really looking artificial or silly
+(in a good sense) large and impressive, in size, effect, grandeur, or extent; (in a bad sense) seeming or trying to seem very important, but really looking silly
 appropriate
 to take possession or control of something; to steal
 plummet
@@ -293,7 +293,7 @@ a person or animal that is fully developed or fully grown; a mature person or an
 impudent
 insolent; rude towards others
 academy
-a professional organization that is created to regulate or spur interest and development in a specific field; a school that provides special training in a particular field
+a professional organization that is created to regulate or spur interest and development in a specific field
 annex
 to take control or possession over a piece of land without permission and often by the use of force; to add or attach 3.
 precocious
@@ -445,7 +445,7 @@ flagrant
 definition
 a clear outline of something; the meaning of a word or phrase
 generation
-a group of people in a society or in a family that were born in the same general age; a period of around thirty years in which people are born, grow up, and have babies of their own
+a group of people in a society or in a family that were born in the same general age
 bigot
 a person who is intolerant of views other than his or her own; a person with a closed-mind
 construct
