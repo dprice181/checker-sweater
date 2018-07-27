@@ -109,7 +109,7 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabelAr[n][i].text = "Level"
                 hotAirBalloonLabelAr[n][i].fontSize = 13
                 if recommendedLevel[subject] == i {
-                    hotAirBalloonLabelAr[n][i].fontColor = SKColor(red:252/255,green:54/255,blue:146/255,alpha:1)
+                    hotAirBalloonLabelAr[n][i].fontColor = SKColor(red:252/255,green:124/255,blue:226/255,alpha:1)
                 }
                 else {
                     hotAirBalloonLabelAr[n][i].fontColor = SKColor.red
@@ -125,7 +125,7 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabel2Ar[n][i].text = String(i+1)
                 hotAirBalloonLabel2Ar[n][i].fontSize = 20
                 if recommendedLevel[subject] == i {
-                    hotAirBalloonLabel2Ar[n][i].fontColor = SKColor(red:252/255,green:54/255,blue:146/255,alpha:1)
+                    hotAirBalloonLabel2Ar[n][i].fontColor = SKColor(red:252/255,green:124/255,blue:226/255,alpha:1)
                 }
                 else {
                     hotAirBalloonLabel2Ar[n][i].fontColor = SKColor.red
