@@ -70,7 +70,7 @@ class WordSelectScene: SKScene {
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
         var widthSentence = sizeSentence.width
         
-        let displayWidth = size.width * 9 / 10
+        let displayWidth = size.width * 9.4 / 10
         
         let space = "  "
         let mySpace: NSString = space as NSString
@@ -104,7 +104,7 @@ class WordSelectScene: SKScene {
             labelAr[i].name = "word"
             labelAr[i].text = word
             labelAr[i].fontSize = SELECTTEXT_FONTSIZE
-            labelAr[i].fontColor = global.blue
+            labelAr[i].fontColor = global.lightBlue
             labelAr[i].horizontalAlignmentMode = .left
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 11 / 24)
             addChild(labelAr[i])

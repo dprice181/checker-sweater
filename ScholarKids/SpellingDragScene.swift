@@ -215,21 +215,10 @@ class SpellingDragScene: SKScene {
             }
             curX = curX + sizeWord.width
         }
-        if numLines == 2 || (numLines==1 && incorrectAnswer) {
+        if numLines >= 2 || (numLines==1 && incorrectAnswer) {
             offset = sizeWord.height * 0.4
-        }
-        if numLines == 3 {
-            offset = sizeWord.height * 0.75
-        }
-        if numLines == 4 {
-            offset = sizeWord.height * 8 / 7
-        }
-        if numLines == 5 {
-            offset = sizeWord.height * 1.62
-        }
-        if numLines >= 6 {
-            offset = sizeWord.height * 2.15
-        }
+        }        
+        
         return offset
     }
     

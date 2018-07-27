@@ -71,6 +71,21 @@ class WordDragScene: SKScene {
         DrawBackButton()
     }
     
+    func GetWidthOfSentence(sizeBox:CGSize) -> CGFloat {
+        var modSentence = ""
+        var i = 0
+        for var word in wordAr {
+            if i != emptyCorrectAnswer {
+                modSentence = modSentence + word + "   "
+            }
+            i = i + 1
+        }
+        let mySentence: NSString = modSentence as NSString
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let widthSentence = sizeSentence.width + sizeBox.width*5/4
+        return widthSentence
+    }
+    
     func DrawSentence() {
         let mySentence: NSString = sentence as NSString
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
@@ -81,7 +96,10 @@ class WordDragScene: SKScene {
         let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
         let widthSpace = sizeSpace.width
         
-        widthSentence = widthSentence + CGFloat(widthSpace) * CGFloat(wordAr.count)
+        let sizeBox = CGSize(width:size.width/6,height:sizeSentence.height)  //make box standard size
+        
+        
+        widthSentence = GetWidthOfSentence(sizeBox:sizeBox) 
         let widthSentenceHalf = widthSentence / 2
         var startX = size.width / 2 - widthSentenceHalf
         if startX < size.width * 0.05 {
@@ -89,7 +107,7 @@ class WordDragScene: SKScene {
         }
         var startY:CGFloat = 0.0
         var widthSum:CGFloat = 0.0
-        let displayWidth = size.width * 9 / 10
+        let displayWidth = size.width * 9.4 / 10
         
         var i = 0
         for var word in wordAr {
@@ -113,7 +131,6 @@ class WordDragScene: SKScene {
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 9 / 24)
             
             if emptyCorrectAnswer == i {
-                let sizeBox = CGSize(width:size.width/6,height:sizeWord.height)  //make box standard size
                 widthWord = sizeBox.width
                 //parent node with physics body for collision
                 let answerBoxNode = SKSpriteNode()

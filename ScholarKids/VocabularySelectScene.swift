@@ -110,7 +110,6 @@ class VocabularySelectScene: SKScene {
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         
-        
         nodeDefinitionAr.append(SKNode())
         nodeDefinitionAr.last!.position = position
         nodeDefinitionAr.last!.zPosition = 100.0
