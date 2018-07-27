@@ -27,6 +27,7 @@ class LevelSelectScene: SKScene {
     var minX : CGFloat = 0.0
     var maxX : CGFloat = 0.0
     var curX : [CGFloat] = [0.0,0.0,0.0,0.0,0.0]
+    var balloonOffX : [CGFloat] = [0.0,0.0,0.0,0.0,0.0]
         
     let subjectAr = ["Math","Grammar","Vocabulary","Spelling"]
 
@@ -42,23 +43,7 @@ class LevelSelectScene: SKScene {
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         GetUnlockedLevels()
         
-        let labelTitle = SKLabelNode(fontNamed: "Arial")
-        labelTitle.text = "Select Level"
-        labelTitle.fontSize = 35
-        labelTitle.fontColor = global.titleColor
-        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22/24)
-        labelTitle.zPosition = 100.0
-        addChild(labelTitle)
-        addChild(CreateShadowLabel(label: labelTitle,offset: 1))
-        
-        let labelNameGrade = SKLabelNode(fontNamed: "Arial")
-        labelNameGrade.text = global.currentStudent + ": Grade " + global.currentGrade
-        labelNameGrade.fontSize = 24
-        labelNameGrade.fontColor = SKColor.red
-        labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
-        labelNameGrade.zPosition = 100.0
-        addChild(labelNameGrade)
-        addChild(CreateShadowLabel(label: labelNameGrade,offset: 1))
+        DrawTitle()
         
         var n = 0
         for subject in subjectAr {
@@ -77,6 +62,13 @@ class LevelSelectScene: SKScene {
             hotAirBalloonLabel2Ar.append([])
             hotAirBalloonLabelShadowAr.append([])
             hotAirBalloonLabelShadow2Ar.append([])
+            balloonOffX[n] = 0
+            if let recomLevel = recommendedLevel[subject] {
+                if recomLevel > 1 {  //greater than level 2, then shift recommended level to middle
+                    balloonOffX[n] = -(CGFloat(recomLevel - 2) * (self.size.width/5))
+                }
+            }
+            let offX = balloonOffX[n]
             for i in minLevel-1..<maxLevel {
                 if recommendedLevel[subject] == i {
                     hotAirBalloonAr[n].append(SKSpriteNode(imageNamed: "hotairballoonHighlight.png"))
@@ -84,7 +76,7 @@ class LevelSelectScene: SKScene {
                 else {
                     hotAirBalloonAr[n].append(SKSpriteNode(imageNamed: "hotairballoon.png"))
                 }
-                hotAirBalloonAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
+                hotAirBalloonAr[n][i].position = CGPoint(x: offX + self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
                 hotAirBalloonAr[n][i].scale(to: CGSize(width: self.size.height*3/48,height: (self.size.height*3/48)*(4/2.4)))
                 hotAirBalloonAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonAr[n][i])
@@ -95,7 +87,7 @@ class LevelSelectScene: SKScene {
                         if levelUnlocked <= i {
                             hotAirBalloonLockAr[n].append(SKSpriteNode(imageNamed: "lock.png"))
                             let ind = hotAirBalloonLockAr[n].count - 1
-                            hotAirBalloonLockAr[n][ind].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17 - SUB_SPACING*CGFloat(n))/24)
+                            hotAirBalloonLockAr[n][ind].position = CGPoint(x: offX + self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17 - SUB_SPACING*CGFloat(n))/24)
                             hotAirBalloonLockAr[n][ind].scale(to: CGSize(width: self.size.height*1.5/48,height: self.size.height*1.5/48))
                             hotAirBalloonLockAr[n][ind].name = "hotairballoon" + String(n) + ":" + String(i)
                             hotAirBalloonLockAr[n][ind].zPosition = 101.5
@@ -114,7 +106,7 @@ class LevelSelectScene: SKScene {
                 else {
                     hotAirBalloonLabelAr[n][i].fontColor = SKColor.red
                 }
-                hotAirBalloonLabelAr[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(18.1 - SUB_SPACING*CGFloat(n))/24 )
+                hotAirBalloonLabelAr[n][i].position = CGPoint(x: offX + self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(18.1 - SUB_SPACING*CGFloat(n))/24 )
                 hotAirBalloonLabelAr[n][i].zPosition = 102.0
                 hotAirBalloonLabelAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabelAr[n][i])
@@ -130,16 +122,13 @@ class LevelSelectScene: SKScene {
                 else {
                     hotAirBalloonLabel2Ar[n][i].fontColor = SKColor.red
                 }
-                hotAirBalloonLabel2Ar[n][i].position = CGPoint(x: self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
+                hotAirBalloonLabel2Ar[n][i].position = CGPoint(x: offX + self.size.width/8 + CGFloat(i)*(self.size.width/5),y:self.size.height*(17.5 - SUB_SPACING*CGFloat(n))/24)
                 hotAirBalloonLabel2Ar[n][i].zPosition = 102.0
                 hotAirBalloonLabel2Ar[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabel2Ar[n][i])
                 hotAirBalloonLabelShadow2Ar[n].append(CreateShadowLabel(label: hotAirBalloonLabel2Ar[n][i],offset: 1))
                 addChild(hotAirBalloonLabelShadow2Ar[n][i])
             }
-            
-            maxX = 0.0
-            minX = -(self.size.width/8 + CGFloat(16)*(self.size.width/4))
             
             var points = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width*14/16, y:0.0)]
             let line = SKShapeNode(points: &points, count: points.count)
@@ -150,7 +139,34 @@ class LevelSelectScene: SKScene {
             scrollBoxAr.append((start:CGPoint(x:0,y:self.size.height*(16 - SUB_SPACING*CGFloat(n))/24),end:CGPoint(x:self.size.width,y:self.size.height*(19.5 - SUB_SPACING*CGFloat(n))/24)))
             n = n + 1
         }
+        maxX = 0
+        minX = -(self.size.width/8 + CGFloat(16)*(self.size.width/5))
         
+        DrawSwipeLeft()
+        DrawBackButton()
+    }
+    
+    func DrawTitle() {
+        let labelTitle = SKLabelNode(fontNamed: "Arial")
+        labelTitle.text = "Select Level"
+        labelTitle.fontSize = 35
+        labelTitle.fontColor = global.titleColor
+        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22/24)
+        labelTitle.zPosition = 100.0
+        addChild(labelTitle)
+        addChild(CreateShadowLabel(label: labelTitle,offset: 1))
+        
+        let labelNameGrade = SKLabelNode(fontNamed: "Arial")
+        labelNameGrade.text = global.currentStudent + ": Grade " + global.currentGrade
+        labelNameGrade.fontSize = 24
+        labelNameGrade.fontColor = SKColor.red
+        labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
+        labelNameGrade.zPosition = 100.0
+        addChild(labelNameGrade)
+        addChild(CreateShadowLabel(label: labelNameGrade,offset: 1))
+    }
+    
+    func DrawSwipeLeft() {
         let redLeft = SKSpriteNode(imageNamed: "RedLeft.png")
         redLeft.name = "backbutton"
         redLeft.position = CGPoint(x: frame.size.width * 18/20, y: self.size.height*17/20)
@@ -165,7 +181,9 @@ class LevelSelectScene: SKScene {
         redLeftLabel.zPosition = 100.0
         addChild(redLeftLabel)
         addChild(CreateShadowLabel(label: redLeftLabel,offset: 1))
-        
+    }
+    
+    func DrawBackButton() {
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
@@ -206,7 +224,7 @@ class LevelSelectScene: SKScene {
         if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
             let path = dir + "/" + file
             do {
-                var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+                let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 var lineAr = fileText.components(separatedBy: .newlines)
                 if lineAr.count > 0 {
                     for i in 0..<lineAr.count {
@@ -239,6 +257,11 @@ class LevelSelectScene: SKScene {
                                         }
                                     }
                                 }
+                                if let recomLevel = recommendedLevel["Spelling"] {
+                                    if recomLevel > global.maxLevels-1 {
+                                        recommendedLevel["Spelling"] = global.maxLevels-1
+                                    }
+                                }
                                 
                                 levelUnlockedAr["Spelling"] = levelUnlocked
                                 if global.spellingUnlocked > 0 {
@@ -267,6 +290,11 @@ class LevelSelectScene: SKScene {
                                             recommendedLevel["Vocabulary"] = i + 1
                                             break
                                         }
+                                    }
+                                }
+                                if let recomLevel = recommendedLevel["Vocabulary"] {
+                                    if recomLevel > global.maxLevels-1 {
+                                        recommendedLevel["Vocabulary"] = global.maxLevels-1
                                     }
                                 }
                                 
@@ -299,6 +327,11 @@ class LevelSelectScene: SKScene {
                                         }
                                     }
                                 }
+                                if let recomLevel = recommendedLevel["Grammar"] {
+                                    if recomLevel > global.maxLevels-1 {
+                                        recommendedLevel["Grammar"] = global.maxLevels-1
+                                    }
+                                }
                                 
                                 levelUnlockedAr["Grammar"] = levelUnlocked
                                 if global.grammarUnlocked > 0 {
@@ -327,6 +360,11 @@ class LevelSelectScene: SKScene {
                                             recommendedLevel["Math"] = i + 1
                                             break
                                         }
+                                    }
+                                }
+                                if let recomLevel = recommendedLevel["Math"] {
+                                    if recomLevel > global.maxLevels-1 {
+                                        recommendedLevel["Math"] = global.maxLevels-1
                                     }
                                 }
                                 
@@ -361,10 +399,10 @@ class LevelSelectScene: SKScene {
         if scrollBoxInd > -1 {
             if hotAirBalloonAr.count > scrollBoxInd {
                 var scrollX  : CGFloat = location2.x - prevLocation.x
-                if curX[scrollBoxInd]+scrollX < minX {
+                if curX[scrollBoxInd]+scrollX < minX-balloonOffX[scrollBoxInd] {
                     scrollX = 0.0
                 }
-                if curX[scrollBoxInd]+scrollX > maxX {
+                if curX[scrollBoxInd]+scrollX > maxX-balloonOffX[scrollBoxInd]  {
                     scrollX = 0.0
                 }
                 
@@ -477,9 +515,8 @@ class LevelSelectScene: SKScene {
     }
     
     func TransitionBack() {
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()
         var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         if global.soundOption == 2 {

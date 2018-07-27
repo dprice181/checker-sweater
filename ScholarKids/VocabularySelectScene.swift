@@ -249,16 +249,18 @@ class VocabularySelectScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21.5/24)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
         fullTitle.zPosition = 100.0
         
         if global.sceneType == "Spelling" {
             labelTitle.text = "SPELLING"
+            labelTitle.fontSize = 55
         }
         else {
             labelTitle.text = "VOCABULARY"
+            labelTitle.fontSize = 50
         }
-        labelTitle.fontSize = 45
+        
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -267,7 +269,7 @@ class VocabularySelectScene: SKScene {
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 40
+        labelSubtitle.fontSize = 45
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
         labelSubtitle.zPosition = 100.0
@@ -280,7 +282,7 @@ class VocabularySelectScene: SKScene {
     func DrawInstructions() {
         if global.sceneType == "Spelling" {
             labelInstr.text = "Select the correct spelling below."
-            labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*18/24)
+            labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17.5/24)
         }
         else {
             labelInstr.text = "Select the correct definition below."
@@ -563,9 +565,8 @@ class VocabularySelectScene: SKScene {
     }
     
     func TransitionScene(playSound: SKAction,duration: Double) {
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()
         let wait = SKAction.wait(forDuration: duration)
         

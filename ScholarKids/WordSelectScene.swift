@@ -416,9 +416,8 @@ class WordSelectScene: SKScene {
     }
     
     func TransitionScene(playSound: SKAction,duration: TimeInterval) {
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()
         let wait = SKAction.wait(forDuration: duration)
         

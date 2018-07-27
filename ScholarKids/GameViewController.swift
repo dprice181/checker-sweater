@@ -138,10 +138,10 @@ func ReadOptionsFile() {
 }
 
 func TransitionBackFromScene(myScene: SKScene) {
-    for child in global.overlayNode.children {
-        child.removeFromParent()
-    }
+    global.overlayNode.removeAllActions()
+    global.overlayNode.removeAllChildren()
     global.overlayNode.removeFromParent()
+    
     if global.musicOption == 1 && !global.musicStarted {  //music menu only
         let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
         NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: myScene, userInfo:dictToSend)

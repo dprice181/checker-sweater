@@ -454,15 +454,15 @@ class MathDragScene: SKScene {
         labelCountFirstNameShadow.text = String(person1Answer)
         labelCountSecondName.text = String(person2Answer)
         labelCountSecondNameShadow.text = String(person2Answer)
-        labelCountFirstName.fontColor = SKColor.purple
-        labelCountSecondName.fontColor = SKColor.purple
+        labelCountFirstName.fontColor = global.realPurple
+        labelCountSecondName.fontColor = global.realPurple
         if Z > -1 || B > -1 {
             labelCount2FirstName.text = String(person1Answer2)
             labelCount2FirstNameShadow.text = String(person1Answer2)
             labelCount2SecondName.text = String(person2Answer2)
             labelCount2SecondNameShadow.text = String(person2Answer2)
-            labelCount2FirstName.fontColor = SKColor.purple
-            labelCount2SecondName.fontColor = SKColor.purple
+            labelCount2FirstName.fontColor = global.realPurple
+            labelCount2SecondName.fontColor = global.realPurple
         }
         
         global.incorrectAnswers = global.incorrectAnswers + 1
@@ -1162,9 +1162,8 @@ class MathDragScene: SKScene {
     }
     
     func TransitionScene(playSound: SKAction,duration: TimeInterval) {
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()
         
         let wait = SKAction.wait(forDuration: duration)

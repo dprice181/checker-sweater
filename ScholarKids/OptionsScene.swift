@@ -649,9 +649,8 @@ class OptionsScene: SKScene {
         UpdateOptions()
         WriteOptionsToFile()
         
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()
         var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         if global.soundOption == 2 {
@@ -672,9 +671,8 @@ class OptionsScene: SKScene {
         UpdateOptions()
         WriteOptionsToFile()
         
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()
         var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
         if global.soundOption == 2 {

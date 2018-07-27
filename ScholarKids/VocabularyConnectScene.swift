@@ -92,7 +92,7 @@ class VocabularyConnectScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "VOCABULARY"
-        labelTitle.fontSize = 45
+        labelTitle.fontSize = 50
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -101,7 +101,7 @@ class VocabularyConnectScene: SKScene {
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 40
+        labelSubtitle.fontSize = 45
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
         labelSubtitle.zPosition = 100.0
@@ -587,9 +587,8 @@ class VocabularyConnectScene: SKScene {
     }
     
     func TransitionScene(playSound: SKAction,duration: Double) {
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()
         let wait = SKAction.wait(forDuration: duration)
         

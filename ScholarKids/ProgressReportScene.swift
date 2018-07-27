@@ -296,11 +296,9 @@ class ProgressReportScene: SKScene {
         }
     }
     
-    func TransitionBackFromSceneToPlayerSelect(myScene: SKScene)
-    {
-        for child in global.overlayNode.children {
-            child.removeFromParent()
-        }
+    func TransitionBackFromSceneToPlayerSelect(myScene: SKScene) {
+        global.overlayNode.removeAllActions()
+        global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()        
         
         var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
