@@ -412,17 +412,23 @@ class SpellingDragScene: SKScene {
         var returnAr = [String]()
         var replacedLetterGroup = ""
         
-        let start = Int(arc4random_uniform(UInt32(global.letterStrings.count)))
-        for i in 0..<global.letterStrings.count {
-            let ind = (start + i) % global.letterStrings.count
-            let letterStringAr = global.letterStrings[ind]
-            for letterGroup in letterStringAr {   //loop through until we find a replaceable group
+        let letterStringsFind = [global.letterStringsFind,global.letterStringsSingleFind]
+        let letterStringsReplace = [global.letterStringsReplace,global.letterStringsSingleReplace]
+        for x in 0...1 {
+            let start = Int(arc4random_uniform(UInt32(letterStringsFind[x].count)))
+            for i in 0..<letterStringsFind[x].count {
+                let ind = (start + i) % letterStringsFind[x].count
+                let letterGroup = letterStringsFind[x][ind]
                 if word.contains(letterGroup) {  //found one
                     replacedLetterGroup = letterGroup
                     returnAr.append(replacedLetterGroup)
                     var i = 0
-                    for letterGroup in letterStringAr {
-                        //replace with another letterGroup in the Ar
+                    let letterReplaceStringAr = letterStringsReplace[x][ind]
+                    //for letterGroup in letterReplaceStringAr {
+                    let start2 = Int(arc4random_uniform(UInt32(letterReplaceStringAr.count)))
+                    for j in 0..<letterReplaceStringAr.count {
+                        let ind2 = (start2 + j) % letterReplaceStringAr.count
+                        let letterGroup = letterReplaceStringAr[ind2]
                         if letterGroup == replacedLetterGroup {
                             continue
                         }
@@ -434,6 +440,7 @@ class SpellingDragScene: SKScene {
                     }
                     return returnAr
                 }
+                
             }
         }
 

@@ -17,6 +17,10 @@ class Global {
     var currentLevel = 1
     var view : SKView?
     var letterStrings = [[String]]()
+    var letterStringsSingleFind = [String]()
+    var letterStringsSingleReplace = [[String]]()
+    var letterStringsFind = [String]()
+    var letterStringsReplace = [[String]]()
     let titleColor = SKColor(red: 185/255, green: 80/255, blue: 185/255, alpha: 1.0)
     let blue = SKColor(red:90/255,green:90/255,blue:215/255,alpha:1)
     let lightBlue = SKColor(red:130/255,green:130/255,blue:225/255,alpha:1)    
@@ -103,7 +107,6 @@ func UpdateOptions() {
         let dictToSend: [String: String] = ["fileToPlay": "BackgroundMusic" ]
         NotificationCenter.default.post(name: Notification.Name(rawValue: "PlayBackgroundSound"), object: SKScene(), userInfo:dictToSend)
     }
-
 }
 
 func CreateOptionsFileIfNecessary() {
@@ -288,27 +291,162 @@ func GetLevelMode(levelMode: inout String) {
     }
 }
 
+//func InitLetterStrings() {
+//    global.letterStrings.append(["e","a","i"])
+//    global.letterStrings.append(["ie","ei","ae","ey","a"])
+//    global.letterStrings.append(["ee", "ui", "e","i"])
+//    global.letterStrings.append(["oo", "iu", "ue", "u"])
+//    global.letterStrings.append(["ou","oo","o"])
+//    global.letterStrings.append(["ck", "kk", "k", "cc", "c", ])
+//    global.letterStrings.append(["ff","f","ph","gh"])
+//    global.letterStrings.append(["gg", "g", "j"])
+//    global.letterStrings.append(["wh","gh", "h"])
+//    global.letterStrings.append(["ll","rr","r","l"])
+//    global.letterStrings.append(["nn","mm","mn","n","m"])
+//    global.letterStrings.append(["pp","bb","p","b"])
+//    global.letterStrings.append(["qu","q","k"])
+//    global.letterStrings.append(["ss","cc","c","s",])
+//    global.letterStrings.append(["tt","dd","d","t"])
+//    global.letterStrings.append(["bb","dd","b","d"])
+//    global.letterStrings.append(["vv","v","w"])
+//    global.letterStrings.append(["cks","cs","ks","x"])
+//    global.letterStrings.append(["ie","ee","y","e"])
+//    global.letterStrings.append(["zz","ss","z","s"])
+//}
+
 func InitLetterStrings() {
-    global.letterStrings.append(["e","a","i"])
-    global.letterStrings.append(["ie","ei","ae","ey","a"])
-    global.letterStrings.append(["ee", "ui", "e","i"])
-    global.letterStrings.append(["oo", "iu", "ue", "u"])
-    global.letterStrings.append(["ou","oo","o"])
-    global.letterStrings.append(["ck", "kk", "k", "cc", "c", ])
-    global.letterStrings.append(["ff","f","ph","gh"])
-    global.letterStrings.append(["gg", "g", "j"])
-    global.letterStrings.append(["wh","gh", "h"])
-    global.letterStrings.append(["ll","rr","r","l"])
-    global.letterStrings.append(["nn","mm","mn","n","m"])
-    global.letterStrings.append(["pp","bb","p","b"])
-    global.letterStrings.append(["qu","q","k"])
-    global.letterStrings.append(["ss","cc","c","s",])
-    global.letterStrings.append(["tt","dd","d","t"])
-    global.letterStrings.append(["bb","dd","b","d"])
-    global.letterStrings.append(["vv","v","w"])
-    global.letterStrings.append(["cks","cs","ks","x"])
-    global.letterStrings.append(["ie","ee","y","e"])
-    global.letterStrings.append(["zz","ss","z","s"])
+    global.letterStringsFind.append("ie")
+    global.letterStringsFind.append("ei")
+    global.letterStringsFind.append("ae")
+    global.letterStringsFind.append("ey")
+    global.letterStringsFind.append("ee")
+    global.letterStringsFind.append("ui")
+    global.letterStringsFind.append("oo")
+    global.letterStringsFind.append("iu")
+    global.letterStringsFind.append("ue")
+    global.letterStringsFind.append("ou")
+    global.letterStringsFind.append("oo")
+    global.letterStringsFind.append("ck")
+    global.letterStringsFind.append("kk")
+    global.letterStringsFind.append("cc")
+    global.letterStringsFind.append("ff")
+    global.letterStringsFind.append("ph")
+    global.letterStringsFind.append("gh")
+    global.letterStringsFind.append("gg")
+    global.letterStringsFind.append("wh")
+    global.letterStringsFind.append("rr")
+    global.letterStringsFind.append("ll")
+    global.letterStringsFind.append("nn")
+    global.letterStringsFind.append("mm")
+    global.letterStringsFind.append("mn")
+    global.letterStringsFind.append("pp")
+    global.letterStringsFind.append("bb")
+    global.letterStringsFind.append("qu")
+    global.letterStringsFind.append("ss")
+    global.letterStringsFind.append("tt")
+    global.letterStringsFind.append("dd")
+    global.letterStringsFind.append("bb")
+    global.letterStringsFind.append("dd")
+    global.letterStringsFind.append("vv")
+    global.letterStringsFind.append("cks")
+    global.letterStringsFind.append("cs")
+    global.letterStringsFind.append("ks")
+    global.letterStringsFind.append("zz")
+    global.letterStringsFind.append("ch")
+    
+    global.letterStringsReplace.append(["ei","i","e","ee"])
+    global.letterStringsReplace.append(["ie","ae","ey","ay","a"])
+    global.letterStringsReplace.append(["ay","ei","a"])
+    global.letterStringsReplace.append(["ey","ae","ay"])
+    global.letterStringsReplace.append(["e","ie"])
+    global.letterStringsReplace.append(["oo","iu","u"])
+    global.letterStringsReplace.append(["ui","o"])
+    global.letterStringsReplace.append(["ui","i","u"])
+    global.letterStringsReplace.append(["u","oo","o"])
+    global.letterStringsReplace.append(["o","u","ow"])
+    global.letterStringsReplace.append(["o","ui","u"])
+    global.letterStringsReplace.append(["c","k","kk"])
+    global.letterStringsReplace.append(["cc","k","c"])
+    global.letterStringsReplace.append(["kk","c","k","s"])
+    global.letterStringsReplace.append(["f","ph"])
+    global.letterStringsReplace.append(["ff","f"])
+    global.letterStringsReplace.append(["ph","f","ff"])
+    global.letterStringsReplace.append(["g","gh","k"])
+    global.letterStringsReplace.append(["w","h"])
+    global.letterStringsReplace.append(["r","l","ll"])
+    global.letterStringsReplace.append(["l","r","rr"])
+    global.letterStringsReplace.append(["n","mm","mn"])
+    global.letterStringsReplace.append(["nn","m","mn","pn"])
+    global.letterStringsReplace.append(["n","pn","m"])
+    global.letterStringsReplace.append(["p","bb"])
+    global.letterStringsReplace.append(["b","pp"])
+    global.letterStringsReplace.append(["q","kw","cw"])
+    global.letterStringsReplace.append(["s","c","cc"])
+    global.letterStringsReplace.append(["t","dd"])
+    global.letterStringsReplace.append(["d","tt"])
+    global.letterStringsReplace.append(["b","dd"])
+    global.letterStringsReplace.append(["d","bb"])
+    global.letterStringsReplace.append(["v","w"])
+    global.letterStringsReplace.append(["x","ks","cs"])
+    global.letterStringsReplace.append(["cks","ks","x"])
+    global.letterStringsReplace.append(["cs","cks","x"])
+    global.letterStringsReplace.append(["z","s","ss"])
+    global.letterStringsReplace.append(["tch","sh","c"])
+
+    
+    global.letterStringsSingleFind.append("a")
+    global.letterStringsSingleFind.append("b")
+    global.letterStringsSingleFind.append("c")
+    global.letterStringsSingleFind.append("d")
+    global.letterStringsSingleFind.append("e")
+    global.letterStringsSingleFind.append("f")
+    global.letterStringsSingleFind.append("g")
+    global.letterStringsSingleFind.append("h")
+    global.letterStringsSingleFind.append("i")
+    global.letterStringsSingleFind.append("j")
+    global.letterStringsSingleFind.append("k")
+    global.letterStringsSingleFind.append("l")
+    global.letterStringsSingleFind.append("m")
+    global.letterStringsSingleFind.append("n")
+    global.letterStringsSingleFind.append("o")
+    global.letterStringsSingleFind.append("p")
+    global.letterStringsSingleFind.append("q")
+    global.letterStringsSingleFind.append("r")
+    global.letterStringsSingleFind.append("s")
+    global.letterStringsSingleFind.append("t")
+    global.letterStringsSingleFind.append("u")
+    global.letterStringsSingleFind.append("v")
+    global.letterStringsSingleFind.append("w")
+    global.letterStringsSingleFind.append("x")
+    global.letterStringsSingleFind.append("y")
+    global.letterStringsSingleFind.append("z")
+    
+    global.letterStringsSingleReplace.append(["ay","e","i","ae"])
+    global.letterStringsSingleReplace.append(["bb","d","p"])
+    global.letterStringsSingleReplace.append(["ck","k","cc","s"])
+    global.letterStringsSingleReplace.append(["dd","b","p"])
+    global.letterStringsSingleReplace.append(["ee","ie","i"])
+    global.letterStringsSingleReplace.append(["ff","ph","gh"])
+    global.letterStringsSingleReplace.append(["gg","k","j"])
+    global.letterStringsSingleReplace.append(["wh","hh","w"])
+    global.letterStringsSingleReplace.append(["a","e","ie"])
+    global.letterStringsSingleReplace.append(["jj","g","gg"])
+    global.letterStringsSingleReplace.append(["c","ck","kk","cc"])
+    global.letterStringsSingleReplace.append(["ll","r","rr"])
+    global.letterStringsSingleReplace.append(["mm","n","mn"])
+    global.letterStringsSingleReplace.append(["nn","mn","m"])
+    global.letterStringsSingleReplace.append(["oe","oo","ou","ow"])
+    global.letterStringsSingleReplace.append(["pp","b","bb"])
+    global.letterStringsSingleReplace.append(["k","c","ck"])
+    global.letterStringsSingleReplace.append(["rr","l","ll"])
+    global.letterStringsSingleReplace.append(["ss","c","cc"])
+    global.letterStringsSingleReplace.append(["tt","d","dd"])
+    global.letterStringsSingleReplace.append(["u","o","oo"])
+    global.letterStringsSingleReplace.append(["vv","w","ww"])
+    global.letterStringsSingleReplace.append(["u","wh"])
+    global.letterStringsSingleReplace.append(["cks","ks","cs"])
+    global.letterStringsSingleReplace.append(["i","ie","ay"])
+    global.letterStringsSingleReplace.append(["zz","s"])
 }
 
 func Misspell(word: String) -> [String] {    
@@ -320,68 +458,72 @@ func Misspell(word: String) -> [String] {
         return returnAr
     }
     
-    var letterArInd = Int(arc4random_uniform(UInt32(global.letterStrings.count)))
-    var end = letterArInd-1
-    if end == -1 {
-        end = global.letterStrings.count - 1
-    }
-    
-    var letterGroup2 = ""
-    //cycle around the array with a random started index
-    while letterArInd != end {        
-        let letterAr = global.letterStrings[letterArInd]
-        
-        var letterGroupInd = Int(arc4random_uniform(UInt32(letterAr.count)))
-        var end2 = letterGroupInd-1
-        if end2 == -1 {
-            end2 = letterAr.count - 1
+    let letterStringsFind = [global.letterStringsFind,global.letterStringsSingleFind]
+    let letterStringsReplace = [global.letterStringsReplace,global.letterStringsSingleReplace]
+    for x in 0...1 {
+        var letterArInd = Int(arc4random_uniform(UInt32(letterStringsFind[x].count)))
+        var end = letterArInd
+        if end == -1 {
+            end = letterStringsFind[x].count - 1
         }
-        while letterGroupInd != end2 {
-            let letterGroup = letterAr[letterGroupInd]
+        
+        var letterGroup2 = ""
+        //cycle around the array with a random started index
+        repeat  {
+            let letterAr = letterStringsFind[x][letterArInd]
+            
+            let letterGroup = letterAr
             if word.contains(letterGroup) {
-                var underscoreStr = ""
-                for _ in 0...letterGroup.count-1 {
-                    underscoreStr = underscoreStr + "_"
-                }
+                var underscoreStr = "_"
+                //for _ in 0...letterGroup.count-1 {
+                    //underscoreStr = underscoreStr + "_"
+                //}
                 returnAr.append(ReplaceFirstOccurence(myString:word,substring:letterGroup,replaceStr:underscoreStr))
                 
                 var replaceStr = ""
-                var letterGroupInd2 = Int(arc4random_uniform(UInt32(letterAr.count)))
-                var end3 = letterGroupInd2-1
+                var letterGroupInd2 = Int(arc4random_uniform(UInt32(letterStringsReplace[x][letterArInd].count)))
+                var end3 = letterGroupInd2
                 if end3 == -1 {
-                    end3 = letterAr.count - 1
+                    end3 = letterStringsReplace[x][letterArInd].count - 1
                 }
-                while letterGroupInd2 != end3 {
-                    letterGroup2 = letterAr[letterGroupInd2]
+                print("First_lgi2=",letterGroupInd2," First_end3=",end3," count=",letterStringsReplace[x][letterArInd].count)
+                repeat  {
+                    letterGroup2 = letterStringsReplace[x][letterArInd][letterGroupInd2]
+                    print("First_letterGroup2=",letterGroup2)
                     if letterGroup2 != letterGroup {
                         replaceStr = letterGroup2
+                        print("FIRST__RS1=",replaceStr)
                         break
                     }
-                    letterGroupInd2 = (letterGroupInd2 + 1) % letterAr.count
-                }
+                    letterGroupInd2 = (letterGroupInd2 + 1) % letterStringsReplace[x][letterArInd].count
+                } while letterGroupInd2 != end3
                 returnAr.append(ReplaceFirstOccurence(myString:word,substring:letterGroup,replaceStr:replaceStr))
                
-                letterGroupInd2 = Int(arc4random_uniform(UInt32(letterAr.count)))
-                end3 = letterGroupInd2-1
+                letterGroupInd2 = Int(arc4random_uniform(UInt32(letterStringsReplace[x][letterArInd].count)))
+                end3 = letterGroupInd2
                 if end3 == -1 {
-                    end3 = letterAr.count - 1
+                    end3 = letterStringsReplace[x][letterArInd].count - 1
                 }
-                while letterGroupInd2 != end3 {
-                    letterGroup2 = letterAr[letterGroupInd2]
+                print("lgi2=",letterGroupInd2," end3=",end3," count=",letterStringsReplace[x][letterArInd].count)
+                repeat {
+                    letterGroup2 = letterStringsReplace[x][letterArInd][letterGroupInd2]
+                    print("second_letterGroup2=",letterGroup2)
                     if letterGroup2 != letterGroup && letterGroup2 != replaceStr {
+                        print("RS1=",replaceStr)
                         replaceStr = letterGroup2
+                        print("RS2=",replaceStr)
                         break
                     }
-                    letterGroupInd2 = (letterGroupInd2 + 1) % letterAr.count
-                }
+                    letterGroupInd2 = (letterGroupInd2 + 1) % letterStringsReplace[x][letterArInd].count
+                } while letterGroupInd2 != end3
                 
                 returnAr.append(ReplaceFirstOccurence(myString:word,substring:letterGroup,replaceStr:replaceStr))
             
                 return returnAr
             }
-            letterGroupInd = (letterGroupInd + 1) % letterAr.count
-        }
-        letterArInd = (letterArInd + 1) % global.letterStrings.count
+            
+            letterArInd = (letterArInd + 1) % letterStringsFind[x].count
+        } while letterArInd != end
     }
     
     return returnAr

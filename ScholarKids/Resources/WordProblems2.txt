@@ -1,9 +1,9 @@
 Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
-There are \A items.  Alice took \Y and Student took the rest.  How many did Student take?#\Y#\A-\Y
+There are \A items.  Alice took \Y and Student took the rest.  How many did they take?#\Y#\A-\Y
 Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
 Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
-There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did Student take?#\Y#\W#\A-\Y#\B-\W
-There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did Alice take?#\A-\Y#\B-\W#\Y#\W
+There are \A items and \B items2.  Alice took \Y items and \W items2 and Student took the rest.  How many did they take?#\Y#\W#\A-\Y#\B-\W
+There are \A items and \B items2.  Student took \Y items and \W items2 and Alice took the rest.  How many did they take?#\A-\Y#\B-\W#\Y#\W
 Alice had \E items and gave Student half (1/2).  How many items did Alice have left?#\E/2#\E/2
 Alice had \M3 items and gave Student one-third (1/3).  How many items did Alice have left?#\M3*2/3#\M3/3
 Alice had \M3 items and gave Student two-thirds (2/3).  How many items did Alice have left?#\M3/3#\M3*2/3
@@ -11,13 +11,13 @@ Student had \E items and gave Alice half (1/2).  How many items did Student have
 Student had \M3 items and gave Alice one-third (1/3).  How many items did Student have left?#\M3/3#\M3*2/3
 Student had \M3 items and gave Alice two-thirds (2/3).  How many items did Student have left?#\M3*2/3#\M3/3
 Student had \X items and gave Alice \Y.  How many items did Alice have left?#\Y#\X-\Y
-There are \A items.  Student took \Y and Alice took the rest.  How many did Alice take?#\A-\Y#\Y
-There are \Q2 items.  Alice took half and Student took the rest.  How many did Alice and Student take?#\Q2/2#\Q2/2
-There are \Q3 items.  Alice took one-third (1/3) and Student took the rest.  How many did Alice and Student take?#\Q3/3#\Q3*2/3
-There are \Q3 items.  Alice took two-thirds (2/3) and Student took the rest.  How many did Alice and Student take?#\Q3*2/3#\Q3/3
-There are \Q3 items.  Alice took one-third (1/3) and Student took one-third (1/3) as well.  How many did Alice and Student take?#\Q3/3#\Q3/3
-There are \Q3 items and \V3 items2.  Alice took one-third (1/3) of the items and one-third (1/3) of the items2 and Student took one-third (1/3) of the items and one-third (1/3) of the items2 as well.  How many did Alice and Student take?#\Q3/3#\V3/3#\Q3/3#\V3/3
-There are \Q3 items and \V3 items2.  Alice took one-third (1/3) of the items and one-third (1/3) of the items2 and Student took the rest.  How many did Alice and Student take?#\Q3/3#\V3/3#\Q3*2/3#\V3*2/3
-There are \Q3 items and \V3 items2.  Student took one-third (1/3) of the items and one-third (1/3) of the items2 and Alice took the rest.  How many did Alice and Student take?#\Q3*2/3#\V3*2/3#\Q3/3#\V3/3
+There are \A items.  Student took \Y and Alice took the rest.  How many did they take?#\A-\Y#\Y
+There are \Q2 items.  Alice took half and Student took the rest.  How many did they take?#\Q2/2#\Q2/2
+There are \Q3 items.  Alice took one-third (1/3) and Student took the rest.  How many did they take?#\Q3/3#\Q3*2/3
+There are \Q3 items.  Alice took two-thirds (2/3) and Student took the rest.  How many did they take?#\Q3*2/3#\Q3/3
+There are \Q3 items.  Alice took one-third (1/3) and Student took one-third (1/3) as well.  How many did they take?#\Q3/3#\Q3/3
+There are \Q3 items and \V3 items2.  Alice took one-third (1/3) of the items and one-third (1/3) of the items2 and Student took one-third (1/3) of the items and one-third (1/3) of the items2 as well.  How many did they take?#\Q3/3#\V3/3#\Q3/3#\V3/3
+There are \Q3 items and \V3 items2.  Alice took one-third (1/3) of the items and one-third (1/3) of the items2 and Student took the rest.  How many did they take?#\Q3/3#\V3/3#\Q3*2/3#\V3*2/3
+There are \Q3 items and \V3 items2.  Student took one-third (1/3) of the items and one-third (1/3) of the items2 and Alice took the rest.  How many did they take?#\Q3*2/3#\V3*2/3#\Q3/3#\V3/3
 Student had \M3 items and \R3 items2 and gave Alice one-third (1/3) of the items and one-third (1/3) of the items2.  How many items and items2 did Student have left?#\M3/3#\R3/3#\M3*2/3#\R3*2/3
 Alice had \M3 items and \R3 items2 and gave Student one-third (1/3) of the items and one-third (1/3) of her items2.  How many items and items2 did Alice have left?#\M3*2/3#\R3*2/3#\M3/3#\R3/3

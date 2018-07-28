@@ -249,7 +249,7 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 recommendedLevel["Spelling"] = 0
-                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
                                         if val >= global.minimumCorrectToUnlock {
                                             recommendedLevel["Spelling"] = i + 1
@@ -284,7 +284,7 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 recommendedLevel["Vocabulary"] = 0
-                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
                                         if val >= global.minimumCorrectToUnlock {
                                             recommendedLevel["Vocabulary"] = i + 1
@@ -319,7 +319,7 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 recommendedLevel["Grammar"] = 0
-                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
                                         if val >= global.minimumCorrectToUnlock {
                                             recommendedLevel["Grammar"] = i + 1
@@ -354,7 +354,7 @@ class LevelSelectScene: SKScene {
                                     }
                                 }
                                 recommendedLevel["Math"] = 0
-                                for i in stride(from: data.count-1, to: 0, by: -1) {
+                                for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
                                         if val >= global.minimumCorrectToUnlock {
                                             recommendedLevel["Math"] = i + 1
@@ -383,8 +383,7 @@ class LevelSelectScene: SKScene {
         }
     }
     
-    func ScrollAtLocation(location: CGPoint,location2: CGPoint,scrollLeft: Bool)
-    {
+    func ScrollAtLocation(location: CGPoint,location2: CGPoint,scrollLeft: Bool) {
         var scrollBoxInd = -1
         var ind = 0
         for scrollBox in scrollBoxAr {
@@ -436,7 +435,6 @@ class LevelSelectScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
             return
         }
