@@ -340,7 +340,7 @@ class WordSelectScene: SKScene {
     
     func DefaultSentenceColors() {
         for label in labelAr {
-            label.fontColor = global.blue
+            label.fontColor = global.lightBlue
         }
     }
     
@@ -377,7 +377,7 @@ class WordSelectScene: SKScene {
             if labelNode.name == "word"  {
                 var correctAnswerSelected = false
                 for correctAnswer in correctAnswerAr {
-                    if labelNode == labelAr[correctAnswer] {
+                    if labelNode.text == labelAr[correctAnswer].text {
                         CorrectAnswerSelected()
                         correctAnswerSelected = true
                     }
