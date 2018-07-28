@@ -1,289 +1,608 @@
-the
-of
-and
-that
-cat
-mat
-sat
-hat
-to
-in
-is
-you
-man
-can
-ran
-pan
-than
-it
-he
-was
-map
-cap
-nap
-tap
-for
-on
-are
-as
-back
-sack
-black
-snack
-with
-his
-they
-pit
-sit
-hit
-bit
-fit
-at
-be
-this
-have
-big
-pig
-dig
-wig
-from
-or
-one
-had
-pin
-thin
-spin
-skin
-by
-words
-but
-not
-sick
-kick
-brick
-stick
-what
-all
-were
-we
-hot
-pot
-not
-lot
-when
-your
-pop
-said
-mop
-top
-hop
-drop
-there
-use
-an
-each
-job
-mob
-cob
-rob
-which
-she
-do
-how
-sock
-rock
-block
-clock
-their
-if
-will
-up
-cut
-nut
-hut
-shut
-other
-about
-out
-many
-bug
-hug
-rug
-mug
-then
-them
-these
-so
-sun
-run
-fun
-bun
-some
-her
-would
-make
-duck
-luck
-suck
-stuck
-like
-him
-into
-time
-pet
-get
-wet
-let
-has
-look
-two
-more
-red
-bed
-fed
-sled
-write
-go
-see
-number
-men
-hen
-pen
-ten
-no
-bell
-could
-people
-tell
-fell
-sell
-well
-words
-my
-ant
-first
-water
-bad
-bat
+jealous
+feeling or showing envy of someone or their achievements and advantages
+starve
+(of a person or animal) suffer severely or die from hunger
+symbol
+a mark or character used as a conventional representation of an object, function, or process
+chilly
+uncomfortably cool or cold
+cheer
+shout for joy or in praise or encouragement
+treasure
+a quantity of precious metals, gems, or other valuable objects
+struggled
+make forceful or violent efforts to get free of restraint or constriction
+atlas
+a book of maps or charts
+steer
+(of a person) guide or control the movement of (a vehicle, vessel, or aircraft), for example by turning a wheel or operating a rudder
+remark
+say something as a comment; mention
+limit
+a point or level beyond which something does not or may not extend or pass
+cage
+a structure of bars or wires in which birds or other animals are confined
+reverse
+move backward
+adopt
+legally take another's child and bring it up as one's own
+grateful
+feeling or showing an appreciation of kindness; thankful
+plunge
+jump or dive quickly and energetically
+opposite
+having a position on the other or further side of something; facing something, especially something of the same type
+actual
+existing in fact; typically as contrasted with what was intended, expected, or believed
+compass
+an instrument containing a magnetized pointer that shows the direction of magnetic north and bearings from it
+cliff
+a steep rock face, especially at the edge of the sea
+greedy
+having or showing an intense and selfish desire for something, especially wealth or power
+defend
+resist an attack made on (someone or something); protect from harm or danger
+howl
+a long, loud, doleful cry uttered by an animal such as a dog or wolf
+whirl
+move or cause to move rapidly around and around
+marsh
+an area of low-lying land that is flooded in wet seasons or at high tide, and typically remains waterlogged at all times
+community
+a group of people living in the same place or having a particular characteristic in common
+base
+the lowest part or edge of something, especially the part on which it rests or is supported
+exclaim
+cry out suddenly, especially in surprise, anger, or pain
+trunk
+the main woody stem of a tree as distinct from its branches and roots
+forest
+a large area covered chiefly with trees and undergrowth
+bolts
+a metal pin or bar, in particular
+explore
+travel in or through (an unfamiliar country or area) in order to learn about or familiarize oneself with it
+protect
+keep safe from harm or injury
+custom
+a traditional and widely accepted way of behaving or doing something that is specific to a particular society, place, or time
+motor
+a machine, especially one powered by electricity or internal combustion, that supplies motive power for a vehicle or for some other device with moving parts
+spring
+move or jump suddenly or rapidly upward or forward
+exactly
+without discrepancy (used to emphasize the accuracy of a figure or description)
+startle
+cause (a person or animal) to feel sudden shock or alarm
+thick
+with opposite sides or surfaces that are a great or relatively great distance apart
+drenched
+wet thoroughly; soak
+construct
+kənˈstrəkt/
+mention
+refer to something briefly and without going into detail
+dodge
+avoid (someone or something) by a sudden quick movement
+splendid
+magnificent; very impressive
+loosen
+make (something tied, fastened, or fixed in place) less tight or firm
+muddy
+covered in or full of mud
+bay
+a broad inlet of the sea where the land curves inward
+young
+having lived or existed for only a short time
+enormous
+very large in size, quantity, or extent
+patient
+able to accept or tolerate delays, problems, or suffering without becoming annoyed or anxious
+upset
+make (someone) unhappy, disappointed, or worried
+surround
+be all around (someone or something)
+dentist
+a person qualified to treat the diseases and conditions that affect the teeth and gums, especially the repair and extraction of teeth
+knight
+(in the Middle Ages) a man who served his sovereign or lord as a mounted soldier in armor
+wiggle
+move or cause to move up and down or from side to side with small rapid movements
+pattern
+a repeated decorative design
+glance
+take a brief or hurried look
+silent
+not making or accompanied by any sound
+expensive
+costing a lot of money
+conductor
+a person who directs the performance of an orchestra or choir
+burst
+(of a container) break suddenly and violently apart, spilling the contents, typically as a result of an impact or internal pressure
+rusty
+(of a metal object) affected by rust
+celebrate
+acknowledge (a significant or happy day or event) with a social gathering or enjoyable activity
+crash
+(of a vehicle) collide violently with an obstacle or another vehicle
+equal
+being the same in quantity, size, degree, or value
 glad
-mad
-been
-called
-who
-oil
-win
-lip
-kid
-ship
-dog
-now
-find
-long
-mom
-fox
-chop
-shop
-down
-day
-did
-set
-bus
-truck
-must
-cup
-come
-made
-may
-part
-web
-legs
-less
-shell
-game
-page
-race
-tape
-name
-shake
-tame
-animal
-way
-pay
-stay
-clay
-play
-tray
-roots
-tree
-nice
-drive
-mine
-wise
-dime
-five
-lime
-nest
-dry
-cry
-sky
-shy
-spy
-try
-light
-soil
-nose
-bone
-code
-spoke
-hole
-note
-weather
-rose
-low
-snow
-grow
-flow
-show
-blow
-above
-below
-coat
-boat
-float
-soak
-load
-soap
-stop
-trip
-hook
-took
-good
-stood
-wood
-foot
-gas
-heat
-cow
-plow
-brown
-town
-clown
-tower
-sure
-vote
-moon
-spoon
-tooth
-broom
-roof
-pool
-huge
-ice
-deep
-feel
-green
-seed
-need
-free
-grass
+pleased; delighted
+delicious
+highly pleasant to the taste
+sink
+go down below the surface of something, especially of a liquid; become submerged
+costume
+ˈkäsˌt(y)o͞om/
+mountain
+a large natural elevation of the earth's surface rising abruptly from the surrounding level; a large steep hill
+grin
+smile broadly, especially in an unrestrained manner and with the mouth open
+gleaming
+shine brightly, especially with reflected light
+country
+a nation with its own government, occupying a particular territory
+month
+each of the twelve named periods into which a year is divided
+flee
+run away from a place or situation of danger
+sibling
+each of two or more children or offspring having one or both parents in common; a brother or sister
+champion
+a person who has defeated or surpassed all rivals in a competition, especially in sports
+peaceful
+free from disturbance; tranquil
+ripe
+(of fruit or grain) developed to the point of readiness for harvesting and eating
+whimper
+(of a person or animal) make a series of low, feeble sounds expressive of fear, pain, or discontent
+crowded
+(of a space) full of people, leaving little or no room for movement; packed
+pond
+a small body of still water formed naturally or by hollowing or embanking
+hoof
+the horny part of the foot of an ungulate animal, especially a horse
+misty
+full of, covered with, or accompanied by mist
+selfish
+(of a person, action, or motive) lacking consideration for others; concerned chiefly with one's own personal profit or pleasure
+cheat
+act dishonestly or unfairly in order to gain an advantage, especially in a game or examination
+decision
+a conclusion or resolution reached after consideration
+sly
+having or showing a cunning and deceitful nature
+bumpy
+(of a surface) uneven, with many patches raised above the rest
+melt
+make or become liquefied by heat
+miserable
+(of a person) wretchedly unhappy or uncomfortable
+terrified
+cause to feel extreme fear
+proud
+feeling deep pleasure or satisfaction as a result of one's own achievements, qualities, or possessions or those of someone with whom one is closely associated
+shriek
+utter a high-pitched piercing sound or words, especially as an expression of terror, pain, or excitement
+ache
+a continuous or prolonged dull pain in a part of one's body
+alarm
+an anxious awareness of danger
+slide
+move along a smooth surface while maintaining continuous contact with it
+polite
+having or showing behavior that is respectful and considerate of other people
+giggle
+laugh lightly in a nervous, affected, or silly manner
+check
+examine (something) in order to determine its accuracy, quality, or condition, or to detect the presence of something
+hobby
+an activity done regularly in one's leisure time for pleasure
+serious
+(of a subject, state, or activity) demanding careful consideration or application
+fasten
+close or join securely
+sprinkle
+scatter or pour small drops or particles of a substance over (an object or surface)
+daily
+done, produced, or occurring every day or every weekday
+lazy
+unwilling to work or use energy
+simple
+easily understood or done; presenting no difficulty
+winter
+the coldest season of the year, in the northern hemisphere from December to February and in the southern hemisphere from June to August
+freezing
+below 32°F (0°C)
+fear
+an unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat
+museum
+a building in which objects of historical, scientific, artistic, or cultural interest are stored and exhibited
+flipper
+a broad flat limb without fingers, used for swimming by various sea animals such as seals, whales, and turtles
+striped
+marked with or having stripes
+wave
+move one's hand to and fro in greeting or as a signal
+covered
+put something such as a cloth or lid on top of or in front of (something) in order to protect or conceal it
+sparkle
+shine brightly with flashes of light
+giant
+an imaginary or mythical being of human form but superhuman size
+stare
+look fixedly or vacantly at someone or something with one's eyes wide open
+shaky
+shaking or trembling
+polish
+make the surface of (something) smooth and shiny by rubbing it
+footprint
+the impression left by a foot or shoe on the ground or a surface
+curved
+having the form of a curve; bent
+divide
+separate or be separated into parts
+delighted
+feeling or showing great pleasure
+bend
+shape or force (something straight) into a curve or angle
+drowsy
+sleepy and lethargic; half asleep
+dangle
+hang or swing loosely
+appear
+come into sight; become visible or noticeable, typically without visible agent or apparent cause
+cradle
+an infant's bed or crib, typically one mounted on rockers
+decorate
+make (something) look more attractive by adding extra items or images to it
+bashful
+reluctant to draw attention to oneself; shy
+pace
+a single step taken when walking or running
+cave
+a large underground chamber, typically of natural origin, in a hillside or cliff
+rapid
+happening in a short time or at a fast pace
+belong
+be the property of
+passenger
+a traveler on a public or private conveyance other than the driver, pilot, or crew
+invitation
+a written or verbal request inviting someone to go somewhere or to do something
+disappear
+cease to be visible
+fluffy
+of, like, or covered with fluff
+round
+shaped like or approximately like a circle or cylinder
+appetite
+a natural desire to satisfy a bodily need, especially for food
+sniff
+draw in air audibly through the nose to detect a smell, to stop it from running, or to express contempt
+gust
+a brief, strong rush of wind
 summer
+the warmest season of the year, in the northern hemisphere from June to August and in the southern hemisphere from December to February
+tomorrow
+on the day after today
+glum
+looking or feeling dejected; morose
+race
+a competition between runners, horses, vehicles, boats, etc , to see which is the fastest in covering a set course
+cabin
+a private room or compartment on a ship
+bundle
+a collection of things, or a quantity of material, tied or wrapped up together
+buzz
+a low, continuous humming or murmuring sound, made by or similar to that made by an insect
+gallop
+the fastest pace of a horse or other quadruped, with all the feet off the ground together in each stride
+deserve
+do something or have or show qualities worthy of (reward or punishment)
+filthy
+disgustingly dirty
+beak
+a bird's horny projecting jaws; a bill
+pilot
+a person who operates the flying controls of an aircraft
+heap
+an untidy collection of things piled up haphazardly
+harm
+physical injury, especially that which is deliberately inflicted
+reach
+stretch out an arm in a specified direction in order to touch or grasp something
+edge
+the outside limit of an object, area, or surface; a place or part farthest away from the center of something
+basket
+a container used to hold or carry things, typically made from interwoven strips of cane or wire
+trust
+firm belief in the reliability, truth, ability, or strength of someone or something
+goal
+a pair of posts linked by a crossbar and often with a net attached behind it, forming a space into or over which the ball has to be sent in order to score
+affordable
+inexpensive; reasonably priced
+artist
+a person who produces paintings or drawings as a profession or hobby
+leak
+(of a container or covering) accidentally lose or admit contents, especially liquid or gas, through a hole or crack
+age
+the length of time that a person has lived or a thing has existed
+market
+a regular gathering of people for the purchase and sale of provisions, livestock, and other commodities
+sob
+cry noisily, making loud, convulsive gasps
+laundry
+clothes and linens that need to be washed or that have been newly washed
+comfort
+a state of physical ease and freedom from pain or constraint
+fog
+"the collision occurred in thick fog"
+herd
+a large group of animals, especially hoofed mammals, that live, feed, or migrate together or are kept together as livestock
+peck
+(of a bird) strike or bite something with its beak
+drawer
+a boxlike storage compartment without a lid, made to slide horizontally in and out of a desk, chest, or other piece of furniture
+lively
+full of life and energy; active and outgoing
+sail
+a piece of material extended on a mast to catch the wind and propel a boat, ship, or other vessel
+ship
+a vessel larger than a boat for transporting people or goods by sea
+sneaky
+furtive; sly
+narrow
+(especially of something that is considerably longer or higher than it is wide) of small width
+stack
+a pile of objects, typically one that is neatly arranged
+week
+a period of seven days
+artistic
+having or revealing natural creative skill
+pest
+a destructive insect or other animal that attacks crops, food, livestock, etc
+steep
+(of a slope, flight of stairs, angle, ascent, etc ) rising or falling sharply; nearly perpendicular
+atmosphere
+the envelope of gases surrounding the earth or another planet
+grip
+take and keep a firm hold of; grasp tightly
+alone
+having no one else present; on one's own
+chimney
+a vertical channel or pipe that conducts smoke and combustion gases up from a fire or furnace and typically through the roof of a building
+cozy
+giving a feeling of comfort, warmth, and relaxation
+library
+a building or room containing collections of books, periodicals, and sometimes films and recorded music for people to read, borrow, or refer to
+pain
+physical suffering or discomfort caused by illness or injury
+healthy
+in good health
+gentle
+(of a person) mild in temperament or behavior; kind or tender
+warm
+of or at a fairly or comfortably high temperature
+chat
+talk in a friendly and informal way
+glow
+give out steady light without flame
+pair
+a set of two things used together or regarded as a unit
+shore
+the land along the edge of a sea, lake, or other large body of water
+bloom
+a flower, especially one cultivated for its beauty
+shade
+comparative darkness and coolness caused by shelter from direct sunlight
+follow
+go or come after (a person or thing proceeding ahead); move or travel behind
+note
+a brief record of facts, topics, or thoughts, written down as an aid to memory
+cue
+a thing said or done that serves as a signal to an actor or other performer to enter or to begin their speech or performance
+rough
+having an uneven or irregular surface; not smooth or level
+pointy
+having a pointed tip or end
+chore
+a routine task, especially a household one
+honest
+free of deceit and untruthfulness; sincere
+obey
+comply with the command, direction, or request of (a person or a law); submit to the authority of
+plan
+a detailed proposal for doing or achieving something
+apologize
+express regret for something that one has done wrong
+firefly
+a soft-bodied beetle related to the glowworm, the winged male and flightless female of which both have luminescent organs  The light is chiefly produced as a signal between the sexes, especially in flashes
+soapy
+containing or covered with soap
+spotted
+marked or decorated with spots
+timid
+showing a lack of courage or confidence; easily frightened
+promise
+a declaration or assurance that one will do a particular thing or that a particular thing will happen
+cranky
+North American
+autumn
+the third season of the year, when crops and fruits are gathered and leaves fall
+knob
+a rounded lump or ball, especially at the end or on the surface of something
+tent
+a portable shelter made of cloth, supported by one or more poles and stretched tight by cords or loops attached to pegs driven into the ground
+blush
+develop a pink tinge in the face from embarrassment or shame
+exhausted
+drained of one's physical or mental resources; very tired
+illustrator
+a person who draws or creates pictures for magazines, books, advertising, etc
+bolt
+a metal pin or bar, in particular
+dusty
+covered with, full of, or resembling dust
+batch
+a quantity or consignment of goods produced at one time
+farmer
+a person who owns or manages a farm
+scrub
+rub (someone or something) hard so as to clean them, typically with a brush and water
+silky
+of or resembling silk, especially in being soft, fine, and lustrous
+caterpillar
+the larva of a butterfly or moth, having a segmented wormlike body with three pairs of true legs and several pairs of leglike appendages
+flat
+smooth and even; without marked lumps or indentations
+fix
+fasten (something) securely in a particular place or position
+leaf
+a flattened structure of a higher plant, typically green and bladelike, that is attached to a stem directly or via a stalk  
+wish
+feel or express a strong desire or hope for something that is not easily attainable; want something that cannot or probably will not happen
+relax
+make or become less tense or anxious
+mask
+a covering for all or part of the face, worn as a disguise, or to amuse or terrify other people
+creak
+(of an object, typically a wooden one) make a harsh, high-pitched sound when being moved or when pressure or weight is applied
+caution
+care taken to avoid danger or mistakes
+remove
+take (something) away or off from the position occupied
+fancy
+elaborate in structure or decoration
+care
+the provision of what is necessary for the health, welfare, maintenance, and protection of someone or something
+trade
+the action of buying and selling goods and services
+injury
+an instance of being injured
+borrow
+take and use (something that belongs to someone else) with the intention of returning it
+rotten
+suffering from decay
+adjust
+alter or move (something) slightly in order to achieve the desired fit, appearance, or result
+row
+a number of people or things in a more or less straight line
+supplies
+make (something needed or wanted) available to someone; provide
+half
+either of two equal or corresponding parts into which something is or can be divided
+applause
+approval or praise expressed by clapping
+croak
+a deep hoarse sound made by a frog or a crow
+blink
+shut and open the eyes quickly
+slippery
+(of a surface or object) difficult to hold firmly or stand on because it is smooth, wet, or slimy
+centaur
+a creature with the head, arms, and torso of a man and the body and legs of a horse
+return
+come or go back to a place or person
+hide
+put or keep out of sight; conceal from the view or notice of others
+yesterday
+on the day before today
+modern
+relating to the present or recent times as opposed to the remote past
+tangled
+twisted together untidily; matted
+pretend
+speak and act so as to make it appear that something is the case when in fact it is not
+complain
+express dissatisfaction or annoyance about a state of affairs or an event
+president
+the elected head of a republican state
+spiral
+winding in a continuous and gradually widening (or tightening) curve, either around a central point on a flat plane or about an axis so as to form a cone
+agree
+have the same opinion about something; concur
+scene
+the place where an incident in real life or fiction occurs or occurred
+doubt
+a feeling of uncertainty or lack of conviction
+grab
+grasp or seize suddenly and roughly
+repeat
+say again something one has already said
+dainty
+delicately small and pretty
+blush
+develop a pink tinge in the face from embarrassment or shame
+include
+comprise or contain as part of a whole
+attach
+fasten; join
+hatch
+an opening in the deck of a boat or ship leading to the cabin or a lower level, especially a hold
+behave
+act or conduct oneself in a specified way, especially toward others
+slip
+(of a person or animal) slide unintentionally for a short distance, typically losing one's balance or footing
+gather
+come together; assemble or accumulate
+squirm
+wriggle or twist the body from side to side, especially as a result of nervousness or discomfort
+yank
+pull with a jerk
+groan
+make a deep inarticulate sound in response to pain or despair
+discard
+get rid of (someone or something) as no longer useful or desirable
+observe
+notice or perceive (something) and register it as being significant
+privilege
+a special right, advantage, or immunity granted or available only to a particular person or group of people
+misery
+a state or feeling of great distress or discomfort of mind or body
+soil
+the upper layer of earth in which plants grow, a black or dark brown material typically consisting of a mixture of organic remains, clay, and rock particles
+dart
+a small pointed missile that can be thrown or fired
+glossy
+shiny and smooth
+perform
+carry out, accomplish, or fulfill (an action, task, or function)
+coward
+a person who lacks the courage to do or endure dangerous or unpleasant things
+denied
+state that one refuses to admit the truth or existence of
+dew
+tiny drops of water that form on cool surfaces at night, when atmospheric vapor condenses
+restart
+start again
+nation
+a large aggregate of people united by common descent, history, culture, or language, inhabiting a particular country or territory
+crowd
+a large number of people gathered together, typically in a disorganized or unruly way
+predict
+say or estimate that (a specified thing) will happen in the future or will be a consequence of something
+scold
+remonstrate with or rebuke (someone) angrily
+settle
+resolve or reach an agreement about (an argument or problem)
+resident
+a person who lives somewhere permanently or on a long-term basis
+calm
+(of a person, action, or manner) not showing or feeling nervousness, anger, or other emotions
+spoil
+diminish or destroy the value or quality of
+harsh
+unpleasantly rough or jarring to the senses
+enable
+give (someone or something) the authority or means to do something
+damp
+slightly wet
+magnificent
+impressively beautiful, elaborate, or extravagant; striking
+wander
+walk or move in a leisurely, casual, or aimless way
+woe
+great sorrow or distress

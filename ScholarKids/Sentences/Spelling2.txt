@@ -1,582 +1,608 @@
-over
-new
-art
-take
-only
-car
-park
-hard
-barn
-card
-shark
-dark
-oh
-eyes
-date
-hold
-little
-work
-know
-place
-years
-rain
-mail
-wait
-paint
-chant
-paid
-sail
-goods
-services
-consumer
-producer
-live
-me
-cool
-give
-most
-saw
-law
-raw
-jar
-straw
-draw
-country
-ocean
-title
-skip
-change
-very
-after
-things
-our
-just
-girl
-dirt
-shirt
-third
-thirst
-birth
-yellow
-add
-got
-life
-cycle
-pole
-wire
-fight
-seen
-eat
-right
-might
-sight
-tight
-flight
-bright
-lost
-far
-push
-pull
-resource
-say
-great
-four
-help
-through
-gold
-cold
-fold
-mold
-sold
-told
-subtract
-answer
-baby
-parent
-stages
-late
-before
-line
-side
-too
-loud
-round
-found
-shout
-count
-gave
-urban
-suburban
-rural
-community
-touch
-means
-old
-any
-same
-corn
-blue
-true
-clue
-glue
-due
-argue
-listen
-song
-cause
-speak
-kind
-boy
-soon
-came
-want
-eggs
-nurse
-curve
-turn
-burn
-curl
-purse
-growth
-affect
-fish
-mammal
-fruit
-also
-beat
-seat
-three
-small
-mean
-clean
-peak
-dream
-beach
-team
-length
-weight
-height
-meat
-distance
-wear
-put
-end
-does
-another
-head
-bread
-dead
-sweat
-citizen
-spread
-deal
-room
-break
-weather
-soil
-well
-large
-cook
-sent
-even
-grew
-stew
-drew
-chew
-few
-brew
-ever
-unit
-violet
-color
-shape
-step
-because
-body
-here
-fall
-germ
-herd
-clerk
-nerve
-serve
-fern
-food
-value
-build
-flat
-ago
-plan
-went
-warm
-read
-lie
-short
-core
-sport
-report
-port
-done
-solid
-liquid
-rise
-size
-door
-farm
-fire
-home
-us
-move
-bump
-stump
-clump
-stamp
-clamp
-camp
-pride
-test
-event
-love
-guess
-try
-rest
-hand
-seven
-again
-fast
-past
-last
-cost
-blast
-cast
-oral
-box
-fuel
-record
-full
-feet
-off
-led
-spell
-air
-bend
-send
-mind
-offend
-sand
-land
-wind
-yes
-week
-share
-fourth
-away
-animal
-house
-point
-spot
-desk
-mask
-task
-ask
-tusk
-disk
-hero
-able
-monument
-pair
-multiply
-letter
-mother
-ball
-rich
-study
-much
-such
-patch
-search
-march
-starch
-rotate
-tornado
-funnel
-group
-six
-still
-learn
-should
-America
-world
-hush
-slush
-dash
-wash
-wish
-dish
-money
-coin
-bill
-cents
-dollars
-boxes
-foxes
-messes
-dishes
-couches
-brushes
-bushes
-rushes
-wishes
-washes
-dashes
-find
-whole
-fear
-fair
-flutter
-thing
-string
-sing
-bring
-spring
-ring
-king
-sting
-wings
-cling
-sling
-chart
-wall
-holiday
-freedom
-road
-digraphs
-graph
-laugh
-paragraph
-tough
-rough
-enough
+settle
+resolve or reach an agreement about (an argument or problem)
+volume
+the amount of space taken up by something; an amount of something
+technology
+the use of scientific knowledge for practical purposes, with special reference to its use in industry; applied sciences
+stark
+very obvious; very plain and easily seen
+robust
+healthy; hardy or strong
+truant
+a student who avoids school without permission; a lazy person
+survey
+a poll used to measure public opinion or the incidence of something in a society; an examination of a subject or a situation
+tradition
+heritage; behavior and customs that are passed from one generation to the next
+annex
+to take control or possession over a piece of land without permission and often by the use of force; to add or attach 3.
+commission
+a fee or payment for goods or services rendered; a request to create a specific work for someone
+temporary
+limited; not lasting or permanent
+obtuse
+annoyingly insensitive or slow to understand explanations or situations quickly
+responsible
+having an obligation to do something, or having control over or care for someone, as part of one's job or role
+style
+a way of doing or expressing something; fashion
+precinct
+a division of a city for policing or political reasons; a specific area which is enclosed or limited, most often by walls
+require
+to make something obligatory; to expect
+precise
+accurate; exact
+relaxed
+not strict; free
+grace
+simple elegance or refinement of movement
+sequence
+the order or pattern in which things happen or take place; a set of things that is put in a specific order
+sum
+the total of a calculation; an amount of money
+reverse
+to overturn; to send in the opposite direction
+assure
+to assure someone that something is true, in hopes of getting rid of doubts; to confidently promise
+smooth
+having an even and regular surface or consistency; free from perceptible projections, lumps, or indentations
+respect
+a feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements
 triumph
-dough
-though
-cough
-force
-feather
-wide
-store
-gravity
-model
-digraph
-bath
-math
-moth
-sloth
-breath
-mouth
-path
-cloth
-tooth
-death
-months
-hour
+a great victory or achievement
+capacity
+the ability to do something; the maximum number of things that a place or object can hold
+enforce
+to make someone comply with a law or a rule; to cause or force something
+focus
+the center point of something; the center of attention
+nervous
+easily agitated or alarmed; tending to be anxious; highly strung
+cheer
+shout for joy or in praise or encouragement
+suitable
+right or appropriate for a particular person, purpose, or situation
+disease
+a disorder of structure or function in a human, animal, or plant, especially one that produces specific signs or symptoms or that affects a specific location
+steady
+firmly fixed, supported, or balanced; not shaking or moving
+rigid
+stiff; hard
+adversity
+a difficult, unlucky, or unpleasant situation, condition, or event; misfortune
+rare
+(of an event, situation, or condition) not occurring very often
+leader
+the person who leads or commands a group, organization, or country
+resident
+a person who lives somewhere permanently or on a long-term basis
+chapter
+a section of a book or a written work; a branch of a society or group
+intelligent
+having or showing intelligence, especially of a high level
+calf
+a young bovine animal, especially a domestic cow or bull in its first year
+parch
+to scorch the surface of something through exposure to light or heat; to cause something to become extremely dry
+ability
+the capacity to do something; a skill or talent in a specific area
+astronomy
+the branch of science that deals with celestial objects, space, and the physical universe as a whole
+weak
+lacking the power to perform physically demanding tasks; lacking physical strength and energy
+demonstrate
+to deliberately show or prove; to make clear
 minute
-second
-year
-mile
-digraph
-row
+extremely small
+highlight
+to stress something; to make something appear more important
+constant
+unchanging; firm or resolute
+mural
+a painting or other work of art executed directly on a wall
+motor
+a machine, especially one powered by electricity or internal combustion, that supplies motive power for a vehicle or for some other device with moving parts
+intend
+have (a course of action) as one's purpose or objective; plan
+decline
+a fall in the number of something; a reduction
+currency
+money; any other medium of exchange
+release
+to let go or free; to emancipate
+principal
+most important; main
+attract
+cause to come to a place or participate in a venture by offering something of interest, favorable conditions, or opportunities
+scatter
+throw in various random directions
+credit
+money that is given to someone with the understanding that it will be paid back with interest; recognition or praise
+core
+the center of something; the most important or essential part of something
+novice
+a person who is new and not experienced in a job or situation
+engage
+to occupy the attention
+absorb
+take in or soak up (energy, or a liquid or other substance) by chemical or physical action, typically gradually
+feast
+a large meal, typically one in celebration of something
+deep
+extending far down from the top or surface
+collect
+bring or gather together (things, typically when scattered or widespread)
+assist
+to support or help; to aid
+gasp
+inhale suddenly with the mouth open, out of pain or astonishment
+brilliant
+(of light or color) very bright and radiant
+consumer
+a person who purchases goods or services
+reverse
+move backward
+fair
+in accordance with the rules or standards; legitimate
+survey
+(of a person or their eyes) look carefully and thoroughly at (someone or something), especially so as to appraise them
+pause
+interrupt action or speech briefly
+flood
+an overflowing of a large amount of water beyond its normal confines, especially over what is normally dry land
+arrange
+put (things) in a neat, attractive, or required order
+wealthy
+having a great deal of money, resources, or assets; rich
+rumor
+a currently circulating story or report of uncertain or doubtful truth
+accident
+an unfortunate incident that happens unexpectedly and unintentionally, typically resulting in damage or injury
+certain
+known for sure; established beyond doubt
+loyal
+giving or showing firm and constant support or allegiance to a person or institution
+mystify
+utterly bewilder or perplex (someone)
+greedy
+having or showing an intense and selfish desire for something, especially wealth or power
+parade
+a public procession, especially one celebrating a special day or event and including marching bands and floats
+past
+gone by in time and no longer existing
+thrill
+a sudden feeling of excitement and pleasure
+ancient
+belonging to the very distant past and no longer in existence
+chill
+an unpleasant feeling of coldness in the atmosphere, one's surroundings, or the body
+flutter
+(of a bird or other winged creature) fly unsteadily or hover by flapping the wings quickly and lightly
+federal
+related to the central or national government; related to the system of federalism, a system in which states or provinces and central governments share power
+decay
+(of organic matter) rot or decompose through the action of bacteria and fungi
+steer
+(of a person) guide or control the movement of (a vehicle, vessel, or aircraft), for example by turning a wheel or operating a rudder
+fortunate
+favored by or involving good luck or fortune; lucky
+acceleration
+an increase in speed or rate; the ability of something to go faster
+atlas
+a book of maps or charts
+gradual
+taking place or progressing slowly or by degrees
+besides
+in addition to; apart from
+pale
+light in color or having little color
+career
+an occupation undertaken for a significant period of a person's life and with opportunities for progress
+magnificent
+impressively beautiful, elaborate, or extravagant; striking
+deed
+literary
+treasure
+a quantity of precious metals, gems, or other valuable objects
+damp
+slightly wet
+remark
+say something as a comment; mention
+prevent
+keep (something) from happening or arising
+grasp
+seize and hold firmly
+average
+a number expressing the central or typical value in a set of data, in particular the mean, which is calculated by dividing the sum of the values in the set by their number
+gaze
+look steadily and intently, especially in admiration, surprise, or thought
+team
+a group of players forming one side in a competitive game or sport
+finally
+after a long time, typically involving difficulty or delay
+dozen
+a group or set of twelve
+harsh
+unpleasantly rough or jarring to the senses
+revive
+restore to life or consciousness
+demolish
+pull or knock down (a building)
+consider
+think carefully about (something), typically before making a decision
+shiver
+(of a person or animal) shake slightly and uncontrollably as a result of being cold, frightened, or excited
+skill
+the ability to do something well; expertise
+worry
+give way to anxiety or unease; allow one's mind to dwell on difficulty or troubles
+crumple
+crush (something, typically paper or cloth) so that it becomes creased and wrinkled
 stack
-pack
-dock
-lock
-quack
-rope
-snack
-quick
-neck
-check
-circle
-square
-rectangle
-scale
-plane
-digraph
-drink
-think
-sink
-stink
-wink
-thank
-bank
-drank
-honk
-blank
-shrink
-gone
-lava
-volcano
-root
-meet
-blend
-soft
-lift
-shift
-drift
-gift
-left
-raft
-craft
-loft
-swift
-sift
-apart
-form
-ride
-greater
-equal
-blend
-bolt
-jolt
-colt
-felt
-belt
-welt
-built
-stilt
-wilt
-melt
-salt
-face
-edge
-lay
-arms
-sound
-whale
-when
-where
-what
-why
-which
-whistle
-whip
-white
-while
-whirl
-sun
-woman
-seasons
-knew
-himself
-badly
-madly
-quickly
-weekly
-daily
-sadly
-gladly
-proudly
-softly
-loudly
-bravely
-care
-hill
-case
-simple
-echo
-painter
-washer
-dryer
-flyer
-picture
-workers
-singer
-teacher
-speaker
-thinker
-dreamer
-tall
-lead
-problem
-age
-apple
-fastest
-slowest
-biggest
-shortest
-loudest
-softest
-smartest
-silliest
-brightest
-funniest
-bravest
-act
-discussion
-attention
-select
-tone
-thankful
-ears
-hopeful
-grateful
-thoughtful
-useful
-forgetful
-painful
-joyful
-careful
-helpful
-prediction
-question
-method
+a pile of objects, typically one that is neatly arranged
+curious
+eager to know or learn something
+shy
+being reserved or having or showing nervousness or timidity in the company of other people
+plunge
+jump or dive quickly and energetically
+launch
+set (a boat) in motion by pushing it or allowing it to roll into the water
+design
+a plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is built or made
+habit
+a settled or regular tendency or practice, especially one that is hard to give up
+distant
+far away in space or time
 observe
+notice or perceive (something) and register it as being significant
+confess
+admit or state that one has committed a crime or is at fault in some way
+device
+a thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+approach
+come near or nearer to (someone or something) in distance
+starve
+(of a person or animal) suffer severely or die from hunger
+tiny
+very small
+herd
+a large group of animals, especially hoofed mammals, that live, feed, or migrate together or are kept together as livestock
+coward
+a person who lacks the courage to do or endure dangerous or unpleasant things
+ordeal
+a painful or horrific experience, especially a protracted one
+couple
+two individuals of the same sort considered together
+foster
+promote the growth or development of something and over a period of time; bring up with care, raise, or rear a child, without being the child's legal parent
+mention
+refer to something briefly and without going into detail
+float
+rest or move on or near the surface of a liquid without sinking
+detrimental
+causing damage or injury; harmful
+complex
+complicated and not easy to understand; involving or made from many different parts
+privilege
+a special right, advantage, or immunity granted or available only to a particular person or group of people
+discard
+get rid of (someone or something) as no longer useful or desirable
+instrument
+a tool or implement, especially one for delicate or scientific work
+talent
+natural aptitude or skill
+attitude
+a settled way of thinking or feeling about someone or something, typically one that is reflected in a person's behavior
+value
+the regard that something is held to deserve; the importance, worth, or usefulness of something
+passage
+the act or process of moving through, under, over, or past something on the way from one place to another
+slight
+small in degree; inconsiderable
+seal
+a device or substance that is used to join two things together so as to prevent them from coming apart or to prevent anything from passing between them
+rely
+to depend on; to trust
+doze
+sleep lightly
+warn
+inform someone in advance of an impending or possible danger, problem, or other unpleasant situation
+generation
+a group of people in a society or in a family that were born in the same general age
+base
+the lowest part or edge of something, especially the part on which it rests or is supported
+arctic
+relating to the regions around the North Pole
+brief
+of short duration
+exactly
+without discrepancy (used to emphasize the accuracy of a figure or description)
+avoid
+keep away from or stop oneself from doing (something)
+ability
+possession of the means or skill to do something
+moisture
+water or other liquid diffused in a small quantity as vapor, within a solid, or condensed on a surface
+wit
+mental sharpness and inventiveness; keen intelligence
+negative
+pessimistic; harmful or bad
+bold
+(of a person, action, or idea) showing an ability to take risks; confident and courageous
+fold
+bend (something flexible and relatively flat) over on itself so that one part of it covers another
+convince
+cause (someone) to believe firmly in the truth of something
+continent
+any of the world's main continuous expanses of land (Africa, Antarctica, Asia, Australia, Europe, North America, South America)
+reflect
+(of a surface or body) throw back (heat, light, or sound) without absorbing it
+woe
+great sorrow or distress
+dawn
+the first appearance of light in the sky before sunrise
+prohibit
+to forbid or ban; to not allow or permit
+fatal
+causing death
+period
+an interval or length of time; a full stop
+contain
+have or hold (someone or something) within
+award
+give or order the giving of (something) as an official payment, compensation, or prize to (someone)
+soil
+the upper layer of earth in which plants grow, a black or dark brown material typically consisting of a mixture of organic remains, clay, and rock particles
+crowd
+a large number of people gathered together, typically in a disorganized or unruly way
+balance
+an even distribution of weight enabling someone or something to remain upright and steady
+enemy
+a person who is actively opposed or hostile to someone or something
+zigzag
+a line or course having abrupt alternate right and left turns
+digest
+break down (food) in the alimentary canal into substances that can be absorbed and used by the body
+misery
+a state or feeling of great distress or discomfort of mind or body
+cling
+(of a person or animal) hold on tightly to
+defend
+resist an attack made on (someone or something); protect from harm or danger
+frighten
+make (someone) afraid or anxious
+ambition
+a strong desire to do or to achieve something, typically requiring determination and hard work
+explore
+travel in or through (an unfamiliar country or area) in order to learn about or familiarize oneself with it
+bare
+(of a person or part of the body) not clothed or covered
+cliff
+a steep rock face, especially at the edge of the sea
+individual
+single; separate
+marsh
+an area of low-lying land that is flooded in wet seasons or at high tide, and typically remains waterlogged at all times
+adopt
+legally take another's child and bring it up as one's own
+capture
+take into one's possession or control by force
+pack
+a small cardboard or paper container and the items contained within it
+board
+a long, thin, flat piece of wood or other hard material, used for floors or other building purposes
+custom
+a traditional and widely accepted way of behaving or doing something that is specific to a particular society, place, or time
+actual
+existing in fact; typically as contrasted with what was intended, expected, or believed
+support
+bear all or part of the weight of; hold up
+invent
+create or design (something that has not existed before); be the originator of
+dome
+a rounded vault forming the roof of a building or structure, typically with a circular base
+frail
+(of a person) weak and delicate
+arrive
+reach a place at the end of a journey or a stage in a journey
+nation
+a large aggregate of people united by common descent, history, culture, or language, inhabiting a particular country or territory
+perform
+carry out, accomplish, or fulfill (an action, task, or function)
+process
+a series of actions or steps taken in order to achieve a particular end
 outcome
-happiness
-darkness
-likeness
-kindness
-sickness
-helpfulness
-goodness
-brightness
-seeds
-bones
-cows
-pentagon
-hexagon
-power
-write
-apply
-likable
-acceptable
-adorable
-chewable
-agreeable
-bearable
-usable
-comfortable
-lovable
-sizable
-valuable
-prefix
-suffix
-compass
-magnet
-guide
-addition
-subtraction
-fiction
-division
-education
-recreation
-confusion
-vacation
-location
-explosion
-direction
-glass
-key
-fig
-context
-detective
+the way a thing turns out; a consequence
+dire
+causing or involving great fear or suffering; dreadful
+wisdom
+the quality of having experience, knowledge, and good judgment; the quality of being wise
+index
+an alphabetical list showing all that is included in a book or a larger document; an alphabetical list of the documents in a collection
+doubt
+a feeling of uncertainty or lack of conviction
+nibble
+take small bites out of
+dangerous
+able or likely to cause harm or injury
+examine
+inspect (someone or something) in detail to determine their nature or condition; investigate thoroughly
+limit
+a point or level beyond which something does not or may not extend or pass
+plastic
+(of substances or materials) capable of being molded or shaped
+strand
+drive or leave (a boat, sailor, or sea creature) aground on a shore
+calm
+(of a person, action, or manner) not showing or feeling nervousness, anger, or other emotions
+overall
+comprehensive; all-inclusive
+struggled
+make forceful or violent efforts to get free of restraint or constriction
+wander
+walk or move in a leisurely, casual, or aimless way
+glide
+move with a smooth continuous motion, typically with little noise
+luxury
+the state of great comfort and extravagant living
+resource
+material used to do or make something; a supply of something that can be used when required
+predict
+say or estimate that (a specified thing) will happen in the future or will be a consequence of something
+instance
+an occurrence; an example used to demonstrate something
+affable
+kind or friendly; warm and open to others
+wise
+having or showing experience, knowledge, and good judgment
+solution
+a means of solving a problem or dealing with a difficult situation
+cage
+a structure of bars or wires in which birds or other animals are confined
+slight
+small in size, degree, or amount; treat with disrespect or indifference
+frugal
+sparing or economical in use or expenditure; not wasteful
+recant
+formally or publicly say that your past beliefs or statements were wrong and that you no longer agree with them
+spoil
+diminish or destroy the value or quality of
+elegant
+pleasingly graceful and stylish in appearance or manner
+opponent
+someone who competes against or fights another in a contest, game, or argument; a rival or adversary
+opposite
+having a position on the other or further side of something; facing something, especially something of the same type
+dive
+plunge head first into water
+advice
+guidance or recommendations concerning prudent future action, typically given by someone regarded as knowledgeable or authoritative
+fierce
+having or displaying an intense or ferocious aggressiveness
+emphasis
+the importance that is specifically placed on something; stress
+symbol
+a mark or character used as a conventional representation of an object, function, or process
+sensitive
+quick to detect or respond to slight changes, signals, or influences
+claw
+a curved pointed horny nail on each digit of the foot in birds, lizards, and some mammals
+adult
+a person or animal that is fully developed or fully grown; a mature person or animal
+harm
+physical injury, especially that which is deliberately inflicted
+enable
+give (someone or something) the authority or means to do something
+cajole
+persuade by flattery or promises; wheedle
+procure
+obtain something, especially with care, effort, or difficulty; obtain (a sexual partner, especially woman) for another, for the purpose of prostitution
+insect
+a small arthropod animal that has six legs and generally one or two pairs of wings
+percent
+out of one hundred; a part of one hundred
+gift
+a thing given willingly to someone without payment; a present
+rebuke
+to punish or scold someone severely; to express disapproval, often in a sharp way
+project
+a scheme or a plan; a proposal
+chart
+a drawing or illustration which displays information in an easy to understand way; a graph
+attention
+notice taken of someone or something; the regarding of someone or something as interesting or important
+refine
+to purify; to take impurities out of something
+border
+a line separating two political or geographical areas, especially countries
+motive
+one of the reasons behind someone's behavior; something that inspires someone to behave in a certain way
+area
+a geographical region; part of a surface or space
+pastime
+an activity that someone does regularly for enjoyment rather than work; a hobby
+migration
+the movement of people or animals from one reason to another, based on a variety of different reasons
+perspective
+a vista or view; a way of looking at or examining something
+regale
+to entertain someone with food or drink; to feast
+ramble
+to walk about or move about in an aimless manner; to follow a winding path
+tremble
+shake involuntarily, typically as a result of anxiety, excitement, or frailty
+scale
+to climb a surface that is steep; to set something according to a scale or measure something by a scale
+method
+a way of doing something; an approach
+share
+a part or portion of a larger amount that is divided among a number of people, or to which a number of people contribute
+imitate
+take or follow as a model
+grade
+a level or rank; a number or letter that indicates the quality of something
+individual
+a single human being; a person
+mature
+to grow old; to develop
+accuse
+charge (someone) with an offense or crime
+excess
+an amount of something that is more than necessary, permitted, or desirable
+flap
+(of a bird) move (its wings) up and down when flying or preparing to fly
+blast
+a destructive wave of highly compressed air spreading outward from an explosion
+region
+a specific part of the world; a large area of land where the people or land possesses similar characteristics
+rely
+depend on with full trust or confidence
+palpable
+so strong or so obvious that it can be felt; easily noticed
+brief
+concise; short in duration
+agree
+have the same opinion about something; concur
+corner
+a place or angle where two or more sides or edges meet
+aware
+having knowledge or perception of a situation or fact
+account
+an explanation or description of a specific event or situation; a narrative
+diagram
+a simplified drawing showing the appearance, structure, or workings of something; a schematic representation
+present
+(of a person) in a particular place
+strategy
+a detailed plan of action; a way to approach a specific goal
+secure
+safe; free from danger or worry
+potent
+extremely powerful or effective; influential
+notice
+attention; observation
+revere
+to honor or respect someone very much; to venerate or worship
+respond
+to answer; to react in a favorable way
+academic
+related to school or scholarly subjects; theoretical
+survive
+to live through an event; to stay alive
+final
+last; concluding
+source
+the place in which something originates or which someone comes from; a point or place of origin
+expansion
+growth; the act or process of getting larger
+achieve
+to accomplish; to reach something through hard work
+purchase
+an object that has been bought; the act of buying something
+lonely
+sad because one has no friends or company
+text
+a piece of writing such as a book; all the words that were said in a speech
+zenith
+the point in the sky that's directly over one's head; the highest point or peak

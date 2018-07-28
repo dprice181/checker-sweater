@@ -366,17 +366,17 @@ class SpellingDragScene: SKScene {
         addChild(backButton)
     }
     
-    func GetVocabularyFilename() -> String {
+    func GetSpellingFilename() -> String {
         if let grade = Int(global.currentGrade) {
             if grade > 8 {
-                return "Vocabulary8"
+                return "Spelling8"
             }
         }
-        return "Vocabulary" + global.currentGrade
+        return "Spelling" + global.currentGrade
     }
     
     func GetSentence(increment:Bool) {
-        let fileName = GetVocabularyFilename()
+        let fileName = GetSpellingFilename()
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)

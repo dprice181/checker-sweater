@@ -1,720 +1,1238 @@
-comic
-ostrich
-Connecticut
-insult
-grumble
-gallop
-hurry
-distinct
-contestant
-defendant
-assistant
-brilliant
-compliant
-extravagant
-ignorant
-consonant
-applicant
-migration
-route
-trace
-ashamed
-indeed
-Tennessee
-someone
-sweater
-mansion
-instant
-wonder
-smile
-irritate
-plunge
-absent
-excellent
-reverent
-impatient
-stringent
-hydrogen
-molecule
-dioxide
-element
-constant
-Africa
-killed
-melody
-bottom
-Florida
-secret
-tumble
-afterwards
-cathedral
-desirable
-excitable
-breakable
-notable
-tolerable
-questionable
-hundredth
-thousandth
-tenth
-millionth
-surprise
-French
-hesitate
-tenant
-exactly
-remain
-beige
-breathe
-succeed
-horrible
-tangible
-gullible
-possible
-permissible
-comprehensible
-invisible
+protagonist
+one of the main characters of a story; a leader of a cause or movement
+wanton
+a cruel, malicious or violent action done, shown, used deliberately, unprovokedly and unjustifiably; careless
+unify
+to join two or more units together in order to create a newer, larger unit; to combine
+vindictive
+having or showing a strong or unreasoning desire for revenge
+military
+related to soldiers, the army, or armed conflict; done or made by soldiers
+version
+an individual's view about something that happened; an adaptation
 specific
-function
-ancient
-cliff
-beetle
-jewelry
-avenue
-climb
-wrote
-Minnesota
-continue
-launch
-active
-passive
-sprint
-allowable
-suitable
-distinguishable
-preferable
-debatable
-matter
-gaseous
-solidify
-petroleum
-January
-England
-design
-bruise
-awkward
-picnic
-bicycle
-triple
-trilogy
-trinity
-duplicate
-quadruple
-unicycle
-duplex
-uniform
-quartet
-quadrant
-octave
-rhythm
-cadence
-February
-discard
-valley
-freight
-canter
-vocabulary
-aware
-trouble
-situation
-station
-description
-prescription
-subscription
-fashion
-introduction
-dedication
-divisible
-factor
-composite
-greatest
-April
-coward
-breakfast
-remarkable
-application
-vanish
-saucer
-Hawaii
-politician
-information
-recession
-concession
-deception
-production
-reduction
-domination
-loyal
-renewable
-vertical
-panel
-June
-Massachusetts
-single
-novel
-horizon
-eagle
-recent
-ancestor
-walrus
-escape
-authenticity
-criticize
-ethnicity
-publicity
-elasticity
-voyage
-persecution
-pilgrim
-compact
-agreement
-July
-gopher
-practice
-archery
-straight
-comet
-statement
-secretary
-galaxy
-universe
-commercial
-financial
-racial
-sacrificial
-circumstantial
-process
-rely
-exchange
-oxygen
-respiratory
-suppose
-August
-coast
-noodle
-period
-autumn
-lizard
-ambulance
-substantial
-torrential
-essential
-impartial
-influential
-palatial
-residential
-turtle
-tortoise
-mustard
-symbol
-brace
-September
-conceive
-insurance
-spaghetti
-strange
-caught
-agility
-hyena
-flavor
-captain
-advocate
-alternate
-articulate
-graduate
-attribute
-frequent
-thorough
+clear and precise; special
+acceleration
+an increase in speed or rate; the ability of something to go faster
+transport
+to carry something; to bring something from one point to another
 transfer
-bacteria
-virus
-direct
-October
-pharmacy
-scissors
-skunk
-increase
-convict
-finance
-wound
-business
-separate
-approximate
-estimate
-associate
-certificate
-colony
-spherical
-projection
-navigation
-cartographer
-calico
-November
-library
-hospital
-restaurant
-clinic
-student
-human
-shelf
-shelves
-alumnus
-alumni
-cactus
-cacti
-nucleus
-nuclei
-stomach
-esophagus
-digestive
-intestine
-supply
-December
-reindeer
-insect
-internal
-external
-doctor
-provide
-wolf
-wolves
-fungus
-fungi
-hippopotamus
-hippopotami
-octopus
-octopi
-elf
-elves
-connection
-interstate
-thus
-Louisiana
-ignore
-chapter
-mall
-volunteer
-modern
-compound
-grinned
-plugged
-admitted
-controlled
-permitted
-referred
-inferred
-settlement
-porcupine
-notation
-exponent
-standard
-California
-scowl
-cougar
-encounter
-soldiers
-exodus
-silent
-running
-knitting
-stopping
-forgetting
-expelling
-rubbing
-equipping
-regretting
-winning
-slamming
-inherit
-gene
-chromosome
-Antarctica
-headache
-enjoy
-conflict
-indicate
-throughout
-expect
-exhausting
-frustrating
-interesting
-appearing
-complaining
-explaining
-developing
-benefiting
-evaluating
-investigating
-protein
-carbohydrates
-calories
-sense
-Canada
+moving something from one place to another; an exchange
+bequeath
+leave or give (personal property) by will; pass (something) on to another
+survey
+a poll used to measure public opinion or the incidence of something in a society; an examination of a subject or a situation
+vagrant
+a homeless person that does not have a job; a rover
+uniform
+a set of clothes that must be worn to be in a specific school or do a specific job; an outfit worn by people from a same school or doing the same job
+strident
+(of a sound) loud, unpleasant, and rough; presenting a point of view, especially a controversial one, in a way that offends some people
+ruse
+a trick with is used with the intent of confusing or deceiving someone; a plan used to hide one's own intentions
 substitute
-famous
-giant
-colonel
-improving
-upsetting
-exciting
-branches
-editing
-entering
-exiting
-limiting
-suffering
-threatening
-speculating
-property
-representation
-suffrage
-Mexico
-delight
-burglar
-museum
-leopard
-consequently
-cloudiness
-considerable
-suggested
-perishable
-corresponding
-regrettable
-pronouncing
-beginning
-committing
-powerful
-concentration
-adaptation
-generation
-webbed
-solstice
-entered
-Egypt
-laughter
-incidentally
-whisper
-chief
-entrance
-expensive
-tentative
-measuring
-tolerating
-nautical
-replacing
-forbidding
-inquiry
-eventually
-accompany
-abacus
-technique
-Spain
-visual
-thunder
-antelope
-freeze
-major
-Virginia
-trophy
-necessary
-solemn
-adhesive
-addict
-adhere
-adjacent
-adjourn
-admission
-adjustment
-advertisement
-exploration
-conquest
-Italy
-cruel
-Delaware
-needle
-sandwich
-magenta
-particular
-competition
-communication
-comparison
-compensate
-companion
-committee
-commission
-completely
-atmosphere
-troposphere
-stratosphere
-mesosphere
-thermosphere
-Brazil
-salmon
-spectacle
-industry
-conscience
-casual
-sausage
-rivalry
-realize
-quarrel
-collate
-collapse
-collide
-colleague
-collision
-soprano
-tenor
-alto
-baritone
-bass
-company
-radio
-Missouri
-genuine
-capital
-otherwise
-tangerine
-appreciate
-prompt
-southern
-disadvantage
-dissatisfied
-dislike
-disappoint
-disapprove
-dissolve
-disengage
-disposal
-Greek
-axiom
-Germany
-lavender
-printed
-wouldn’t
-ahead
-terrified
-velvet
-level
-noisily
-incredible
-inaccurate
-inefficient
-ineffective
-insecure
-inadequate
-indefinite
-ineligible
-inequality
-taxes
-income
-Colorado
-repeated
-column
-western
-internet
-turquoise
-delivery
-gauge
-various
-obsolete
-oblong
-obstruct
-obligation
-obnoxious
-obsessed
-obvious
-misconception
-environment
-solution
-logic
-opposite
-Mercury
-media
-terrier
-plentiful
-servant
-apostrophe
-comma
-exclamation
-trout
-subdivision
-subheading
-submarine
-submission
-submerge
-subscribe
-subordinate
-forecast
-blizzard
-meteorology
-Venus
-formation
-merciless
-afraid
-article
-adverb
-adjective
-conjunction
-participle
-preposition
-biology
-archaeology
-dermatology
-pathology
-mythology
-terminology
-zoology
-saturated
-coordinate
-geometry
-Jupiter
-similar
-daisy
-convention
-victory
-stretched
-experience
-serious
-allow
-chronology
-anthropology
-sociology
-psychology
-theology
-methodology
-criminology
-performance
-rehearse
-renaissance
-playwright
-pleasant
-Washington
-China
-Saturn
-cluster
-orchard
-imply
-northern
-create
-compulsory
-aeronautics
-aerobics
-aerodynamic
-aerosol
-aerospace
-furthermore
-according
-dimensional
-quadrangle
-category
-difficult
-Uranus
-melon
-fantastic
-unusual
-apparently
-plaster
-equinox
-evening
-ridiculous
-ambidextrous
-ambivalent
-ambient
-ambiguity
-ambition
-require
-occupation
-apprentice
-instruction
-journeyman
-Neptune
-apology
-Wisconsin
-details
-entire
-explanation
-substances
-refrigerator
-dozen
-conditions
-antibiotic
-antiseptic
-antifreeze
-antidote
-antisocial
-antibody
-sustained
-hurricane
-typhoon
-cyclone
-Mississippi
-track
-arrive
-locate
-register
-prejudice
-heritage
-effect
-underline
-fortress
-annual
-anniversary
-centennial
-millennium
-perennial
-mandatory
-canine
-volume
-capacity
-container
-auction
-Pennsylvania
-feline
-auditory
-audition
-audit
-audio
-audible
-auditor
-auditorium
-astronaut
-astrophysics
-astronomical
-astrology
-approach
-concept
-complaint
-declaration
+to temporarily replace someone or something with something else; to exchange one thing for another
+terse
+short or curt, often in a way that is interpreted as unfriendly; concise and to the point
+abolish
+to get rid of in an official way; to put an end to
+trace
+to follow or to track; to find the starting point of something
+aid
+help; assistance
+precursor
+a person or thing that goes before another person or something else and that often leads to or influences its development; forerunner
+site
+a place where something can be found or where something is located
+series
+a sequence of things; a set of related objects
+amiable
+pleasant and friendly; good-natured and likable
+reveal
+to show or disclose; to divulge
+reside
+to inhabit; to live in a certain place
+cite
+to use information or exact words from another source; to quote
+quarantine
+forced isolation in which a person or an item is kept away from the public in order to avoid the spread of an infection
+select
+preferred; of a special value or importance
+obliterate
+to totally destroy; to make something disappear completely
 revolution
-delegate
-Illinois
-yeast
-notify
-biography
-graphic
-autograph
-autobiography
-choreography
-graphite
-fracture
-infraction
-refraction
-improvement
-equine
-pelican
-engage
-animation
-motion
-studio
-cartoon
+a huge change in something, such as a political organization or country; the circular movement around a certain celestial body
+major
+quite important; serious
+taciturn
+tending not to speak much; not liking to talk
+submissive
+inclined, ready, or willing to obey someone else without arguing, resistance, etc.; docile
+simulate
+to reproduce a situation; to feign
+contemporary
+from or existing in the same time period; modern
+compatible
+able to exist in harmony; well-suited
+radical
+extreme; drastic
+project
+a scheme or a plan; a proposal
+divert
+to distract; to make something move in a different direction or on a different course
+bond
+the link or connection between people or things; a written promise
+presumptuous
+going beyond what is right or proper and not showing enough respect, especially because of an excess of self-confidence or arrogance
+process
+a series of happenings or actions that lead to a specific result; a naturally occurring series of changes
+blandishment
+a flattering or pleasing statement, speech, or action intended to flatter, coax, entice someone gently into doing something
+generation
+a group of people in a society or in a family that were born in the same general age
+quotation
+specific words that have been directly taken from a certain source; the act of using someone else's words
+rectify
+correct (something that is wrong) or make something right or better; correct by calculation or adjustment
+seek
+to look for; to try and discover
+ratify
+(especially of governments or organizations) make (a treaty, contract, or agreement) official by signing it or formally accepting it
+period
+an interval or length of time; a full stop
+rigor
+strictness, harshness, or severity; exactitude
+analogy
+a comparison designed to show that two or more things are similar; partial resemblance
+placid
+peaceful and undisturbed; serene, with a lack of movement or activity
+resolution
+a decision that is made by a group through a voting process; a personal promise to oneself
+layer
+different tiers that make something up; a thin sheet of a certain substance
+iconoclast
+a person who attacks widely accepted ideas, beliefs, traditional institutions, etc.; a person who destroys sacred images used in religious worship or opposes to the religious use of images
+resilient
+(of a substance or object) bouncing or springing back into shape, position, etc. after being pulled, stretched, pressed, bent, etc.
+appendix
+additional material that is found at the end of a book, an essay or another written piece; added information
+blatant
+obvious, easily detectable, or blunt; noisy in a vulgar way
+analysis
+the study or examination of something in an attempt to define it or understand it; investigation
+receptacle
+any container or device for holding substances or objects; a vessel used to hold things
+rhetorical
+of, relating to, or concerned with the art of speaking or writing that is effective or intended to influence, persuade, or impress people
+procedure
+a way of doing something; a medical treatment
+contribute
+to write for a newspaper or a magazine; to give goods, money or time and effort to a person or group in order to help them
+revise
+to check something and make changes to make sure that it is acceptable; to change or amend
+symbol
+a sign; a shape, object or picture which is used to represent something
+initial
+first; occurring at the beginning of something
+tradition
+heritage; behavior and customs that are passed from one generation to the next
+occur
+to take place; to happen
+parochial
+showing interest only in matters that directly affect you; narrow in scope
+establish
+to set up
+brief
+concise; short in duration
+attribute
+a trait or quality; a characteristic
+discrete
+distinct; separate
+enormous
+extremely large in size or quantity; massive
+absurd
+silly or ridiculous, especially in a laughable way; illogical or totally untrue
+enhance
+intensify, increase, or improve the quality, amount, extent, or strength of something, as in cost, value, attractiveness, effectiveness, etc.
+abuse
+misuse of something; unfair or hurtful treatment of a person or an animal
+accurate
+meticulous or giving careful consideration to the details; exact
+diligent
+steady, hard-working, and careful in one's work or duties; industrious
+motivation
+the enthusiasm, interest or reason for doing something
+pedestrian
+ordinary; dull
+relevant
+related to the issue being discussed or debated; pertinent
+focus
+the center point of something; the center of attention
+orientation
+the act of finding or determining one's position; a person or group's interests or beliefs
+discord
+disagreement among people or things; dispute or strife
+erode
+to eat away or wear away something; to slowly deteriorate
+redundant
+superfluous; unnecessarily wordy
+capitulate
+surrender unconditionally or on stipulated terms; give up all resistance, usually because they are stronger than you
+parody
+a work of art such as a text or a play which is created to poke fun at or ridicule another work; to poke fun at someone or something
+challenge
+to question or express objection to; to test someone
+remorse
+strong pain or sadness about something you have done and feel guilty about; regret
+compile
+to gather things together; to put things together in a logical or orderly form
+range
+a set of things that are similar; the upper and lower limits
+reinforce
+to make something stronger; to enhance something
+adult
+a person or animal that is fully developed or fully grown; a mature person or animal
+cycle
+an extended period of time; a bi- or tri- cycle
+philosophy
+the study of human morals and behavior; ideas and theories about something
+create
+to invent something; to develop something new
+omniscient
+possessing unlimited knowledge; knowing, or seemingly knowing, everything
+clause
+a provision or stipulation in a contract or another formal document; a phrase containing a subject and a verb that is part of a larger sentence
+hangar
+a large building where airplanes or aircraft are stored or repaired
+image
+a picture or a visual representation of something; a mental picture of something
+expose
+make (something) visible by uncovering it; lay open to danger, attack, harm, etc.
+voluntary
+not obligatory; unenforced
+technology
+the use of scientific knowledge for practical purposes, with special reference to its use in industry; applied sciences
+structure
+a free-standing building made from different parts; the way in which something is organized
+maximum
+the highest possible amount or largest quantity
+jubilation
+great happiness or joy because something good has happened
+corresponding
+related to; comparable
+noxious
+detrimental to living beings; something that is dangerous for one's physical health
+partner
+someone you are closely involved with; a person you are involved in a relationship with
+adjust
+to make changes to; to settle or adapt to a situation
+currency
+money; any other medium of exchange
+detect
+to note or to feel something; to discover or catch
+accident
+an unforeseen event that causes harm, damage, injury or even death; a sudden and unplanned event
+paragraph
+a portion of a text that centers around one specific idea
+enmity
+animosity; hatred
+ability
+the capacity to do something; a skill or talent in a specific area
+vehicle
+any device which is used to transport one or more people around; a means or way of expressing a certain idea
+motive
+one of the reasons behind someone's behavior; something that inspires someone to behave in a certain way
+index
+an alphabetical list showing all that is included in a book or a larger document; an alphabetical list of the documents in a collection
+dominate
+to be very good at something; to command
+adapt
+to make changes in order to fit a specific situation or purpose; to modify
+author
+the creator of something; the person who writes a document
+occupy
+to be inside something; to dwell in
+constitutional
+permitted by the constitution of a country, group or business; related to the constitution of a country, group or business
+comprehensive
+all-encompassing; thorough
+identify
+to discover; to equate
+conspicuous
+obvious; easily noticed
+construction
+the act or business of building things, especially structures
+coherent
+consistent or logical; understandable
+slight
+small in size, degree, or amount; treat with disrespect or indifference
+assume
+to believe that something is true without proof; to take on a role or responsibility
+intense
+acute; very strong
+globe
+a spherical shape; a ball
+aspect
+a part or quality of something; one part of a situation
+intrinsic
+inherent; relating to the basic nature of something
+anticipate
+to predict or foresee; to look forward to something
+equate
+to equalize; to make two or more things equal
+domestic
+related to house, home or family; from one's own country
+antiquated
+so old that it is no longer fashionable; old-fashioned
+participate
+to be involved in something; to take part
+ethnic
+of or relating to a specific group of people who share a common race, heritage, set of customs or traditions
+convention
+a formal political agreement; a gathering or meeting of people or professionals with a shared interest
+capacity
+the ability to do something; the maximum number of things that a place or object can hold
+extract
+to remove or pull something out of another source; to convince a person to give you something they don't want to give you, often through the use of force
+enfranchise
+to give a group of people or a person specific rights, especially the right to vote; to free from bondage
+classical
+relating to ancient cultures; respecting tradition or the original way of doing things
+differentiate
+to determine or recognize the difference between two or more things; to distinguish
+lackadaisical
+feeling or showing a lack of interest, enthusiasm, or determination; carelessly lazy
+deliberate
+to carefully debate or think about something serious; to thoughtfully weigh the available options
+consume
+to eat; to use
+innuendo
+an indirect or subtle hint, remark, gesture, or reference, especially of a disparaging or a derogatory nature
+inevitable
+impossible to avoid, evade, escape, or prevent; sure to happen
+painstaking
+performing or characterized by diligent and careful work, in which much attention is paid to detail; trying very hard to do something
+nonchalant
+coolly unconcerned, indifferent, or unexcited; relaxed, calm, and not worried about anything
+welfare
+the well-being of a person or people; financial aid from a government to a person in need
+consent
+to allow or agree with; to grant permission
+civil
+not related to the church or military, but rather the ordinary people of a country; secular
+indifferent
+not caring about something; apathetic or indifferent
+flexibility
+the ability or willingness to make changes; easily bent
+laggard
+someone or something that is very slow or late in doing things and always falling behind others
+abbreviation
+a shortened form of a name, phrase or word; the act of shortening something
+compensate
+to pay someone for something that has been lost, damaged, or taken away; to make up for something negative
+evolution
+gradual development or change, especially over long periods of time
+dimension
+a property or way of measuring space; a part or aspect of something larger
+collate
+to put pages into a logical or correct order; to examine and compare two or more written works
+apprehensive
+worried about something that is going to occur in the future; quick to understand
+deter
+to discourage or keep someone from doing something; to make someone decide not to do something by making them fear the consequences or repercussions
+drawl
+slow or lazy speech that is marked by the prolongation of vowel sounds
+estate
+a rather large piece of property; all of one's possessions at death
+distribute
+to give out or hand out; to spread something out over a surface
+label
+a piece of material on an object that gives information about the object; a name or phrase assigned to a person to classify them, often in an unfair manner
+technique
+a way of performing a specific task; a method of doing something or carrying out a task
+core
+the center of something; the most important or essential part of something
+design
+a sketch or a plan that shows what something will be like when it is produced or constructed; a pattern or plan
+contrast
+the act of finding differences between two or more things; a difference between two or more things
+access
+a way of entering or exiting a place; the right or permission to use, approach, or enter something or somewhere
+item
+a single object; a piece of news
+stability
+balance; firmness of position
+excavate
+dig a large hole or channel in the ground, especially with a machine; uncover or expose by digging
+plummet
+to fall suddenly or drastically; to plunge
+scale
+to climb a surface that is steep; to set something according to a scale or measure something by a scale
+complacency
+a feeling of contentment or self-satisfaction with your own abilities or situation that prevents you from trying harder, often while unaware of some potential danger
+remove
+to get rid of; to take away
+precede
+to exist before something; to come before
+previous
+anterior; something coming or occurring before another event
+collusion
+a conspiracy; secret cooperation or activities for illegal or fraudulent purposes
+clamor
+a loud outcry, uproar, demand, complaint or shouting; a loud noise that continues for a long time
+exhibit
+to display or show; to present to the public
+tangible
+able to be felt or touched
+community
+a group of people living in the same area or region; a group of people who share common interests
+accommodate
+to do a favor or oblige someone; to supply
+novel
+new; different from anything that has previously existed
+plausible
+something that is credible and possibly true
+arid
+very dry, especially having insufficient rainfall to support trees or plants; lacking in interest, excitement, or meaning
+ignorant
+not aware; possessing little knowledge or training
+physical
+related to the body; related to something one can see and touch
+deny
+to say that something is not true; to claim one is not guilty of something
+defunct
+no longer in existence; dead
+boisterous
+noisy, energetic, and lacking in restraint or discipline; (of waves, weather, wind, etc.) wild or stormy
+professional
+relating to or suitable for a specific profession; performing an activity to earn money instead of to relax or have fun
+norm
+a rule or standard; a pattern or something that is expected
+legislation
+laws; the act of lawmaking
+covert
+secretive or not openly shown; hidden
+encounter
+to find someone or something unexpectedly; to stumble across
+income
+money that one receives in exchange for one's work or smart investing; revenue
+debunk
+expose or ridicule (an idea, belief, claim, etc.) as being pretentious, false, or exaggerated
+investigation
+research or inquiry; the act of trying to find information about something in order to better understand it
+compliant
+complying, obliging, or yielding, especially to an excessive degree; meeting or in accordance with a set of rules, standards, or requirements
+disputatious
+inclined to dispute; fond of arguing
+navigable
+safe, wide, and deep enough to allow the passage or transit of ships; able to be directed or steered
+irony
+a method of humorous or subtly sarcastic expression in which the intended meaning of the words is different from and often opposite to their literal meaning
+guarantee
+the promise that something will happen or that something is true; an assurance
+tense
+tight; pulled to its limit
+clarify
+to make something clearer or easier to understand; to remove ambiguity
+proceed
+to continue onward; to advance
+economy
+the money and production of goods and services of a specific political region; thriftiness or careful management when spending money
+diverse
+possessing various characteristics; distinct
+global
+world-wide; found around the world
+role
+the part that a performer in theater acts out; one's proper function in society
+factor
+a variable or an element; something that influences a result
+dogmatic
+an authoritative, arrogant assertion of unproved or unprovable principles as if they are certainly correct and cannot be doubted
+illuminate
+to make something brighter; to brighten
+hamper
+slow or prevent the free movement, progress, or action of (someone or something); hold back
+affect
+to impact someone emotionally or mentally; to produce a change in
+evolve
+to grow; to develop gradually over an extended period of time
+transition
+the conversion from one state to another; to cause someone or something to convert from one state to another
+absent
+not present in a certain time or location; non-existent
+compromise
+a settlement of differences by mutual concessions; reduce the quality, value, or degree of something
+chart
+a drawing or illustration which displays information in an easy to understand way; a graph
+engender
+produce, cause, or give rise to (a feeling, situation, or condition)
+tentative
+provisional; not fixed or positive
+inure
+to make someone or something used to something unpleasant; to harden
+transform
+to change something; to convert
+shrewd
+having or showing sharp powers to understand things and to make good judgments in practical affairs; astute
+simile
+(the use of) a phrase that describes something by comparing it to something else, always including the words 'as' or 'like'
+ingenious
+clever, resourceful, original, and inventive
+expedient
+helpful or useful in a particular situation and produces an immediate result or solution to a problem, even though possibly improper or immoral
+expert
+a person who has a great deal of knowledge about or skill in a specific subject
+immigration
+the act of moving into a new country in order to live there
+credible
+trustworthy; easy to believe or convincing
+incentive
+something that motivates people to do something or take action; a reward or the threat of punishment that inspires people to act
+primary
+fundamental; principal
+estimate
+to make a guess or calculate the amount or value of something; to judge
+supplement
+to add to something, especially in order to make up for a deficiency; an addition
+style
+a way of doing or expressing something; fashion
+energy
+the effort or power needed to do something; heat, electricity, light or the resources used to produce power
+hyperbole
+a figure of speech in which the speaker or writer exaggerates for emphasis; an exaggerated statement that is not intended to be taken literally
+interact
+to communicate with and react to another human; to act on
+monotonous
+repetitive and boring; lacking variety
+furtive
+done quietly, quickly and secretly to avoid being noticed
+quagmire
+a soft and wet piece of land which yields if stepped on; a complicated, dangerous or awkward situation
+drama
+a play that is performed in a theater, on television or on the radio; a literary work that deals with a serious subject
+clarity
+clearness of expression or thought; the ability to be understood
+equivalent
+equal to; of the same amount, size, value, meaning
+source
+the place in which something originates or which someone comes from; a point or place of origin
+register
+to record something in writing; to enroll a student in a school
+finance
+money that is used to pay for a large and expensive project; the money that a person, company or nation has
+margin
+a border or edge; the difference between the cost of production of a good and the amount at which it is sold
+definition
+a clear outline of something; the meaning of a word or phrase
+demonstrate
+to deliberately show or prove; to make clear
+contact
+to communicate with someone over the phone or by writing a letter, e-mail or text message
+interaction
+the act of communicating and acting with other individuals
+section
+a piece of something; a part of a whole object
+cooperate
+to work together with one or more other people in order to reach a shared or mutually beneficial goal
+garish
+too bright or colorful (clothes or decoration) in an ugly way; tastelessly colorful, showy, or elaborate
+irksome
+annoying and tedious; irritating
+artisan
+a craftsman; a worker who has a specific skill and is able to make things by hand
+impervious
+(scientific) impenetrable; incapable of being affected or harmed
+adaptation
+the act of modifying something so that it better fits one's needs; change
+corporate
+belonging or pertaining to a large company or corporation; common or shared between people or a group of people
+text
+a piece of writing such as a book; all the words that were said in a speech
+context
+the circumstances surrounding something; the words before and after something that help explain what it means
+precise
+accurate; exact
+laceration
+a wound or a cut in flesh which is often deep or severe
+lithe
+young, healthy, attractive, and able to move and bend in an easy and graceful way
+convince
+to make someone believe what you are saying; to persuade
+culture
+behaviors, beliefs, and standards that are shared between one large group of people or a society; art, such as music, literature, dance, theater, etc.
+expunge
+to get rid of or cancel; to get rid of something written by erasing it or striking it out
+amicable
+characterized by or exhibiting friendliness or goodwill, often despite a difficult situation
+accompany
+to go along with; to be associated with
+illustrate
+to show something or explain, especially by giving examples; to draw pictures that are to be used in a book or other written document
+exploit
+to take advantage of; to make use of
+accompaniment
+something that accompanies something or someone else; music that accompanies a singer or the main tune
+format
+to arrange a document in a specific way; to prepare a computer disk to save specific files
+erosion
+the gradual corroding or eating away of a subject; deterioration
+feature
+a part or aspect of something; a quality
+resource
+material used to do or make something; a supply of something that can be used when required
+thesis
+the subject to be written about or debated in an essay; a long study written while one is studying one's doctoral degree
+minute
+extremely small
+sparse
+not dense or thick; small in amount and not dense or crowded
+satire
+the use of humor, irony, exaggeration, or ridicule to expose and criticize someone or something and make them seem foolish, weak, bad, etc.
+obsequious
+overly attentive or eager to flatter others; excessive obedience or flattery, often in order to gain favors from people of influence
+method
+a way of doing something; an approach
+abstruse
+difficult to understand, especially because of being extremely complex
+consumer
+a person who purchases goods or services
+manual
+a guide book that tells one how to operate or use something; an instruction book
+elicit
+evoke or draw out (a response, information, etc.) from someone; draw out or entice forth
+tactile
+tangible; related to the sense of touch
+gullible
+easily tricked because one is too trusting; quick to believe something, even if it's not true
+controversy
+a disagreement or dispute over a specific subject about which people have differing opinions; a heated discussion or argument
+germinate
+sprout or cause to sprout, as from a seed, spore, bulb, or bud; start developing or growing
+parasite
+any animal or plant that lives on and feeds on another animal or plant
+authority
+power; the ability and right to control
+haughty
+having or showing irrational pride in oneself and irrational disdain for others
+abnormal
+strange; not usual or typical
+terminate
+to stop; to put an end to
+dormant
+sleeping, lying asleep or as if asleep; inactive
+data
+information, facts or figures about a specific subject that is often used to make a decision; information used by a computer
+goal
+an aim, target or objective; the area where players must put a ball or puck in order to receive points in various sporting events
+research
+to investigate; to make inquiries in order to find out information
+annual
+occurring each year; payable on a yearly basis or calculated over a year
+consensus
+majority opinion; an opinion or decision reached by all, or nearly all, members of a group
+grant
+to give something to someone; to allow someone to have something
+federal
+related to the central or national government; related to the system of federalism, a system in which states or provinces and central governments share power
+intermediate
+in the middle of two things, places, etc.; between two levels
+squander
+spend or use (money, time, supplies, or an opportunity) wastefully or extravagantly
+quote
+to repeat someone else's words; to say something that has previously been said or written
+document
+to record something on paper or in digital format; to provide written evidence
+hypothesis
+an unproved theory, proposition, supposition, etc. that is made on the basis of limited evidence and not proven but that leads to further study
+unique
+special; being the only one of its kind
+foolhardy
+bold or daring in a foolish way; foolishly ignoring obvious dangers
+circumvent
+surround or circle around (an enemy, for example); enclose or entrap
+function
+a duty or an activity that one must perform; a formal event
+incline
+to be in favor of something or have a preference; to bend or slant
+issue
+topic
+isolate
+to seclude someone or something; to place something in quarantine
+suspend
+to delay something; to postpone
+inept
+not effective; unfit or wrong in an inappropriate way
+adequate
+sufficient to fit the requirements or needs; good enough, but not excessively good
+attain
+to succeed at something; to achieve
+coddle
+to overprotect someone or something; to treat someone tenderly or with great care
+accomplish
+to carry something out; to finish something
+area
+a geographical region; part of a surface or space
+compassion
+a feeling of deep sympathy and sorrow for the sufferings or misfortunes of others and a wish to help them
+derive
+to get something from a source; to deduce
+epistle
+a missive; a long and formal letter
+identical
+exactly alike; the same as something else
+equipment
+supplies or tools needed to complete a task
+locate
+to find; to situate
+appreciate
+to become more valuable or increase in worth; to be grateful or thankful for
+appropriate
+to take possession or control of something; to steal
+predilection
+a personal preference towards something; a special liking of something
+tranquil
+calm; relaxed
+subordinate
+from a lower rank or position; inferior
+decade
+a period of ten years; any series or group of ten
+mettle
+resilience; stamina
+lethargic
+sluggish or drowsy; tired or slightly tired
+mental
+related to or involving the mind; existing in the mind
+accumulate
+to collect or gather; to amass
+publish
+to make a document available in digital or print format; to make something public or known
+plastic
+(of substances or materials) capable of being molded or shaped
+tangential
+slightly or indirectly related to what you are doing, discussing, or thinking about; not closely connected to something
+gravity
+the force that pulls matter toward a center of attraction; the force that pulls matter to the ground
+migrate
+to move from one region or country to another
+require
+to make something obligatory; to expect
+perfidy
+treachery or unfaithfulness; betrayal of trust
+redress
+compensation or remedy for some wrong that was done against someone; retribution
+benefit
+an advantage; a gift or payment from an employer to an employee
+prohibit
+to forbid or ban; to not allow or permit
+task
+to assign a job to someone; to place a burden on someone
+petrify
+to make something become hard or stone like; to freeze with horror or fear
+formula
+a fixed or standard way of doing something; mathematical symbols that express a rule or a fact
+fallacious
+based on false information or ideas; erroneous
+emerge
+to appear; to come into view
+compound
+to increase; to combine
+policy
+a course of action decided upon by an organization, a group of people, a government or a political party; guidelines
+cease
+to stop doing something; to quit
+futile
+incapable of producing any result; unsuccessful, or useless
+endurance
+the ability or power to withstand stress or an unpleasant situation; the act of persevering
+gait
+a particular way or manner of walking, stepping, or running; manner of moving on foot
+benevolent
+kind, generous, and helpful; charitable
+expedite
+to hasten; to make something happen more quickly
+mundane
+ordinary and not interesting or exciting; relating to the world and practical matters instead of heavenly or spiritual ones
+evidence
+material that shows someone is innocent or guilty of something; material that proves something
+cogent
+an argument that is structured in such a way that makes it easily believable; something convincing
+convert
+to change something; to transform
+bulwark
+something or someone which protects one from negative, dangerous or unpleasant things or gives support and encouragement in bad situations
+concentrate
+to focus on something; to strengthen something
+restore
+to bring something back to its original condition; to make something new again
+elude
+avoid or escape from (a danger, enemy, or pursuer) by quickness, cunning, etc.; evade
+account
+an explanation or description of a specific event or situation; a narrative
+indelible
+impossible to remove or forget; producing marks that cannot be erased or removed
+generate
+to create or bring about; to produce
+genre
+a category or class; a specific style used in works of art that share common features
+lecture
+a speech or lesson about a specific subject; a speech that is open to to the public
+flounder
+stagger or struggle helplessly or clumsily to move or regain one's balance, as in deep mud or snow
+eventually
+in the end; at an unspecified time in the future
+pedantic
+giving too much importance to formal rules or small details; making an excessive display of one's own learning
+outcome
+the result or consequence; the effect
+stanza
+a part of a poem that is presented in paragraph form
+adroit
+very clever or skillful in a physical or mental way
+consternation
+a feeling of worry, shock, or confusion, often caused when something unexpected happens
+monitor
+to watch someone or something; to check on something or someone in order to detect changes
+rigid
+stiff; hard
+financial
+related to money or finance
+elusive
+difficult to describe, find, catch, achieve, understand, or remember; cleverly or skillfully evasive
+quarry
+an open-air pit from which rock is excavated; a person or animal being hunted or searched for
+inspect
+to carefully examine something, especially in search of problems or flaws; to make an official visit to ensure that rules are being followed or complied with
+discount
+a reduction in the usual price of something
+querulous
+often complaining, especially in a way that annoys other people
+innovation
+the use of something new; a change to a particular process
+gustatory
+pertaining to the sense of taste
+individual
+a single human being; a person
+pariah
+a person who is looked down upon or rejected by society, often because they are not trusted or respected; an outcast
+evaluate
+to judge; to closely examine something before determining its value
+commandeer
+to seize control of something via force; to take control of something for military purposes
+meager
+meek or feeble; inadequate
+abrupt
+brusque or curt in behavior or speech; unexpected or sudden, most often in an unpleasant or shocking way
+decline
+a fall in the number of something; a reduction
+prime
+chief; most important
+minimum
+the smallest or least amount of something possible; the smallest size possible
+option
+the ability or right to choose; a choice or something that can be chosen
+contract
+to get smaller; to shrink
+bias
+supporting or opposing a particular person or thing in an unfair way, especially in a way considered to be unfair
+lax
+not as strict or strong; loose
+lampoon
+to criticize a person or a group through a humorous piece of writing or art
+mode
+a fashion; a way of doing something or performing a task
+component
+one specific part of something; an ingredient or element
+despite
+hatred or malice; injury
+debate
+a civil or controlled argument between two or more people or groups with opposing viewpoints; a formal discussion before a vote
+tension
+a feeling of nervousness before something; a feeling of anger or hostility between two or more people
+channel
+a route through which water flows or can flow; a television or radio station
+percent
+out of one hundred; a part of one hundred
+obviate
+anticipate and prevent or remove (a need, problem, difficulty, disadvantage, etc.) by effective measures so that action to deal with it becomes unnecessary
+sum
+the total of a calculation; an amount of money
+theme
+the topic or subject discussed in a book, essay, conversation, debate, etc.; a subject that is brought up frequently
+region
+a specific part of the world; a large area of land where the people or land possesses similar characteristics
+suspect
+to distrust someone or something; to think that someone or something is responsible for a specific action or something bad
+device
+a contraption used to perform specific tasks; an explosive, like a bomb
+involve
+to engage; to include something as necessary
+explicit
+fully and clearly expressed or demonstrated, leaving no room for confusion or doubt
+resignation
+the act of leaving a job or position by formally resigning; the formal, often written, declaration that one is leaving a job or post
+denote
+to be a name or symbol for; to indicate
+quaint
+picturesque; old-fashioned
+practice
+the expected procedure or way of doing something
+discretion
+the ability to judge people or situations wisely and make the right choices; the ability to behave in a way that does not cause offense
+emulate
+try to equal or excel (someone or something you admire), typically by imitation
+abundant
+great in number; available in a large number
+digression
+a temporary departure from the main subject, especially in speech or writing
+minor
+of little importance; small or secondary
+inspection
+the act of examining something by an official or a person who has been specially trained; an official or formal review
+conduct
+to lead or guide
+parallel
+not intersecting; occurring at the same time
+cartographer
+a person who designs, draws or otherwise makes charts and maps
+consider
+to think carefully
+candor
+the quality or state of being honest or frank, especially when the truth is painful or difficult; fairness
+reprove
+to find fault with; to condemn, criticize or express disapproval of bad behavior
+capacious
+capable of containing a large quantity easily; spacious
+deplete
+to cause a great reduction in the fullness or size of; to use up
+framework
+the basic structure for something; something's skeleton
+intelligence
+the ability to learn or to acquire knowledge or skills; classified or secret information about an organization or a country
+meander
+to walk slowly and without purpose or without direction; to follow a winding path
+exclude
+to leave someone or something out; to eject
+insipid
+without flavor; tasteless
+concern
+A matter of interest or importance
+stable
+constant; unwavering
+approach
+to move nearer
+investigate
+to thoroughly examine something; to explore a topic in order to learn the truth about it
+assemble
+to put something together by joining its parts; to bring people together into one single group
+eliminate
+to get rid of; to abolish
+consult
+to get advice from someone or something; to ask someone their opinion
+credit
+money that is given to someone with the understanding that it will be paid back with interest; recognition or praise
+phase
+a stage (of time); a period of time in a person's life
+emphasis
+the importance that is specifically placed on something; stress
+gaunt
+extremely thin due to illness or hunger; empty or barren
+duration
+the amount of time that something lasts
+equation
+a math problem; the act of considering one thing to be the same as another
+gender
+one's sex or sexual identity; all members of a specific sex
+phenomenon
+an extraordinary person or thing; an observable fact or occurrence
+route
+a course or path of travel; a course that certain forms of transport follow habitually
+concise
+expressed in few words; clear and succinct
+ensconce
+to make oneself comfortable or safe; to settle
+communication
+the act of transmitting information from one person to another; the message that is transmitted
+expand
+to add details or information; to grow larger
+perspective
+a vista or view; a way of looking at or examining something
+collapse
+to cave in due to pressure or lack of support; to fall down
+chapter
+a section of a book or a written work; a branch of a society or group
+purchase
+an object that has been bought; the act of buying something
+profane
+to defile; to show a lack of respect for objects considered to be sacred or holy
+diversity
+difference or variety; the state of having people from different races and cultures gathered together in one space or organization
+constant
+unchanging; firm or resolute
+absence
+the state or condition of someone or something not being present or not existing; a failure to appear
+dynamic
+full of energy; enthusiastic
+indignant
+feeling or showing anger or annoyance at unfair, mean, or ungrateful action or treatment
+promote
+to raise in rank; to encourage or support
+relax
+to stop doing something in order to rest; to slacken or make less rigid
+abandon
+a lack of control or restraint; loss of inhibitions
+depict
+show (someone or something) in a picture, drawing, painting, photograph, etc.; describe (someone or something) using words, a story, etc.
+amass
+to gather or collect goods of any kind over a long period of time; to accumulate
+legend
+the part of a map or a chart where each symbol or color are explained; a story that has been told over generations that may or may not be true
+intervene
+to get involved or become involved in a situation in order to change its suspected outcome; to interrupt
+precipice
+a very steep side of a mountain or cliff, typically a tall one; a dangerous situation that could lead to harm or failure
+alacrity
+a cheerful readiness, promptness, or willingness to do something
+advocate
+publicly speak, write, plead, recommend, support or argue for a cause, particular policy or way of doing things
+fallacy
+a mistaken belief that a lot of people think is true but is in fact false; (logic) a mistake or failure in reasoning that makes an argument or idea invalid
+antagonist
+a person who opposes to, struggles against, or competes with someone or something, especially in combat; adversary
+shift
+a slight change in something; a change
+draft
+the first draft or copy of something; a sketch
+consist
+to be composed of; to be inherent
+environment
+all of the conditions and circumstances that surround a specific person, animal or thing; the surroundings
+deteriorate
+to get or become worse; to depreciate
+team
+a group of people that work toward a common goal; two or more animals that work together to pull something
+novice
+a person who is new and not experienced in a job or situation
+conform
+to meet (standards); to comply with
+restrain
+to hold back or put limits on someone or something; to curb
+negative
+pessimistic; harmful or bad
+communicate
+to transmit something, such as energy or an illness; to transmit information to others through written, verbal or non verbal words or signals
+pursue
+to follow someone or something; to hunt for or look for
+manipulate
+to change or modify, especially to suit one's purposes; to handle
+reluctant
+unwilling to do something; uneager to do something
+articulate
+capable of expressing oneself in a clear and coherent manner; clear and well formulated language
+rely
+to depend on; to trust
+predicament
+a difficult, uncomfortable, embarrassing or dangerous situation that is often difficult to get out of
+ambiguity
+the state of being unclear, inexact and open to more than one possible interpretation; doubtfulness
+colloquial
+not formal; familiar and conversational
+commission
+a fee or payment for goods or services rendered; a request to create a specific work for someone
+adjacent
+near; close to
+distinct
+different or separate; unmistakable
+theory
+a hypothesis; an idea that tries to explain something
+injury
+physical harm caused by violence or an accident
+bourgeois
+middle class and acting in a way that is consistent with what is expected of the middle class; materialistic
+edit
+to revise a document and change whatever errors one sees; to produce a book or document by gathering different works together
+assembly
+a gathering of people that takes place because the people share a common goal or interest; a meeting
+discrepancy
+a difference or variation between things that should be identical; inconsistency
+accommodation
+lodgings used for travelers; a place to stay or live
+confer
+to grant something, like a title, to someone; to discuss or exchange opinions
+approximate
+to come close to something; to be similar to something
+capable
+able to do something; quite good at a certain task
+submit
+to hand in or present something to a teacher, boss or other other person; to permit someone to exercise control over you
+merge
+to put two or more things together; to unite
+vanquish
+completely defeat in a contest, conflict, or competition
+element
+a specific part of something tangible; a characteristic of something abstract or intangible
+rash
+not cautious; acting without pausing to think
+expansion
+growth; the act or process of getting larger
+revere
+to honor or respect someone very much; to venerate or worship
+resolve
+firm or strong determination; a resolution made by a legislative body
+reproach
+express disapproval of, criticism of, or disappointment in (someone), especially for not being successful or not doing what is expected
+available
+free and ready to be used; not busy
+interpretation
+explanation; definition
+guideline
+a rule or benchmark; information tells people how something should be done
+transformation
+a major change in something or someone; a change into something entirely different
+counterfeit
+to forge a copy of something, often for illegal or dishonest reasons; to create a high-quality copy of something with the intention of defrauding someone
+contrary
+opposite or completely different; obstinate
+cumulative
+increasing due to the constant addition of other elements; gradually increasing
+conflict
+a fight or a disagreement between two or more parties; a struggle
+implicit
+not explicitly said or explained; implied
+jovial
+(of a person ) cheerful, friendly, and good-humored; (of a situation ) enjoyable because of being friendly and pleasant
+conference
+a meeting of people who share a similar interest attend a variety of talks or sessions about a specific subject or topic; a meeting
+interpret
+to understand something in a certain way; to explain something or make it possible to understand
+stress
+the pressure exerted on a physical object; emotional stress or anxiety caused by a difficult situation
+extricate
+free or remove (someone or something) from a difficult or unpleasant situation (such as a trap, net, debt, peril, etc.); set free
+nuclear
+related to or employing nuclear weapons or energy; related to the nucleus of an atom
+opaque
+not letting light pass through; not transparent or translucent
+collaborate
+work together, especially in a joint intellectual effort; cooperate with an enemy who has invaded your country during a war
+complex
+complicated and not easy to understand; involving or made from many different parts
+priority
+something that is considered to be extremely important and has the ability to take place before other things; possessing the right to come before others
+conclude
+to finish; to terminate or cause something to come to an end
+circumstance
+the conditions surrounding an event; a factor which influences something
+spurn
+refuse or reject with contempt or disdain, especially because you feel that something or someone does not deserve your respect, attention, affection, etc.
+concept
+an idea or a notion; a plan
+animosity
+clear negativity or hatred of someone or something; strong opposition
+alternative
+not traditional or usual; being a choice
+passive
+inactive; complacent
+aloof
+unfriendly or unwilling to interact with others; distant
+legal
+allowed or permitted by law; related or connected to law
+secure
+safe; free from danger or worry
+location
+the place where someone or something can be found; place
+preliminary
+introductory; leading up to the main event or thing
+journal
+a newspaper or magazine; a magazine that contains articles about a specific subject
+predict
+to say that something is going to happen before it actually does; to foretell
+revenue
+income; money that an organization, government or company receives from different sources
+precinct
+a division of a city for policing or political reasons; a specific area which is enclosed or limited, most often by walls
+stifle
+to hide or conceal something; to repress
+significant
+quite important; suggesting or showing a meaning
+migration
+the movement of people or animals from one reason to another, based on a variety of different reasons
+obsolete
+outdated or old-fashioned; no longer in use
+medium
+a way of expressing something, such as photography or print; something in a middle position
+sequence
+the order or pattern in which things happen or take place; a set of things that is put in a specific order
+diminish
+to reduce or make smaller; to become smaller or less
+visible
+able to be seen; frequently seen in public
+technical
+mechanical; specialized
+summary
+an explanation of something giving the main points or ideas of the original document or argument; a recapitulation
+positive
+extremely certain, without any doubt; more than zero
+indicate
+to show; to be a sign of
+export
+to sell or send abroad; to introduce or transmit an idea from one country into another
+subsequent
+following; succeeding
+tenacious
+holding firmly; that clings
+ambiguous
+not expressed or understood clearly; open to or having several possible meanings or interpretations
+objective
+fair and impartial; unbiased
+anachronism
+a person or a thing that is mistakenly placed in a time where it does not belong to, especially a thing or person that belongs to an earlier time
+recover
+to get something back; to reclaim
+apparent
+clear and able to be seen; obvious
+neutral
+impartial; not supporting either side involved in a conflict
+luscious
+sweet; pleasant to taste or smell
+instruct
+to teach someone; to show someone how to do something
+reject
+to refuse something; to turn something down
+strategy
+a detailed plan of action; a way to approach a specific goal
+scheme
+an elaborate plan that is devised in order to gain something and, often, trick people; an official plan
+absorb
+to incorporate something; to soak up or suck up something
+skirmish
+a short or small battle; a minor fight in a much larger conflict
+palpable
+so strong or so obvious that it can be felt; easily noticed
+considerable
+quite large; substantial
+similar
+related to something else; nearly the same, but not exactly the same
+sphere
+a globe; a ball shaped object
+stereotype
+an oversimplified way of looking at something; a simple and unwavering idea about what a certain person or group of people are like
+topic
+a subject that is currently being examined or discussed in a conversation, book, essay, article, etc.; a theme
+unruly
+difficult or impossible to discipline, control, or rule
+ostentatious
+pretentious or showy display, as of wealth, knowledge, etc., in an attempt to attract attention, admiration, or envy; designed to impress
+retain
+to remember information; to hold or keep someone or something
+valid
+sound; binding
+spontaneous
+happening or done in a natural, often sudden way, without being planned or thought about; growing without cultivation or human labor, as plants and fruits
+vital
+necessary for life; related to life
+volume
+the amount of space taken up by something; an amount of something
+virtually
+essentially; almost
+zeal
+great energy, effort, and enthusiasm, as in working for a person, cause, or object

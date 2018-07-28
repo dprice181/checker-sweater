@@ -16,6 +16,15 @@
 		0425C50D210794C5004EA425 /* BluePlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425C50C210794C5004EA425 /* BluePlus.png */; };
 		0425C510210A3365004EA425 /* hotairballoon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425C50E210A3365004EA425 /* hotairballoon.png */; };
 		0425C511210A3365004EA425 /* hotairballoonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0425C50F210A3365004EA425 /* hotairballoonHighlight.png */; };
+		0425C51B210CE566004EA425 /* Spelling2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C512210CE565004EA425 /* Spelling2.txt */; };
+		0425C51C210CE566004EA425 /* Spelling3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C513210CE565004EA425 /* Spelling3.txt */; };
+		0425C51D210CE566004EA425 /* Spelling5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C514210CE565004EA425 /* Spelling5.txt */; };
+		0425C51E210CE566004EA425 /* Spelling8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C515210CE565004EA425 /* Spelling8.txt */; };
+		0425C51F210CE566004EA425 /* Spelling6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C516210CE566004EA425 /* Spelling6.txt */; };
+		0425C520210CE566004EA425 /* Spelling1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C517210CE566004EA425 /* Spelling1.txt */; };
+		0425C521210CE566004EA425 /* Spelling7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C518210CE566004EA425 /* Spelling7.txt */; };
+		0425C522210CE566004EA425 /* Spelling4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C519210CE566004EA425 /* Spelling4.txt */; };
+		0425C523210CE566004EA425 /* SpellingK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0425C51A210CE566004EA425 /* SpellingK.txt */; };
 		0437526820E19DD700E791F0 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 0437526520E19DD700E791F0 /* next.png */; };
 		0437526920E19DD700E791F0 /* retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 0437526620E19DD700E791F0 /* retry.png */; };
 		0437526A20E19DD700E791F0 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0437526720E19DD700E791F0 /* home.png */; };
@@ -116,6 +125,15 @@
 		0425C50C210794C5004EA425 /* BluePlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BluePlus.png; sourceTree = "<group>"; };
 		0425C50E210A3365004EA425 /* hotairballoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotairballoon.png; sourceTree = "<group>"; };
 		0425C50F210A3365004EA425 /* hotairballoonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotairballoonHighlight.png; sourceTree = "<group>"; };
+		0425C512210CE565004EA425 /* Spelling2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling2.txt; path = ScholarKids/Sentences/Spelling2.txt; sourceTree = SOURCE_ROOT; };
+		0425C513210CE565004EA425 /* Spelling3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling3.txt; path = ScholarKids/Sentences/Spelling3.txt; sourceTree = SOURCE_ROOT; };
+		0425C514210CE565004EA425 /* Spelling5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling5.txt; path = ScholarKids/Sentences/Spelling5.txt; sourceTree = SOURCE_ROOT; };
+		0425C515210CE565004EA425 /* Spelling8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling8.txt; path = ScholarKids/Sentences/Spelling8.txt; sourceTree = SOURCE_ROOT; };
+		0425C516210CE566004EA425 /* Spelling6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling6.txt; path = ScholarKids/Sentences/Spelling6.txt; sourceTree = SOURCE_ROOT; };
+		0425C517210CE566004EA425 /* Spelling1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling1.txt; path = ScholarKids/Sentences/Spelling1.txt; sourceTree = SOURCE_ROOT; };
+		0425C518210CE566004EA425 /* Spelling7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling7.txt; path = ScholarKids/Sentences/Spelling7.txt; sourceTree = SOURCE_ROOT; };
+		0425C519210CE566004EA425 /* Spelling4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Spelling4.txt; path = ScholarKids/Sentences/Spelling4.txt; sourceTree = SOURCE_ROOT; };
+		0425C51A210CE566004EA425 /* SpellingK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SpellingK.txt; path = ScholarKids/Sentences/SpellingK.txt; sourceTree = SOURCE_ROOT; };
 		0437526520E19DD700E791F0 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		0437526620E19DD700E791F0 /* retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retry.png; sourceTree = "<group>"; };
 		0437526720E19DD700E791F0 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -315,6 +333,15 @@
 				0437529B20E4560400E791F0 /* Vocabulary6.txt */,
 				0437529620E4560400E791F0 /* Vocabulary7.txt */,
 				0437529820E4560400E791F0 /* Vocabulary8.txt */,
+				0425C51A210CE566004EA425 /* SpellingK.txt */,
+				0425C517210CE566004EA425 /* Spelling1.txt */,
+				0425C512210CE565004EA425 /* Spelling2.txt */,
+				0425C513210CE565004EA425 /* Spelling3.txt */,
+				0425C519210CE566004EA425 /* Spelling4.txt */,
+				0425C514210CE565004EA425 /* Spelling5.txt */,
+				0425C516210CE566004EA425 /* Spelling6.txt */,
+				0425C518210CE566004EA425 /* Spelling7.txt */,
+				0425C515210CE565004EA425 /* Spelling8.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -480,15 +507,20 @@
 				04A2CF2B210293C7006282B3 /* Nouns.txt in Resources */,
 				04A2CF322102CECB006282B3 /* Sentences2.txt in Resources */,
 				0437527A20E1C72400E791F0 /* LevelCompleted.wav in Resources */,
+				0425C523210CE566004EA425 /* SpellingK.txt in Resources */,
 				04A2CF2E210293C7006282B3 /* Adverbs.txt in Resources */,
 				04902DDF20FADCBE008B24CC /* WordProblemsK.txt in Resources */,
 				043752B320E4861A00E791F0 /* books.png in Resources */,
+				0425C521210CE566004EA425 /* Spelling7.txt in Resources */,
+				0425C51E210CE566004EA425 /* Spelling8.txt in Resources */,
 				04A2CF1F2102680F006282B3 /* WordProblems8.txt in Resources */,
+				0425C51C210CE566004EA425 /* Spelling3.txt in Resources */,
 				043752A120E4560400E791F0 /* Vocabulary8.txt in Resources */,
 				04902DDE20FADCBE008B24CC /* WordProblems5.txt in Resources */,
 				043752B520E4861A00E791F0 /* pies.png in Resources */,
 				04B22B0F20DB6EC200F3AA69 /* SilverButton.png in Resources */,
 				043752A420E4560400E791F0 /* Vocabulary6.txt in Resources */,
+				0425C51B210CE566004EA425 /* Spelling2.txt in Resources */,
 				043752B620E4861A00E791F0 /* cookies.png in Resources */,
 				0425C510210A3365004EA425 /* hotairballoon.png in Resources */,
 				04A2CF1521025D47006282B3 /* VocabularyK.txt in Resources */,
@@ -501,6 +533,7 @@
 				04421FE020FA935C00DAD821 /* lock.png in Resources */,
 				04A2CF312102CECB006282B3 /* Sentences1.txt in Resources */,
 				043752B220E4861A00E791F0 /* cakes.png in Resources */,
+				0425C51F210CE566004EA425 /* Spelling6.txt in Resources */,
 				04A2CF1D2102680F006282B3 /* WordProblems4.txt in Resources */,
 				043752B420E4861A00E791F0 /* pencils.png in Resources */,
 				0437526A20E19DD700E791F0 /* home.png in Resources */,
@@ -515,6 +548,7 @@
 				84004A8520AF3C3100761FB6 /* GameScene.sks in Resources */,
 				04A2CF2D210293C7006282B3 /* Prepositions.txt in Resources */,
 				84004A9020AF3C3100761FB6 /* Assets.xcassets in Resources */,
+				0425C51D210CE566004EA425 /* Spelling5.txt in Resources */,
 				0437526820E19DD700E791F0 /* next.png in Resources */,
 				040B60B520CF34D00009ED9C /* QuizRight.wav in Resources */,
 				0437529F20E4560400E791F0 /* Vocabulary7.txt in Resources */,
@@ -523,8 +557,10 @@
 				040B60B220CF2D340009ED9C /* BackgroundMusic.mp3 in Resources */,
 				04B22B0D20DB6E0E00F3AA69 /* RedButtonBig.png in Resources */,
 				04B22B0920DB6E0E00F3AA69 /* BackwardsClean.png in Resources */,
+				0425C522210CE566004EA425 /* Spelling4.txt in Resources */,
 				04A2CF1E2102680F006282B3 /* WordProblems6.txt in Resources */,
 				0437527720E1C71300E791F0 /* Star1.wav in Resources */,
+				0425C520210CE566004EA425 /* Spelling1.txt in Resources */,
 				043752A020E4560400E791F0 /* Vocabulary4.txt in Resources */,
 				0437527620E1C71300E791F0 /* Star3.wav in Resources */,
 				84004A8720AF3C3100761FB6 /* Actions.sks in Resources */,

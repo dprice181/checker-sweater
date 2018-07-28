@@ -333,17 +333,17 @@ class VocabularySelectScene: SKScene {
     }
     
     
-    func GetVocabularyFilename() -> String {
+    func GetFilename() -> String {
         if let grade = Int(global.currentGrade) {
             if grade > 8 {
-                return "Vocabulary8"
+                return global.sceneType + "8"
             }
         }
-        return "Vocabulary" + global.currentGrade
+        return global.sceneType + global.currentGrade
     }
     
     func GetSentence() {
-        let fileName = GetVocabularyFilename()
+        let fileName = GetFilename()
         
         if let path = Bundle.main.path(forResource: fileName, ofType: "txt") {
             let fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
