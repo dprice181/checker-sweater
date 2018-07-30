@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDrawScene.swift"
-            timestampString = "554604298.8342839"
+            timestampString = "554667690.074329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "GetNumbers(myOper:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/PlayerSelectScene.swift"
-            timestampString = "554604298.834366"
+            timestampString = "554667690.074713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "DisplayPlayers()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/PlayerSelectScene.swift"
-            timestampString = "554604298.834429"
+            timestampString = "554667690.074767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "DisplayPlayers()"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/PlayerSelectScene.swift"
-            timestampString = "554604298.834488"
+            timestampString = "554667690.074818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "DisplayPlayers()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/PlayerSelectScene.swift"
-            timestampString = "554604298.834547"
+            timestampString = "554667690.074867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "590"
-            endingLineNumber = "590"
+            startingLineNumber = "580"
+            endingLineNumber = "580"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/PlayerSelectScene.swift"
-            timestampString = "554604298.834605"
+            timestampString = "554667690.0749151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "456"
-            endingLineNumber = "456"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
             landmarkName = "GetPlayers()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDrawScene.swift"
-            timestampString = "554604298.834662"
+            timestampString = "554667690.074964"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "606"
-            endingLineNumber = "606"
+            startingLineNumber = "607"
+            endingLineNumber = "607"
             landmarkName = "DrawNumberButtons()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/VocabularyConnectScene.swift"
-            timestampString = "554604298.834733"
+            timestampString = "554667690.075271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "422"
-            endingLineNumber = "422"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/VocabularyConnectScene.swift"
-            timestampString = "554604298.83481"
+            timestampString = "554667690.0753241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "614"
-            endingLineNumber = "614"
+            startingLineNumber = "606"
+            endingLineNumber = "606"
             landmarkName = "CheckAnswer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.834887"
+            timestampString = "554667690.0753829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "875"
-            endingLineNumber = "875"
+            startingLineNumber = "865"
+            endingLineNumber = "865"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.834963"
+            timestampString = "554667690.075449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1044"
-            endingLineNumber = "1044"
+            startingLineNumber = "1034"
+            endingLineNumber = "1034"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,23 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.8350331"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "703"
-            endingLineNumber = "703"
-            landmarkName = "touchesBegan(_:with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835101"
+            timestampString = "554667690.0755039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "701"
@@ -218,11 +202,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.83517"
+            timestampString = "554667690.075557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "860"
-            endingLineNumber = "860"
+            startingLineNumber = "699"
+            endingLineNumber = "699"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScholarKids/MathDragScene.swift"
+            timestampString = "554667690.075611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "850"
+            endingLineNumber = "850"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835236"
+            timestampString = "554667690.075663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "863"
-            endingLineNumber = "863"
+            startingLineNumber = "853"
+            endingLineNumber = "853"
             landmarkName = "GetSentence()"
             landmarkType = "7">
             <Locations>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835317"
+            timestampString = "554667690.0757149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "872"
-            endingLineNumber = "872"
+            startingLineNumber = "862"
+            endingLineNumber = "862"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835405"
+            timestampString = "554667690.0757689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "init(size:currentSentenceNum:correctAnswers:incorrectAnswers:currentExtraWordNum:sceneType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835526"
+            timestampString = "554667690.0758229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "init(size:currentSentenceNum:correctAnswers:incorrectAnswers:currentExtraWordNum:sceneType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.8356169"
+            timestampString = "554667690.075877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "891"
-            endingLineNumber = "891"
+            startingLineNumber = "881"
+            endingLineNumber = "881"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835688"
+            timestampString = "554667690.07593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1047"
-            endingLineNumber = "1047"
+            startingLineNumber = "1037"
+            endingLineNumber = "1037"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835755"
+            timestampString = "554667690.075983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1073"
-            endingLineNumber = "1073"
+            startingLineNumber = "1063"
+            endingLineNumber = "1063"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.83583"
+            timestampString = "554667690.076036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1090"
-            endingLineNumber = "1090"
+            startingLineNumber = "1080"
+            endingLineNumber = "1080"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.835896"
+            timestampString = "554667690.076089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1059"
-            endingLineNumber = "1059"
+            startingLineNumber = "1049"
+            endingLineNumber = "1049"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.8359621"
+            timestampString = "554667690.076141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "MathDragScene"
             landmarkType = "3">
             <Locations>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.836027"
+            timestampString = "554667690.076194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1072"
-            endingLineNumber = "1072"
+            startingLineNumber = "1062"
+            endingLineNumber = "1062"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.836091"
+            timestampString = "554667690.076248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
             landmarkName = "DrawItems()"
             landmarkType = "7">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.836157"
+            timestampString = "554667690.076301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "550"
-            endingLineNumber = "550"
+            startingLineNumber = "548"
+            endingLineNumber = "548"
             landmarkName = "DrawItems()"
             landmarkType = "7">
          </BreakpointContent>
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.836221"
+            timestampString = "554667690.076355"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "570"
-            endingLineNumber = "570"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "DrawItems()"
             landmarkType = "7">
          </BreakpointContent>
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.836285"
+            timestampString = "554667690.076406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "569"
-            endingLineNumber = "569"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
             landmarkName = "DrawItems()"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.83636"
+            timestampString = "554667690.07646"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "950"
-            endingLineNumber = "950"
+            startingLineNumber = "940"
+            endingLineNumber = "940"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.836426"
+            timestampString = "554667690.076514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "980"
-            endingLineNumber = "980"
+            startingLineNumber = "970"
+            endingLineNumber = "970"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -570,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.836493"
+            timestampString = "554667690.076568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1018"
-            endingLineNumber = "1018"
+            startingLineNumber = "1008"
+            endingLineNumber = "1008"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -586,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.8365639"
+            timestampString = "554667690.076625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "615"
-            endingLineNumber = "615"
+            startingLineNumber = "608"
+            endingLineNumber = "608"
             landmarkName = "TransitionScene(sceneType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.836645"
+            timestampString = "554667690.076681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "836"
-            endingLineNumber = "836"
+            startingLineNumber = "863"
+            endingLineNumber = "863"
             landmarkName = "WriteResultsToFile()"
             landmarkType = "9">
             <Locations>
@@ -650,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.836731"
+            timestampString = "554667690.076738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "837"
-            endingLineNumber = "837"
+            startingLineNumber = "864"
+            endingLineNumber = "864"
             landmarkName = "WriteResultsToFile()"
             landmarkType = "9">
          </BreakpointContent>
@@ -666,11 +666,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/ProgressReportScene.swift"
-            timestampString = "554604298.836822"
+            timestampString = "554667690.076794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "DrawLines(subjectInd:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -682,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/ProgressReportScene.swift"
-            timestampString = "554604298.8368779"
+            timestampString = "554667690.076843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "DrawLines(subjectInd:)"
             landmarkType = "7">
             <Locations>
@@ -730,11 +730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.836935"
+            timestampString = "554667690.07689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "843"
-            endingLineNumber = "843"
+            startingLineNumber = "870"
+            endingLineNumber = "870"
             landmarkName = "WriteResultsToFile()"
             landmarkType = "9">
             <Locations>
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.837016"
+            timestampString = "554667690.076944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "840"
-            endingLineNumber = "840"
+            startingLineNumber = "867"
+            endingLineNumber = "867"
             landmarkName = "WriteResultsToFile()"
             landmarkType = "9">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.837097"
+            timestampString = "554667690.076997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "842"
-            endingLineNumber = "842"
+            startingLineNumber = "869"
+            endingLineNumber = "869"
             landmarkName = "WriteResultsToFile()"
             landmarkType = "9">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/ProgressReportScene.swift"
-            timestampString = "554604298.837178"
+            timestampString = "554667690.07705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "DrawLines(subjectInd:)"
             landmarkType = "7">
             <Locations>
@@ -858,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/ProgressReportScene.swift"
-            timestampString = "554604298.8372329"
+            timestampString = "554667690.077098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "DrawLines(subjectInd:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -873,28 +873,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.837289"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "init(size:currentSentenceNum:correctAnswers:incorrectAnswers:currentExtraWordNum:sceneType:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837374"
+            timestampString = "554667690.077149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "484"
-            endingLineNumber = "484"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -906,11 +890,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837465"
+            timestampString = "554667690.0772001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "483"
-            endingLineNumber = "483"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -922,7 +906,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837536"
+            timestampString = "554667690.0772491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
@@ -938,7 +922,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837597"
+            timestampString = "554667690.077298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -954,7 +938,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837659"
+            timestampString = "554667690.077347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -970,7 +954,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.83772"
+            timestampString = "554667690.077396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -986,7 +970,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837781"
+            timestampString = "554667690.077444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -1002,11 +986,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837841"
+            timestampString = "554667690.077492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "506"
-            endingLineNumber = "506"
+            startingLineNumber = "498"
+            endingLineNumber = "498"
             landmarkName = "UpdateOptionArray(node:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1018,11 +1002,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/OptionsScene.swift"
-            timestampString = "554604298.837903"
+            timestampString = "554667690.077539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "touchesMoved(_:with:)"
             landmarkType = "7">
             <Locations>
@@ -1066,7 +1050,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/TitleScene.swift"
-            timestampString = "554604298.837966"
+            timestampString = "554604693.2952369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -1082,11 +1066,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDrawScene.swift"
-            timestampString = "554604298.838024"
+            timestampString = "554667690.077744"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "776"
-            endingLineNumber = "776"
+            startingLineNumber = "777"
+            endingLineNumber = "777"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1098,11 +1082,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDrawScene.swift"
-            timestampString = "554604298.838088"
+            timestampString = "554667690.07805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "754"
-            endingLineNumber = "754"
+            startingLineNumber = "755"
+            endingLineNumber = "755"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1114,7 +1098,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/TitleScene.swift"
-            timestampString = "554604298.8381521"
+            timestampString = "554604693.295711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -1130,11 +1114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.838209"
+            timestampString = "554667690.078325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1029"
-            endingLineNumber = "1029"
+            startingLineNumber = "1019"
+            endingLineNumber = "1019"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1146,11 +1130,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.8382961"
+            timestampString = "554667690.07838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1027"
-            endingLineNumber = "1027"
+            startingLineNumber = "1017"
+            endingLineNumber = "1017"
             landmarkName = "GetSentence()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1162,11 +1146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/VocabularyConnectScene.swift"
-            timestampString = "554604298.838367"
+            timestampString = "554667690.078434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
+            startingLineNumber = "593"
+            endingLineNumber = "593"
             landmarkName = "TransitionScene(playSound:duration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1178,11 +1162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.838443"
+            timestampString = "554667690.078486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "GetSentence(increment:)"
             landmarkType = "7">
             <Locations>
@@ -1226,11 +1210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.838522"
+            timestampString = "554667690.0785379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "GetFileName()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1242,11 +1226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.838586"
+            timestampString = "554667690.0785871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "GetSentence(increment:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1258,11 +1242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.838652"
+            timestampString = "554667690.078637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "SentenceContainsLevelMode()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1274,11 +1258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.838717"
+            timestampString = "554667690.078683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "SentenceContainsLevelMode()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1290,11 +1274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordDragScene.swift"
-            timestampString = "554604298.838784"
+            timestampString = "554667690.078733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
             landmarkName = "SentenceContainsLevelMode()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1306,11 +1290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordDragScene.swift"
-            timestampString = "554604298.839596"
+            timestampString = "554667690.078783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "SentenceContainsLevelMode()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1322,11 +1306,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.84032"
+            timestampString = "554667690.078833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "631"
-            endingLineNumber = "631"
+            startingLineNumber = "624"
+            endingLineNumber = "624"
             landmarkName = "TransitionScene(sceneType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1338,7 +1322,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordDragScene.swift"
-            timestampString = "554604298.840397"
+            timestampString = "554667690.078885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "186"
@@ -1354,7 +1338,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordDragScene.swift"
-            timestampString = "554604298.841126"
+            timestampString = "554667690.078933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -1370,11 +1354,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordDragScene.swift"
-            timestampString = "554604298.841871"
+            timestampString = "554667690.078982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
+            startingLineNumber = "422"
+            endingLineNumber = "422"
             landmarkName = "GetChoiceArray()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1386,11 +1370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.842569"
+            timestampString = "554667690.079031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "422"
-            endingLineNumber = "422"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "TransitionScene(playSound:duration:)"
             landmarkType = "7">
             <Locations>
@@ -1434,11 +1418,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordDragScene.swift"
-            timestampString = "554604298.842635"
+            timestampString = "554667690.079078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "629"
-            endingLineNumber = "629"
+            startingLineNumber = "625"
+            endingLineNumber = "625"
             landmarkName = "TransitionScene(playSound:duration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1450,7 +1434,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.843345"
+            timestampString = "554667690.079126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -1466,11 +1450,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.843411"
+            timestampString = "554667690.079173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "424"
-            endingLineNumber = "424"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
             landmarkName = "TransitionScene(playSound:duration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1482,11 +1466,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.843475"
+            timestampString = "554667690.0792201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1173"
-            endingLineNumber = "1173"
+            startingLineNumber = "1164"
+            endingLineNumber = "1164"
             landmarkName = "TransitionScene(playSound:duration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1498,11 +1482,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDragScene.swift"
-            timestampString = "554604298.843541"
+            timestampString = "554667690.079273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1172"
-            endingLineNumber = "1172"
+            startingLineNumber = "1163"
+            endingLineNumber = "1163"
             landmarkName = "TransitionScene(playSound:duration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1514,11 +1498,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.843608"
+            timestampString = "554667690.079327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "442"
-            endingLineNumber = "442"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1530,11 +1514,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/MathDrawScene.swift"
-            timestampString = "554604298.843683"
+            timestampString = "554667690.079379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
+            startingLineNumber = "598"
+            endingLineNumber = "598"
             landmarkName = "DrawNumberButtons()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1546,11 +1530,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/SpellingDragScene.swift"
-            timestampString = "554604298.8437459"
+            timestampString = "554667690.079653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "GetSentence(increment:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1562,7 +1546,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/SpellingDragScene.swift"
-            timestampString = "554604298.843809"
+            timestampString = "554667690.079702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
@@ -1578,11 +1562,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordDragScene.swift"
-            timestampString = "554604298.843872"
+            timestampString = "554667690.079751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "423"
-            endingLineNumber = "423"
+            startingLineNumber = "419"
+            endingLineNumber = "419"
             landmarkName = "GetChoiceArray()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1594,11 +1578,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/VocabularyConnectScene.swift"
-            timestampString = "554604298.8445179"
+            timestampString = "554667690.079801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "DrawDefinitions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1610,11 +1594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/VocabularyConnectScene.swift"
-            timestampString = "554604298.844589"
+            timestampString = "554667690.0798481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "DrawDefinitions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1626,11 +1610,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/VocabularyConnectScene.swift"
-            timestampString = "554604298.844659"
+            timestampString = "554667690.079896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "DrawDefinitions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1642,11 +1626,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.84473"
+            timestampString = "554667690.0799429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "GetUnlockedLevels()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1658,11 +1642,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.8447959"
+            timestampString = "554667690.079995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "GetUnlockedLevels()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1674,11 +1658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.8448811"
+            timestampString = "554667690.080047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "GetUnlockedLevels()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1690,11 +1674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.844956"
+            timestampString = "554667690.08011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "ScrollAtLocation(location:location2:scrollLeft:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1706,11 +1690,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.845016"
+            timestampString = "554667690.080162"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "ScrollAtLocation(location:location2:scrollLeft:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1722,11 +1706,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.845076"
+            timestampString = "554667690.080256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
             landmarkName = "ScrollAtLocation(location:location2:scrollLeft:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1738,11 +1722,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.845135"
+            timestampString = "554667690.080327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "ScrollAtLocation(location:location2:scrollLeft:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1754,11 +1738,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.845193"
+            timestampString = "554667690.080389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "746"
-            endingLineNumber = "746"
+            startingLineNumber = "773"
+            endingLineNumber = "773"
             landmarkName = "DisplayLevelFinished(scene:)"
             landmarkType = "9">
             <Locations>
@@ -1802,11 +1786,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.845268"
+            timestampString = "554667690.080459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
+            startingLineNumber = "511"
+            endingLineNumber = "511"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1818,11 +1802,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.84534"
+            timestampString = "554667690.08052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "501"
+            endingLineNumber = "501"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1834,11 +1818,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.8454109"
+            timestampString = "554667690.080582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
+            startingLineNumber = "505"
+            endingLineNumber = "505"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1850,11 +1834,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.845487"
+            timestampString = "554667690.080655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "493"
-            endingLineNumber = "493"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1866,11 +1850,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.845557"
+            timestampString = "554667690.080719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "546"
+            endingLineNumber = "546"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1882,11 +1866,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.845629"
+            timestampString = "554667690.080799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
+            startingLineNumber = "545"
+            endingLineNumber = "545"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1898,11 +1882,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.845698"
+            timestampString = "554667690.080878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "543"
-            endingLineNumber = "543"
+            startingLineNumber = "547"
+            endingLineNumber = "547"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1914,11 +1898,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.845767"
+            timestampString = "554667690.080963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
+            startingLineNumber = "532"
+            endingLineNumber = "532"
             landmarkName = "Misspell(word:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1930,11 +1914,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.845845"
+            timestampString = "554667690.081061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "GetUnlockedLevels()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1946,11 +1930,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/LevelSelectScene.swift"
-            timestampString = "554604298.845898"
+            timestampString = "554667690.081153"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "GetUnlockedLevels()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1962,11 +1946,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.84596"
+            timestampString = "554667690.081249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1978,7 +1962,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.8460129"
+            timestampString = "554667690.081338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
+            landmarkName = "touchesEnded(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScholarKids/WordSelectScene.swift"
+            timestampString = "554667690.081412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "376"
@@ -1993,13 +1993,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScholarKids/WordSelectScene.swift"
-            timestampString = "554604298.846066"
+            filePath = "ScholarKids/GameViewController.swift"
+            timestampString = "554667690.0815099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
-            landmarkName = "touchesEnded(_:with:)"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "GetCornerSize(size:max:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScholarKids/MathDrawScene.swift"
+            timestampString = "554667690.081615"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "DrawOtherButtons()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2009,14 +2025,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScholarKids/GameViewController.swift"
-            timestampString = "554604298.846121"
+            filePath = "ScholarKids/MathDrawScene.swift"
+            timestampString = "554667690.082173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "GetCornerSize(size:max:)"
-            landmarkType = "9">
+            startingLineNumber = "504"
+            endingLineNumber = "504"
+            landmarkName = "DrawOtherButtons()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScholarKids/MathDrawScene.swift"
+            timestampString = "554667690.082478"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
+            landmarkName = "DrawOtherButtons()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

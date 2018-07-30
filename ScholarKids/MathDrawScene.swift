@@ -16,7 +16,8 @@ class MathDrawScene: SKScene {
     var labelAnswer = SKLabelNode(fontNamed: "Arial")
     var labelAnswerShadow = SKLabelNode(fontNamed: "Arial")
     var buttonAr = [SKSpriteNode]()
-    var buttonShadowAr = [SKShapeNode]()
+    //var buttonShadowAr = [SKShapeNode]()
+    var buttonShadowAr = [SKSpriteNode]()
     var buttonLabelAr = [SKLabelNode]()
     var buttonLabelShadowAr = [SKLabelNode]()
     var drawLineAr = [SKShapeNode]()
@@ -103,7 +104,7 @@ class MathDrawScene: SKScene {
         labelTitle.text = "Answer with the numbers below"
         labelTitle.fontSize = GetFontSize(size:20)
         labelTitle.fontColor = global.realPurple
-        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.2/24)
+        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.1/24)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
         labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
@@ -172,7 +173,7 @@ class MathDrawScene: SKScene {
     func GetNumber(numDigit: Int) -> Int {
         var range = 1
         var prevRange = 1
-        for i in 0..<numDigit {
+        for _ in 0..<numDigit {
             prevRange = range
             range = range * 10
         }
@@ -498,19 +499,19 @@ class MathDrawScene: SKScene {
     func DrawOtherButtons() {
         for i in 0..<5 {
             if i == 0 || i==4 {
-                buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/4,height: self.size.height*2/48),cornerRadius: GetCornerSize(size:40.0,max:self.size.height*2/48)))
+                buttonShadowAr.append(SKSpriteNode(imageNamed: "RedButtonBigShadow.png"))
+                buttonShadowAr[i].scale(to: CGSize(width: self.size.width/3.5,height: self.size.height*2.5/48))
             }
             else if i == 3 {
-                buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/5,height: self.size.height*2/48),cornerRadius: GetCornerSize(size:40.0,max:self.size.height*2/48)))
+                buttonShadowAr.append(SKSpriteNode(imageNamed: "RedButtonBigShadow.png"))
+                buttonShadowAr[i].scale(to: CGSize(width: self.size.width/4.5,height: self.size.height*2.5/48))
             }
             else {
-                buttonShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6,height: self.size.height*2/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*2/48)))
+                buttonShadowAr.append(SKSpriteNode(imageNamed: "RedButtonSmallShadow.png"))
+                buttonShadowAr[i].scale(to: CGSize(width: self.size.width/5.5,height: self.size.height*2.5/48))
             }
             buttonShadowAr[i].name = "bshadow" + String(i)
-            buttonShadowAr[i].fillColor = SKColor.black
-            buttonShadowAr[i].strokeColor = SKColor.black
             buttonShadowAr[i].zPosition = 100.0
-            buttonShadowAr[i].lineWidth = 2.0
             
             if i == 0 || i==4 {
                 buttonAr.append(SKSpriteNode(imageNamed: "RedButtonBig.png"))
@@ -553,7 +554,7 @@ class MathDrawScene: SKScene {
             }
             
         }
-        buttonShadowAr[0].position = CGPoint(x: self.size.width*6/7 - GetFontSize(size:5), y: self.size.height*20.2/24 + GetFontSize(size:2))
+        buttonShadowAr[0].position = CGPoint(x: self.size.width*6/7 - GetFontSize(size:1.5), y: self.size.height*20.2/24 + GetFontSize(size:1.5))
         buttonAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24)
         buttonLabelAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24 - self.size.height/96)
         buttonLabelAr[0].text = "Wipe Screen"
@@ -565,11 +566,11 @@ class MathDrawScene: SKScene {
         buttonAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.4/24)
         buttonLabelAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.4/24 - self.size.height/96)
         buttonLabelAr[2].text = "Clear"
-        buttonShadowAr[3].position = CGPoint(x: self.size.width/9 - GetFontSize(size:3.5), y: self.size.height*11.5/24 + GetFontSize(size:2.5))
+        buttonShadowAr[3].position = CGPoint(x: self.size.width/9 - GetFontSize(size:1.5), y: self.size.height*11.5/24 + GetFontSize(size:1.5))
         buttonAr[3].position = CGPoint(x: self.size.width/9, y: self.size.height*11.5/24)
         buttonLabelAr[3].position = CGPoint(x: self.size.width/9, y: self.size.height*11.5/24 - self.size.height/96)
         buttonLabelAr[3].text = "Put -"
-        buttonShadowAr[4].position = CGPoint(x: self.size.width*6/7 - GetFontSize(size:5), y: self.size.height*18/24 + GetFontSize(size:2))
+        buttonShadowAr[4].position = CGPoint(x: self.size.width*6/7 - GetFontSize(size:1.5), y: self.size.height*18/24 + GetFontSize(size:1.5))
         buttonAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24)
         buttonLabelAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24 - self.size.height/96)
         buttonLabelAr[4].text = "Add Remainder"
@@ -615,7 +616,7 @@ class MathDrawScene: SKScene {
             self.addChild(circle)
       
             circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:35)))
-            circleShadowAr[i-1].position = CGPoint(x:GetFontSize(size:-3)+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:GetFontSize(size:3)+size.height*(offY+4-secondRow)/24)
+            circleShadowAr[i-1].position = CGPoint(x:GetFontSize(size:-2)+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:GetFontSize(size:2)+size.height*(offY+4-secondRow)/24)
             circleShadowAr[i-1].name = "cirshadow" + String(i-1)
             circleShadowAr[i-1].strokeColor = SKColor.black
             circleShadowAr[i-1].fillColor = SKColor.black
@@ -640,7 +641,7 @@ class MathDrawScene: SKScene {
         
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
+        backButton.position = CGPoint(x: frame.size.width/16, y: self.size.height*18.5/20)
         backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
         addChild(backButton)
     }        

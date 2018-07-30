@@ -1,245 +1,318 @@
-There are two ornate paintings.* n v a a n
-That is a paper book.* n v t a n
-That is not an open church.* n v d t a n
-That is a kid's backpack.* v v t a n
-That is not a friendly kid.* v v d t a n
-Why are there grey birds?* a v a a n
-Is that a mechanical eraser?* v n t a n
-That is a friendly girl.* n v t a n
-That is a parked car.* n v t a n
-That is a stray dog.* n v t a n
-There are almost no adults.* n v a t n
-Is that a useless room?* v n t a n
-Is that a street sign?* v n t a n
-Is that a large broom?* v n t a n
-There are many beautiful parks.* n v a a n
-Is that a classic book?* v n t a n
-Red dogs are very rare.* a n v d a
-The boy is particulary cranky.* t n v d a
-Green eyes are extremely pretty.* a n v d a
-There are many good friends.* n v a a n
-There are almost no tables.* n v a t n
-Big men are usually happy.* a n v d a
-This is the craziest, smartest kid!* n v t a a n
-There are many smelly cats.* n v a a n
-This is a timed test.* n v a a n
-This is the smelliest one!* n v t a n
-There are five quiet children.* n v a a n
-What are this funny story?* a v a a n
-The ornate door is long.* t a n v a
-There are almost no chairs.* n v a t n
-I want to nap often.* n v p v d
-There are many friendly people.* n v a a n
-There are many likeable animals.* n v a a n
-I like my black pen.* n v a a n
-The large furry dog  sits on the porch.* t a a n v p t n
-There are no fries here.* n v t n n
-I want to play less.* n v p v d
-There are no burgers here.* n v t n n
-These are beautiful books.* o v a n
-Where is the little boy?* a v t a n
-The cow is slow and friendly.* t n v a t a
-Why do many people work?* a v a n v
-Why is the beautiful sky blue?* a v t a n a
-These silly monkeys are very crazy.* a a n v d a
-The boys like to have lots of fun.* t n v p v a p n
-Why is the outside air smelly?* a v t a n a
-The box is particulary small.* t n v d a
-This man is extremely humble and wise.* a n v d a t d
-Where is the green frog?* a v t a n
-Circles have zero sides.* n v a n
-The place will fill very soon.* t n v v d d
-The girl is particulary happy.* t n v d a
-Where is the delicous brownie?* a v t a n
-The dog is extremely frisky.* t n v d a
-This is the worst site!* n v t a n
-The pigeons are happy and hungry.* t n v a t a
-I like my cargo shorts.* n v a a n
-I like my Apple computer.* n v a a n
-Why are there friendly dogs?* a v a a n
-I want to swim less.* n v p v d
-The oval lake is very blue.* t a n v d a
-Where is the tiny man?* a v t a n
-What is this large rock?* a v a a n
-What is that thing?* o v a n
-He watches too much tv.* n v a a n
-I want to eat more.* n v p v d
-What are these things?* o v a n
-My broken pencil is green.* a a n v a
-This is the biggest, ugliest thing!* n v t a a n
-What are this delicious food?* a v a a n
-The turtle is angry and slow.* t n v a t a
-I like my smelly dog.* n v a a n
-Those are small items.* o v a n
-Rectangles have four sides.* n v a n
-That is not a lead pencil.* n v d t a n
-Why is the large ocean blue?* a v t a n a
-The tiny mouse squeaked particulary quietly.* t a n v d d
-Where is the furry cat?* a v t a n
-This woman is extremely smart and dilligent.* a n v d a t a
-These busy squirrels are not hungry.* a a n v d a
-Magazines are fun to read.* n v a p v
-Where is the friendly girl?* a v t a n
-My big toy is red.* a a n v a
-These friendly mothers are very busy.* a a n v d a
-Why is the ugly car small?* a v t a n a
-The dog barked particulary loudly at night.* t n v d d p n
-These tiny cats are not friendly.* a a n v d a
-The children are messy but obedient.* t n v a t a
-Are these the correct menus?* v n t a n
-These funny children are extremely obedient.* a a n v d a
-Is that a yellow pencil?* v n t a n
-There are three large chairs.* n v a a n
-The mellow girl walks slowly.* t a n v d
-There are seven delicious cookies.* n v a a n
-Why are there hostile snakes?* a v a a n
-The tiny boy ran very quickly.* t a n v d d
-My large dog is brown.* a a n v a
-The sun will not set soon.* t n v d v d
-What is this purple chair?* a v a a n
-Why do few people play?* a v a n v
-There are three live chickens.* n v a a n
-This big broom is not useable.* a a n v d a
-Why are there large people?* a v a a n
-Your empty table is grey.* a a n v a
-This backpack is not cute or useful.* a n v d a t a
-The small boy lied particulary often.* t a n v d d
-These beautiful doors are not heavy.* a a n v d a
-The child is extremely sleepy.* t n v d a
-Your chocolate cookie is brown.* a a n v a
-This is a public park.* n v t a n
-The gathered people argued very noisily.* t a n v d d
-I like your old cat.* n v a a n
-What are this crazy place?* a v a a n
-The cat is messy and angry.* t n v a t a
-My backyard pool is blue.* a a n v a
-Big kids are usually mean.* a n v d a
-Your young cat is black.* a a n v a
-This game is not fun or entertaining.* a n v d a t a
-These heavy dogs are not loud.* a a n v d a
-What is this furry dog?* a v a a n
-I like my small backpack.* n v a a n
-This is a blue car.* n v t a n
-Your wide stairs are white.* a a n v a
-The hat is pointy but useful.* t n v a t a
-The lion roared particulary confidently and menacingly.* t n v d d t d
 There are almost no couches.* n v a t n
-What are this tiny thing?* a v a a n
-These shoes are extremely comfortable.* a n v d a
-What is this black bug?* a v a a n
+We smelled so many flowers.* n v d a n
+Where are all the people?* d v a t n
+We quickly ate dinner last night.* n d v n a n
+We camped at the mountain peak.* n v p t n a
+I watch too much tv.* n v d d n
+They jumped around all day.* n v p a n
+Amanda smelled something foul.* n v n a
+Amanda and Rachel went swimming.* n t n v v
+Who is that talking to her?* d v n v p n
+When do the snacks arrive?* d v t n v
+How is your family?* d v a n
+Friendly people drive me crazy!* a n v n d
+How is your Grandma?* d v a n
+How is your school?* d v a n
+That boy jumps fast!* t n v d
+Green eyes are extremely pretty.* a n v d a
+Who is it behind the table?* d v n p t n
+That is a paper book.* n v t a n
+Where are the chips?* d v t n
+Who is it behind the rock?* d v n p t n
+I like my smelly dog.* n v a a n
+There are almost no tables.* n v a t n
+That man is a celebrity!* t n v a n
+Who are you?* d v n
+The girls are speaking quickly.* t n v v d
+This friendly person is extremely tall.* a a n v d a
+I want to sleep less.* n v p v d
+When will it be Christmas?* d v n v n
+The dog jumped over the fence.* t n v p t n
+There are almost no houses.* n v a t n
+Wonder-woman jumped over the bridge.* n v p t n
+What exactly is it?* d d v n
+That is not a cute rabbit.* n v d t a n
+Big houses are especially rare.* a n v d a
+Who is this talking to me?* d v n v p n
+There are many smelly cats.* n v a a n
+That is not a open house.* n v d t a n
+The dog is extremely frisky.* t n v d a
+The room is small but tidy.* t n v a c a
+That is a friendly girl.* n v t a n
+Is that an abandoned building?* v n t a n
+The oval lake is very blue.* t a n v d a
+That is not a big bike.* n v d t a n
+This is a timed test.* n v a a n
+Who is that at the door?* d v n p t n
+We took all the paper.* n v a t n
+Who is the woman over there?* d v t n p n
+Is that a useless room?* v n t a n
+I want to jump higher.* n v p v d
+The tiny boy ran very quickly.* t a n v d d
+This is the biggest, ugliest thing!* n v t a a n
+That is not a small basket.* n v d t a n
+This is a big and tidy house.* o v t a c a n
+There are many likeable animals.* n v a a n
+Big kids are usually mean.* a n v d a
+That is not a nice boy.* n v d t a n
+What is this delicious food?* d v a a n
+Green-lantern is the worst character.* n v t a n
+The lion roared particularly confidently and menacingly.* t n v d d t d
+I want to play less.* n v p v d
+Is that an abandoned car?* v n t a n
+This is the craziest, smartest kid!* n v t a a n
+That is an old chair.* n v t a n
+Your wide stairs are white.* a a n v a
+That is a kid's backpack.* v v t a n
+Those are not black pens.* o v d a o
+I like my Apple computer.* n v a a n
+Why do some people listen?* d v a n v
+The girl is particularly happy.* t n v d a
+I want to compete more fiercly.* n v p v d d
+There are many harmless snakes.* n v a a n
+I like my cargo shorts.* n v a a n
+There are almost no chairs.* n v a t n
+What is this car magazine?* d v a a n
+There are many furry dogs.* n v a a n
+The wall is flat and white.* t n v a t a
+Where is the tiny man?* d v t a n
+Where is the blue backpack?* d v t a n
+This is the best place!* n v t a n
+The man is smelly but kind.* t n v a t a
+There is no tomorrow.* n v t n
+Where is the little boy?* d v t a n
+The ornate door is long.* t a n v a
+What is this disgusting insect?* d v a a n
+Is that a Bic pen?* v n t a n
+This is a public park.* n v t a n
+I like your fun game.* n v a a n
+The sun will rise soon.* t n v v d
+This big girl is not happy.* a a n v d a
+Are these the correct menus?* v n t a n
+Who is the woman next to you?* d v t n p p n
+The children are disobedient and noisy.* t n v a t a
+There are seven delicious cookies.* n v a a n
 Deborah is a wonderful wife and mother.* n v t a n c n
-The mother is busy and nosy.* t n v a t a
+There are three live chickens.* n v a a n
+These funny children are extremely obedient.* a a n v d a
+The intelligent girl sits quietly.* t a n v d
+This game is not fun or entertaining.* a n v d a t a
+Why is the outside air smelly?* d v t a n a
+Why is the ugly car small?* d v t a n a
+What is this furry dog?* d v a a n
+Red dogs are very rare.* a n v d a
+I ate all the food.* n v a t n
+These friendly mothers are very busy.* a a n v d a
+The girl chatted especially frequently and noisily.* t n v d d t d
+What is this yellow page?* d v a a n
+This is a lage book.* n v t a n
+Why do many people work?* d v a n v
+Big men are usually happy.* a n v d a
+There are no burgers here.* n v t n n
+She smelled something weird.* n v n a
+The turtle is angry and slow.* t n v a t a
+This is an expensive house.* n v t a n
+This man is extremely humble and wise.* a n v d a t d
+The hat is pointy but useful.* t n v a t a
+What is this funny story?* d v a a n
+I like my small backpack.* n v a a n
+The oak table was messy.* t a n v a
+What are these things?* d v a n
+He jumped over the block.* n v p t n
+Cat-woman ducked under the attack.* n v p t n
 Your fresh milk is white.* a a n v a
 The room is small and useless.* t n v a t a
-What are this interesting class?* a v a a n
-The funny girl drummed especially noisily.* t a n v d d
-Why do many people argue?* a v a n v
-What are this useless subject?* a v a a n
-That is a mechanical pencil.* n v t a n
-When will we get there?* a v n v n
-What are this friendly animal?* a v a a n
-The people are hungry and thirsty.* t n v a t a
-Why do some people sleep?* a v a n v
-Why is the interesting man tall?* a v t a n a
-The wall is flat and white.* t n v a t a
-Squares have many sides.* n v a n
-What is this yellow page?* a v a a n
-What is this car magazine?* a v a a n
-The grey boulders look heavy.* t a n v d
-I like your fun game.* n v a a n
-Triangles have three sides.* n v a n
-Why are there different animals?* a v a a n
-There are twenty large steps.* n v a a n
+When are the boys coming?* d v t n v
+Why are there grey birds?* d v a a n
+These busy squirrels are not hungry.* a a n v d a
+The pigeons are happy and hungry.* t n v a t a
+These beautiful doors are not heavy.* a a n v d a
+Where is the green frog?* d v t a n
+Bat-girl threw her batarang.* n v a n
+The children are messy but obedient.* t n v a t a
+Why do some people steal?* d v a n v
+Your empty table is grey.* a a n v a
+Why do few people play?* d v a n v
 The small girl studied very well.* t a n v d d
-This is a lage book.* n v t a n
-The intelligent girl sits quietly.* t a n v d
-I like your plentiful toys.* n v a a n
-Why do some people steal?* a v a n v
-These people are extremely wild but content.* a n v d a t a
-This is a blue lake.* n v t a n
-What are this particular chapter?* a v a a n
-Is this a small book?* v n t a n
-The oak table was messy.* t a n v a
-What are this fun game?* a v a a n
-What is this interesting book?* a v a a n
-Why do some people listen?* a v a n v
-Michelle and April waded in the lake.* n c n v p t n
-This is the smallest, cutest bug!* n v t a a n
-The dog is loud and smelly.* t n v a t a
-This big girl is not happy.* a a n v d a
-I wish I was having more fun.* n v n v v a a
-Where is the difficult homework?* a v t a n
-The man is smelly but kind.* t n v a t a
-This is a car magazine.* n v t a n
-The girl chatted especially frequently and noisily.* t n v d d t d
-This is the smallest, friendliest child!* n v t a a n
-Why do few people hunt?* a v a n v
-This is an expensive house.* n v t a n
-Are those lead pencils?* v o a n
-When are you coming home?* a v n v n
-Why are there blue skies?* a v a a n
-Sweep the kitchen floor!* v t a n
-I want to watch more.* n v p v d
-The pretty cat purred very often.* t a n v d d
-I want to jump higher.* n v p v d
-There are no cats here.* n v t n n
-The cat is extremely smelly.* t n v d a
-The monkey is friendly and small.* t n v a t a
+That is not an open church.* n v d t a n
+The mother is busy and nosy.* t n v a t a
+There are many good friends.* n v a a n
 I like to sweep the laminated floor.* n v p v t a n
-This is the best part of the story!* n v t a n p t n
-What is this disgusting insect?* a v a a n
-Why is the plentiful grass green?* a v t a n a
-The mother is especially angry.* t n v d a
-This is a heavy rock.* n v t a n
-This is really fun!* n v d a
-This is the best place!* n v t a n
-Why is the colorful house big?* a v t a n a
-What exactly is it?* o d v n
-This is a big and tidy house.* o v t a c a n
-I want to compete more fiercly.* n v p v d d
-The children are disobedient and noisy.* t n v a t a
-The father is very happy.* t n v d a
-Is that a Bic pen?* v n t a n
-This black shoe is extremely small.* a a n v d a
-What is this empty table?* a v a a n
-Videogames are especially fun!* n v d a
-The chicken is dirty and ugly.* t n v a t a
-I want to sleep less.* n v p v d
-There is no tomorrow.* n v t n
-Where is the blue backpack?* a v t a n
-I like your smart teacher.* n v a a n
-The sun will rise soon.* t n v v d
-Why do many people cheat?* a v a n v
-There are many furry dogs.* n v a a n
-Big dogs are very friendly.* a n v d a
-Small cats are not mean.* a n v d a
-There are no kids here.* n v t n n
-I like my little dogs.* n v a a n
-This wide staircase is not useful.* a a n v d a
-These useless couches are not big.* a a n v d a
+This is a blue car.* n v t a n
+Who is it above the staircase?* d v n p t n
+Is that a large broom?* v n t a n
+I like my black pen.* n v a a n
+The boy is particularly cranky.* t n v d a
+The cow flew over the moon.* t n v p t n
+The cow is slow and friendly.* t n v a t a
+The funny girl drummed especially noisily.* t a n v d d
+This backpack is not cute or useful.* a n v d a t a
+When will we get there?* d v n v n
+That is not an abandoned house.* n v d t a n
+Where is the friendly girl?* d v t a n
 The chairs are large and comfortable.* t n v a t a
-Small children are usually happy.* a n v d a
-This friendly person is extremely tall.* a a n v d a
-There are almost no houses.* n v a t n
-Why is the tiny monkey funny?* a v t a n a
-Big houses are especially rare.* a n v d a
-The frog is friendly and stubborn.* t n v a t a
-There are many harmless snakes.* n v a a n
+What is this empty table?* d v a a n
+Why is the large ocean blue?* d v t a n a
+The gathered people argued very noisily.* t a n v d d
+The dog barked particularly loudly at night.* t n v d d p n
+Is this a small book?* v n t a n
+Is that a classic book?* v n t a n
+The large furry dog  sits on the porch.* t a a n v p t n
+Where is the delicous brownie?* d v t a n
+The cat is messy and angry.* t n v a t a
+There are three large chairs.* n v a a n
+He watches too much tv.* n v a a n
+Why are there friendly dogs?* d v a a n
+There are many friendly people.* n v a a n
+This is the worst site!* n v t a n
+These useless couches are not big.* a a n v d a
+What is this interesting book?* d v a a n
+There are almost no adults.* n v a t n
+The dog is loud and smelly.* t n v a t a
+This is the smallest, cutest bug!* n v t a a n
+This woman is extremely smart and dilligent.* a n v d a t a
+Is that a street sign?* v n t a n
+That is a mechanical pencil.* n v t a n
+The tiny mouse squeaked particularly quietly.* t a n v d d
+The family drove around the neighborhood.* t n v p t n
+Why do many people argue?* d v a n v
+Why are there different animals?* d v a a n
+That butler cleans all the time!* t n v a t n
+Who is the girl over there?* d v t n p n
+That is not a lousy floor.* n v d t a n
+What are this interesting class?* d v a a n
+These tiny cats are not friendly.* a a n v d a
+The child is extremely sleepy.* t n v d a
+The monkey is friendly and small.* t n v a t a
+Sweep the kitchen floor!* v t a n
+These heavy dogs are not loud.* a a n v d a
+Why is the interesting man tall?* d v t a n a
+There are no fries here.* n v t n n
+Magazines are fun to read.* n v a p v
+The monkey swung under the branches.* t n v p t n
+Is that a yellow pencil?* v n t a n
+The box is particularly small.* t n v d a
+What are this useless subject?* d v a a n
+What is this large rock?* d v a a n
+Those are small items.* o v a n
+What are this friendly animal?* d v a a n
+Circles have zero sides.* n v a n
+When does the party start?* d v t n v
+Triangles have three sides.* n v a n
+My backyard pool is blue.* a a n v a
+What are this tiny thing?* d v a a n
+That is not a friendly kid.* v v d t a n
+The people are hungry and thirsty.* t n v a t a
+There are twenty large steps.* n v a a n
+What is this purple chair?* d v a a n
+Where is the difficult homework?* d v t a n
+Your young cat is black.* a a n v a
+Are those lead pencils?* v o a n
+This is a blue lake.* n v t a n
+The mellow girl walks slowly.* t a n v d
+There are no cats here.* n v t n n
+The grey boulders look heavy.* t a n v d
+This is the smallest, friendliest child!* n v t a a n
+These shoes are extremely comfortable.* a n v d a
+How are the children?* d v t n
+I like your old cat.* n v a a n
+This is the best part of the story!* n v t a n p t n
+My large dog is brown.* a a n v a
+What are this particular chapter?* d v a a n
+I want to nap often.* n v p v d
+That is not a driveable street.* n v d t a n
+Who is the kid next to you?* d v t n p p n
+I wish I was having more fun.* n v n v v a a
+The cat is extremely smelly.* t n v d a
+This is a heavy rock.* n v t a n
+I want to swim less.* n v p v d
+Why do few people hunt?* d v a n v
+This is a car magazine.* n v t a n
+What is this black bug?* d v a a n
+That is not a lead pencil.* n v d t a n
+The cat climbed under the gate.* t n c p t n
+Rectangles have four sides.* n v a n
+The small boy lied particularly often.* t a n v d d
+When are you coming home?* d v n v n
+These silly monkeys are very crazy.* a a n v d a
+These people are extremely wild but content.* a n v d a t a
+The sun will not set soon.* t n v d v d
+Big dogs are very friendly.* a n v d a
+Spider-man swung below the rooftops.* n v p t n
+This black shoe is extremely small.* a a n v d a
+That is a parked car.* n v t a n
+What are this crazy place?* d v a a n
+What are this fun game?* d v a a n
+Why is the colorful house big?* d v t a n a
+The pretty cat purred very often.* t a n v d d
+Small cats are not mean.* a n v d a
+Iron-man has the best gadgets.* n v t a n
+Is that a mechanical eraser?* v n t a n
+My big toy is red.* a a n v a
 There are many obedient children.* n v a a n
 Is that a tiny rock?* v n t a n
-My Kindergarten backpack is blue.* a a n v a
-Is that an abandoned building?* v n t a n
-Is that an abandoned car?* v n t a n
-The room is small but tidy.* t n v a c a
-Those are not black pens.* o v d a o
-Is that an abandoned house?* v n t a n
-That is an old chair.* n v t a n
-That is not a nice boy.* n v d t a n
-That is not an abandoned house.* n v d t a n
-That is not a driveable street.* n v d t a n
+Why are there blue skies?* d v a a n
+These are beautiful books.* o v a n
+The father is very happy.* t n v d a
+My broken pencil is green.* a a n v a
+There are no kids here.* n v t n n
+I like your plentiful toys.* n v a a n
+Small children are usually happy.* a n v d a
 That is not an open road.* n v d t a n
-That is not a big bike.* n v d t a n
-That is not a small basket.* n v d t a n
-That is not a cute rabbit.* n v d t a n
-That is not a lousy floor.* n v d t a n
-That is not a open house.* n v d t a n
+The frog is friendly and stubborn.* t n v a t a
+This is really fun!* n v d a
+Your chocolate cookie is brown.* a a n v a
+Why are there large people?* d v a a n
+Why do many people cheat?* d v a n v
+What is that thing?* d v a n
+Is that an abandoned house?* v n t a n
+This wide staircase is not useful.* a a n v d a
+Why is the tiny monkey funny?* d v t a n a
+I want to eat more.* n v p v d
+This is the smelliest armpit!* n v t a n
+Who is the man over there?* d v t n p n
+Who is the man next to the dog?* d v t n p p t n
+The boys like to have lots of fun.* t n v p v a p n
+Why is the beautiful sky blue?* d v t a n a
+Why do some people sleep?* d v a n v
+Thanos conquered all the heroes.* n v n t n
+Where is the furry cat?* d v t a n
+There are five quiet children.* n v a a n
+The squirrel ran around the tree.* t n v p t n
+Squares have many sides.* n v a n
+This big broom is not useable.* a a n v d a
+The mother is especially angry.* t n v d a
+Who is the boy over there?* d v t n p n
+That is a stray dog.* n v t a n
+I like your smart teacher.* n v a a n
+The kids ran around the school.* t n v p t nThere are two ornate paintings.* n v a a n
+The place will fill very soon.* t n v v d d
+Where are the sandwhiches?* d v t n
+When will it be Halloween?* d v n v n
+When are the girls arriving?* d v t n v
+Michelle and April waded in the lake.* n c n v p t n
+There are many beautiful parks.* n v a a n
+I want to watch more.* n v p v d
+Why are there hostile snakes?* d v a a n
+The chicken is dirty and ugly.* t n v a t a
+That girl eats quickly!* t n v d
+That kid talks loudly!* t n v d
+Videogames are especially fun!* n v d a
+When does the dance begin?* d v t n v
+Where are the potatoes?* d v t n
+My Kindergarten backpack is blue.* a a n v a
+That woman cooks really well!* t n v d d
+Where is the soda?* d v t n
+I like my little dogs.* n v a a n
+Super-girl flew over the house.* n v p t n
+Why is the plentiful grass green?* d v t a n a
+Where are the toys?* d v t n
+When is the Superbowl?* d v t n
+Bobby does not like spaghetti.* n v d v n
+Bobby and Jessie played together.* n t n v d
+How are there no people here?* d v n t n n
+Rachel played all day.* n v a n
+We talked all afternoon.* n v a n
+We hiked to the longest trail.* n v p t a n
+We walked around all day.* n v p a n
+We found the best roses.* n v t a n

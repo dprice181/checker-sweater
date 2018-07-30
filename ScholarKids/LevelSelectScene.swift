@@ -11,7 +11,7 @@ import GameplayKit
 
 class LevelSelectScene: SKScene {
     let minLevel = 1
-    let maxLevel = 20
+    let maxLevel = global.maxLevels
     
     var scrollBoxAr:[(start: CGPoint, end: CGPoint)] = []
     var hotAirBalloonAr = [[SKSpriteNode]]()
@@ -22,7 +22,6 @@ class LevelSelectScene: SKScene {
     var hotAirBalloonLabelShadow2Ar = [[SKLabelNode]]()
     var levelUnlockedAr = [String:Int]()
     var recommendedLevel = [String:Int]()
-    
     
     var minX : CGFloat = 0.0
     var maxX : CGFloat = 0.0
@@ -44,7 +43,34 @@ class LevelSelectScene: SKScene {
         GetUnlockedLevels()
         
         DrawTitle()
+        DrawBalloons()
+        maxX = 0
+        minX = -(self.size.width/8 + CGFloat(maxLevel-4)*(self.size.width/5))
+        DrawSwipeLeft()
+        DrawBackButton(scene:self)
+    }
+    
+    func DrawTitle() {
+        let labelTitle = SKLabelNode(fontNamed: "Arial")
+        labelTitle.text = "Select Level"
+        labelTitle.fontSize = GetFontSize(size:34)
+        labelTitle.fontColor = global.titleColor
+        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21.7/24)
+        labelTitle.zPosition = 100.0
+        addChild(labelTitle)
+        addChild(CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1)))
         
+        let labelNameGrade = SKLabelNode(fontNamed: "Arial")
+        labelNameGrade.text = global.currentStudent + ": Grade " + global.currentGrade
+        labelNameGrade.fontSize = GetFontSize(size:24)
+        labelNameGrade.fontColor = SKColor.red
+        labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*20.8/24)
+        labelNameGrade.zPosition = 100.0
+        addChild(labelNameGrade)
+        addChild(CreateShadowLabel(label: labelNameGrade,offset: GetFontSize(size:1)))
+    }
+    
+    func DrawBalloons() {
         var n = 0
         for subject in subjectAr {
             let subjectTitle = SKLabelNode(fontNamed: "ChalkDuster")
@@ -139,31 +165,6 @@ class LevelSelectScene: SKScene {
             scrollBoxAr.append((start:CGPoint(x:0,y:self.size.height*(16 - SUB_SPACING*CGFloat(n))/24),end:CGPoint(x:self.size.width,y:self.size.height*(19.5 - SUB_SPACING*CGFloat(n))/24)))
             n = n + 1
         }
-        maxX = 0
-        minX = -(self.size.width/8 + CGFloat(16)*(self.size.width/5))
-        
-        DrawSwipeLeft()
-        DrawBackButton()
-    }
-    
-    func DrawTitle() {
-        let labelTitle = SKLabelNode(fontNamed: "Arial")
-        labelTitle.text = "Select Level"
-        labelTitle.fontSize = GetFontSize(size:35)
-        labelTitle.fontColor = global.titleColor
-        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22/24)
-        labelTitle.zPosition = 100.0
-        addChild(labelTitle)
-        addChild(CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1)))
-        
-        let labelNameGrade = SKLabelNode(fontNamed: "Arial")
-        labelNameGrade.text = global.currentStudent + ": Grade " + global.currentGrade
-        labelNameGrade.fontSize = GetFontSize(size:24)
-        labelNameGrade.fontColor = SKColor.red
-        labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
-        labelNameGrade.zPosition = 100.0
-        addChild(labelNameGrade)
-        addChild(CreateShadowLabel(label: labelNameGrade,offset: GetFontSize(size:1)))
     }
     
     func DrawSwipeLeft() {
@@ -182,15 +183,7 @@ class LevelSelectScene: SKScene {
         addChild(redLeftLabel)
         addChild(CreateShadowLabel(label: redLeftLabel,offset: GetFontSize(size:1)))
     }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
+        
     func GlobalUnlocked(subject:String) -> Bool {
         switch subject {
         case "Math":

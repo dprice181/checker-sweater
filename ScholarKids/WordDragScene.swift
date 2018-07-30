@@ -68,7 +68,7 @@ class WordDragScene: SKScene {
         DrawChoiceBoxes()
         DrawSentence()
         DrawBackground()
-        DrawBackButton()
+        DrawBackButton(scene:self)
     }
     
     func GetWidthOfSentence(sizeBox:CGSize) -> CGFloat {
@@ -193,8 +193,12 @@ class WordDragScene: SKScene {
         var posX = self.size.width/6
         //add three choice boxes
         for n in 0...2 {
-            var correctWord = choiceWordAr[n]
-            let myWord: NSString = correctWord + "      " as NSString
+            var word = choiceWordAr[n]
+            word = word.replacingOccurrences(of: ".", with: "")
+            if word != "I" {
+                word = word.lowercased()
+            }
+            let myWord: NSString = word + "      " as NSString
             var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE))])
             sizeWordChoice.height = sizeWordChoice.height * 2.0
             
@@ -210,11 +214,11 @@ class WordDragScene: SKScene {
             choiceNode.physicsBody?.collisionBitMask = PhysicsCategory.none
             choiceNode.physicsBody?.usesPreciseCollisionDetection = true
             
-            correctWord = correctWord.replacingOccurrences(of: ".", with: "")
+            
             let labelChoice = SKLabelNode(fontNamed: "Arial")
             labelChoice.zPosition = 100.0
             labelChoice.name = "choicelabel"
-            labelChoice.text = correctWord.lowercased()
+            labelChoice.text = word
             labelChoice.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE)
             labelChoice.fontColor = SKColor.white
             labelChoice.horizontalAlignmentMode = .center
@@ -247,7 +251,7 @@ class WordDragScene: SKScene {
         else {
             labelTitle.text = titleAr[levelMode]!
         }
-        labelTitle.fontSize = GetFontSize(size:55)
+        labelTitle.fontSize = GetFontSize(size:50)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -321,15 +325,7 @@ class WordDragScene: SKScene {
         background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))
         addChild(background)
     }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
+        
     func GetFileName() -> String {
         switch global.currentGrade {
         case "K","1","2":

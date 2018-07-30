@@ -16,7 +16,7 @@ class CreditsScene: SKScene {
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)        
         DrawTitle()
         DrawCredits()
-        DrawBackButton()
+        DrawBackButton(scene:self)
     }
     
     func DrawTitle() {
@@ -71,14 +71,6 @@ class CreditsScene: SKScene {
         }
     }
     
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*19/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
@@ -92,8 +84,7 @@ class CreditsScene: SKScene {
         }
     }
     
-    func TransitionBack()
-    {
+    func TransitionBack() {
         global.overlayNode.removeAllActions()
         global.overlayNode.removeAllChildren()
         global.overlayNode.removeFromParent()

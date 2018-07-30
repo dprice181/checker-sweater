@@ -30,8 +30,6 @@ class PlayerSelectScene: SKScene {
     let color1 = SKColor(red: 80/255, green: 115/255, blue: 205/255, alpha: 1.0)
     let color2 = SKColor(red: 185/255, green: 80/255, blue: 185/255, alpha: 1.0)
     
-    
-    
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
         
@@ -224,7 +222,7 @@ class PlayerSelectScene: SKScene {
             deleteLabel.text = "X"
             deleteLabel.fontSize = GetFontSize(size:30)
             deleteLabel.fontColor = SKColor.white
-            deleteLabel.position = CGPoint(x: self.size.width*25/64,y:-self.size.height/64)
+            deleteLabel.position = CGPoint(x: self.size.width*24.7/64,y:-self.size.height/60)
             deleteLabel.zPosition = 102.0
             deleteLabel.name = "deletebox" + String(i)
             nodeDefinitionAr[i].addChild(deleteLabel)
@@ -272,18 +270,10 @@ class PlayerSelectScene: SKScene {
             addChild(nodeDefinitionAr[i])
         }
         
-        DrawBackButton()
+        DrawBackButton(scene:self)
         DrawBackground()
     }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
+        
     func DrawBackground() {
         background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
         background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))

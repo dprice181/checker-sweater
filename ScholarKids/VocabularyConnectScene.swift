@@ -83,7 +83,7 @@ class VocabularyConnectScene: SKScene {
         DrawInstructions()
         DrawWords()
         DrawDefinitions()
-        DrawBackButton()
+        DrawBackButton(scene:self)
     }
     
     func DrawTitle() {
@@ -92,7 +92,7 @@ class VocabularyConnectScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "VOCABULARY"
-        labelTitle.fontSize = GetFontSize(size:50)
+        labelTitle.fontSize = GetFontSize(size:48)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -142,15 +142,7 @@ class VocabularyConnectScene: SKScene {
         scoreNode.addChild(labelIncorrectShadow)
         addChild(scoreNode)
     }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
+        
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

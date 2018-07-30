@@ -36,17 +36,9 @@ class ProgressReportScene: SKScene {
         DrawTitle()
         DrawPercentageCorrect()
         DrawGraph()
-        DrawBackButton()
+        DrawBackButton(scene:self)
     }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
+        
     func DrawLine(subjectInd:Int,data:[String]) {
         let graphOffsetY = graphWindowHeight * 1.35
         var posX : CGFloat = self.size.width*5.4/24
@@ -204,7 +196,7 @@ class ProgressReportScene: SKScene {
         let notchHeight = self.size.height/160
         let levelOffset = -4.5 * notchHeight
         var xPos = graphWindowX - graphWindowWidth/2
-        for i in 0...20 {
+        for i in 0...global.maxLevels {
             var points = [CGPoint]()
             if i % 5 == 0 {
                 DrawLevelNumber(level:i,xPos:xPos,yPos:offsetY + graphWindowY-graphWindowHeight/2 + levelOffset)
@@ -227,7 +219,7 @@ class ProgressReportScene: SKScene {
             lineAr[lineAr.endIndex-1].fillColor = SKColor.red
             addChild(lineAr[lineAr.endIndex-1])
             
-            xPos = xPos + graphWindowWidth/20
+            xPos = xPos + graphWindowWidth/CGFloat(global.maxLevels)
         }
     }
     

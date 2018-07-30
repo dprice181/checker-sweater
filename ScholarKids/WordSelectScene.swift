@@ -61,7 +61,7 @@ class WordSelectScene: SKScene {
         DrawInstructions()
         DrawScoreNode()
         DrawSentence()
-        DrawBackButton()
+        DrawBackButton(scene:self)
         DrawBackground()
     }
     
@@ -121,7 +121,7 @@ class WordSelectScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = titleAr[levelMode]!
-        labelTitle.fontSize = GetFontSize(size:55)
+        labelTitle.fontSize = GetFontSize(size:50)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -194,15 +194,7 @@ class WordSelectScene: SKScene {
         
         return myFontSize
     }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
+        
     func DrawBackground() {
         background.position = CGPoint(x: frame.size.width * 5 / 6, y: frame.size.height / 6)
         background.scale(to: CGSize(width: self.size.width/3, height: self.size.height/3))

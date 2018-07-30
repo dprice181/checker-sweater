@@ -50,7 +50,7 @@ class Global {
     var soundOption = 2
     var minimumCorrectToUnlock = 9
     var optionAr = [String]()
-    var maxLevels = 20
+    var maxLevels = 25
     var musicStarted = false
     var heightWidthRat : CGFloat = 0
 }
@@ -72,6 +72,18 @@ func GetCornerSize(size:CGFloat,max:CGFloat) -> CGFloat {
         return max/2.1
     }
     return size
+}
+
+func DrawBackButton(scene:SKScene) {
+    if let frame = global.view?.frame {
+        let width = frame.width
+        let height = frame.height
+        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
+        backButton.name = "backbutton"
+        backButton.position = CGPoint(x: width/15, y: height*18.3/20)
+        backButton.scale(to: CGSize(width: width/10, height: width/10))
+        scene.addChild(backButton)
+    }
 }
 
 struct PhysicsCategory {
@@ -390,8 +402,8 @@ func InitLetterStrings() {
     global.letterStringsReplace.append(["ph","f","ff"])
     global.letterStringsReplace.append(["g","gh","k"])
     global.letterStringsReplace.append(["w","h"])
-    global.letterStringsReplace.append(["r","l","ll"])
-    global.letterStringsReplace.append(["l","r","rr"])
+    global.letterStringsReplace.append(["r","l"])
+    global.letterStringsReplace.append(["l","r"])
     global.letterStringsReplace.append(["n","mm","mn"])
     global.letterStringsReplace.append(["nn","m","mn","pn"])
     global.letterStringsReplace.append(["n","pn","m"])
@@ -452,7 +464,7 @@ func InitLetterStrings() {
     global.letterStringsSingleReplace.append(["ll","r","rr"])
     global.letterStringsSingleReplace.append(["mm","n","mn"])
     global.letterStringsSingleReplace.append(["nn","mn","m"])
-    global.letterStringsSingleReplace.append(["oe","oo","ou","ow"])
+    global.letterStringsSingleReplace.append(["oe","u","ou","ow","a"])
     global.letterStringsSingleReplace.append(["pp","b","bb"])
     global.letterStringsSingleReplace.append(["k","c","ck"])
     global.letterStringsSingleReplace.append(["rr","l","ll"])
@@ -488,7 +500,6 @@ func Misspell(word: String) -> [String] {
         //cycle around the array with a random started index
         repeat  {
             let letterAr = letterStringsFind[x][letterArInd]
-            
             let letterGroup = letterAr
             if word.contains(letterGroup) {
                 var underscoreStr = "_"
@@ -503,13 +514,10 @@ func Misspell(word: String) -> [String] {
                 if end3 == -1 {
                     end3 = letterStringsReplace[x][letterArInd].count - 1
                 }
-                print("First_lgi2=",letterGroupInd2," First_end3=",end3," count=",letterStringsReplace[x][letterArInd].count)
                 repeat  {
                     letterGroup2 = letterStringsReplace[x][letterArInd][letterGroupInd2]
-                    print("First_letterGroup2=",letterGroup2)
                     if letterGroup2 != letterGroup {
                         replaceStr = letterGroup2
-                        print("FIRST__RS1=",replaceStr)
                         break
                     }
                     letterGroupInd2 = (letterGroupInd2 + 1) % letterStringsReplace[x][letterArInd].count
@@ -521,14 +529,10 @@ func Misspell(word: String) -> [String] {
                 if end3 == -1 {
                     end3 = letterStringsReplace[x][letterArInd].count - 1
                 }
-                print("lgi2=",letterGroupInd2," end3=",end3," count=",letterStringsReplace[x][letterArInd].count)
                 repeat {
                     letterGroup2 = letterStringsReplace[x][letterArInd][letterGroupInd2]
-                    print("second_letterGroup2=",letterGroup2)
                     if letterGroup2 != letterGroup && letterGroup2 != replaceStr {
-                        print("RS1=",replaceStr)
                         replaceStr = letterGroup2
-                        print("RS2=",replaceStr)
                         break
                     }
                     letterGroupInd2 = (letterGroupInd2 + 1) % letterStringsReplace[x][letterArInd].count
@@ -625,8 +629,31 @@ func DisplayLevelFinished(scene : SKScene) {
     global.overlayNode.addChild(labelComplete)
     let shadowComplete = CreateShadowLabel(label: labelComplete,offset: 0.6)
     global.overlayNode.addChild(shadowComplete)
-    
-    if correctAnswers >= global.minimumCorrectToUnlock {
+
+    if correctAnswers >= global.minimumCorrectToUnlock && global.currentLevel == global.maxLevels {
+        let labelComplete2 = SKLabelNode(fontNamed: "Arial")
+        labelComplete2.text = "Congratulations!!!"
+        labelComplete2.fontSize = GetFontSize(size:20)
+        labelComplete2.fontColor = global.purple
+        labelComplete2.position = CGPoint(x: 0, y: scene.size.height*2/24)
+        labelComplete2.zPosition = 201.0
+        labelComplete2.name = "levelcomplete"
+        global.overlayNode.addChild(labelComplete2)
+        let shadowComplete2 = CreateShadowLabel(label: labelComplete2,offset: 0.6)
+        global.overlayNode.addChild(shadowComplete2)
+        
+        let labelComplete3 = SKLabelNode(fontNamed: "Arial")
+        labelComplete3.text = "You completed the final level!"
+        labelComplete3.fontSize = GetFontSize(size:18)
+        labelComplete3.fontColor = global.purple
+        labelComplete3.position = CGPoint(x: 0, y: scene.size.height*1.3/24)
+        labelComplete3.zPosition = 201.0
+        labelComplete3.name = "levelcomplete"
+        global.overlayNode.addChild(labelComplete3)
+        let shadowComplete3 = CreateShadowLabel(label: labelComplete3,offset: 0.6)
+        global.overlayNode.addChild(shadowComplete3)
+    }
+    else if correctAnswers >= global.minimumCorrectToUnlock {
         let labelComplete2 = SKLabelNode(fontNamed: "Arial")
         labelComplete2.text = "You unlocked the next level!"
         labelComplete2.fontSize = GetFontSize(size:20)
@@ -721,7 +748,7 @@ func DisplayLevelFinished(scene : SKScene) {
     let shadowRetry = CreateShadowLabel(label: labelRetry,offset: 0.6)
     global.overlayNode.addChild(shadowRetry)
     
-    if correctAnswers >= global.minimumCorrectToUnlock {
+    if correctAnswers >= global.minimumCorrectToUnlock && global.currentLevel != global.maxLevels {
         let next = SKSpriteNode(imageNamed: "next.png")
         next.name = "next"
         next.position = CGPoint(x: scene.size.width/5, y: -scene.size.height*5/24)

@@ -29,7 +29,7 @@ class OptionsScene: SKScene {
         ReadOptionsFile()
         DrawTitle()
         DrawOptions()
-        DrawBackButton()
+        DrawBackButton(scene:self)
     }        
     
     func IsButtonSelected(text:String,text2:String,i:Int) -> Bool {
@@ -286,14 +286,6 @@ class OptionsScene: SKScene {
         fullTitle.addChild(labelTitleShadow)
         
         addChild(fullTitle)
-    }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

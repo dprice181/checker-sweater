@@ -37,7 +37,8 @@ class MathDragScene: SKScene {
     
     var labelCountSecondNameShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     var labelCount2SecondNameShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
-    var submitButtonShadow = SKShapeNode()
+    //var submitButtonShadow = SKShapeNode()
+    var submitButtonShadow = SKSpriteNode()
     var labelTitleShadow = SKLabelNode()
     var labelSubtitleShadow = SKLabelNode()
     
@@ -94,7 +95,7 @@ class MathDragScene: SKScene {
         DrawSecondBox()
         DrawCorrectLabels()
         DrawSubmitButton()
-        DrawBackButton()
+        DrawBackButton(scene:self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -134,14 +135,11 @@ class MathDragScene: SKScene {
         submitButton.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48)
         addChild(submitButton)
         
-        submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.75,
-                                                        height: (self.size.height*2/48)*0.75),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*2/48*0.75))
+        submitButtonShadow = SKSpriteNode(imageNamed: "RedButtonSmallShadow.png")
+        submitButtonShadow.scale(to: CGSize(width: (self.size.width/5.5)*0.9,height: (self.size.height*2.5/48)*0.9))
         submitButtonShadow.name = "bshadow"
-        submitButtonShadow.fillColor = SKColor.black
-        submitButtonShadow.strokeColor = SKColor.black
-        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-GetFontSize(size:2.5), y: self.size.height*1.5/48+GetFontSize(size:2.5))
+        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-GetFontSize(size:1.5), y: self.size.height*1.5/48+GetFontSize(size:1.5))
         submitButtonShadow.zPosition = 100.0
-        submitButtonShadow.lineWidth = 2.0
         addChild(submitButtonShadow)
         
         let submitLabel = SKLabelNode(fontNamed: "Arial")
@@ -834,15 +832,7 @@ class MathDragScene: SKScene {
             }
         }
     }
-    
-    func DrawBackButton() {
-        let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
-        backButton.name = "backbutton"
-        backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
-        backButton.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
-        addChild(backButton)
-    }
-    
+        
     func GetFilename() -> String {
         if let grade = Int(global.currentGrade) {
             if grade > 8 {
@@ -1108,7 +1098,8 @@ class MathDragScene: SKScene {
         }
     }
     
-    func ReplaceSentenceKeywords(sentence:inout String,replaceMString:String,replaceQString:String,replaceRString:String,replaceVString:String,npcGender:String)  {
+    func ReplaceSentenceKeywords(sentence:inout String,replaceMString:String,replaceQString:String,replaceRString:String,
+                                 replaceVString:String,npcGender:String) {
         var itemNoS = " 1 " + item
         itemNoS.removeLast()
         var item2NoS = " 1 " + item2
@@ -1131,7 +1122,7 @@ class MathDragScene: SKScene {
         sentence = sentence.replacingOccurrences(of: "items2", with: item2)
         sentence = sentence.replacingOccurrences(of: "items", with: item)
         if npcGender == "M" {
-            sentence = sentence.replacingOccurrences(of: "her", with: "his")
+            sentence = sentence.replacingOccurrences(of: " her ", with: " his ")
         }
     }
     
