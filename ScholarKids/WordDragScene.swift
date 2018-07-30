@@ -81,19 +81,19 @@ class WordDragScene: SKScene {
             i = i + 1
         }
         let mySentence: NSString = modSentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         let widthSentence = sizeSentence.width + sizeBox.width*5/4
         return widthSentence
     }
     
     func DrawSentence() {
         let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         var widthSentence = sizeSentence.width
         
         let space = "  "
         let mySpace: NSString = space as NSString
-        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         let widthSpace = sizeSpace.width
         
         let sizeBox = CGSize(width:size.width/6,height:sizeSentence.height)  //make box standard size
@@ -113,7 +113,7 @@ class WordDragScene: SKScene {
         for var word in wordAr {
             word = word + "   "
             let myWord: NSString = word as NSString
-            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
             var widthWord = sizeWord.width
             
             if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
@@ -125,7 +125,7 @@ class WordDragScene: SKScene {
             labelAr[i].zPosition = 100.0
             labelAr[i].name = "word"
             labelAr[i].text = word
-            labelAr[i].fontSize = SELECTTEXT_FONTSIZE
+            labelAr[i].fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE)
             labelAr[i].fontColor = global.lightBlue
             labelAr[i].horizontalAlignmentMode = .left
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 9 / 24)
@@ -143,7 +143,7 @@ class WordDragScene: SKScene {
                 answerBoxNode.physicsBody?.collisionBitMask = PhysicsCategory.none
                 answerBoxNode.physicsBody?.usesPreciseCollisionDetection = true
                 
-                let box = SKShapeNode(rectOf: sizeBox,cornerRadius: 20.0)
+                let box = SKShapeNode(rectOf: sizeBox,cornerRadius: GetCornerSize(size:20.0,max:sizeBox.height))
                 box.name = "answerboxrect"
                 box.fillColor = SKColor.lightGray
                 box.strokeColor = SKColor.red
@@ -157,19 +157,19 @@ class WordDragScene: SKScene {
                     labelAr[i].zPosition = 100.0
                     labelAr[i].name = "word"
                     labelAr[i].text = punctuation
-                    labelAr[i].fontSize = SELECTTEXT_FONTSIZE
+                    labelAr[i].fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE)
                     labelAr[i].fontColor = global.lightBlue
                     labelAr[i].horizontalAlignmentMode = .left
                     labelAr[i].position = CGPoint(x: startX + widthSum + widthWord, y: startY + self.size.height * 9 / 24)
                     addChild(labelAr[i])
-                    addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
+                    addChild(CreateShadowLabel(label: labelAr[i],offset: GetFontSize(size:1)))
                 }
                 
                 widthSum = widthSum + widthWord / 4   //give extra space for the blank
             }
             else {
                 addChild(labelAr[i])
-                addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
+                addChild(CreateShadowLabel(label: labelAr[i],offset: GetFontSize(size:1)))
             }
             
             widthSum = widthSum + widthWord
@@ -195,7 +195,7 @@ class WordDragScene: SKScene {
         for n in 0...2 {
             var correctWord = choiceWordAr[n]
             let myWord: NSString = correctWord + "      " as NSString
-            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE_CHOICE)])
+            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE))])
             sizeWordChoice.height = sizeWordChoice.height * 2.0
             
             //parent node with physics body for collision
@@ -215,12 +215,12 @@ class WordDragScene: SKScene {
             labelChoice.zPosition = 100.0
             labelChoice.name = "choicelabel"
             labelChoice.text = correctWord.lowercased()
-            labelChoice.fontSize = SELECTTEXT_FONTSIZE_CHOICE
+            labelChoice.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE)
             labelChoice.fontColor = SKColor.white
             labelChoice.horizontalAlignmentMode = .center
             labelChoice.position = CGPoint(x:  0, y: -sizeWordChoice.height/4)
             choiceNode.addChild(labelChoice)
-            choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: 1))
+            choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: GetFontSize(size:1)))
             
             let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
             boxChoice.name = "choicebox"
@@ -247,21 +247,21 @@ class WordDragScene: SKScene {
         else {
             labelTitle.text = titleAr[levelMode]!
         }
-        labelTitle.fontSize = 55
+        labelTitle.fontSize = GetFontSize(size:55)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 45
+        labelSubtitle.fontSize = GetFontSize(size:45)
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelSubtitleShadow)
         
         addChild(fullTitle)
@@ -275,21 +275,21 @@ class WordDragScene: SKScene {
         else {
             labelInstr.text = "Drag the " + instrAr[levelMode]!
         }
-        labelInstr.fontSize = 25
-        labelInstr.fontColor = SKColor.purple
+        labelInstr.fontSize = GetFontSize(size:25)
+        labelInstr.fontColor = global.realPurple
         labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: GetFontSize(size:1))
         addChild(labelInstrShadow)
         
         labelInstr2.text = "to the sentence below."
-        labelInstr2.fontSize = 25
-        labelInstr2.fontColor = SKColor.purple
+        labelInstr2.fontSize = GetFontSize(size:25)
+        labelInstr2.fontColor = global.realPurple
         labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*15/24)
         labelInstr2.zPosition = 100.0
         addChild(labelInstr2)
-        labelInstrShadow2 = CreateShadowLabel(label: labelInstr2,offset: 1)
+        labelInstrShadow2 = CreateShadowLabel(label: labelInstr2,offset: GetFontSize(size:1))
         addChild(labelInstrShadow2)
     }
     
@@ -299,19 +299,19 @@ class WordDragScene: SKScene {
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
+        labelCorrect.fontSize = GetFontSize(size:15)
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
         scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelCorrectShadow)
         
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
+        labelIncorrect.fontSize = GetFontSize(size:15)
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
         scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelIncorrectShadow)
         addChild(scoreNode)
     }
@@ -645,9 +645,9 @@ class WordDragScene: SKScene {
         
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Answer Is Correct!!!"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         labelInstr2.removeFromParent()
         labelInstrShadow2.removeFromParent()
@@ -674,9 +674,9 @@ class WordDragScene: SKScene {
         
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         labelInstr2.removeFromParent()
         labelInstrShadow2.removeFromParent()

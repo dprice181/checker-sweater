@@ -59,12 +59,12 @@ class PlayerSelectScene: SKScene {
     {
         let labelTitle = SKLabelNode(fontNamed: "Arial")
         labelTitle.text = "Select Or Create New Student"
-        labelTitle.fontSize = 25
+        labelTitle.fontSize = GetFontSize(size:25)
         labelTitle.fontColor = global.titleColor
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*19/24)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
-        addChild(CreateShadowLabel(label: labelTitle,offset: 1))
+        addChild(CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1)))
         
         
         let displayWidth = (size.width * 7.5 / 10) / 2
@@ -84,7 +84,7 @@ class PlayerSelectScene: SKScene {
             gradeAr.append(grade)
             
             let mySentence: NSString = name as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE+1.0)])
+            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE+1.0))])
             let sentenceWidth = sizeSentence.width
             let sentenceHeight = sizeSentence.height
             var numLines = 1
@@ -115,13 +115,13 @@ class PlayerSelectScene: SKScene {
             if numLines == 1 {
                 let labelDefinition = SKLabelNode(fontNamed: "Arial")
                 labelDefinition.text = name
-                labelDefinition.fontSize = SELECTTEXT_FONTSIZE+1.0
+                labelDefinition.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE+1.0)
                 labelDefinition.fontColor = color1
                 labelDefinition.position = CGPoint(x: -self.size.width/4,y: 0)
                 labelDefinition.zPosition = 100.0
                 labelDefinition.name = "playerbox" + String(i)
                 nodeDefinitionAr[i].addChild(labelDefinition)
-                nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+                nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
             }
             else {
                 var totalWordsSoFar = 0
@@ -138,24 +138,24 @@ class PlayerSelectScene: SKScene {
                     
                     let labelDefinition = SKLabelNode(fontNamed: "Arial")
                     labelDefinition.text = definitionLine
-                    labelDefinition.fontSize = SELECTTEXT_FONTSIZE+1.0
+                    labelDefinition.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE+1.0)
                     labelDefinition.fontColor = color1
                     labelDefinition.position = CGPoint(x: -self.size.width/4,y: -sentenceHeight * CGFloat(n))
                     labelDefinition.zPosition = 100.0
                     labelDefinition.name = "playerbox" + String(i)
                     nodeDefinitionAr[i].addChild(labelDefinition)
-                    nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+                    nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
                     totalWordsSoFar = totalWordsSoFar + countWords
                 }
             }
-            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:30.0))
+            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
             playerboxShadowAr[i].name = "shadowbox" + String(i)
             playerboxShadowAr[i].fillColor = SKColor.black
             playerboxShadowAr[i].strokeColor = SKColor.black
             playerboxShadowAr[i].position = CGPoint(x:-1.5,y:1.5)
             nodeDefinitionAr[i].addChild(playerboxShadowAr[i])
             
-            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:30.0))
+            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
             playerboxAr[i].name = "playerbox" + String(i)
             playerboxAr[i].fillColor = SKColor(red: 225/255, green: 235/255, blue: 235/255, alpha: 1)
             playerboxAr[i].strokeColor = SKColor.blue
@@ -173,13 +173,13 @@ class PlayerSelectScene: SKScene {
             
             let labelGrade = SKLabelNode(fontNamed: "Arial")
             labelGrade.text = "Grade: " + grade
-            labelGrade.fontSize = SELECTTEXT_FONTSIZE-1.0
+            labelGrade.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE-1.0)
             labelGrade.fontColor = color1
             labelGrade.position = CGPoint(x: self.size.width/32,y:0)
             labelGrade.zPosition = 102.0
             labelGrade.name = "playerboxgrade" + String(i)
             nodeDefinitionAr[i].addChild(labelGrade)
-            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelGrade,offset: 1))
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelGrade,offset: GetFontSize(size:1)))
             
             let progressbox = SKShapeNode(rectOf: CGSize(width: size.width/5,height: self.size.height*4/48))
             progressbox.name = "progressbox" + String(i)
@@ -191,28 +191,28 @@ class PlayerSelectScene: SKScene {
             
             let labelProgress = SKLabelNode(fontNamed: "Arial")
             labelProgress.text = "Progress"
-            labelProgress.fontSize = 15
+            labelProgress.fontSize = GetFontSize(size:15)
             labelProgress.fontColor = color2
             labelProgress.position = CGPoint(x: self.size.width/32+self.size.width/5,y:0)
             labelProgress.zPosition = 102.0
             labelProgress.name = "labelprogress" + String(i)
             nodeDefinitionAr[i].addChild(labelProgress)
-            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress,offset: 1))
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress,offset: GetFontSize(size:1)))
             
             let mySentence2: NSString = "Progress" as NSString
-            let sizeSentence2: CGSize = mySentence2.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15)])
+            let sizeSentence2: CGSize = mySentence2.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:15))])
             let sentenceHeight2 = sizeSentence2.height
             let labelProgress2 = SKLabelNode(fontNamed: "Arial")
             labelProgress2.text = "Report"
-            labelProgress2.fontSize = 15
+            labelProgress2.fontSize = GetFontSize(size:15)
             labelProgress2.fontColor = color2
             labelProgress2.position = CGPoint(x: self.size.width/32+self.size.width/5,y:-sentenceHeight2)
             labelProgress2.zPosition = 102.0
             labelProgress2.name = "labelprogress" + String(i)
             nodeDefinitionAr[i].addChild(labelProgress2)
-            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress2,offset: 1))
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress2,offset: GetFontSize(size:1)))
             
-            let deletebox = SKShapeNode(rectOf: CGSize(width: (size.width-32)/2,height: self.size.height*4/48-2),cornerRadius:30)
+            let deletebox = SKShapeNode(rectOf: CGSize(width: (size.width-32)/2,height: self.size.height*4/48-GetFontSize(size:2)),cornerRadius:GetCornerSize(size:30,max:self.size.height*4/48-GetFontSize(size:2)))
             deletebox.name = "deletebox" + String(i)
             deletebox.fillColor = SKColor.red
             deletebox.strokeColor = SKColor.red
@@ -222,13 +222,13 @@ class PlayerSelectScene: SKScene {
             
             let deleteLabel = SKLabelNode(fontNamed: "Arial")
             deleteLabel.text = "X"
-            deleteLabel.fontSize = 30
+            deleteLabel.fontSize = GetFontSize(size:30)
             deleteLabel.fontColor = SKColor.white
             deleteLabel.position = CGPoint(x: self.size.width*25/64,y:-self.size.height/64)
             deleteLabel.zPosition = 102.0
             deleteLabel.name = "deletebox" + String(i)
             nodeDefinitionAr[i].addChild(deleteLabel)
-            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: deleteLabel,offset: 1))
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: deleteLabel,offset: GetFontSize(size:1)))
             
             addChild(nodeDefinitionAr[i])
             i = i + 1
@@ -248,22 +248,22 @@ class PlayerSelectScene: SKScene {
             
             let labelDefinition = SKLabelNode(fontNamed: "Arial")
             labelDefinition.text = name
-            labelDefinition.fontSize = SELECTTEXT_FONTSIZE+1.0
+            labelDefinition.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE+1.0)
             labelDefinition.fontColor = color1
             labelDefinition.position = CGPoint(x: 0,y: 0)
             labelDefinition.zPosition = 100.0
             labelDefinition.name = "playerbox" + String(i)
             nodeDefinitionAr[i].addChild(labelDefinition)
-            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+            nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
             
-            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:30.0))
+            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
             playerboxShadowAr[i].name = "shadowbox" + String(i)
             playerboxShadowAr[i].fillColor = SKColor.black
             playerboxShadowAr[i].strokeColor = SKColor.black
             playerboxShadowAr[i].position = CGPoint(x:-1.5,y:1.5)
             nodeDefinitionAr[i].addChild(playerboxShadowAr[i])
             
-            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:30.0))
+            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
             playerboxAr[i].name = "playerbox" + String(i)
             playerboxAr[i].fillColor = SKColor(red: 225/255, green: 235/255, blue: 235/255, alpha: 1)
             playerboxAr[i].strokeColor = SKColor.blue

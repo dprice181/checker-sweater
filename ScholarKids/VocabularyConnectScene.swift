@@ -92,33 +92,33 @@ class VocabularyConnectScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "VOCABULARY"
-        labelTitle.fontSize = 50
+        labelTitle.fontSize = GetFontSize(size:50)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 45
+        labelSubtitle.fontSize = GetFontSize(size:45)
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
     }
     
     func DrawInstructions() {
         labelInstr.text = "Connect the 3 words to their definitions."
-        labelInstr.fontSize = 20
-        labelInstr.fontColor = SKColor.purple
+        labelInstr.fontSize = GetFontSize(size:20)
+        labelInstr.fontColor = global.realPurple
         labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*19/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: GetFontSize(size:1))
         addChild(labelInstrShadow)
         
         let scoreNode = SKNode()
@@ -126,19 +126,19 @@ class VocabularyConnectScene: SKScene {
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
+        labelCorrect.fontSize = GetFontSize(size:15)
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
         scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelCorrectShadow)
         
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
+        labelIncorrect.fontSize = GetFontSize(size:15)
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
         scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelIncorrectShadow)
         addChild(scoreNode)
     }
@@ -170,15 +170,15 @@ class VocabularyConnectScene: SKScene {
                 count = 0
             }
             let fontSizeRed = count
-            labelWord.fontSize = SELECTTEXT_FONTSIZE+5.0 - CGFloat(fontSizeRed)
+            labelWord.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE+5.0 - CGFloat(fontSizeRed))
             labelWord.fontColor = global.blue
             labelWord.position = .zero
             labelWord.zPosition = 100.0
             labelWord.name = "wordlabel" + String(i)
             nodeWordAr[i].addChild(labelWord)
-            nodeWordAr[i].addChild(CreateShadowLabel(label: labelWord,offset: 1))        
+            nodeWordAr[i].addChild(CreateShadowLabel(label: labelWord,offset: GetFontSize(size:1)))        
             
-            circleWordAr.append(SKShapeNode(circleOfRadius: 7.0))
+            circleWordAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:7.0)))
             circleWordAr[i].name = "wordcircle" + String(i)
             circleWordAr[i].fillColor = SKColor.red
             circleWordAr[i].strokeColor = SKColor.black
@@ -203,13 +203,13 @@ class VocabularyConnectScene: SKScene {
             if sentenceWidth < displayWidth {
                 let labelDefinition = SKLabelNode(fontNamed: "Arial")
                 labelDefinition.text = vocabularyDefinitionAr[i]
-                labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
+                labelDefinition.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE-1.0)
                 labelDefinition.fontColor = global.lightBlue
                 labelDefinition.position = .zero
                 labelDefinition.zPosition = 100.0
                 labelDefinition.name = "choicelabel" + String(i)
                 nodeDefinitionAr[i].addChild(labelDefinition)
-                nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+                nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
             }
             else {  //multi-line definition
                 var curX : CGFloat = 0
@@ -285,17 +285,16 @@ class VocabularyConnectScene: SKScene {
     func DrawDefinitionLine(definition:String,i:Int,offY:CGFloat) {
         let labelDefinition = SKLabelNode(fontNamed: "Arial")
         labelDefinition.text = definition
-        labelDefinition.fontSize = SELECTTEXT_FONTSIZE-1.0
+        labelDefinition.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE-1.0)
         labelDefinition.fontColor = global.lightBlue
         labelDefinition.position = CGPoint(x: 0,y: offY)
         labelDefinition.zPosition = 100.0
         labelDefinition.name = "choicelabel" + String(i)
         nodeDefinitionAr[i].addChild(labelDefinition)
-        nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+        nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
     }
     
     func DrawDefinitionBoxAndCircle(i:Int) {
-//        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/1.75,height: self.size.height*7/48)))
         choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/1.75,height: self.size.height*49/288)))
         choiceboxDefinitionAr[i].name = "choicebox" + String(i)
         choiceboxDefinitionAr[i].fillColor = global.greyBlue
@@ -303,7 +302,7 @@ class VocabularyConnectScene: SKScene {
         choiceboxDefinitionAr[i].position = .zero
         nodeDefinitionAr[i].addChild(choiceboxDefinitionAr[i])
         
-        circleDefinitionAr.append(SKShapeNode(circleOfRadius: 7.0))
+        circleDefinitionAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:7.0)))
         circleDefinitionAr[i].name = "choicecircle" + String(i)
         circleDefinitionAr[i].fillColor = SKColor.red
         circleDefinitionAr[i].strokeColor = SKColor.black
@@ -625,9 +624,9 @@ class VocabularyConnectScene: SKScene {
         
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Answer Is Correct!!!"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         global.correctAnswers = global.correctAnswers + 1
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -671,9 +670,9 @@ class VocabularyConnectScene: SKScene {
         
         labelInstr.text = "Incorrect, the correct answer is:"
         labelInstrShadow.text = "Incorrect, the correct answer is:"
-        labelInstrShadow.fontSize = 24
+        labelInstrShadow.fontSize = GetFontSize(size:24)
         labelInstr.fontColor = SKColor.red
-        labelInstr.fontSize = 24
+        labelInstr.fontSize = GetFontSize(size:24)
         
         global.incorrectAnswers = global.incorrectAnswers + 1
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)

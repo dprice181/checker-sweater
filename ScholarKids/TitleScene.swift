@@ -68,28 +68,28 @@ class TitleScene: SKScene {
         
         labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = titleLabelText
-        labelTitle.fontSize = 80
+        labelTitle.fontSize = GetFontSize(size:80)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 2)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:2))
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = subtitleLabelText
-        labelSubtitle.fontSize = 80
+        labelSubtitle.fontSize = GetFontSize(size:80)
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/10)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 2)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:2))
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
     }
     
     func DrawButtons() {
-        buttonBackground = SKShapeNode(rectOf: CGSize(width: self.size.width*3/4,height: self.size.height*16/48),cornerRadius: 20.0)
+        buttonBackground = SKShapeNode(rectOf: CGSize(width: self.size.width*3/4,height: self.size.height*16/48),cornerRadius: GetCornerSize(size:20.0,max:self.size.height*16/48))
         buttonBackground.name = "buttonbackground"
         buttonBackground.fillColor = SKColor(red: 200/255, green: 200/255, blue: 245/255, alpha: 0.6)
         buttonBackground.strokeColor = SKColor.purple
@@ -97,14 +97,14 @@ class TitleScene: SKScene {
         buttonBackground.zPosition = -1.0
         addChild(buttonBackground)
         
-        startButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: 30.0)
+        startButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
         startButtonShadow.name = "sbshadow"
         startButtonShadow.fillColor = SKColor.black
         startButtonShadow.strokeColor = SKColor.black
-        startButtonShadow.position = CGPoint(x: self.size.width/2 - 2.5, y: self.size.height*11.5/24 + 2.5)
+        startButtonShadow.position = CGPoint(x: self.size.width/2 - GetFontSize(size:2.5), y: self.size.height*11.5/24 + GetFontSize(size:2.5))
         addChild(startButtonShadow)
         
-        startButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: 30.0)
+        startButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
         startButton.name = "startbutton"
         startButton.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         startButton.strokeColor = SKColor.purple
@@ -114,21 +114,21 @@ class TitleScene: SKScene {
         startButtonLabel = SKLabelNode(fontNamed: "Arial")
         startButtonLabel.text = "START"
         startButtonLabel.name = "startbuttonlabel"
-        startButtonLabel.fontSize = 30
+        startButtonLabel.fontSize = GetFontSize(size:30)
         startButtonLabel.fontColor = global.realPurple
         startButtonLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*11.3/24 - self.size.height/96)
         startButtonLabel.zPosition = 100.0
         addChild(startButtonLabel)
-        addChild(CreateShadowLabel(label: startButtonLabel,offset: 1))
+        addChild(CreateShadowLabel(label: startButtonLabel,offset: GetFontSize(size:1)))
         
-        optionsButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: 30.0)
+        optionsButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
         optionsButtonShadow.name = "obshadow"
         optionsButtonShadow.fillColor = SKColor.black
         optionsButtonShadow.strokeColor = SKColor.black
-        optionsButtonShadow.position = CGPoint(x: self.size.width/2 - 2.5, y: self.size.height*8.5/24 + 2.5)
+        optionsButtonShadow.position = CGPoint(x: self.size.width/2 - GetFontSize(size:2.5), y: self.size.height*8.5/24 + GetFontSize(size:2.5))
         addChild(optionsButtonShadow)
         
-        optionsButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: 30.0)
+        optionsButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
         optionsButton.name = "optionsbutton"
         optionsButton.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         optionsButton.strokeColor = SKColor.purple
@@ -138,12 +138,12 @@ class TitleScene: SKScene {
         optionsButtonLabel = SKLabelNode(fontNamed: "Arial")
         optionsButtonLabel.text = "OPTIONS"
         optionsButtonLabel.name = "optionsbuttonlabel"
-        optionsButtonLabel.fontSize = 30
+        optionsButtonLabel.fontSize = GetFontSize(size:30)
         optionsButtonLabel.fontColor = global.realPurple
         optionsButtonLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*8.3/24 - self.size.height/96)
         optionsButtonLabel.zPosition = 100.0
         addChild(optionsButtonLabel)
-        addChild(CreateShadowLabel(label: optionsButtonLabel,offset: 1))
+        addChild(CreateShadowLabel(label: optionsButtonLabel,offset: GetFontSize(size:1)))
     }
     
     required init?(coder aDecoder: NSCoder) {

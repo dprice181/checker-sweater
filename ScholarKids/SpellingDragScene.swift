@@ -102,11 +102,11 @@ class SpellingDragScene: SKScene {
         let wordFirstPart = GetFirstPartOfWord(word:spellingWordMissingPart)
         
         let myWord: NSString = spellingWordMissingPart as NSString
-        let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         let widthWord = sizeWord.width
         
         let myWordFirst: NSString = wordFirstPart as NSString
-        let sizeWordFirst: CGSize = myWordFirst.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let sizeWordFirst: CGSize = myWordFirst.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         let widthWordFirst = sizeWordFirst.width
         let offX =  -widthWord/2 + widthWordFirst
         
@@ -114,11 +114,11 @@ class SpellingDragScene: SKScene {
         labelSpellingWord.zPosition = 100.0
         labelSpellingWord.name = "word"
         labelSpellingWord.text = spellingWordMissingPart
-        labelSpellingWord.fontSize = SELECTTEXT_FONTSIZE
+        labelSpellingWord.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE)
         labelSpellingWord.fontColor = global.purple
         labelSpellingWord.position = CGPoint(x: self.size.width/2, y: self.size.height * 10.5 / 24)
         addChild(labelSpellingWord)
-        addChild(CreateShadowLabel(label: labelSpellingWord,offset: 1))
+        addChild(CreateShadowLabel(label: labelSpellingWord,offset: GetFontSize(size:1)))
         
         let answerBoxNode = SKSpriteNode()
         answerBoxNode.position = CGPoint(x: offX + size.width/2, y: sizeWord.height/2 + self.size.height * 10.5 / 24)
@@ -131,9 +131,9 @@ class SpellingDragScene: SKScene {
         answerBoxNode.physicsBody?.usesPreciseCollisionDetection = true
         
         let myUnderline: NSString = underlineString as NSString
-        let sizeUnderline: CGSize = myUnderline.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE+5)])
+        let sizeUnderline: CGSize = myUnderline.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE+5))])
         let sizeBox = CGSize(width:sizeUnderline.width,height:sizeUnderline.height*0.75)
-        let box = SKShapeNode(rectOf: sizeBox,cornerRadius: 20.0)
+        let box = SKShapeNode(rectOf: sizeBox,cornerRadius: GetCornerSize(size:20.0,max:sizeBox.height))
         box.name = "answerboxrect"
         box.fillColor = SKColor.lightGray
         box.strokeColor = SKColor.red
@@ -143,11 +143,11 @@ class SpellingDragScene: SKScene {
     }
     
     func DrawDefinition(definition:String,i:Int,incorrectAnswer:Bool,pos:CGPoint) {
-        var fontColor = global.lightBlue
+        let fontColor = global.lightBlue
         var fontSize = SELECTTEXT_FONTSIZE_DEFINITION
         
         let position = pos
-        let displayWidth = size.width * 9.25 / 10
+        let displayWidth = size.width * 9.5 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         
@@ -157,17 +157,17 @@ class SpellingDragScene: SKScene {
         
         if sentenceWidth < displayWidth {
             if incorrectAnswer && global.sceneType=="Spelling" {
-                fontSize = 28
+                fontSize = GetFontSize(size:28)
             }
             let labelDefinition = SKLabelNode(fontNamed: "Arial")
             labelDefinition.text = definition
-            labelDefinition.fontSize = fontSize
+            labelDefinition.fontSize = GetFontSize(size:fontSize)
             labelDefinition.fontColor = fontColor
             labelDefinition.position = .zero
             labelDefinition.zPosition = 100.0
             labelDefinition.name = "definitionlabel" + String(i)
             nodeDefinition.addChild(labelDefinition)
-            nodeDefinition.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+            nodeDefinition.addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
         }
         else {  //multi-line definition
             var curX : CGFloat = 0
@@ -225,13 +225,13 @@ class SpellingDragScene: SKScene {
     func DrawDefinitionLine(definition:String,i:Int,offY:CGFloat,fontColor:SKColor,fontSize:CGFloat) {
         let labelDefinition = SKLabelNode(fontNamed: "Arial")
         labelDefinition.text = definition
-        labelDefinition.fontSize = fontSize
+        labelDefinition.fontSize = GetFontSize(size:fontSize)
         labelDefinition.fontColor = fontColor
         labelDefinition.position = CGPoint(x: 0,y: offY)
         labelDefinition.zPosition = 100.0
         labelDefinition.name = "definitionlabel" + String(i)
         nodeDefinition.addChild(labelDefinition)
-        nodeDefinition.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+        nodeDefinition.addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
     }
     
     func DrawSpellingDefinition() {
@@ -246,7 +246,7 @@ class SpellingDragScene: SKScene {
         for n in 0...2 {
             var correctWord = spellingPartsRandomAr[n]
             let myWord: NSString = correctWord + "    " as NSString
-            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE_CHOICE)])
+            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE))])
             sizeWordChoice.width = sizeWordChoice.width * 1.6
             sizeWordChoice.height = sizeWordChoice.height * 2.0
             
@@ -267,12 +267,12 @@ class SpellingDragScene: SKScene {
             labelChoice.zPosition = 100.0
             labelChoice.name = "choicelabel"
             labelChoice.text = correctWord.lowercased()
-            labelChoice.fontSize = SELECTTEXT_FONTSIZE_CHOICE
+            labelChoice.fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE)
             labelChoice.fontColor = SKColor.white
             labelChoice.horizontalAlignmentMode = .center
             labelChoice.position = CGPoint(x:  0, y: -sizeWordChoice.height/4)
             choiceNode.addChild(labelChoice)
-            choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: 1))
+            choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: GetFontSize(size:1)))
             
             let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
             boxChoice.name = "choicebox"
@@ -291,41 +291,41 @@ class SpellingDragScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "SPELLING"
-        labelTitle.fontSize = 55
+        labelTitle.fontSize = GetFontSize(size:55)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 45
+        labelSubtitle.fontSize = GetFontSize(size:45)
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelSubtitleShadow)
         
         addChild(fullTitle)
         
         labelInstr.text = "Drag the correct spelling"
-        labelInstr.fontSize = 25
-        labelInstr.fontColor = SKColor.purple
+        labelInstr.fontSize = GetFontSize(size:25)
+        labelInstr.fontColor = global.realPurple
         labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17.5/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: GetFontSize(size:1))
         addChild(labelInstrShadow)
         
         labelInstr2.text = "to the sentence below."
-        labelInstr2.fontSize = 25
-        labelInstr2.fontColor = SKColor.purple
+        labelInstr2.fontSize = GetFontSize(size:25)
+        labelInstr2.fontColor = global.realPurple
         labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*16.5/24)
         labelInstr2.zPosition = 100.0
         addChild(labelInstr2)
-        labelInstrShadow2 = CreateShadowLabel(label: labelInstr2,offset: 1)
+        labelInstrShadow2 = CreateShadowLabel(label: labelInstr2,offset: GetFontSize(size:1))
         addChild(labelInstrShadow2)
     }
     
@@ -335,19 +335,19 @@ class SpellingDragScene: SKScene {
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
+        labelCorrect.fontSize = GetFontSize(size:15)
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
         scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelCorrectShadow)
         
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
+        labelIncorrect.fontSize = GetFontSize(size:15)
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
         scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelIncorrectShadow)
         addChild(scoreNode)
     }
@@ -561,9 +561,9 @@ class SpellingDragScene: SKScene {
         
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Answer Is Correct!!!"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         labelInstr2.removeFromParent()
         labelInstrShadow2.removeFromParent()
@@ -590,9 +590,9 @@ class SpellingDragScene: SKScene {
         
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         labelInstr2.removeFromParent()
         labelInstrShadow2.removeFromParent()

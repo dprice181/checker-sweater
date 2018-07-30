@@ -11,9 +11,7 @@ import SpriteKit
 import GameplayKit
 
 class ProgressReportScene: SKScene {
-
     var currentExtraWordNum = 0
-    
     var graphWindowWidth : CGFloat = 0.0
     var graphWindowX : CGFloat = 0.0
     var graphWindowHeight : CGFloat = 0.0
@@ -38,7 +36,10 @@ class ProgressReportScene: SKScene {
         DrawTitle()
         DrawPercentageCorrect()
         DrawGraph()
-        
+        DrawBackButton()
+    }
+    
+    func DrawBackButton() {
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
         backButton.position = CGPoint(x: frame.size.width/20, y: self.size.height*18.5/20)
@@ -91,33 +92,21 @@ class ProgressReportScene: SKScene {
                             continue
                         }
                         if global.currentStudent == playerDataAr[0] {
-                            if subjectInd == 0 {
-                                //spelling
-                                var data = playerDataAr[5].characters.split{$0 == " "}.map(String.init)
-                                if data.count > 0 {
-                                    DrawLine(subjectInd:subjectInd,data:data)
-                                }
+                            var data = [String]()
+                            if subjectInd == 0 { //spelling
+                                data = playerDataAr[5].characters.split{$0 == " "}.map(String.init)
                             }
-                            else if subjectInd == 1 {
-                                //vocabulary
-                                var data = playerDataAr[4].characters.split{$0 == " "}.map(String.init)
-                                if data.count > 0 {
-                                    DrawLine(subjectInd:subjectInd,data:data)
-                                }
+                            else if subjectInd == 1 { //vocabulary
+                                data = playerDataAr[4].characters.split{$0 == " "}.map(String.init)
                             }
-                            else if subjectInd == 2 {
-                                //grammar
-                                var data = playerDataAr[3].characters.split{$0 == " "}.map(String.init)
-                                if data.count > 0 {
-                                    DrawLine(subjectInd:subjectInd,data:data)
-                                }
+                            else if subjectInd == 2 { //grammar
+                                data = playerDataAr[3].characters.split{$0 == " "}.map(String.init)
                             }
-                            else if subjectInd == 3 {
-                                //math
-                                var data = playerDataAr[2].characters.split{$0 == " "}.map(String.init)
-                                if data.count > 0 {
-                                    DrawLine(subjectInd:subjectInd,data:data)
-                                }
+                            else if subjectInd == 3 { //math
+                                data = playerDataAr[2].characters.split{$0 == " "}.map(String.init)
+                            }
+                            if data.count > 0 {
+                                DrawLine(subjectInd:subjectInd,data:data)
                             }
                         }
                     }
@@ -132,12 +121,12 @@ class ProgressReportScene: SKScene {
     func DrawPercentageCorrect() {
         let labelPercentCorrect = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelPercentCorrect.text = "% Correct"
-        labelPercentCorrect.fontSize = 16
+        labelPercentCorrect.fontSize = GetFontSize(size:16)
         labelPercentCorrect.fontColor = SKColor.red
         labelPercentCorrect.position = CGPoint(x: self.size.width/8, y: self.size.height*8/10)
         labelPercentCorrect.zPosition = 100.0
         addChild(labelPercentCorrect)
-        let labelPercentCorrectShadow = CreateShadowLabel(label: labelPercentCorrect,offset: 1)
+        let labelPercentCorrectShadow = CreateShadowLabel(label: labelPercentCorrect,offset: GetFontSize(size:1))
         addChild(labelPercentCorrectShadow)
     }
     
@@ -146,12 +135,12 @@ class ProgressReportScene: SKScene {
         for i in 0..<4 {
             let labelSubject = SKLabelNode(fontNamed: "ChalkDuster")
             labelSubject.text = subjectAr[i]
-            labelSubject.fontSize = 20
+            labelSubject.fontSize = GetFontSize(size:20)
             labelSubject.fontColor = SKColor.blue
             labelSubject.position = CGPoint(x: graphWindowX, y: (offsetY * CGFloat(i)) + graphWindowY + graphWindowHeight/2)
             labelSubject.zPosition = 100.0
             addChild(labelSubject)
-            let labelSubjectShadow = CreateShadowLabel(label: labelSubject,offset: 1)
+            let labelSubjectShadow = CreateShadowLabel(label: labelSubject,offset: GetFontSize(size:1))
             addChild(labelSubjectShadow)
             
             let graphWindow = SKShapeNode(rectOf: CGSize(width: graphWindowWidth,height: graphWindowHeight))
@@ -166,19 +155,17 @@ class ProgressReportScene: SKScene {
             
             DrawLines(subjectInd:i)
         }
-        
-        
     }
 
     func DrawPercentage(percentage: String,xPos: CGFloat,yPos: CGFloat) {
         let labelSubject = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelSubject.text = percentage
-        labelSubject.fontSize = 14
+        labelSubject.fontSize = GetFontSize(size:14)
         labelSubject.fontColor = SKColor.red
         labelSubject.position = CGPoint(x: xPos-self.size.width/12, y: yPos-self.size.width/48)
         labelSubject.zPosition = 100.0
         addChild(labelSubject)
-        let labelSubjectShadow = CreateShadowLabel(label: labelSubject,offset: 1)
+        let labelSubjectShadow = CreateShadowLabel(label: labelSubject,offset: GetFontSize(size:1))
         addChild(labelSubjectShadow)
     }
     
@@ -247,12 +234,12 @@ class ProgressReportScene: SKScene {
     func DrawLevelNumber(level:Int,xPos:CGFloat,yPos:CGFloat) {
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = String(level)
-        labelTitle.fontSize = 14
+        labelTitle.fontSize = GetFontSize(size:14)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = CGPoint(x:xPos,y:yPos)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
-        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         addChild(labelTitleShadow)
     }
     
@@ -263,22 +250,22 @@ class ProgressReportScene: SKScene {
         
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = "PROGRESS REPORT"
-        labelTitle.fontSize = 36
+        labelTitle.fontSize = GetFontSize(size:36)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         let labelSubtitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelSubtitle.text = global.currentStudent + ": Grade " + global.currentGrade
-        labelSubtitle.fontSize = 32
+        labelSubtitle.fontSize = GetFontSize(size:32)
         labelSubtitle.fontColor = global.purple
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        let labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
     }

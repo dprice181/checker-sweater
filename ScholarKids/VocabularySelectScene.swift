@@ -106,7 +106,7 @@ class VocabularySelectScene: SKScene {
         if incorrectAnswer {
             fontColor = SKColor.red
         }
-        let displayWidth = size.width * 9.25 / 10
+        let displayWidth = size.width * 9.5 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         
@@ -117,17 +117,17 @@ class VocabularySelectScene: SKScene {
         
         if sentenceWidth < displayWidth {
             if incorrectAnswer && global.sceneType=="Spelling" {
-                fontSize = 28
+                fontSize = GetFontSize(size:28)
             }
             let labelDefinition = SKLabelNode(fontNamed: "Arial")
             labelDefinition.text = definition
-            labelDefinition.fontSize = fontSize
+            labelDefinition.fontSize = GetFontSize(size:fontSize)
             labelDefinition.fontColor = fontColor
             labelDefinition.position = CGPoint(x:0,y:spellingOffY)
             labelDefinition.zPosition = 100.0
             labelDefinition.name = name + String(i)
             nodeDefinitionAr.last!.addChild(labelDefinition)
-            nodeDefinitionAr.last!.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+            nodeDefinitionAr.last!.addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
         }
         else {  //multi-line definition
             var curX : CGFloat = 0
@@ -198,13 +198,13 @@ class VocabularySelectScene: SKScene {
     func DrawDefinitionLine(definition:String,i:Int,offY:CGFloat,fontColor:SKColor,fontSize:CGFloat,name:String) {
         let labelDefinition = SKLabelNode(fontNamed: "Arial")
         labelDefinition.text = definition
-        labelDefinition.fontSize = fontSize
+        labelDefinition.fontSize = GetFontSize(size:fontSize)
         labelDefinition.fontColor = fontColor
         labelDefinition.position = CGPoint(x: 0,y: offY)
         labelDefinition.zPosition = 100.0
         labelDefinition.name = name + String(i)
         nodeDefinitionAr.last!.addChild(labelDefinition)
-        nodeDefinitionAr.last!.addChild(CreateShadowLabel(label: labelDefinition,offset: 1))
+        nodeDefinitionAr.last!.addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
     }
     
     func DrawChoiceBox(i:Int,name:String) {
@@ -218,7 +218,7 @@ class VocabularySelectScene: SKScene {
     
     func DrawWord() {
         labelVocabularyWord.text = vocabularyWord
-        labelVocabularyWord.fontSize = 45
+        labelVocabularyWord.fontSize = GetFontSize(size:45)
         labelVocabularyWord.fontColor = global.purple
         if global.sceneType == "Spelling" {
             labelVocabularyWord.position = CGPoint(x: self.size.width/2, y: self.size.height*15/24)
@@ -228,7 +228,7 @@ class VocabularySelectScene: SKScene {
         }
         labelVocabularyWord.zPosition = 100.0
         addChild(labelVocabularyWord)
-        labelVocabularyWordShadow = CreateShadowLabel(label: labelVocabularyWord,offset: 1)
+        labelVocabularyWordShadow = CreateShadowLabel(label: labelVocabularyWord,offset: GetFontSize(size:1))
         addChild(labelVocabularyWordShadow)
     }
     
@@ -253,27 +253,27 @@ class VocabularySelectScene: SKScene {
         
         if global.sceneType == "Spelling" {
             labelTitle.text = "SPELLING"
-            labelTitle.fontSize = 55
+            labelTitle.fontSize = GetFontSize(size:55)
         }
         else {
             labelTitle.text = "VOCABULARY"
-            labelTitle.fontSize = 50
+            labelTitle.fontSize = GetFontSize(size:50)
         }
         
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 45
+        labelSubtitle.fontSize = GetFontSize(size:45)
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
     }
@@ -287,12 +287,12 @@ class VocabularySelectScene: SKScene {
             labelInstr.text = "Select the correct definition below."
             labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
         }
-        labelInstr.fontSize = 20
-        labelInstr.fontColor = SKColor.purple
+        labelInstr.fontSize = GetFontSize(size:20)
+        labelInstr.fontColor = global.realPurple
         
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: GetFontSize(size:1))
         addChild(labelInstrShadow)
     }
     
@@ -302,19 +302,19 @@ class VocabularySelectScene: SKScene {
         scoreNode.zPosition = 100.0
     
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
+        labelCorrect.fontSize = GetFontSize(size:15)
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
         scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelCorrectShadow)
     
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
+        labelIncorrect.fontSize = GetFontSize(size:15)
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
         scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelIncorrectShadow)
     
         addChild(scoreNode)
@@ -601,9 +601,9 @@ class VocabularySelectScene: SKScene {
         
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Answer Is Correct!!!"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         global.correctAnswers = global.correctAnswers + 1
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -630,9 +630,9 @@ class VocabularySelectScene: SKScene {
         }
         labelInstr.text = "Incorrect, the correct answer is:"
         labelInstrShadow.text = "Incorrect, the correct answer is:"
-        labelInstrShadow.fontSize = 24
+        labelInstrShadow.fontSize = GetFontSize(size:24)
         labelInstr.fontColor = SKColor.red
-        labelInstr.fontSize = 24
+        labelInstr.fontSize = GetFontSize(size:24)
         
         global.incorrectAnswers = global.incorrectAnswers + 1
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)

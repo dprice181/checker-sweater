@@ -23,7 +23,7 @@ class GameScene: SKScene {
                 
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         global.heightWidthRat = size.height/size.width
-
+        
         let wordSelectScene = TitleScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"Title")
         self.view?.presentScene(wordSelectScene, transition: reveal)
         
@@ -40,7 +40,7 @@ class GameScene: SKScene {
         let message = "Select the noun from the sentence below"
         let label = SKLabelNode(fontNamed: "Arial")
         label.text = message
-        label.fontSize = 20
+        label.fontSize = GetFontSize(size:20)
         label.fontColor = SKColor.black
         label.position = CGPoint(x: self.size.width/2, y: self.size.height*2/3)
         addChild(label)
@@ -61,7 +61,7 @@ class GameScene: SKScene {
             labelAr.append(SKLabelNode(fontNamed: "Arial"))
             labelAr[i].name = "word" + String(i)
             labelAr[i].text = word
-            labelAr[i].fontSize = 20
+            labelAr[i].fontSize = GetFontSize(size:20)
             labelAr[i].fontColor = SKColor.blue
             labelAr[i].horizontalAlignmentMode = .left
             labelAr[i].position = CGPoint(x: 20.0 + CGFloat(curWordCount) * (size.width/38.0), y: self.size.height/3)

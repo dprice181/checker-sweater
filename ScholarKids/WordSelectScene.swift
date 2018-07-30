@@ -67,14 +67,14 @@ class WordSelectScene: SKScene {
     
     func DrawSentence() {
         let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         var widthSentence = sizeSentence.width
         
         let displayWidth = size.width * 9.4 / 10
         
         let space = "  "
         let mySpace: NSString = space as NSString
-        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         let widthSpace = sizeSpace.width
         
         widthSentence = widthSentence + CGFloat(widthSpace) * CGFloat(wordAr.count)
@@ -91,7 +91,7 @@ class WordSelectScene: SKScene {
         for var word in wordAr {
             word = word + "   "
             let myWord: NSString = word as NSString
-            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: SELECTTEXT_FONTSIZE)])
+            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
             let widthWord = sizeWord.width
             
             if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
@@ -103,12 +103,12 @@ class WordSelectScene: SKScene {
             labelAr[i].zPosition = 100.0
             labelAr[i].name = "word"
             labelAr[i].text = word
-            labelAr[i].fontSize = SELECTTEXT_FONTSIZE
+            labelAr[i].fontSize = GetFontSize(size:SELECTTEXT_FONTSIZE)
             labelAr[i].fontColor = global.lightBlue
             labelAr[i].horizontalAlignmentMode = .left
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 11 / 24)
             addChild(labelAr[i])
-            addChild(CreateShadowLabel(label: labelAr[i],offset: 1))
+            addChild(CreateShadowLabel(label: labelAr[i],offset: GetFontSize(size:1)))
             widthSum = widthSum + widthWord
             
             i = i + 1
@@ -121,21 +121,21 @@ class WordSelectScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = titleAr[levelMode]!
-        labelTitle.fontSize = 55
+        labelTitle.fontSize = GetFontSize(size:55)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 45
+        labelSubtitle.fontSize = GetFontSize(size:45)
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/12)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelSubtitleShadow)
         
         addChild(fullTitle)
@@ -143,33 +143,31 @@ class WordSelectScene: SKScene {
     
     func DrawInstructions() {
         labelInstr.text = "Select the " + instrAr[levelMode]!
-        labelInstr.fontSize = 25
-        labelInstr.fontColor = SKColor.purple
+        labelInstr.fontSize = GetFontSize(size:25)
+        labelInstr.fontColor = global.realPurple
         labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*17/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
-        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: 1)
+        labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: GetFontSize(size:1))
         addChild(labelInstrShadow)
         
         labelInstrR2.text = "from the sentence below."
-        labelInstrR2.fontSize = 25
-        labelInstrR2.fontColor = SKColor.purple
+        labelInstrR2.fontSize = GetFontSize(size:25)
+        labelInstrR2.fontColor = global.realPurple
         labelInstrR2.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
         labelInstrR2.zPosition = 100.0
         addChild(labelInstrR2)
-        labelInstrR2Shadow = CreateShadowLabel(label: labelInstrR2,offset: 1)
+        labelInstrR2Shadow = CreateShadowLabel(label: labelInstrR2,offset: GetFontSize(size:1))
         addChild(labelInstrR2Shadow)
         
-        var fontSize : CGFloat = 20
         var widthSentence : CGFloat = 0
-        fontSize = GetFontSize(fontSize:fontSize,widthSentence: &widthSentence)
         labelInstr2.text = instrAr2[levelMode]!
-        labelInstr2.fontSize = fontSize
+        labelInstr2.fontSize = GetWSFontSize(fontSize:20,widthSentence: &widthSentence)
         labelInstr2.fontColor = SKColor.red
         labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*14.5/24)
         labelInstr2.zPosition = 100.0
         addChild(labelInstr2)
-        labelInstr2Shadow = CreateShadowLabel(label: labelInstr2,offset: 1)
+        labelInstr2Shadow = CreateShadowLabel(label: labelInstr2,offset: GetFontSize(size:1))
         addChild(labelInstr2Shadow)
         
         var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence, y:0.0)]
@@ -180,17 +178,17 @@ class WordSelectScene: SKScene {
         self.addChild(lineTitle2)
     }
     
-    func GetFontSize(fontSize:CGFloat,widthSentence: inout CGFloat) -> CGFloat {
-        var myFontSize = fontSize
+    func GetWSFontSize(fontSize:CGFloat,widthSentence: inout CGFloat) -> CGFloat {
+        var myFontSize = GetFontSize(size:fontSize)
         let mySentence: NSString = instrAr2[levelMode]! as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:myFontSize))])
         widthSentence = sizeSentence.width
         let displayWidth = size.width * 9.4 / 10
         
         while widthSentence > displayWidth && myFontSize > 8 {
             myFontSize = myFontSize - 1
             let mySentence: NSString = instrAr2[levelMode]! as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
+            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:myFontSize))])
             widthSentence = sizeSentence.width
         }
         
@@ -217,19 +215,19 @@ class WordSelectScene: SKScene {
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
+        labelCorrect.fontSize = GetFontSize(size:15)
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/24)
         scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelCorrectShadow)
         
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
+        labelIncorrect.fontSize = GetFontSize(size:15)
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
         scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelIncorrectShadow)
         addChild(scoreNode)
     }
@@ -441,9 +439,9 @@ class WordSelectScene: SKScene {
         
         labelInstr.text = "Answer Is Correct!!!"
         labelInstr.fontColor = global.blue
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Answer Is Correct!!!"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         labelInstrR2.removeFromParent()
         labelInstrR2Shadow.removeFromParent()
@@ -482,9 +480,9 @@ class WordSelectScene: SKScene {
         
         labelInstr.text = "Sorry, Answer Is Incorrect"
         labelInstr.fontColor = SKColor.red
-        labelInstr.fontSize = 30
+        labelInstr.fontSize = GetFontSize(size:30)
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
-        labelInstrShadow.fontSize = 30
+        labelInstrShadow.fontSize = GetFontSize(size:30)
         
         labelInstrR2.removeFromParent()
         labelInstrR2Shadow.removeFromParent()

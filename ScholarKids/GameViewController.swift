@@ -57,6 +57,23 @@ class Global {
 
 let global = Global()
 
+func GetFontSize(size:CGFloat) -> CGFloat {
+    var returnSize = size
+    if let frameWidth = global.view?.frame.width {
+        if frameWidth < 375 {
+            returnSize = (frameWidth/375) * size
+        }
+    }
+    return returnSize
+}
+
+func GetCornerSize(size:CGFloat,max:CGFloat) -> CGFloat {
+    if 2 * size > max {
+        return max/2.1
+    }
+    return size
+}
+
 struct PhysicsCategory {
     static let none      : UInt32 = 0
     static let all       : UInt32 = UInt32.max
@@ -365,9 +382,9 @@ func InitLetterStrings() {
     global.letterStringsReplace.append(["u","oo","o"])
     global.letterStringsReplace.append(["o","u","ow"])
     global.letterStringsReplace.append(["o","ui","u"])
-    global.letterStringsReplace.append(["c","k","kk"])
+    global.letterStringsReplace.append(["c","k","cc"])
     global.letterStringsReplace.append(["cc","k","c"])
-    global.letterStringsReplace.append(["kk","c","k","s"])
+    global.letterStringsReplace.append(["c","k","s"])
     global.letterStringsReplace.append(["f","ph"])
     global.letterStringsReplace.append(["ff","f"])
     global.letterStringsReplace.append(["ph","f","ff"])
@@ -531,7 +548,7 @@ func Misspell(word: String) -> [String] {
 
 func GetTextSize(text:String,fontSize:CGFloat) -> CGSize {
     let mySentence: NSString = text as NSString
-    return mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)])
+    return mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:fontSize))])
 }
 
 func DrawLine(scene : SKScene, overlayNode : SKNode, ratio: Int,yPos : CGFloat, color : SKColor) {
@@ -554,7 +571,7 @@ func DrawLine(scene : SKScene, overlayNode : SKNode, ratio: Int,yPos : CGFloat, 
         line.path = path
         line.strokeColor = color
         line.isAntialiased = true
-        line.lineWidth = 8
+        line.lineWidth = GetFontSize(size:8)
         line.zPosition = 301.0
         startX = endX
         al.append(SKAction.run({
@@ -577,7 +594,7 @@ func DisplayLevelFinished(scene : SKScene) {
     
     let correctAnswers = global.correctAnswers
     let incorrectAnswers = global.incorrectAnswers
-    let overlay = SKShapeNode(rectOf: CGSize(width: scene.size.width*8/10,height: scene.size.height*25/48),cornerRadius: 30.0)
+    let overlay = SKShapeNode(rectOf: CGSize(width: scene.size.width*8/10,height: scene.size.height*25/48),cornerRadius: GetCornerSize(size:30.0,max:scene.size.height*25/48))
     overlay.name = "overlay"
     overlay.fillColor = SKColor.white
     overlay.strokeColor = SKColor.purple
@@ -600,7 +617,7 @@ func DisplayLevelFinished(scene : SKScene) {
     
     let labelComplete = SKLabelNode(fontNamed: "Arial")
     labelComplete.text = "Level " + String(global.currentLevel) + " Complete!"
-    labelComplete.fontSize = 25
+    labelComplete.fontSize = GetFontSize(size:25)
     labelComplete.fontColor = SKColor.red
     labelComplete.position = CGPoint(x: 0, y: scene.size.height*3/24)
     labelComplete.zPosition = 201.0
@@ -612,7 +629,7 @@ func DisplayLevelFinished(scene : SKScene) {
     if correctAnswers >= global.minimumCorrectToUnlock {
         let labelComplete2 = SKLabelNode(fontNamed: "Arial")
         labelComplete2.text = "You unlocked the next level!"
-        labelComplete2.fontSize = 20
+        labelComplete2.fontSize = GetFontSize(size:20)
         labelComplete2.fontColor = global.purple
         labelComplete2.position = CGPoint(x: 0, y: scene.size.height*1.5/24)
         labelComplete2.zPosition = 201.0
@@ -624,7 +641,7 @@ func DisplayLevelFinished(scene : SKScene) {
     else {
         let labelComplete2 = SKLabelNode(fontNamed: "Arial")
         labelComplete2.text = "Get at least " + String(global.minimumCorrectToUnlock) + "/12 correct"
-        labelComplete2.fontSize = 16
+        labelComplete2.fontSize = GetFontSize(size:16)
         labelComplete2.fontColor = global.purple
         labelComplete2.position = CGPoint(x: 0, y: scene.size.height*2/24)
         labelComplete2.zPosition = 201.0
@@ -635,7 +652,7 @@ func DisplayLevelFinished(scene : SKScene) {
         
         let labelComplete3 = SKLabelNode(fontNamed: "Arial")
         labelComplete3.text = "to unlock the next level"
-        labelComplete3.fontSize = 16
+        labelComplete3.fontSize = GetFontSize(size:16)
         labelComplete3.fontColor = global.purple
         labelComplete3.position = CGPoint(x: 0, y: scene.size.height*1.3/24)
         labelComplete3.zPosition = 201.0
@@ -647,7 +664,7 @@ func DisplayLevelFinished(scene : SKScene) {
     
     let labelCorrect = SKLabelNode(fontNamed: "Arial")
     labelCorrect.text = "Correct Answers: " + String(correctAnswers) + " / 12"
-    labelCorrect.fontSize = 18
+    labelCorrect.fontSize = GetFontSize(size:18)
     labelCorrect.fontColor = SKColor.blue
     labelCorrect.position = CGPoint(x: 0, y: -scene.size.height*0.5/24)
     labelCorrect.zPosition = 201.0
@@ -658,7 +675,7 @@ func DisplayLevelFinished(scene : SKScene) {
     
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
     labelIncorrect.text = "Incorrect Answers: " + String(incorrectAnswers) + " / 12"
-    labelIncorrect.fontSize = 18
+    labelIncorrect.fontSize = GetFontSize(size:18)
     labelIncorrect.fontColor = SKColor.red
     labelIncorrect.position = CGPoint(x: 0, y: -scene.size.height*2.5/24)
     labelIncorrect.zPosition = 201.0
@@ -677,7 +694,7 @@ func DisplayLevelFinished(scene : SKScene) {
     
     let labelHome = SKLabelNode(fontNamed: "Arial")
     labelHome.text = "Home"
-    labelHome.fontSize = 10
+    labelHome.fontSize = GetFontSize(size:10)
     labelHome.fontColor = SKColor.red
     labelHome.position = CGPoint(x: -scene.size.width/5, y: -scene.size.height*6/24)
     labelHome.zPosition = 201.0
@@ -695,7 +712,7 @@ func DisplayLevelFinished(scene : SKScene) {
     
     let labelRetry = SKLabelNode(fontNamed: "Arial")
     labelRetry.text = "Retry"
-    labelRetry.fontSize = 10
+    labelRetry.fontSize = GetFontSize(size:10)
     labelRetry.fontColor = SKColor.red
     labelRetry.position = CGPoint(x: 0, y: -scene.size.height*6/24)
     labelRetry.zPosition = 201.0
@@ -714,7 +731,7 @@ func DisplayLevelFinished(scene : SKScene) {
         
         let labelNext = SKLabelNode(fontNamed: "Arial")
         labelNext.text = "Next"
-        labelNext.fontSize = 10
+        labelNext.fontSize = GetFontSize(size:10)
         labelNext.fontColor = SKColor.red
         labelNext.position = CGPoint(x: scene.size.width/5, y: -scene.size.height*6/24)
         labelNext.zPosition = 201.0

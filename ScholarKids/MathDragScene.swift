@@ -107,21 +107,21 @@ class MathDragScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "WORD PROBLEMS"
-        labelTitle.fontSize = 40
+        labelTitle.fontSize = GetFontSize(size:40)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         labelSubtitle.text = "Level " + String(global.currentLevel)
-        labelSubtitle.fontSize = 36
+        labelSubtitle.fontSize = GetFontSize(size:36)
         labelSubtitle.fontColor = SKColor.red
         labelSubtitle.position = CGPoint(x: 0, y: -self.size.height/18)
         labelSubtitle.zPosition = 100.0
         fullTitle.addChild(labelSubtitle)
-        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: 1)
+        labelSubtitleShadow = CreateShadowLabel(label: labelSubtitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelSubtitleShadow)
         addChild(fullTitle)
     }
@@ -135,24 +135,24 @@ class MathDragScene: SKScene {
         addChild(submitButton)
         
         submitButtonShadow = SKShapeNode(rectOf: CGSize(width: (self.size.width/6)*0.75,
-                                                        height: (self.size.height*2/48)*0.75),cornerRadius: 30.0)
+                                                        height: (self.size.height*2/48)*0.75),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*2/48*0.75))
         submitButtonShadow.name = "bshadow"
         submitButtonShadow.fillColor = SKColor.black
         submitButtonShadow.strokeColor = SKColor.black
-        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-2.5, y: self.size.height*1.5/48+2.5)
+        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-GetFontSize(size:2.5), y: self.size.height*1.5/48+GetFontSize(size:2.5))
         submitButtonShadow.zPosition = 100.0
         submitButtonShadow.lineWidth = 2.0
         addChild(submitButtonShadow)
         
         let submitLabel = SKLabelNode(fontNamed: "Arial")
         submitLabel.name = "submitbutton"
-        submitLabel.fontSize = 14
+        submitLabel.fontSize = GetFontSize(size:14)
         submitLabel.fontColor = SKColor.white
         submitLabel.zPosition = 102.0
         submitLabel.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48 - self.size.height/96)
         submitLabel.text = "Submit"
         addChild(submitLabel)
-        addChild(CreateShadowLabel(label: submitLabel,offset: 1))
+        addChild(CreateShadowLabel(label: submitLabel,offset: GetFontSize(size:1)))
     }
     
     func DrawCorrectLabels() {
@@ -161,19 +161,19 @@ class MathDragScene: SKScene {
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
-        labelCorrect.fontSize = 15
+        labelCorrect.fontSize = GetFontSize(size:15)
         labelCorrect.fontColor = SKColor.red
         labelCorrect.position = CGPoint(x: 0, y: self.size.height/40)
         scoreNode.addChild(labelCorrect)
-        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: 1)
+        labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelCorrectShadow)
         
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
-        labelIncorrect.fontSize = 15
+        labelIncorrect.fontSize = GetFontSize(size:15)
         labelIncorrect.fontColor = SKColor.red
         labelIncorrect.position = .zero
         scoreNode.addChild(labelIncorrect)
-        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: 1)
+        labelIncorrectShadow = CreateShadowLabel(label: labelIncorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelIncorrectShadow)
         addChild(scoreNode)
     }
@@ -200,15 +200,15 @@ class MathDragScene: SKScene {
         labelCountFirstName.fontColor = SKColor.blue
         if Z > -1 || B > -1 {
             labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*19/48)
-            labelCountFirstName.fontSize = 20
+            labelCountFirstName.fontSize = GetFontSize(size:20)
         }
         else {
             labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*17.75/48)
-            labelCountFirstName.fontSize = 30
+            labelCountFirstName.fontSize = GetFontSize(size:30)
         }
         labelCountFirstName.zPosition = 100.0
         addChild(labelCountFirstName)
-        labelCountFirstNameShadow = CreateShadowLabel(label: labelCountFirstName,offset: 1)
+        labelCountFirstNameShadow = CreateShadowLabel(label: labelCountFirstName,offset: GetFontSize(size:1))
         addChild(labelCountFirstNameShadow)
         
         if Z > -1 || B > -1 {
@@ -223,12 +223,12 @@ class MathDragScene: SKScene {
             else if B > -1 {
                 labelCount2FirstName.text = "0"
             }
-            labelCount2FirstName.fontSize = 20
+            labelCount2FirstName.fontSize = GetFontSize(size:20)
             labelCount2FirstName.fontColor = SKColor.blue
             labelCount2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16.5/48)
             labelCount2FirstName.zPosition = 100.0
             addChild(labelCount2FirstName)
-            labelCount2FirstNameShadow = CreateShadowLabel(label: labelCount2FirstName,offset: 1)
+            labelCount2FirstNameShadow = CreateShadowLabel(label: labelCount2FirstName,offset: GetFontSize(size:1))
             addChild(labelCount2FirstNameShadow)
         }
         
@@ -236,38 +236,38 @@ class MathDragScene: SKScene {
         labelItemFirstName.text = item
         labelItemFirstName.fontColor = SKColor.blue
         if Z > -1 || B > -1 {
-            labelItemFirstName.fontSize = 13
+            labelItemFirstName.fontSize = GetFontSize(size:13)
             labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*18/48)
         }
         else {
-            labelItemFirstName.fontSize = 15
+            labelItemFirstName.fontSize = GetFontSize(size:15)
             labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16.25/48)
         }
         labelItemFirstName.zPosition = 100.0
         addChild(labelItemFirstName)
-        let labelItemFirstNameShadow = CreateShadowLabel(label: labelItemFirstName,offset: 1)
+        let labelItemFirstNameShadow = CreateShadowLabel(label: labelItemFirstName,offset: GetFontSize(size:1))
         addChild(labelItemFirstNameShadow)
         
         if Z > -1 || B > -1 {
             let labelItem2FirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
             labelItem2FirstName.text = item2
-            labelItem2FirstName.fontSize = 13
+            labelItem2FirstName.fontSize = GetFontSize(size:13)
             labelItem2FirstName.fontColor = SKColor.blue
             labelItem2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*15.5/48)
             labelItem2FirstName.zPosition = 100.0
             addChild(labelItem2FirstName)
-            let labelItem2FirstNameShadow = CreateShadowLabel(label: labelItem2FirstName,offset: 1)
+            let labelItem2FirstNameShadow = CreateShadowLabel(label: labelItem2FirstName,offset: GetFontSize(size:1))
             addChild(labelItem2FirstNameShadow)
         }
         
         let labelFirstName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelFirstName.text = person1
-        labelFirstName.fontSize = 30
+        labelFirstName.fontSize = GetFontSize(size:30)
         labelFirstName.fontColor = SKColor.blue
         labelFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*12.5/24)
         labelFirstName.zPosition = 100.0
         addChild(labelFirstName)
-        let labelFirstNameShadow = CreateShadowLabel(label: labelFirstName,offset: 1)
+        let labelFirstNameShadow = CreateShadowLabel(label: labelFirstName,offset: GetFontSize(size:1))
         addChild(labelFirstNameShadow)
     }
     
@@ -285,11 +285,11 @@ class MathDragScene: SKScene {
         addChild(boxSmallSecondName)
         
         if Z > -1 || B > -1 {
-            labelCountSecondName.fontSize = 20
+            labelCountSecondName.fontSize = GetFontSize(size:20)
             labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7/48)
         }
         else {
-            labelCountSecondName.fontSize = 30
+            labelCountSecondName.fontSize = GetFontSize(size:30)
             labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
         }
         if studentStartsWithGoods {
@@ -301,11 +301,11 @@ class MathDragScene: SKScene {
         labelCountSecondName.fontColor = SKColor.red
         labelCountSecondName.zPosition = 100.0
         addChild(labelCountSecondName)
-        labelCountSecondNameShadow = CreateShadowLabel(label: labelCountSecondName,offset: 1)
+        labelCountSecondNameShadow = CreateShadowLabel(label: labelCountSecondName,offset: GetFontSize(size:1))
         addChild(labelCountSecondNameShadow)
         
         if Z > -1 || B > -1 {
-            labelCount2SecondName.fontSize = 20
+            labelCount2SecondName.fontSize = GetFontSize(size:20)
             if Z > -1 {
                 if studentStartsWithGoods {
                     labelCount2SecondName.text = String(Z)
@@ -321,7 +321,7 @@ class MathDragScene: SKScene {
             labelCount2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*4.5/48)
             labelCount2SecondName.zPosition = 100.0
             addChild(labelCount2SecondName)
-            labelCount2SecondNameShadow = CreateShadowLabel(label: labelCount2SecondName,offset: 1)
+            labelCount2SecondNameShadow = CreateShadowLabel(label: labelCount2SecondName,offset: GetFontSize(size:1))
             addChild(labelCount2SecondNameShadow)
         }
         
@@ -330,16 +330,16 @@ class MathDragScene: SKScene {
         labelItemSecondName.fontColor = SKColor.red
         if Z > -1 || B > -1 {
             labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
-            labelItemSecondName.fontSize = 13
+            labelItemSecondName.fontSize = GetFontSize(size:13)
         }
         else {
             labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*4.25/48)
-            labelItemSecondName.fontSize = 15
+            labelItemSecondName.fontSize = GetFontSize(size:15)
         }
         labelItemSecondName.zPosition = 100.0
         
         addChild(labelItemSecondName)
-        let labelItemSecondNameShadow = CreateShadowLabel(label: labelItemSecondName,offset: 1)
+        let labelItemSecondNameShadow = CreateShadowLabel(label: labelItemSecondName,offset: GetFontSize(size:1))
         addChild(labelItemSecondNameShadow)
         
         if Z > -1 || B > -1 {
@@ -348,20 +348,20 @@ class MathDragScene: SKScene {
             labelItem2SecondName.fontColor = SKColor.red
             labelItem2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*3.5/48)
             labelItem2SecondName.zPosition = 100.0
-            labelItem2SecondName.fontSize = 13
+            labelItem2SecondName.fontSize = GetFontSize(size:13)
             addChild(labelItem2SecondName)
-            let labelItem2SecondNameShadow = CreateShadowLabel(label: labelItem2SecondName,offset: 1)
+            let labelItem2SecondNameShadow = CreateShadowLabel(label: labelItem2SecondName,offset: GetFontSize(size:1))
             addChild(labelItem2SecondNameShadow)
         }
         
         let labelSecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelSecondName.text = global.currentStudent
-        labelSecondName.fontSize = 30
+        labelSecondName.fontSize = GetFontSize(size:30)
         labelSecondName.fontColor = SKColor.red
         labelSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*6.5/24)
         labelSecondName.zPosition = 100.0
         addChild(labelSecondName)
-        let labelSecondNameShadow = CreateShadowLabel(label: labelSecondName,offset: 1)
+        let labelSecondNameShadow = CreateShadowLabel(label: labelSecondName,offset: GetFontSize(size:1))
         addChild(labelSecondNameShadow)
     }
     
@@ -402,13 +402,13 @@ class MathDragScene: SKScene {
         labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*18/24)
         labelWordProblemAr[0].text = "Answer Is Correct!"
         labelWordProblemAr[0].fontColor = global.blue
-        labelWordProblemAr[0].fontSize = 30
+        labelWordProblemAr[0].fontSize = GetFontSize(size:30)
         addChild(labelWordProblemAr[0])
         
         labelWordProblemShadowAr[0].position = CGPoint(x: self.size.width/2-1, y: self.size.height*18/24+1)
         labelWordProblemShadowAr[0].text = "Answer Is Correct!"
         labelWordProblemShadowAr[0].fontColor = SKColor.black
-        labelWordProblemShadowAr[0].fontSize = 30
+        labelWordProblemShadowAr[0].fontSize = GetFontSize(size:30)
         addChild(labelWordProblemShadowAr[0])
         
         global.correctAnswers = global.correctAnswers + 1
@@ -440,13 +440,13 @@ class MathDragScene: SKScene {
         labelWordProblemAr[0].position = CGPoint(x: self.size.width/2, y: self.size.height*18/24)
         labelWordProblemAr[0].text = "Answer Is Incorrect!"
         labelWordProblemAr[0].fontColor = SKColor.red
-        labelWordProblemAr[0].fontSize = 30
+        labelWordProblemAr[0].fontSize = GetFontSize(size:30)
         addChild(labelWordProblemAr[0])
         
         labelWordProblemShadowAr[0].position = CGPoint(x: self.size.width/2-1, y: self.size.height*18/24+1)
         labelWordProblemShadowAr[0].text = "Answer Is Incorrect!"
         labelWordProblemShadowAr[0].fontColor = SKColor.black
-        labelWordProblemShadowAr[0].fontSize = 30
+        labelWordProblemShadowAr[0].fontSize = GetFontSize(size:30)
         addChild(labelWordProblemShadowAr[0])
         
         //set the correct answer
@@ -583,7 +583,7 @@ class MathDragScene: SKScene {
         var fontColor = global.blue
         var fontSize = SELECTTEXT_FONTSIZE
         let position = pos
-        let displayWidth = size.width * 9.25 / 10
+        let displayWidth = size.width * 9.5 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         
@@ -594,13 +594,13 @@ class MathDragScene: SKScene {
         if sentenceWidth < displayWidth {
             labelWordProblemAr.append(SKLabelNode(fontNamed: "Arial"))
             labelWordProblemAr.last!.text = sentence
-            labelWordProblemAr.last!.fontSize = fontSize
+            labelWordProblemAr.last!.fontSize = GetFontSize(size:fontSize)
             labelWordProblemAr.last!.fontColor = global.purple
             labelWordProblemAr.last!.position = position
             labelWordProblemAr.last!.zPosition = 100.0
             labelWordProblemAr.last!.name = "spellingdefinition"
             nodeDefinition.addChild(labelWordProblemAr.last!)
-            labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr.last!,offset: 1))
+            labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr.last!,offset: GetFontSize(size:1)))
             nodeDefinition.addChild(labelWordProblemShadowAr.last!)
         }
         else {  //multi-line definition
@@ -670,13 +670,13 @@ class MathDragScene: SKScene {
     func DrawDefinitionLine(definition:String,i:Int,offY:CGFloat,fontColor:SKColor,fontSize:CGFloat) {
         labelWordProblemAr.append(SKLabelNode(fontNamed: "Arial"))
         labelWordProblemAr.last!.text = definition
-        labelWordProblemAr.last!.fontSize = fontSize
+        labelWordProblemAr.last!.fontSize = GetFontSize(size:fontSize)
         labelWordProblemAr.last!.fontColor = fontColor
         labelWordProblemAr.last!.position = CGPoint(x: 0,y: offY)
         labelWordProblemAr.last!.zPosition = 100.0
         labelWordProblemAr.last!.name = "spellingdefinition"
         nodeDefinition.addChild(labelWordProblemAr.last!)
-        labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr.last!,offset: 1))
+        labelWordProblemShadowAr.append(CreateShadowLabel(label: labelWordProblemAr.last!,offset: GetFontSize(size:1)))
         nodeDefinition.addChild(labelWordProblemShadowAr.last!)
     }
     

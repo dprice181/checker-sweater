@@ -106,26 +106,26 @@ class OptionsScene: SKScene {
         
         let label = SKLabelNode(fontNamed: "Arial")
         label.text = text
-        label.fontSize = fontSize
+        label.fontSize = GetFontSize(size:fontSize)
         label.fontColor = fontColor
         label.horizontalAlignmentMode = .left
         label.position = .zero
         label.zPosition = 100.0
         fullLabel.addChild(label)
-        let labelShadow = CreateShadowLabel(label: label,offset: 1)
+        let labelShadow = CreateShadowLabel(label: label,offset: GetFontSize(size:1))
         fullLabel.addChild(labelShadow)
         
         if removeAds {
             let label2 = SKLabelNode(fontNamed: "Arial")
             label2.text = "(Any Purchase Removes All Ads)"
-            label2.fontSize = fontSize-2
+            label2.fontSize = GetFontSize(size:fontSize-2)
             label2.fontColor = fontColor
             label2.horizontalAlignmentMode = .left
             label2.position = CGPoint(x:0,y:-self.size.height*2/48)
             myOffY = myOffY - self.size.height*2/48
             label2.zPosition = 100.0
             fullLabel.addChild(label2)
-            let label2Shadow = CreateShadowLabel(label: label2,offset: 1)
+            let label2Shadow = CreateShadowLabel(label: label2,offset: GetFontSize(size:1))
             fullLabel.addChild(label2Shadow)
         }
         addChild(fullLabel)
@@ -156,7 +156,7 @@ class OptionsScene: SKScene {
             fullButton.position = CGPoint(x: self.size.width/24, y: self.size.height*42.5/48 + myOffY)
             fullButton.zPosition = 100.0
             
-            buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6 + extraBoxWidth,height: self.size.height*4/48),cornerRadius: 20.0))
+            buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6 + extraBoxWidth,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:20.0,max:self.size.height*4/48)))
             buttonAr.last!.name = String(i) + "optionbutton" + String(ind)
             buttonAr.last!.fillColor = backgroundColor
             if isButtonSelected {
@@ -172,7 +172,7 @@ class OptionsScene: SKScene {
             labelAr.append(SKLabelNode(fontNamed: "Arial"))
             labelAr.last!.text = textAr1[i]
             labelAr.last!.name = String(i) + "optionbutton" + String(ind)
-            labelAr.last!.fontSize = fontSize2
+            labelAr.last!.fontSize = GetFontSize(size:fontSize2)
             if isButtonSelected {
                 labelAr.last!.fontColor = myBoxColorSelected
             }
@@ -182,7 +182,7 @@ class OptionsScene: SKScene {
             labelAr.last!.position = CGPoint(x: xPos, y: -self.size.height*1.6/24 + labOffY)
             labelAr.last!.zPosition = 100.0
             fullButton.addChild(labelAr.last!)
-            labelShadowAr.append(CreateShadowLabel(label: labelAr.last!,offset: 1))
+            labelShadowAr.append(CreateShadowLabel(label: labelAr.last!,offset: GetFontSize(size:1)))
             labelShadowAr.last!.name = String(i) + "optionshadow" + String(ind)
             if isButtonSelected == false && lock==false {  //always hightlight the unlock levels
                 labelShadowAr.last!.isHidden = true
@@ -193,7 +193,7 @@ class OptionsScene: SKScene {
                 labelAr.append(SKLabelNode(fontNamed: "Arial"))
                 labelAr.last!.text = textAr2[i]
                 labelAr.last!.name = String(i) + "secondoptionbutton" + String(ind)
-                labelAr.last!.fontSize = fontSize2
+                labelAr.last!.fontSize = GetFontSize(size:fontSize2)
                 if isButtonSelected {
                     labelAr.last!.fontColor = myBoxColorSelected
                 }
@@ -203,7 +203,7 @@ class OptionsScene: SKScene {
                 labelAr.last!.position = CGPoint(x: xPos, y: -self.size.height*1.6/24 - self.size.height/32)
                 labelAr.last!.zPosition = 100.0
                 fullButton.addChild(labelAr.last!)
-                labelShadowAr.append(CreateShadowLabel(label: labelAr.last!,offset: 1))
+                labelShadowAr.append(CreateShadowLabel(label: labelAr.last!,offset: GetFontSize(size:1)))
                 labelShadowAr.last!.name = String(i) + "optionshadow" + String(ind)
                 if isButtonSelected == false && lock==false {  //always hightlight the unlock levels
                     labelShadowAr.last!.isHidden = true
@@ -237,21 +237,21 @@ class OptionsScene: SKScene {
     
     func DrawButton(text: String,offY:CGFloat,i:Int) {
         let myText: NSString = text as NSString
-        let sizeText: CGSize = myText.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 25)])
+        let sizeText: CGSize = myText.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:25))])
         let widthText = sizeText.width
         
         let clickButton = SKNode()
         clickButton.position = CGPoint(x: self.size.width/2, y: offY)
         clickButton.zPosition = 100.0
         
-        clickButtonShadowAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: 30.0))
+        clickButtonShadowAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48)))
         clickButtonShadowAr.last!.name = "sbshadow"
         clickButtonShadowAr.last!.fillColor = SKColor.black
         clickButtonShadowAr.last!.strokeColor = SKColor.black
         clickButtonShadowAr.last!.position = CGPoint(x:-2.5, y: 2.5)
         clickButton.addChild(clickButtonShadowAr.last!)
         
-        clickButtonAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: 30.0))
+        clickButtonAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48)))
         clickButtonAr.last!.name = "clickbutton" + String(i)
         clickButtonAr.last!.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         clickButtonAr.last!.strokeColor = global.blue
@@ -261,12 +261,12 @@ class OptionsScene: SKScene {
         buttonLabelAr.append(SKLabelNode(fontNamed: "Arial"))
         buttonLabelAr.last!.text = text
         buttonLabelAr.last!.name = "labelclickbutton" + String(i)
-        buttonLabelAr.last!.fontSize = 25
+        buttonLabelAr.last!.fontSize = GetFontSize(size:25)
         buttonLabelAr.last!.fontColor = global.blue //SKColor(red: 165/255, green: 60/255, blue: 165/255, alpha: 1.0)
         buttonLabelAr.last!.position = CGPoint(x: 0, y: -self.size.height/64)
         buttonLabelAr.last!.zPosition = 100.0
         clickButton.addChild(buttonLabelAr.last!)
-        clickButton.addChild(CreateShadowLabel(label: buttonLabelAr.last!,offset: 1))
+        clickButton.addChild(CreateShadowLabel(label: buttonLabelAr.last!,offset: GetFontSize(size:1)))
         addChild(clickButton)
     }
     
@@ -277,12 +277,12 @@ class OptionsScene: SKScene {
         
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = "OPTIONS"
-        labelTitle.fontSize = 50
+        labelTitle.fontSize = GetFontSize(size:50)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         addChild(fullTitle)

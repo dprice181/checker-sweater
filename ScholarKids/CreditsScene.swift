@@ -26,12 +26,12 @@ class CreditsScene: SKScene {
         
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         labelTitle.text = "CREDITS"
-        labelTitle.fontSize = 50
+        labelTitle.fontSize = GetFontSize(size:50)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
         fullTitle.addChild(labelTitle)
-        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: 1)
+        let labelTitleShadow = CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1))
         fullTitle.addChild(labelTitleShadow)
         
         addChild(fullTitle)
@@ -47,24 +47,24 @@ class CreditsScene: SKScene {
         for i in 0..<creditAr.count {
             let labelCredit = SKLabelNode(fontNamed: "Arial")
             labelCredit.text = creditAr[i]
-            labelCredit.fontSize = 35
+            labelCredit.fontSize = GetFontSize(size:35)
             labelCredit.horizontalAlignmentMode = .left
             labelCredit.fontColor = SKColor.blue
             labelCredit.position = CGPoint(x:offX,y:offY)
             labelCredit.zPosition = 100.0
             addChild(labelCredit)
-            let labelCreditShadow = CreateShadowLabel(label: labelCredit,offset: 1)
+            let labelCreditShadow = CreateShadowLabel(label: labelCredit,offset: GetFontSize(size:1))
             addChild(labelCreditShadow)
          
             let labelAuthor = SKLabelNode(fontNamed: "Arial")
             labelAuthor.text = authorAr[i]
-            labelAuthor.fontSize = 30
+            labelAuthor.fontSize = GetFontSize(size:30)
             labelAuthor.horizontalAlignmentMode = .left
             labelAuthor.fontColor = global.realPurple
             labelAuthor.position = CGPoint(x:offX+self.size.width/32,y:offY - self.size.height*3/48)
             labelAuthor.zPosition = 100.0
             addChild(labelAuthor)
-            let labelAuthorShadow = CreateShadowLabel(label: labelAuthor,offset: 1)
+            let labelAuthorShadow = CreateShadowLabel(label: labelAuthor,offset: GetFontSize(size:1))
             addChild(labelAuthorShadow)
             
             offY = offY - offYInc

@@ -49,12 +49,12 @@ class LevelSelectScene: SKScene {
         for subject in subjectAr {
             let subjectTitle = SKLabelNode(fontNamed: "ChalkDuster")
             subjectTitle.text = subject
-            subjectTitle.fontSize = 25
+            subjectTitle.fontSize = GetFontSize(size:25)
             subjectTitle.fontColor = SKColor.blue
             subjectTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*(19.5 - SUB_SPACING*CGFloat(n))/24)
             subjectTitle.zPosition = 100.0
             addChild(subjectTitle)
-            addChild(CreateShadowLabel(label: subjectTitle,offset: 1.5))
+            addChild(CreateShadowLabel(label: subjectTitle,offset: GetFontSize(size:1.5)))
             
             hotAirBalloonAr.append([])
             hotAirBalloonLockAr.append([])
@@ -99,7 +99,7 @@ class LevelSelectScene: SKScene {
                 
                 hotAirBalloonLabelAr[n].append(SKLabelNode(fontNamed: "ChalkDuster"))
                 hotAirBalloonLabelAr[n][i].text = "Level"
-                hotAirBalloonLabelAr[n][i].fontSize = 13
+                hotAirBalloonLabelAr[n][i].fontSize = GetFontSize(size:13)
                 if recommendedLevel[subject] == i {
                     hotAirBalloonLabelAr[n][i].fontColor = SKColor(red:252/255,green:124/255,blue:226/255,alpha:1)
                 }
@@ -110,12 +110,12 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabelAr[n][i].zPosition = 102.0
                 hotAirBalloonLabelAr[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabelAr[n][i])
-                hotAirBalloonLabelShadowAr[n].append(CreateShadowLabel(label: hotAirBalloonLabelAr[n][i],offset: 1))
+                hotAirBalloonLabelShadowAr[n].append(CreateShadowLabel(label: hotAirBalloonLabelAr[n][i],offset: GetFontSize(size:1)))
                 addChild(hotAirBalloonLabelShadowAr[n][i])
                 
                 hotAirBalloonLabel2Ar[n].append(SKLabelNode(fontNamed: "ChalkDuster"))
                 hotAirBalloonLabel2Ar[n][i].text = String(i+1)
-                hotAirBalloonLabel2Ar[n][i].fontSize = 20
+                hotAirBalloonLabel2Ar[n][i].fontSize = GetFontSize(size:20)
                 if recommendedLevel[subject] == i {
                     hotAirBalloonLabel2Ar[n][i].fontColor = SKColor(red:252/255,green:124/255,blue:226/255,alpha:1)
                 }
@@ -126,7 +126,7 @@ class LevelSelectScene: SKScene {
                 hotAirBalloonLabel2Ar[n][i].zPosition = 102.0
                 hotAirBalloonLabel2Ar[n][i].name = "hotairballoon" + String(n) + ":" + String(i)
                 addChild(hotAirBalloonLabel2Ar[n][i])
-                hotAirBalloonLabelShadow2Ar[n].append(CreateShadowLabel(label: hotAirBalloonLabel2Ar[n][i],offset: 1))
+                hotAirBalloonLabelShadow2Ar[n].append(CreateShadowLabel(label: hotAirBalloonLabel2Ar[n][i],offset: GetFontSize(size:1)))
                 addChild(hotAirBalloonLabelShadow2Ar[n][i])
             }
             
@@ -149,21 +149,21 @@ class LevelSelectScene: SKScene {
     func DrawTitle() {
         let labelTitle = SKLabelNode(fontNamed: "Arial")
         labelTitle.text = "Select Level"
-        labelTitle.fontSize = 35
+        labelTitle.fontSize = GetFontSize(size:35)
         labelTitle.fontColor = global.titleColor
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22/24)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
-        addChild(CreateShadowLabel(label: labelTitle,offset: 1))
+        addChild(CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1)))
         
         let labelNameGrade = SKLabelNode(fontNamed: "Arial")
         labelNameGrade.text = global.currentStudent + ": Grade " + global.currentGrade
-        labelNameGrade.fontSize = 24
+        labelNameGrade.fontSize = GetFontSize(size:24)
         labelNameGrade.fontColor = SKColor.red
         labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
         labelNameGrade.zPosition = 100.0
         addChild(labelNameGrade)
-        addChild(CreateShadowLabel(label: labelNameGrade,offset: 1))
+        addChild(CreateShadowLabel(label: labelNameGrade,offset: GetFontSize(size:1)))
     }
     
     func DrawSwipeLeft() {
@@ -175,12 +175,12 @@ class LevelSelectScene: SKScene {
         
         let redLeftLabel = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         redLeftLabel.text = "Swipe Left"
-        redLeftLabel.fontSize = 15
+        redLeftLabel.fontSize = GetFontSize(size:15)
         redLeftLabel.fontColor = SKColor.red
         redLeftLabel.position = CGPoint(x: frame.size.width * 18/20, y: self.size.height*16/20)
         redLeftLabel.zPosition = 100.0
         addChild(redLeftLabel)
-        addChild(CreateShadowLabel(label: redLeftLabel,offset: 1))
+        addChild(CreateShadowLabel(label: redLeftLabel,offset: GetFontSize(size:1)))
     }
     
     func DrawBackButton() {
