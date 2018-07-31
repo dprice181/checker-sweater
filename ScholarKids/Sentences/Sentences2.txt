@@ -14,7 +14,7 @@ Friendly people drive me crazy!* a n v n d
 How is your Grandma?* d v a n
 How is your school?* d v a n
 That boy jumps fast!* t n v d
-Green eyes are extremely pretty.* a n v d a
+Green eyes are astonishingly pretty.* a n v d a
 Who is it behind the table?* d v n p t n
 That is a paper book.* n v t a n
 Where are the chips?* d v t n
@@ -36,7 +36,7 @@ Big houses are especially rare.* a n v d a
 Who is this talking to me?* d v n v p n
 There are many smelly cats.* n v a a n
 That is not a open house.* n v d t a n
-The dog is extremely frisky.* t n v d a
+The dog is astonishingly frisky.* t n v d a
 The room is small but tidy.* t n v a c a
 That is a friendly girl.* n v t a n
 Is that an abandoned building?* v n t a n
@@ -48,7 +48,7 @@ We took all the paper.* n v a t n
 Who is the woman over there?* d v t n p n
 Is that a useless room?* v n t a n
 I want to jump higher.* n v p v d
-The tiny boy ran very quickly.* t a n v d d
+The tiny boy ran deliberately quickly.* t a n v d d
 This is the biggest, ugliest thing!* n v t a a n
 That is not a small basket.* n v d t a n
 This is a big and tidy house.* o v t a c a n
@@ -67,7 +67,7 @@ That is a kid's backpack.* v v t a n
 Those are not black pens.* o v d a o
 I like my Apple computer.* n v a a n
 Why do some people listen?* d v a n v
-The girl is particularly happy.* t n v d a
+The girl is considerably happy.* t n v d a
 I want to compete more fiercly.* n v p v d d
 There are many harmless snakes.* n v a a n
 I like my cargo shorts.* n v a a n
@@ -153,8 +153,8 @@ Where is the friendly girl?* d v t a n
 The chairs are large and comfortable.* t n v a t a
 What is this empty table?* d v a a n
 Why is the large ocean blue?* d v t a n a
-The gathered people argued very noisily.* t a n v d d
-The dog barked particularly loudly at night.* t n v d d p n
+The gathered people argued deliberately noisily.* t a n v d d
+The dog barked considerably loudly at night.* t n v d d p n
 Is this a small book?* v n t a n
 Is that a classic book?* v n t a n
 The large furry dog  sits on the porch.* t a a n v p t n

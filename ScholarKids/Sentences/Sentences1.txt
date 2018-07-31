@@ -29,7 +29,7 @@ That is a car.* n v t n
 When are the girls arriving?* d v t n v
 That is not a street.* n v d t n
 Why is the house big?* d v t n a
-The girl drummed very noisily.* t n v d d
+The girl drummed deliberately noisily.* t n v d d
 Who is the woman over there?* d v t n p n
 There are many dogs.* n v a n
 There are no couches.* n v t n
@@ -87,7 +87,7 @@ Why do people argue?* d v n v
 There are many people.* n v a n
 This is a magazine.* n v t n
 Sweep the floor!* v t n
-These people are extremely wild.* a n v d a
+These people are astonishingly wild.* a n v d a
 What is this page?* d v a n
 This is a rock.* n v t n
 I like my pencil.* n v a n
@@ -171,7 +171,7 @@ This woman is particularly smart.* a n v d a
 This game is not fun.* a n v d a
 June is a wonderful wife and mother.* n v t a n c n
 That is not a rabbit.* n v d t n
-This shoe is particularly small.* a n v d a
+This shoe is considerably small.* a n v d a
 Is that a broom?* v n t n
 These squirrels are not hungry.* a n v d a
 I want to nap.* n v p v
@@ -183,7 +183,7 @@ This is a book.* n v t n
 What are this thing?* d v a n
 Are these books?* v n n
 What is this chair?* d v a n
-This man is very humble.* a n v d a
+This man is deliberately humble.* a n v d a
 Where is the cat?* d v t n
 Is that a room?* v n t n
 Your milk is white.* a n v a
@@ -208,7 +208,7 @@ This is the best part!* n v t a n
 The sun will set soon.* t n v v d
 There are many animals.* n v a n
 There are twenty steps.* n v a n
-The people argued very noisily.* t n v d d
+The people argued deliberately noisily.* t n v d d
 What are this animal?* d v a n
 What is this dog?* d v a n
 The room is small.* t n v a
@@ -240,7 +240,7 @@ I like my computer.* n v a n
 Why is the grass green?* d v t n a
 This is a big house.* o v t a n
 When are you coming?* d v n v
-The boy ran particularly quickly.* t n v d d
+The boy ran considerably quickly.* t n v d d
 This is the craziest kid!* n v t a n
 Your stairs are white.* a n v a
 That is a chair.* n v t n
@@ -272,7 +272,7 @@ What is this insect?* d v a n
 Why is the car small?* d v t n a
 When do the snacks arrive?* d v t n v
 Where is the frog?* d v t n
-The cat purred extremely often.* t n v d d
+The cat purred astonishingly often.* t n v d d
 Why do people steal?* d v n v
 Who is the man next to the dog?* d v t n p p t n
 There are many friends.* n v a n

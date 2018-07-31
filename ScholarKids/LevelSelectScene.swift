@@ -41,7 +41,6 @@ class LevelSelectScene: SKScene {
         
         backgroundColor = SKColor(red: 234/255, green: 230/255, blue: 236/255, alpha: 1)
         GetUnlockedLevels()
-        
         DrawTitle()
         DrawBalloons()
         maxX = 0
@@ -55,7 +54,7 @@ class LevelSelectScene: SKScene {
         labelTitle.text = "Select Level"
         labelTitle.fontSize = GetFontSize(size:34)
         labelTitle.fontColor = global.titleColor
-        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21.7/24)
+        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21.6/24)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
         addChild(CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1)))
@@ -64,7 +63,7 @@ class LevelSelectScene: SKScene {
         labelNameGrade.text = global.currentStudent + ": Grade " + global.currentGrade
         labelNameGrade.fontSize = GetFontSize(size:24)
         labelNameGrade.fontColor = SKColor.red
-        labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*20.8/24)
+        labelNameGrade.position = CGPoint(x: self.size.width/2, y: self.size.height*20.7/24)
         labelNameGrade.zPosition = 100.0
         addChild(labelNameGrade)
         addChild(CreateShadowLabel(label: labelNameGrade,offset: GetFontSize(size:1)))
@@ -531,37 +530,13 @@ class LevelSelectScene: SKScene {
         return topController
     }
     
-    func UnlockLevel(subjectInd:Int) {
+    func UnlockLevel(subjectInd:Int,subject:String) {
         if hotAirBalloonLockAr.count > subjectInd {
             for hotAirBalloonLock in hotAirBalloonLockAr[subjectInd] {
                 hotAirBalloonLock.removeFromParent()
             }
         }
-        
-//        if let parentNode = node.parent {
-//            for child in parentNode.children {
-//                if child.name?.contains("lock") != nil && (child.name?.contains("lock"))! {
-//                    child.removeFromParent()
-//                    continue
-//                }
-//                if let box = child as? SKShapeNode {
-//                    box.strokeColor = global.realPurple
-//                }
-//                if let label = child as? SKLabelNode {
-//                    if label.name?.contains("secondoptionbutton") != nil && (label.name?.contains("secondoptionbutton"))! {
-//                        label.fontColor = global.realPurple
-//                        label.isHidden = false
-//                    }
-//                    else if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
-//                        label.fontColor = global.realPurple
-//                    }
-//                    else {  //shadow label
-//                        label.fontColor = SKColor.black
-//                        label.isHidden = false
-//                    }
-//                }
-//            }
-//        }
+        levelUnlockedAr[subject] = global.maxLevels
     }
     
     func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subjectInd:Int) {
@@ -572,7 +547,7 @@ class LevelSelectScene: SKScene {
                 let subject = self.subjectAr[subjectInd]
                 global.optionAr[sectionInd*2+1] = "1"
                 WriteOptionsToFile()
-                self.UnlockLevel(subjectInd:subjectInd)
+                self.UnlockLevel(subjectInd:subjectInd,subject:subject)
                 self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subjectInd:subjectInd)
             }
         })

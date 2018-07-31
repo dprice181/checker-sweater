@@ -62,7 +62,7 @@ I want to jump higher.* n v p v d
 Where is the tiny man?* d v t a n
 Why is the plentiful grass green?* a v t a n a
 There are no burgers here.* n v t n n
-These friendly mothers are extremely busy.* a a n v d a
+These friendly mothers are astonishingly busy.* a a n v d a
 The dog is loud and smelly.* t n v a t a
 Those are not black pens.* o v d a o
 Are these the correct menus?* v n t a n
@@ -90,7 +90,7 @@ There are many friendly people.* n v a a n
 What is this furry dog?* d v a a n
 Why do few people hunt?* a v a n v
 There are many good friends.* n v a a n
-The cat is extremely smelly.* t n v d a
+The cat is astonishingly smelly.* t n v d a
 The mother is extremely angry.* t n v d a
 This is a blue lake.* n v t a n
 There are many likeable animals.* n v a a n
@@ -222,7 +222,7 @@ What is that thing?* d v a n
 This big broom is not useable.* a a n v d a
 Your wide stairs are white.* a a n v a
 There are no fries here.* n v t n n
-The small boy lied particularly often.* t a n v d d
+The small boy lied considerably often.* t a n v d d
 Squares have many sides.* n v a n
 Why is the beautiful sky blue?* a v t a n a
 These people are especially wild but content.* a n v d a t a
@@ -231,7 +231,7 @@ The large furry dog  sits on the porch.* t a a n v p t n
 Is that a large broom?* v n t a n
 The kids ran around the school.* t n v p t n
 Where is the little boy?* d v t a n
-The gathered people argued very noisily.* t a n v d d
+The gathered people argued deliberately noisily.* t a n v d d
 The family drove around the neighborhood.* t n v p t n
 Why is the large ocean blue?* a v t a n a
 What are this tiny thing?* d v a a n
@@ -250,7 +250,7 @@ There are two ornate paintings.* n v a a n
 Who is it behind the rock?* d v n p t n
 The turtle is angry and slow.* t n v a t a
 What are this fun game?* d v a a n
-The tiny boy ran very quickly.* t a n v d d
+The tiny boy ran deliberately quickly.* t a n v d d
 Spider-man swung below the rooftops.* n v p t n
 This is the biggest, ugliest thing!* n v t a a n
 Why is the outside air smelly?* a v t a n a

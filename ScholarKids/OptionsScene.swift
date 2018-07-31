@@ -272,7 +272,7 @@ class OptionsScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*36/40)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*35.5/40)
         fullTitle.zPosition = 100.0
         
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")

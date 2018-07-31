@@ -104,11 +104,11 @@ class MathDragScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*9/10)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*8.95/10)
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "WORD PROBLEMS"
-        labelTitle.fontSize = GetFontSize(size:40)
+        labelTitle.fontSize = GetFontSize(size:38)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0

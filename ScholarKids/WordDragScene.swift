@@ -134,7 +134,7 @@ class WordDragScene: SKScene {
                 widthWord = sizeBox.width
                 //parent node with physics body for collision
                 let answerBoxNode = SKSpriteNode()
-                answerBoxNode.position = CGPoint(x: startX + widthSum + sizeBox.width/2, y: startY + self.size.height * 9 / 24 + sizeWord.height/2)
+                answerBoxNode.position = CGPoint(x: startX + widthSum + sizeBox.width/2, y: startY + self.size.height * 8.85 / 24 + sizeWord.height/2)
                 answerBoxNode.name = "answerbox"
                 answerBoxNode.physicsBody = SKPhysicsBody(rectangleOf: sizeWord)
                 answerBoxNode.physicsBody?.isDynamic = true

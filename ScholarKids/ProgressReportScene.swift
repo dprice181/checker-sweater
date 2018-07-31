@@ -43,7 +43,7 @@ class ProgressReportScene: SKScene {
         let graphOffsetY = graphWindowHeight * 1.35
         var posX : CGFloat = self.size.width*5.4/24
         var posY : CGFloat = (graphOffsetY * CGFloat(subjectInd)) + graphWindowY - graphWindowHeight/2
-        let offXInc : CGFloat = graphWindowWidth / 20
+        let offXInc : CGFloat = graphWindowWidth / CGFloat(global.maxLevels)
         var prevOffY : CGFloat = 0.0
         var i = 0
         var offX : CGFloat = 0.0
@@ -237,7 +237,7 @@ class ProgressReportScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*9/10)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*8.95/10)
         fullTitle.zPosition = 100.0
         
         let labelTitle = SKLabelNode(fontNamed: "MarkerFelt-Thin")

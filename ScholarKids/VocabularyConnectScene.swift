@@ -81,6 +81,7 @@ class VocabularyConnectScene: SKScene {
         
         DrawTitle()
         DrawInstructions()
+        DrawScoreNode()
         DrawWords()
         DrawDefinitions()
         DrawBackButton(scene:self)
@@ -88,11 +89,11 @@ class VocabularyConnectScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*9/10)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*8.9/10)
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "VOCABULARY"
-        labelTitle.fontSize = GetFontSize(size:48)
+        labelTitle.fontSize = GetFontSize(size:47)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -115,16 +116,18 @@ class VocabularyConnectScene: SKScene {
         labelInstr.text = "Connect the 3 words to their definitions."
         labelInstr.fontSize = GetFontSize(size:20)
         labelInstr.fontColor = global.realPurple
-        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*19/24)
+        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*18.9/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
         labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: GetFontSize(size:1))
         addChild(labelInstrShadow)
-        
+    }
+    
+    func DrawScoreNode() {
         let scoreNode = SKNode()
         scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/36)
         scoreNode.zPosition = 100.0
-        
+    
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
         labelCorrect.fontSize = GetFontSize(size:15)
         labelCorrect.fontColor = SKColor.red
@@ -132,7 +135,7 @@ class VocabularyConnectScene: SKScene {
         scoreNode.addChild(labelCorrect)
         labelCorrectShadow = CreateShadowLabel(label: labelCorrect,offset: GetFontSize(size:1))
         scoreNode.addChild(labelCorrectShadow)
-        
+    
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrect.fontSize = GetFontSize(size:15)
         labelIncorrect.fontColor = SKColor.red

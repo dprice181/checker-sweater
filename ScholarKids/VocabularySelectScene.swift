@@ -249,7 +249,7 @@ class VocabularySelectScene: SKScene {
         }
         else {
             labelTitle.text = "VOCABULARY"
-            labelTitle.fontSize = GetFontSize(size:48)
+            labelTitle.fontSize = GetFontSize(size:47)
         }
         
         labelTitle.fontColor = SKColor.red

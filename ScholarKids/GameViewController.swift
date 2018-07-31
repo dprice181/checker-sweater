@@ -158,8 +158,8 @@ func ReadOptionsFile() {
     if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
         let path = dir + "/" + file
         do {
-            //let fileText2 = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
-            //try! fileText2.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+            let fileText2 = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
+            try! fileText2.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
             var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             global.optionAr = fileText.characters.split{$0 == "*"}.map(String.init)
         }

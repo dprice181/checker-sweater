@@ -23,6 +23,7 @@ class WordSelectScene: SKScene {
     let labelInstr = SKLabelNode(fontNamed: "Arial")
     let labelInstrR2 = SKLabelNode(fontNamed: "Arial")
     let labelInstr2 = SKLabelNode(fontNamed: "Arial")
+    let labelInstr3 = SKLabelNode(fontNamed: "Arial")
     let labelCorrect = SKLabelNode(fontNamed: "Arial")
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
     var labelTitleShadow = SKLabelNode(fontNamed: "MarkerFelt-Thin")
@@ -30,6 +31,7 @@ class WordSelectScene: SKScene {
     var labelInstrShadow = SKLabelNode(fontNamed: "Arial")
     var labelInstrR2Shadow = SKLabelNode(fontNamed: "Arial")
     var labelInstr2Shadow = SKLabelNode(fontNamed: "Arial")
+    var labelInstr3Shadow = SKLabelNode(fontNamed: "Arial")
     var labelCorrectShadow = SKLabelNode(fontNamed: "Arial")
     var labelIncorrectShadow = SKLabelNode(fontNamed: "Arial")
     var lineTitle2 = SKShapeNode()
@@ -44,6 +46,7 @@ class WordSelectScene: SKScene {
     var titleAr = ["n":"NOUNS","v":"VERBS","a":"ADJECTIVES","p":"PREPOSITIONS","d":"ADVERBS"]
     var instrAr = ["n":"noun","v":"verb","a":"adjective","p":"preposition","d":"adverb"]
     var instrAr2 = ["n":"(A Noun is the name of a person place or thing)","v":"(A Verb is an action word)","a":"(An Adjective describes a noun)","p":"(A Preposition relates the noun to the sentence)","d":"(An adverb describes a verb, adjective, or other adverb)"]
+    let linkingVerbStr = "(A linking verb connects subject and predicate)"
     
     var background = SKSpriteNode(imageNamed: "background4.png")
     
@@ -70,9 +73,9 @@ class WordSelectScene: SKScene {
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         var widthSentence = sizeSentence.width
         
-        let displayWidth = size.width * 9.4 / 10
+        let displayWidth = size.width * 9.2 / 10
         
-        let space = "  "
+        let space = " "
         let mySpace: NSString = space as NSString
         let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         let widthSpace = sizeSpace.width
@@ -81,15 +84,15 @@ class WordSelectScene: SKScene {
         
         let widthSentenceHalf = widthSentence / 2
         var startX = size.width / 2 - widthSentenceHalf
-        if startX < size.width * 0.05 {
-            startX = size.width * 0.05
+        if startX < size.width * 0.04 {
+            startX = size.width * 0.04
         }
         var startY:CGFloat = 0.0
         var widthSum:CGFloat = 0.0
         
         var i = 0
         for var word in wordAr {
-            word = word + "   "
+            word = word + "  "
             let myWord: NSString = word as NSString
             let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
             let widthWord = sizeWord.width
@@ -162,7 +165,7 @@ class WordSelectScene: SKScene {
         
         var widthSentence : CGFloat = 0
         labelInstr2.text = instrAr2[levelMode]!
-        labelInstr2.fontSize = GetWSFontSize(fontSize:20,widthSentence: &widthSentence)
+        labelInstr2.fontSize = GetWSFontSize(sentence:instrAr2[levelMode]!,fontSize:20,widthSentence: &widthSentence)
         labelInstr2.fontColor = SKColor.red
         labelInstr2.position = CGPoint(x: self.size.width/2, y: self.size.height*14.5/24)
         labelInstr2.zPosition = 100.0
@@ -170,24 +173,43 @@ class WordSelectScene: SKScene {
         labelInstr2Shadow = CreateShadowLabel(label: labelInstr2,offset: GetFontSize(size:1))
         addChild(labelInstr2Shadow)
         
-        var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence, y:0.0)]
-        lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
-        lineTitle2.position = CGPoint(x:(size.width-widthSentence)/2,y:self.size.height*14.2/24)
-        lineTitle2.lineWidth = 2.0
-        lineTitle2.strokeColor = SKColor.red
-        self.addChild(lineTitle2)
+        if levelMode == "v" {
+            labelInstr3.text = linkingVerbStr
+            labelInstr3.fontSize = GetWSFontSize(sentence:linkingVerbStr,fontSize:20,widthSentence: &widthSentence)
+            labelInstr3.fontColor = SKColor.red
+            labelInstr3.position = CGPoint(x: self.size.width/2, y: self.size.height*13.5/24)
+            labelInstr3.zPosition = 100.0
+            addChild(labelInstr3)
+            labelInstr3Shadow = CreateShadowLabel(label: labelInstr3,offset: GetFontSize(size:1))
+            addChild(labelInstr3Shadow)
+            
+            var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence, y:0.0)]
+            lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
+            lineTitle2.position = CGPoint(x:(size.width-widthSentence)/2,y:self.size.height*13.2/24)
+            lineTitle2.lineWidth = 2.0
+            lineTitle2.strokeColor = SKColor.red
+            self.addChild(lineTitle2)
+        }
+        else {
+            var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence, y:0.0)]
+            lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
+            lineTitle2.position = CGPoint(x:(size.width-widthSentence)/2,y:self.size.height*14.2/24)
+            lineTitle2.lineWidth = 2.0
+            lineTitle2.strokeColor = SKColor.red
+            self.addChild(lineTitle2)
+        }
     }
     
-    func GetWSFontSize(fontSize:CGFloat,widthSentence: inout CGFloat) -> CGFloat {
+    func GetWSFontSize(sentence:String,fontSize:CGFloat,widthSentence: inout CGFloat) -> CGFloat {
         var myFontSize = GetFontSize(size:fontSize)
-        let mySentence: NSString = instrAr2[levelMode]! as NSString
+        let mySentence: NSString = sentence as NSString
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:myFontSize))])
         widthSentence = sizeSentence.width
         let displayWidth = size.width * 9.4 / 10
         
         while widthSentence > displayWidth && myFontSize > 8 {
             myFontSize = myFontSize - 1
-            let mySentence: NSString = instrAr2[levelMode]! as NSString
+            let mySentence: NSString = sentence as NSString
             let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:myFontSize))])
             widthSentence = sizeSentence.width
         }
@@ -426,6 +448,16 @@ class WordSelectScene: SKScene {
         self.run(SKAction.sequence([playSound,wait,newScene]))
     }
     
+    func RemoveLabels() {
+        labelInstrR2.removeFromParent()
+        labelInstrR2Shadow.removeFromParent()
+        labelInstr2.removeFromParent()
+        labelInstr2Shadow.removeFromParent()
+        labelInstr3.removeFromParent()
+        labelInstr3Shadow.removeFromParent()
+        lineTitle2.removeFromParent()
+    }
+    
     func CorrectAnswerSelected() {
         answerSelected = true
         
@@ -435,11 +467,7 @@ class WordSelectScene: SKScene {
         labelInstrShadow.text = "Answer Is Correct!!!"
         labelInstrShadow.fontSize = GetFontSize(size:30)
         
-        labelInstrR2.removeFromParent()
-        labelInstrR2Shadow.removeFromParent()
-        labelInstr2.removeFromParent()
-        labelInstr2Shadow.removeFromParent()
-        lineTitle2.removeFromParent()
+        RemoveLabels()
         
         global.correctAnswers = global.correctAnswers + 1
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -476,11 +504,7 @@ class WordSelectScene: SKScene {
         labelInstrShadow.text = "Sorry, Answer Is Incorrect"
         labelInstrShadow.fontSize = GetFontSize(size:30)
         
-        labelInstrR2.removeFromParent()
-        labelInstrR2Shadow.removeFromParent()
-        labelInstr2.removeFromParent()
-        labelInstr2Shadow.removeFromParent()
-        lineTitle2.removeFromParent()
+        RemoveLabels()
         
         global.incorrectAnswers = global.incorrectAnswers + 1
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
