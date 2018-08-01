@@ -61,7 +61,7 @@ func GetFontSize(size:CGFloat) -> CGFloat {
     var returnSize = size
     if let frameWidth = global.view?.frame.width {
         if frameWidth < 375 {
-            returnSize = (frameWidth/375) * size
+            returnSize = (frameWidth/400) * size
         }
     }
     return returnSize
@@ -80,7 +80,7 @@ func DrawBackButton(scene:SKScene) {
         let height = frame.height
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
-        backButton.position = CGPoint(x: width/15, y: height*18.3/20)
+        backButton.position = CGPoint(x: width/13, y: height*18.3/20)
         backButton.scale(to: CGSize(width: width/10, height: width/10))
         scene.addChild(backButton)
     }
@@ -158,8 +158,8 @@ func ReadOptionsFile() {
     if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
         let path = dir + "/" + file
         do {
-            let fileText2 = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
-            try! fileText2.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+            //let fileText2 = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
+            //try! fileText2.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
             var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
             global.optionAr = fileText.characters.split{$0 == "*"}.map(String.init)
         }
@@ -319,29 +319,6 @@ func GetLevelMode(levelMode: inout String) {
         }
     }
 }
-
-//func InitLetterStrings() {
-//    global.letterStrings.append(["e","a","i"])
-//    global.letterStrings.append(["ie","ei","ae","ey","a"])
-//    global.letterStrings.append(["ee", "ui", "e","i"])
-//    global.letterStrings.append(["oo", "iu", "ue", "u"])
-//    global.letterStrings.append(["ou","oo","o"])
-//    global.letterStrings.append(["ck", "kk", "k", "cc", "c", ])
-//    global.letterStrings.append(["ff","f","ph","gh"])
-//    global.letterStrings.append(["gg", "g", "j"])
-//    global.letterStrings.append(["wh","gh", "h"])
-//    global.letterStrings.append(["ll","rr","r","l"])
-//    global.letterStrings.append(["nn","mm","mn","n","m"])
-//    global.letterStrings.append(["pp","bb","p","b"])
-//    global.letterStrings.append(["qu","q","k"])
-//    global.letterStrings.append(["ss","cc","c","s",])
-//    global.letterStrings.append(["tt","dd","d","t"])
-//    global.letterStrings.append(["bb","dd","b","d"])
-//    global.letterStrings.append(["vv","v","w"])
-//    global.letterStrings.append(["cks","cs","ks","x"])
-//    global.letterStrings.append(["ie","ee","y","e"])
-//    global.letterStrings.append(["zz","ss","z","s"])
-//}
 
 func InitLetterStrings() {
     global.letterStringsFind.append("ie")

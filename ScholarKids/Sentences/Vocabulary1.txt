@@ -1,21 +1,25 @@
 glossy
 shiny and smooth
-whimper
-(of a person or animal) make a series of low, feeble sounds expressive of fear, pain, or discontent
-trust
-firm belief in the reliability, truth, ability, or strength of someone or something
-spiral
-winding in a continuous and gradually widening (or tightening) curve, either around a central point on a flat plane or about an axis so as to form a cone
-surround
-be all around (someone or something)
+crash
+(of a vehicle) collide violently with an obstacle or another vehicle
+pace
+a single step taken when walking or running
+expensive
+costing a lot of money
 flee
 run away from a place or situation of danger
 sob
 cry noisily, making loud, convulsive gasps
+whimper
+make a series of low, feeble sounds expressive of fear, pain, or discontent
+trust
+firm belief in the reliability, truth, ability, or strength of someone or something
 splendid
 magnificent; very impressive
+surround
+be all around (someone or something)
 startle
-cause (a person or animal) to feel sudden shock or alarm
+cause to feel sudden shock or alarm
 peck
 (of a bird) strike or bite something with its beak
 hide
@@ -23,11 +27,11 @@ put or keep out of sight; conceal from the view or notice of others
 fancy
 elaborate in structure or decoration
 serious
-(of a subject, state, or activity) demanding careful consideration or application
+demanding careful consideration or application
 drowsy
 sleepy and lethargic; half asleep
 selfish
-(of a person, action, or motive) lacking consideration for others; concerned chiefly with one's own personal profit or pleasure
+lacking consideration for others; concerned chiefly with one's own personal profit or pleasure
 herd
 a large group of animals, especially hoofed mammals, that live, feed, or migrate together or are kept together as livestock
 fear
@@ -172,12 +176,6 @@ trade
 the action of buying and selling goods and services
 goal
 a pair of posts linked by a crossbar and often with a net attached behind it, forming a space into or over which the ball has to be sent in order to score
-crash
-(of a vehicle) collide violently with an obstacle or another vehicle
-pace
-a single step taken when walking or running
-expensive
-costing a lot of money
 sprinkle
 scatter or pour small drops or particles of a substance over (an object or surface)
 drawer
@@ -860,6 +858,8 @@ fold
 bend (something flexible and relatively flat) over on itself so that one part of it covers another
 bare
 (of a person or part of the body) not clothed or covered
+spiral
+winding in a continuous and gradually widening (or tightening) curve, either around a central point on a flat plane or about an axis so as to form a cone
 frail
 (of a person) weak and delicate
 accuse

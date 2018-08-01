@@ -1,5 +1,11 @@
 notice
 attention; observation
+dawn
+the first appearance of light in the sky before sunrise
+gradual
+taking place or progressing slowly or by degrees
+rare
+not occurring very often
 wit
 mental sharpness and inventiveness; keen intelligence
 wisdom
@@ -19,7 +25,7 @@ a means of solving a problem or dealing with a difficult situation
 imitate
 take or follow as a model
 survey
-(of a person or their eyes) look carefully and thoroughly at (someone or something), especially so as to appraise them
+look carefully and thoroughly at (someone or something), especially so as to appraise them
 suitable
 right or appropriate for a particular person, purpose, or situation
 gift
@@ -32,12 +38,6 @@ respect
 a feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements
 habit
 a settled or regular tendency or practice, especially one that is hard to give up
-dawn
-the first appearance of light in the sky before sunrise
-gradual
-taking place or progressing slowly or by degrees
-rare
-(of an event, situation, or condition) not occurring very often
 responsible
 having an obligation to do something, or having control over or care for someone, as part of one's job or role
 contain

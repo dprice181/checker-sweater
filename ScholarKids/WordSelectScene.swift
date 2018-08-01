@@ -183,17 +183,17 @@ class WordSelectScene: SKScene {
             labelInstr3Shadow = CreateShadowLabel(label: labelInstr3,offset: GetFontSize(size:1))
             addChild(labelInstr3Shadow)
             
-            var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence, y:0.0)]
+            var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence*0.95, y:0.0)]
             lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
-            lineTitle2.position = CGPoint(x:(size.width-widthSentence)/2,y:self.size.height*13.2/24)
+            lineTitle2.position = CGPoint(x:(size.width-widthSentence*0.95)/2,y:self.size.height*13.2/24)
             lineTitle2.lineWidth = 2.0
             lineTitle2.strokeColor = SKColor.red
             self.addChild(lineTitle2)
         }
         else {
-            var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence, y:0.0)]
+            var pointsTitle2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:widthSentence*0.95, y:0.0)]
             lineTitle2 = SKShapeNode(points: &pointsTitle2, count: pointsTitle2.count)
-            lineTitle2.position = CGPoint(x:(size.width-widthSentence)/2,y:self.size.height*14.2/24)
+            lineTitle2.position = CGPoint(x:(size.width-widthSentence*0.95)/2,y:self.size.height*14.2/24)
             lineTitle2.lineWidth = 2.0
             lineTitle2.strokeColor = SKColor.red
             self.addChild(lineTitle2)
@@ -203,14 +203,14 @@ class WordSelectScene: SKScene {
     func GetWSFontSize(sentence:String,fontSize:CGFloat,widthSentence: inout CGFloat) -> CGFloat {
         var myFontSize = GetFontSize(size:fontSize)
         let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:myFontSize))])
+        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
         widthSentence = sizeSentence.width
-        let displayWidth = size.width * 9.4 / 10
+        let displayWidth = size.width * 9.2 / 10
         
         while widthSentence > displayWidth && myFontSize > 8 {
             myFontSize = myFontSize - 1
             let mySentence: NSString = sentence as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:myFontSize))])
+            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
             widthSentence = sizeSentence.width
         }
         
@@ -225,7 +225,7 @@ class WordSelectScene: SKScene {
     
     func DrawScoreNode() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
+        scoreNode.position = CGPoint(x: self.size.width/7, y: self.size.height/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)

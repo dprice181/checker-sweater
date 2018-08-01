@@ -75,22 +75,22 @@ class OptionsScene: SKScene {
     func DrawOptions() {
         var textAr1 = ["Always","Menus","Always"]
         var textAr2 = ["On","Only","Off"]
-        var offY : CGFloat = -self.size.height*1/48
+        var offY : CGFloat = -self.size.height*1.4/48
         DrawOption(ind:0,text:"Music",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["Always","Menus","Always"]
         textAr2 = ["On","Only","Off"]
-        offY = -self.size.height*8/48
+        offY = -self.size.height*8.4/48
         DrawOption(ind:1,text:"Sound Effects",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:18,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["0","3","6","9","12"]
         textAr2 = []
-        offY = -self.size.height*15/48
+        offY = -self.size.height*15.4/48
         DrawOption(ind:2,text:"# Correct To Advance Level",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:30,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
         
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
         textAr2 = ["Unlocked","Unlocked","Unlocked","Unlocked"]
-        offY = -self.size.height*23/48
+        offY = -self.size.height*23.8/48
         DrawOption(ind:3,text:"Unlock All Levels",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:15,fontColor:global.blue,boxColor:global.blue,boxColorSelected:global.blue,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
         
         DrawButtons()
@@ -231,7 +231,7 @@ class OptionsScene: SKScene {
     }
     
     func DrawButtons() {
-        DrawButton(text:"Unlock All Subject Levels",offY:self.size.height*8/48,i:1)
+        DrawButton(text:"Unlock All Subject Levels",offY:self.size.height*7.2/48,i:1)
         //DrawButton(text:"Credits",offY:self.size.height*3.5/48,i:2)
     }
     
@@ -262,7 +262,7 @@ class OptionsScene: SKScene {
         buttonLabelAr.last!.text = text
         buttonLabelAr.last!.name = "labelclickbutton" + String(i)
         buttonLabelAr.last!.fontSize = GetFontSize(size:25)
-        buttonLabelAr.last!.fontColor = global.blue //SKColor(red: 165/255, green: 60/255, blue: 165/255, alpha: 1.0)
+        buttonLabelAr.last!.fontColor = global.blue
         buttonLabelAr.last!.position = CGPoint(x: 0, y: -self.size.height/64)
         buttonLabelAr.last!.zPosition = 100.0
         clickButton.addChild(buttonLabelAr.last!)
@@ -570,9 +570,12 @@ class OptionsScene: SKScene {
     func UnlockLevel(node:SKNode) {
         if let parentNode = node.parent {
             for child in parentNode.children {
-                if child.name?.contains("lock") != nil && (child.name?.contains("lock"))! {
-                    child.removeFromParent()
-                    continue
+                if let lockNode = child as? SKSpriteNode {
+                    for lock in lockAr {
+                        if lock.name == child.name {
+                            child.removeFromParent()
+                        }
+                    }
                 }
                 if let box = child as? SKShapeNode {
                     box.strokeColor = global.realPurple

@@ -89,7 +89,7 @@ class VocabularyConnectScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*8.9/10)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*8.87/10)
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "VOCABULARY"
@@ -114,9 +114,9 @@ class VocabularyConnectScene: SKScene {
     
     func DrawInstructions() {
         labelInstr.text = "Connect the 3 words to their definitions."
-        labelInstr.fontSize = GetFontSize(size:20)
+        labelInstr.fontSize = GetFontSize(size:19)
         labelInstr.fontColor = global.realPurple
-        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*18.9/24)
+        labelInstr.position = CGPoint(x: self.size.width/2, y: self.size.height*18.5/24)
         labelInstr.zPosition = 100.0
         addChild(labelInstr)
         labelInstrShadow = CreateShadowLabel(label: labelInstr,offset: GetFontSize(size:1))
@@ -125,7 +125,7 @@ class VocabularyConnectScene: SKScene {
     
     func DrawScoreNode() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/36)
+        scoreNode.position = CGPoint(x: self.size.width/7, y: self.size.height/36)
         scoreNode.zPosition = 100.0
     
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -191,7 +191,7 @@ class VocabularyConnectScene: SKScene {
             let sentenceWidth = sizeSentence.width
             
             nodeDefinitionAr.append(SKNode())
-            nodeDefinitionAr[i].position = CGPoint(x: self.size.width*0.7, y: self.size.height*(15-5.5 * CGFloat(i))/24)
+            nodeDefinitionAr[i].position = CGPoint(x: self.size.width*0.67, y: self.size.height*(15-5.5 * CGFloat(i))/24)
             nodeDefinitionAr[i].zPosition = 100.0
             nodeDefinitionAr[i].name = "choicenode" + String(i)
             

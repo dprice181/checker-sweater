@@ -136,7 +136,7 @@ class MathDrawScene: SKScene {
         labelArg1.text = String(arg1)
         labelArg1.fontSize = GetFontSize(size:80)
         labelArg1.fontColor = SKColor.blue
-        labelArg1.position = CGPoint(x: self.size.width/7, y: self.size.height*(12.5)/24)
+        labelArg1.position = CGPoint(x: self.size.width/6.75, y: self.size.height*(12.5)/24)
         labelArg1.zPosition = 100.0
         addChild(labelArg1)
         addChild(CreateShadowLabel(label: labelArg1,offset: GetFontSize(size:1)))
@@ -243,13 +243,13 @@ class MathDrawScene: SKScene {
             var oper1 = 0
             var oper2 = 0
             if myOper == "/" {
-                if global.currentLevel > 5 {
-                    oper2 = GetNumber(numDigit: 1)
-                    oper1 = oper2 * Int(arc4random_uniform(UInt32(global.currentLevel)))
-                }
-                else if global.currentLevel > 12 {
+                if global.currentLevel > 12 {
                     oper1 = GetNumber(numDigit: 1)
                     oper2 = GetNumber(numDigit: 2)
+                }
+                else if global.currentLevel > 5 {
+                    oper1 = GetNumber(numDigit: 1)
+                    oper2 = oper1 * Int(arc4random_uniform(UInt32(global.currentLevel)))
                 }
                 else {  //should never get here
                     oper1 = GetNumber(numDigit: 1)
@@ -293,12 +293,12 @@ class MathDrawScene: SKScene {
             var oper2 = 0
             if myOper == "/" {
                 if global.currentLevel > 5 {
-                    oper1 = Int(arc4random_uniform(UInt32(10 + 5 * global.currentLevel)))
-                    oper2 = Int(arc4random_uniform(UInt32(10 + 10 * global.currentLevel)))
+                    oper1 = Int(arc4random_uniform(UInt32(5 + 5 * global.currentLevel)))
+                    oper2 = Int(arc4random_uniform(UInt32(5 + 10 * global.currentLevel)))
                 }
                 else if global.currentLevel > 2 {
                     oper1 = Int(arc4random_uniform(UInt32(10 + 3 * global.currentLevel)))
-                    oper2 = oper2 * Int(arc4random_uniform(UInt32(5*global.currentLevel)))
+                    oper2 = oper1 * Int(arc4random_uniform(UInt32(5*global.currentLevel)))
                 }
                 else {
                     oper1 = GetNumber(numDigit: 1)
@@ -314,7 +314,7 @@ class MathDrawScene: SKScene {
                 }
             }
             else if myOper == "X" {
-                oper1 = Int(arc4random_uniform(UInt32(25 + 5*global.currentLevel)))
+                oper1 = Int(arc4random_uniform(UInt32(20 + 5*global.currentLevel)))
                 oper2 = Int(arc4random_uniform(UInt32(5 + 5*global.currentLevel)))
             }
             else if myOper == "-" {
@@ -348,7 +348,7 @@ class MathDrawScene: SKScene {
             }
             else if myOper == "X" {
                 oper1 = Int(arc4random_uniform(UInt32(25 + 10*global.currentLevel)))
-                oper2 = Int(arc4random_uniform(UInt32(10 + 10*global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(5 + 10*global.currentLevel)))
             }
             else if myOper == "-" {
                 oper1 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
@@ -375,8 +375,8 @@ class MathDrawScene: SKScene {
                 }
             }
             else if myOper == "X" {
-                oper1 = Int(arc4random_uniform(UInt32(25 + 10*global.currentLevel)))
-                oper2 = Int(arc4random_uniform(UInt32(10 + 10*global.currentLevel)))
+                oper1 = Int(arc4random_uniform(UInt32(15 + 10*global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(5 + 10*global.currentLevel)))
             }
             else if myOper == "-" {
                 oper1 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
@@ -475,7 +475,7 @@ class MathDrawScene: SKScene {
     
     func DrawCorrectLabels() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width*9/10, y: size.height*6/24)
+        scoreNode.position = CGPoint(x: self.size.width*6/7, y: size.height*6/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -554,25 +554,25 @@ class MathDrawScene: SKScene {
             }
             
         }
-        buttonShadowAr[0].position = CGPoint(x: self.size.width*6/7 - GetFontSize(size:1.5), y: self.size.height*20.2/24 + GetFontSize(size:1.5))
-        buttonAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24)
-        buttonLabelAr[0].position = CGPoint(x: self.size.width*6/7, y: self.size.height*20.2/24 - self.size.height/96)
+        buttonShadowAr[0].position = CGPoint(x: self.size.width*5.75/7 - GetFontSize(size:1.5), y: self.size.height*20.2/24 + GetFontSize(size:1.5))
+        buttonAr[0].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*20.2/24)
+        buttonLabelAr[0].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*20.2/24 - self.size.height/96)
         buttonLabelAr[0].text = "Wipe Screen"
-        buttonShadowAr[1].position = CGPoint(x: self.size.width*9/10 - GetFontSize(size:1.5), y: self.size.height*10.3/24 + GetFontSize(size:1.5))
-        buttonAr[1].position = CGPoint(x: self.size.width*9/10, y: self.size.height*10.3/24)
-        buttonLabelAr[1].position = CGPoint(x: self.size.width*9/10, y: self.size.height*10.3/24 - self.size.height/96)
+        buttonShadowAr[1].position = CGPoint(x: self.size.width*8.7/10 - GetFontSize(size:1.5), y: self.size.height*10.3/24 + GetFontSize(size:1.5))
+        buttonAr[1].position = CGPoint(x: self.size.width*8.7/10, y: self.size.height*10.3/24)
+        buttonLabelAr[1].position = CGPoint(x: self.size.width*8.7/10, y: self.size.height*10.3/24 - self.size.height/96)
         buttonLabelAr[1].text = "Submit"
-        buttonShadowAr[2].position = CGPoint(x: self.size.width*9/10 - GetFontSize(size:1.5), y: self.size.height*8.4/24 + GetFontSize(size:1.5))
-        buttonAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.4/24)
-        buttonLabelAr[2].position = CGPoint(x: self.size.width*9/10, y: self.size.height*8.4/24 - self.size.height/96)
+        buttonShadowAr[2].position = CGPoint(x: self.size.width*8.7/10 - GetFontSize(size:1.5), y: self.size.height*8.4/24 + GetFontSize(size:1.5))
+        buttonAr[2].position = CGPoint(x: self.size.width*8.7/10, y: self.size.height*8.4/24)
+        buttonLabelAr[2].position = CGPoint(x: self.size.width*8.7/10, y: self.size.height*8.4/24 - self.size.height/96)
         buttonLabelAr[2].text = "Clear"
-        buttonShadowAr[3].position = CGPoint(x: self.size.width/9 - GetFontSize(size:1.5), y: self.size.height*11.5/24 + GetFontSize(size:1.5))
-        buttonAr[3].position = CGPoint(x: self.size.width/9, y: self.size.height*11.5/24)
-        buttonLabelAr[3].position = CGPoint(x: self.size.width/9, y: self.size.height*11.5/24 - self.size.height/96)
+        buttonShadowAr[3].position = CGPoint(x: self.size.width/8 - GetFontSize(size:1.5), y: self.size.height*11.5/24 + GetFontSize(size:1.5))
+        buttonAr[3].position = CGPoint(x: self.size.width/8, y: self.size.height*11.5/24)
+        buttonLabelAr[3].position = CGPoint(x: self.size.width/8, y: self.size.height*11.5/24 - self.size.height/96)
         buttonLabelAr[3].text = "Put -"
-        buttonShadowAr[4].position = CGPoint(x: self.size.width*6/7 - GetFontSize(size:1.5), y: self.size.height*18/24 + GetFontSize(size:1.5))
-        buttonAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24)
-        buttonLabelAr[4].position = CGPoint(x: self.size.width*6/7, y: self.size.height*18/24 - self.size.height/96)
+        buttonShadowAr[4].position = CGPoint(x: self.size.width*5.75/7 - GetFontSize(size:1.5), y: self.size.height*18/24 + GetFontSize(size:1.5))
+        buttonAr[4].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*18/24)
+        buttonLabelAr[4].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*18/24 - self.size.height/96)
         buttonLabelAr[4].text = "Add Remainder"
         buttonLabelAr[4].fontSize = GetFontSize(size:12)
         for j in 0..<5 {
@@ -602,25 +602,25 @@ class MathDrawScene: SKScene {
             let numText = i % 10
             var secondRow :CGFloat = 0.0
             if (i-1)/5 > 0 {
-                secondRow = 2.4 + offY
+                secondRow = 2.2 + offY
             }
             var filename = "SilverButton.png"
             if (i&1) == 1 {
                 filename = "GoldButton.png"
             }
             let circle = SKSpriteNode(imageNamed: filename)
-            circle.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(offY+4-secondRow)/24)
+            circle.position = CGPoint(x:size.width*0.135 + (size.width/5.4)*CGFloat((i-1)%5) , y:size.height*(offY+4-secondRow)/24)
             circle.name = "circle" + String(i-1)
             circle.zPosition = 100.0
-            circle.scale(to: CGSize(width: self.size.width/5.2, height: self.size.width/5.2))
+            circle.scale(to: CGSize(width: self.size.width/5.5, height: self.size.width/5.5))
             self.addChild(circle)
       
-            circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:35)))
-            circleShadowAr[i-1].position = CGPoint(x:GetFontSize(size:-2)+size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:GetFontSize(size:2)+size.height*(offY+4-secondRow)/24)
+            circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:34)))
+            circleShadowAr[i-1].position = CGPoint(x:GetFontSize(size:-1.5)+size.width*0.135 + (size.width/5.4)*CGFloat((i-1)%5) , y:GetFontSize(size:1.5)+size.height*(offY+4-secondRow)/24)
             circleShadowAr[i-1].name = "cirshadow" + String(i-1)
             circleShadowAr[i-1].strokeColor = SKColor.black
             circleShadowAr[i-1].fillColor = SKColor.black
-            circleShadowAr[i-1].lineWidth = 4.0
+            circleShadowAr[i-1].lineWidth = GetFontSize(size:4.0)
             self.addChild(circleShadowAr[i-1])
             
             let numberLabel = SKLabelNode(fontNamed: "Arial")
@@ -632,7 +632,7 @@ class MathDrawScene: SKScene {
             else {
                 numberLabel.fontColor = SKColor(red: 229/255,green:222/255,blue:162/255,alpha:1)
             }
-            numberLabel.position = CGPoint(x:size.width/10 + (size.width/5)*CGFloat((i-1)%5) , y:size.height*(offY+3.6-secondRow)/24)
+            numberLabel.position = CGPoint(x:size.width*0.135 + (size.width/5.4)*CGFloat((i-1)%5) , y:size.height*(offY+3.6-secondRow)/24)
             numberLabel.zPosition = 102.0
             numberLabel.name = "circle" + String(i-1)
             addChild(numberLabel)            

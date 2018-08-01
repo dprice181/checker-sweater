@@ -107,7 +107,7 @@ class WordDragScene: SKScene {
         }
         var startY:CGFloat = 0.0
         var widthSum:CGFloat = 0.0
-        let displayWidth = size.width * 9.4 / 10
+        let displayWidth = size.width * 9.2 / 10
         
         var i = 0
         for var word in wordAr {
@@ -299,7 +299,7 @@ class WordDragScene: SKScene {
     
     func DrawScoreNode() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
+        scoreNode.position = CGPoint(x: self.size.width/7, y: self.size.height/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)

@@ -1,3 +1,23 @@
+sibling
+a brother or sister; each of two or more children or offspring having one or both parents in common
+giggle
+laugh lightly in a nervous, affected, or silly manner
+cabin
+a private room or compartment on a ship
+complain
+express dissatisfaction or annoyance about a state of affairs or an event
+spring
+move or jump suddenly or rapidly upward or forward
+bloom
+a flower, especially one cultivated for its beauty
+fancy
+elaborate in structure or decoration
+return
+come or go back to a place or person
+polite
+having or showing behavior that is respectful and considerate of other people
+disappear
+cease to be visible
 exhausted
 drained of one's physical or mental resources; very tired
 whirl
@@ -10,8 +30,6 @@ sprinkle
 scatter or pour small drops or particles of a substance over (an object or surface)
 timid
 showing a lack of courage or confidence; easily frightened
-disappear
-cease to be visible
 steep
 (of a slope, flight of stairs, angle, ascent, etc ) rising or falling sharply; nearly perpendicular
 striped
@@ -38,18 +56,10 @@ hatch
 an opening in the deck of a boat or ship leading to the cabin or a lower level, especially a hold
 silent
 not making or accompanied by any sound
-sibling
-each of two or more children or offspring having one or both parents in common; a brother or sister
 shriek
 utter a high-pitched piercing sound or words, especially as an expression of terror, pain, or excitement
 rough
 having an uneven or irregular surface; not smooth or level
-fancy
-elaborate in structure or decoration
-return
-come or go back to a place or person
-polite
-having or showing behavior that is respectful and considerate of other people
 dusty
 covered with, full of, or resembling dust
 deserve
@@ -282,16 +292,6 @@ blush
 develop a pink tinge in the face from embarrassment or shame
 round
 shaped like or approximately like a circle or cylinder
-giggle
-laugh lightly in a nervous, affected, or silly manner
-cabin
-a private room or compartment on a ship
-complain
-express dissatisfaction or annoyance about a state of affairs or an event
-spring
-move or jump suddenly or rapidly upward or forward
-bloom
-a flower, especially one cultivated for its beauty
 blush
 develop a pink tinge in the face from embarrassment or shame
 sniff

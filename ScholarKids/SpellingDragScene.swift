@@ -147,7 +147,7 @@ class SpellingDragScene: SKScene {
         var fontSize = SELECTTEXT_FONTSIZE_DEFINITION
         
         let position = pos
-        let displayWidth = size.width * 9.5 / 10
+        let displayWidth = size.width * 9.2 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         
@@ -287,11 +287,11 @@ class SpellingDragScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
+        fullTitle.position = CGPoint(x: self.size.width/2, y:self.size.height*8.87/10)
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "SPELLING"
-        labelTitle.fontSize = GetFontSize(size:50)
+        labelTitle.fontSize = GetFontSize(size:48)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -331,7 +331,7 @@ class SpellingDragScene: SKScene {
     
     func DrawScoreNode() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
+        scoreNode.position = CGPoint(x: self.size.width/7, y: self.size.height/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)

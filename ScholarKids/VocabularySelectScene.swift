@@ -106,7 +106,7 @@ class VocabularySelectScene: SKScene {
         if incorrectAnswer {
             fontColor = SKColor.red
         }
-        let displayWidth = size.width * 9.5 / 10
+        let displayWidth = size.width * 9.28 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         
@@ -208,7 +208,7 @@ class VocabularySelectScene: SKScene {
     }
     
     func DrawChoiceBox(i:Int,name:String) {
-        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-8,height: self.size.height*5/48)))
+        choiceboxDefinitionAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width*0.925,height: self.size.height*5/48)))
         choiceboxDefinitionAr.last!.name = name + String(i)
         choiceboxDefinitionAr.last!.fillColor = global.greyBlue
         choiceboxDefinitionAr.last!.strokeColor = SKColor.purple
@@ -240,12 +240,12 @@ class VocabularySelectScene: SKScene {
     
     func DrawTitle() {
         let fullTitle = SKNode()
-        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21/24)
+        fullTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*8.87/10)
         fullTitle.zPosition = 100.0
         
         if global.sceneType == "Spelling" {
             labelTitle.text = "SPELLING"
-            labelTitle.fontSize = GetFontSize(size:50)
+            labelTitle.fontSize = GetFontSize(size:48)
         }
         else {
             labelTitle.text = "VOCABULARY"
@@ -290,7 +290,7 @@ class VocabularySelectScene: SKScene {
     
     func DrawScoreNode() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/8, y: self.size.height/24)
+        scoreNode.position = CGPoint(x: self.size.width/7, y: self.size.height/24)
         scoreNode.zPosition = 100.0
     
         labelCorrect.text = "Correct : " + String(global.correctAnswers)

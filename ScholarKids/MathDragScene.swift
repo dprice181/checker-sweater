@@ -155,7 +155,7 @@ class MathDragScene: SKScene {
     
     func DrawCorrectLabels() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width*1.6/10, y: size.height*0.3/24)
+        scoreNode.position = CGPoint(x: self.size.width/7, y: size.height*0.3/24)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -581,7 +581,7 @@ class MathDragScene: SKScene {
         var fontColor = global.blue
         var fontSize = SELECTTEXT_FONTSIZE
         let position = pos
-        let displayWidth = size.width * 9.5 / 10
+        let displayWidth = size.width * 9.2 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         
