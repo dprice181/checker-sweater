@@ -94,7 +94,11 @@ class TitleScene: SKScene {
     }
     
     func DrawButtons() {
-        buttonBackground = SKShapeNode(rectOf: CGSize(width: self.size.width*3/4,height: self.size.height*16/48),cornerRadius: GetCornerSize(size:20.0,max:self.size.height*16/48))
+        var cornerSize :CGFloat = 20
+        if global.heightWidthRat < 1.5 {
+            cornerSize = 40
+        }
+        buttonBackground = SKShapeNode(rectOf: CGSize(width: self.size.width*3/4,height: self.size.height*16/48),cornerRadius: GetCornerSize(size:cornerSize,max:self.size.height*16/48))
         buttonBackground.name = "buttonbackground"
         buttonBackground.fillColor = SKColor(red: 200/255, green: 200/255, blue: 245/255, alpha: 0.6)
         buttonBackground.strokeColor = SKColor.purple
@@ -102,14 +106,18 @@ class TitleScene: SKScene {
         buttonBackground.zPosition = -1.0
         addChild(buttonBackground)
         
-        startButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
+        var cornerSizeButton :CGFloat = 30
+        if global.heightWidthRat < 1.5 {
+            cornerSizeButton = 50
+        }
+        startButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:cornerSizeButton,max:self.size.height*4/48))
         startButtonShadow.name = "sbshadow"
         startButtonShadow.fillColor = SKColor.black
         startButtonShadow.strokeColor = SKColor.black
         startButtonShadow.position = CGPoint(x: self.size.width/2 - GetFontSize(size:2.5), y: self.size.height*11.5/24 + GetFontSize(size:2.5))
         addChild(startButtonShadow)
         
-        startButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
+        startButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:cornerSizeButton,max:self.size.height*4/48))
         startButton.name = "startbutton"
         startButton.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         startButton.strokeColor = SKColor.purple
@@ -126,14 +134,14 @@ class TitleScene: SKScene {
         addChild(startButtonLabel)
         addChild(CreateShadowLabel(label: startButtonLabel,offset: GetFontSize(size:1)))
         
-        optionsButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
+        optionsButtonShadow = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:cornerSizeButton,max:self.size.height*4/48))
         optionsButtonShadow.name = "obshadow"
         optionsButtonShadow.fillColor = SKColor.black
         optionsButtonShadow.strokeColor = SKColor.black
         optionsButtonShadow.position = CGPoint(x: self.size.width/2 - GetFontSize(size:2.5), y: self.size.height*8.5/24 + GetFontSize(size:2.5))
         addChild(optionsButtonShadow)
         
-        optionsButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48))
+        optionsButton = SKShapeNode(rectOf: CGSize(width: self.size.width/2,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:cornerSizeButton,max:self.size.height*4/48))
         optionsButton.name = "optionsbutton"
         optionsButton.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         optionsButton.strokeColor = SKColor.purple

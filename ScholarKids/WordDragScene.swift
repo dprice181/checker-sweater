@@ -195,7 +195,7 @@ class WordDragScene: SKScene {
     
     func DrawChoiceBoxes() {
         var posX = self.size.width/6
-        var yMult : CGFloat = 0
+        var yMult : CGFloat = 1
         if global.heightWidthRat < 1.5 {
             yMult = 1.5 / global.heightWidthRat
         }

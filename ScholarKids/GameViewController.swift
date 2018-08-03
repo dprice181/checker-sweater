@@ -63,8 +63,8 @@ func GetFontSize(size:CGFloat) -> CGFloat {
         if frameWidth < 375 {
             returnSize = (frameWidth/400) * size
         }
-        if frameWidth > 425 {
-            returnSize = (frameWidth/500) * size
+        if frameWidth > 500 {
+            returnSize = (frameWidth/550) * size
         }
     }
     return returnSize

@@ -53,8 +53,12 @@ class PlayerSelectScene: SKScene {
         return topController
     }
     
-    func DisplayPlayers()
-    {
+    func DisplayPlayers() {
+        var cornerSize :CGFloat = 30
+        if global.heightWidthRat < 1.5 {
+            cornerSize = 50
+        }
+        
         let labelTitle = SKLabelNode(fontNamed: "Arial")
         labelTitle.text = "Select Or Create New Student"
         labelTitle.fontSize = GetFontSize(size:25)
@@ -146,14 +150,14 @@ class PlayerSelectScene: SKScene {
                     totalWordsSoFar = totalWordsSoFar + countWords
                 }
             }
-            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
+            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:cornerSize,max:self.size.height*4/48)))
             playerboxShadowAr[i].name = "shadowbox" + String(i)
             playerboxShadowAr[i].fillColor = SKColor.black
             playerboxShadowAr[i].strokeColor = SKColor.black
             playerboxShadowAr[i].position = CGPoint(x:-1.5,y:1.5)
             nodeDefinitionAr[i].addChild(playerboxShadowAr[i])
             
-            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
+            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:cornerSize,max:self.size.height*4/48)))
             playerboxAr[i].name = "playerbox" + String(i)
             playerboxAr[i].fillColor = SKColor(red: 225/255, green: 235/255, blue: 235/255, alpha: 1)
             playerboxAr[i].strokeColor = SKColor.blue
@@ -210,7 +214,7 @@ class PlayerSelectScene: SKScene {
             nodeDefinitionAr[i].addChild(labelProgress2)
             nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress2,offset: GetFontSize(size:1)))
             
-            let deletebox = SKShapeNode(rectOf: CGSize(width: (size.width-32)/2,height: self.size.height*4/48-GetFontSize(size:2)),cornerRadius:GetCornerSize(size:30,max:self.size.height*4/48-GetFontSize(size:2)))
+            let deletebox = SKShapeNode(rectOf: CGSize(width: (size.width-32)/2,height: self.size.height*4/48-GetFontSize(size:2)),cornerRadius:GetCornerSize(size:cornerSize,max:self.size.height*4/48-GetFontSize(size:2)))
             deletebox.name = "deletebox" + String(i)
             deletebox.fillColor = SKColor.red
             deletebox.strokeColor = SKColor.red
@@ -239,6 +243,7 @@ class PlayerSelectScene: SKScene {
         
         if i < 5 {
             let name = "New Student"
+            
             nodeDefinitionAr.append(SKNode())
             nodeDefinitionAr[i].position = CGPoint(x: self.size.width/2, y: self.size.height*(16-2.2 * CGFloat(i))/24)
             nodeDefinitionAr[i].zPosition = 100.0
@@ -259,14 +264,14 @@ class PlayerSelectScene: SKScene {
             nodeDefinitionAr[i].addChild(labelDefinition)
             nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelDefinition,offset: GetFontSize(size:1)))
             
-            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
+            playerboxShadowAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:cornerSize,max:self.size.height*4/48)))
             playerboxShadowAr[i].name = "shadowbox" + String(i)
             playerboxShadowAr[i].fillColor = SKColor.black
             playerboxShadowAr[i].strokeColor = SKColor.black
             playerboxShadowAr[i].position = CGPoint(x:-1.5,y:1.5)
             nodeDefinitionAr[i].addChild(playerboxShadowAr[i])
             
-            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:30.0,max:self.size.height*4/48)))
+            playerboxAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width-32,height: self.size.height*4/48),cornerRadius:GetCornerSize(size:cornerSize,max:self.size.height*4/48)))
             playerboxAr[i].name = "playerbox" + String(i)
             playerboxAr[i].fillColor = SKColor(red: 225/255, green: 235/255, blue: 235/255, alpha: 1)
             playerboxAr[i].strokeColor = SKColor.blue
