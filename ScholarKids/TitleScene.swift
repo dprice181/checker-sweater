@@ -49,9 +49,14 @@ class TitleScene: SKScene {
         DrawTitle()
         DrawButtons()
         
-        
-        background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
+        if global.heightWidthRat < 1.5 {
+            background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/7.5)
+        }
+        else {
+            background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
+        }
         background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
+        background.zPosition = -100
         addChild(background)
     }
     

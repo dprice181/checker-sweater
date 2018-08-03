@@ -63,6 +63,9 @@ func GetFontSize(size:CGFloat) -> CGFloat {
         if frameWidth < 375 {
             returnSize = (frameWidth/400) * size
         }
+        if frameWidth > 425 {
+            returnSize = (frameWidth/500) * size
+        }
     }
     return returnSize
 }
@@ -80,8 +83,15 @@ func DrawBackButton(scene:SKScene) {
         let height = frame.height
         let backButton = SKSpriteNode(imageNamed: "BackwardsClean.png")
         backButton.name = "backbutton"
-        backButton.position = CGPoint(x: width/13, y: height*18.3/20)
-        backButton.scale(to: CGSize(width: width/10, height: width/10))
+        
+        if global.heightWidthRat < 1.5 {
+            backButton.position = CGPoint(x: width/18, y: height*18.3/20)
+            backButton.scale(to: CGSize(width: width/12.5, height: width/12.5))
+        }
+        else {
+            backButton.position = CGPoint(x: width/13, y: height*18.3/20)
+            backButton.scale(to: CGSize(width: width/10, height: width/10))
+        }
         scene.addChild(backButton)
     }
 }

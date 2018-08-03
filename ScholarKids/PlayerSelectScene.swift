@@ -222,7 +222,12 @@ class PlayerSelectScene: SKScene {
             deleteLabel.text = "X"
             deleteLabel.fontSize = GetFontSize(size:30)
             deleteLabel.fontColor = SKColor.white
-            deleteLabel.position = CGPoint(x: self.size.width*24.7/64,y:-self.size.height/60)
+            if global.heightWidthRat < 1.5 {
+                deleteLabel.position = CGPoint(x: self.size.width*26/64,y:-self.size.height/60)
+            }
+            else {
+                deleteLabel.position = CGPoint(x: self.size.width*24.7/64,y:-self.size.height/60)
+            }
             deleteLabel.zPosition = 102.0
             deleteLabel.name = "deletebox" + String(i)
             nodeDefinitionAr[i].addChild(deleteLabel)
@@ -275,8 +280,14 @@ class PlayerSelectScene: SKScene {
     }
         
     func DrawBackground() {
-        background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
+        if global.heightWidthRat < 1.5 {
+            background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/6.5)
+        }
+        else {
+            background.position = CGPoint(x: frame.size.width / 2, y: self.size.width/5)
+        }
         background.scale(to: CGSize(width: self.size.width*1.1, height: self.size.width/2.4))
+        background.zPosition = -100
         addChild(background)
     }
     

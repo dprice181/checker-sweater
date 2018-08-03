@@ -540,7 +540,12 @@ class MathDragScene: SKScene {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
                 itemNodeAr[i].name = "item1"
                 itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
-                itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                if global.heightWidthRat < 1.5 {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
+                }
+                else {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                }
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
             }
@@ -550,7 +555,12 @@ class MathDragScene: SKScene {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
                 itemNodeAr[i].name = "item2"
                 itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
-                itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                if global.heightWidthRat < 1.5 {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
+                }
+                else {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                }
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
             }
@@ -560,7 +570,12 @@ class MathDragScene: SKScene {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
                 itemNodeAr[i].name = "item1"
                 itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count]+offYStudent)
-                itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                if global.heightWidthRat < 1.5 {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
+                }
+                else {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                }
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
             }
@@ -570,7 +585,12 @@ class MathDragScene: SKScene {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
                 itemNodeAr[i].name = "item2"
                 itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count]+offYStudent)
-                itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                if global.heightWidthRat < 1.5 {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
+                }
+                else {
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                }
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
             }

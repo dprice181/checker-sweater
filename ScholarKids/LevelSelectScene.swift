@@ -169,7 +169,7 @@ class LevelSelectScene: SKScene {
     func DrawSwipeLeft() {
         let redLeft = SKSpriteNode(imageNamed: "RedLeft.png")
         redLeft.name = "backbutton"
-        redLeft.position = CGPoint(x: frame.size.width * 17.5/20, y: self.size.height*17/20)
+        redLeft.position = CGPoint(x: frame.size.width * 18/20, y: self.size.height*17/20)
         redLeft.scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
         addChild(redLeft)
         
@@ -177,7 +177,7 @@ class LevelSelectScene: SKScene {
         redLeftLabel.text = "Swipe Left"
         redLeftLabel.fontSize = GetFontSize(size:15)
         redLeftLabel.fontColor = SKColor.red
-        redLeftLabel.position = CGPoint(x: frame.size.width * 17.5/20, y: self.size.height*16/20)
+        redLeftLabel.position = CGPoint(x: frame.size.width * 18/20, y: self.size.height*16/20)
         redLeftLabel.zPosition = 100.0
         addChild(redLeftLabel)
         addChild(CreateShadowLabel(label: redLeftLabel,offset: GetFontSize(size:1)))

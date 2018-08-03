@@ -133,7 +133,11 @@ class SpellingDragScene: SKScene {
         let myUnderline: NSString = underlineString as NSString
         let sizeUnderline: CGSize = myUnderline.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE+5))])
         let sizeBox = CGSize(width:sizeUnderline.width,height:sizeUnderline.height*0.75)
-        let box = SKShapeNode(rectOf: sizeBox,cornerRadius: GetCornerSize(size:20.0,max:sizeBox.height))
+        var cornerSize :CGFloat = 20
+        if global.heightWidthRat < 1.5 {
+            cornerSize = 40.0
+        }
+        let box = SKShapeNode(rectOf: sizeBox,cornerRadius: GetCornerSize(size:cornerSize,max:sizeBox.height))
         box.name = "answerboxrect"
         box.fillColor = SKColor.lightGray
         box.strokeColor = SKColor.red
@@ -242,6 +246,10 @@ class SpellingDragScene: SKScene {
     
     func DrawChoiceBoxes() {
         var posX = self.size.width/6
+        var yMult : CGFloat = 0
+        if global.heightWidthRat < 1.5 {
+            yMult = 1.5 / global.heightWidthRat
+        }
         //add three choice boxes
         for n in 0...2 {
             var correctWord = spellingPartsRandomAr[n]
@@ -277,7 +285,7 @@ class SpellingDragScene: SKScene {
             let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
             boxChoice.name = "choicebox"
             boxChoice.position = .zero
-            boxChoice.scale(to: sizeWordChoice)
+            boxChoice.scale(to: CGSize(width:sizeWordChoice.width,height:sizeWordChoice.height * yMult))
             choiceNode.addChild(boxChoice)
             addChild(choiceNode)
             
