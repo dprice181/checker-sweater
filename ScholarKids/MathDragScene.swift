@@ -108,7 +108,7 @@ class MathDragScene: SKScene {
         fullTitle.zPosition = 100.0
         
         labelTitle.text = "WORD PROBLEMS"
-        labelTitle.fontSize = GetFontSize(size:38)
+        labelTitle.fontSize = GetFontSize(size:37)
         labelTitle.fontColor = SKColor.red
         labelTitle.position = .zero
         labelTitle.zPosition = 100.0
@@ -129,25 +129,25 @@ class MathDragScene: SKScene {
     
     func DrawSubmitButton() {
         let submitButton = SKSpriteNode(imageNamed: "RedButtonSmall.png")
-        submitButton.scale(to: CGSize(width: (self.size.width/5.5)*0.9,height: (self.size.height*2.5/48)*0.9))
+        submitButton.scale(to: CGSize(width: (self.size.width/5.5),height: (self.size.height*2.5/48)))
         submitButton.name = "submitbutton"
         submitButton.zPosition = 101.0
-        submitButton.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48)
+        submitButton.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*2.8/48)
         addChild(submitButton)
         
         submitButtonShadow = SKSpriteNode(imageNamed: "RedButtonSmallShadow.png")
-        submitButtonShadow.scale(to: CGSize(width: (self.size.width/5.5)*0.9,height: (self.size.height*2.5/48)*0.9))
+        submitButtonShadow.scale(to: CGSize(width: (self.size.width/5.5),height: (self.size.height*2.5/48)))
         submitButtonShadow.name = "bshadow"
-        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-GetFontSize(size:1.5), y: self.size.height*1.5/48+GetFontSize(size:1.5))
+        submitButtonShadow.position = CGPoint(x: self.size.width*8.5/10-GetFontSize(size:1.5), y: self.size.height*2.8/48+GetFontSize(size:1.5))
         submitButtonShadow.zPosition = 100.0
         addChild(submitButtonShadow)
         
         let submitLabel = SKLabelNode(fontNamed: "Arial")
         submitLabel.name = "submitbutton"
-        submitLabel.fontSize = GetFontSize(size:14)
+        submitLabel.fontSize = GetFontSize(size:15)
         submitLabel.fontColor = SKColor.white
         submitLabel.zPosition = 102.0
-        submitLabel.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*1.5/48 - self.size.height/96)
+        submitLabel.position = CGPoint(x: self.size.width*8.5/10, y: self.size.height*2.8/48 - self.size.height/96)
         submitLabel.text = "Submit"
         addChild(submitLabel)
         addChild(CreateShadowLabel(label: submitLabel,offset: GetFontSize(size:1)))
@@ -155,7 +155,7 @@ class MathDragScene: SKScene {
     
     func DrawCorrectLabels() {
         let scoreNode = SKNode()
-        scoreNode.position = CGPoint(x: self.size.width/7, y: size.height*0.3/24)
+        scoreNode.position = CGPoint(x: self.size.width/7, y: size.height*2/48)
         scoreNode.zPosition = 100.0
         
         labelCorrect.text = "Correct : " + String(global.correctAnswers)
@@ -177,7 +177,7 @@ class MathDragScene: SKScene {
     }
     
     func DrawFirstBox() {
-        boxFirstName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*12/48))
+        boxFirstName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*11/48))
         boxFirstName.name = "boxfirstname"
         boxFirstName.strokeColor = SKColor.blue
         boxFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*21/48)
@@ -186,7 +186,7 @@ class MathDragScene: SKScene {
         let boxSmallFirstName = SKShapeNode(rectOf: CGSize(width: self.size.width*7/48,height: self.size.height*5.5/48))
         boxSmallFirstName.name = "boxfirstname"
         boxSmallFirstName.strokeColor = SKColor.blue
-        boxSmallFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*17.75/48)
+        boxSmallFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*18.25/48)
         addChild(boxSmallFirstName)
         
         if studentStartsWithGoods {
@@ -197,11 +197,11 @@ class MathDragScene: SKScene {
         }
         labelCountFirstName.fontColor = SKColor.blue
         if Z > -1 || B > -1 {
-            labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*19/48)
+            labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*19.5/48)
             labelCountFirstName.fontSize = GetFontSize(size:20)
         }
         else {
-            labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*17.75/48)
+            labelCountFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*18.25/48)
             labelCountFirstName.fontSize = GetFontSize(size:30)
         }
         labelCountFirstName.zPosition = 100.0
@@ -223,7 +223,7 @@ class MathDragScene: SKScene {
             }
             labelCount2FirstName.fontSize = GetFontSize(size:20)
             labelCount2FirstName.fontColor = SKColor.blue
-            labelCount2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16.5/48)
+            labelCount2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*17/48)
             labelCount2FirstName.zPosition = 100.0
             addChild(labelCount2FirstName)
             labelCount2FirstNameShadow = CreateShadowLabel(label: labelCount2FirstName,offset: GetFontSize(size:1))
@@ -235,11 +235,11 @@ class MathDragScene: SKScene {
         labelItemFirstName.fontColor = SKColor.blue
         if Z > -1 || B > -1 {
             labelItemFirstName.fontSize = GetFontSize(size:13)
-            labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*18/48)
+            labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*18.5/48)
         }
         else {
             labelItemFirstName.fontSize = GetFontSize(size:15)
-            labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16.25/48)
+            labelItemFirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16.75/48)
         }
         labelItemFirstName.zPosition = 100.0
         addChild(labelItemFirstName)
@@ -251,7 +251,7 @@ class MathDragScene: SKScene {
             labelItem2FirstName.text = item2
             labelItem2FirstName.fontSize = GetFontSize(size:13)
             labelItem2FirstName.fontColor = SKColor.blue
-            labelItem2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*15.5/48)
+            labelItem2FirstName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*16/48)
             labelItem2FirstName.zPosition = 100.0
             addChild(labelItem2FirstName)
             let labelItem2FirstNameShadow = CreateShadowLabel(label: labelItem2FirstName,offset: GetFontSize(size:1))
@@ -270,25 +270,25 @@ class MathDragScene: SKScene {
     }
     
     func DrawSecondBox() {
-        boxSecondName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*12/48))
+        boxSecondName = SKShapeNode(rectOf: CGSize(width: self.size.width*9/10,height: self.size.height*11/48))
         boxSecondName.name = "boxsecondname"
         boxSecondName.strokeColor = SKColor.red
-        boxSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*9/48)
+        boxSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*10/48)
         addChild(boxSecondName)
         
         let boxSmallSecondName = SKShapeNode(rectOf: CGSize(width: self.size.width*7/48,height: self.size.height*5.5/48))
         boxSmallSecondName.name = "boxsecondname"
         boxSmallSecondName.strokeColor = SKColor.red
-        boxSmallSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*5.75/48)
+        boxSmallSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7.25/48)
         addChild(boxSmallSecondName)
         
         if Z > -1 || B > -1 {
             labelCountSecondName.fontSize = GetFontSize(size:20)
-            labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7/48)
+            labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*8.5/48)
         }
         else {
             labelCountSecondName.fontSize = GetFontSize(size:30)
-            labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
+            labelCountSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7.5/48)
         }
         if studentStartsWithGoods {
             labelCountSecondName.text = String(X)
@@ -316,7 +316,7 @@ class MathDragScene: SKScene {
                 labelCount2SecondName.text = "0"
             }
             labelCount2SecondName.fontColor = SKColor.red
-            labelCount2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*4.5/48)
+            labelCount2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
             labelCount2SecondName.zPosition = 100.0
             addChild(labelCount2SecondName)
             labelCount2SecondNameShadow = CreateShadowLabel(label: labelCount2SecondName,offset: GetFontSize(size:1))
@@ -327,11 +327,11 @@ class MathDragScene: SKScene {
         labelItemSecondName.text = item
         labelItemSecondName.fontColor = SKColor.red
         if Z > -1 || B > -1 {
-            labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*6/48)
+            labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*7.5/48)
             labelItemSecondName.fontSize = GetFontSize(size:13)
         }
         else {
-            labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*4.25/48)
+            labelItemSecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*5.75/48)
             labelItemSecondName.fontSize = GetFontSize(size:15)
         }
         labelItemSecondName.zPosition = 100.0
@@ -344,7 +344,7 @@ class MathDragScene: SKScene {
             let labelItem2SecondName = SKLabelNode(fontNamed: "MarkerFelt-Thin")
             labelItem2SecondName.text = item2
             labelItem2SecondName.fontColor = SKColor.red
-            labelItem2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*3.5/48)
+            labelItem2SecondName.position = CGPoint(x: self.size.width*21/24, y: self.size.height*5/48)
             labelItem2SecondName.zPosition = 100.0
             labelItem2SecondName.fontSize = GetFontSize(size:13)
             addChild(labelItem2SecondName)
@@ -356,7 +356,7 @@ class MathDragScene: SKScene {
         labelSecondName.text = global.currentStudent
         labelSecondName.fontSize = GetFontSize(size:30)
         labelSecondName.fontColor = SKColor.red
-        labelSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*6.5/24)
+        labelSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*7/24)
         labelSecondName.zPosition = 100.0
         addChild(labelSecondName)
         let labelSecondNameShadow = CreateShadowLabel(label: labelSecondName,offset: GetFontSize(size:1))
@@ -492,6 +492,20 @@ class MathDragScene: SKScene {
         offX.append(-frame.size.width*2/8)
         offX.append(frame.size.width*2/8)
         
+        offX.append(frame.size.width * -1.5/8)
+        offX.append(frame.size.width * 1.5/8)
+        offX.append(frame.size.width * -1.5/8)
+        offX.append(frame.size.width * 1.5/8)
+        offX.append(frame.size.width * -1.5/8)
+        offX.append(frame.size.width * 1.5/8)
+        
+        offX.append(frame.size.width * -2.5/8)
+        offX.append(frame.size.width * -1.5/8)
+        offX.append(frame.size.width * -2.5/8)
+        offX.append(frame.size.width * 2.5/8)
+        offX.append(frame.size.width * -2.5/8)
+        offX.append(frame.size.width * 2.5/8)
+        
         var offY = [0,0,0,-frame.size.height/18,-frame.size.height/18,-frame.size.height/18,frame.size.height/18,frame.size.height/18,frame.size.height/18,0,0,-frame.size.height/18,-frame.size.height/18,frame.size.height/18]
         offY.append(frame.size.height/18)
         offY.append(0)
@@ -502,6 +516,20 @@ class MathDragScene: SKScene {
         offY.append(frame.size.height*2/18)
         offY.append(frame.size.height*2/18)
         offY.append(frame.size.height*2/18)
+        
+        offY.append(0)
+        offY.append(0)
+        offY.append(-frame.size.height/18)
+        offY.append(-frame.size.height/18)
+        offY.append(frame.size.height/18)
+        offY.append(frame.size.height/18)
+        
+        offY.append(0)
+        offY.append(2*frame.size.height/18)
+        offY.append(-frame.size.height/18)
+        offY.append(2*frame.size.height/18)
+        offY.append(frame.size.height/18)
+        offY.append(frame.size.height/18)
         
         
         var offX2 = [0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,0.0,frame.size.width/8,-frame.size.width/8,frame.size.width/4,-frame.size.width/4,frame.size.width/4,
@@ -517,6 +545,20 @@ class MathDragScene: SKScene {
         offX2.append(-frame.size.width*1.5/8)
         offX2.append(frame.size.width*1.5/8)
         
+        offX2.append(frame.size.width * -1.5/8)
+        offX2.append(frame.size.width * 1.5/8)
+        offX2.append(frame.size.width * -1.5/8)
+        offX2.append(frame.size.width * 1.5/8)
+        offX2.append(frame.size.width * -1.5/8)
+        offX2.append(frame.size.width * 1.5/8)
+        
+        offX2.append(frame.size.width * -2.5/8)
+        offX2.append(frame.size.width * -1.5/8)
+        offX2.append(frame.size.width * -2.5/8)
+        offX2.append(frame.size.width * 2.5/8)
+        offX2.append(frame.size.width * -2.5/8)
+        offX2.append(frame.size.width * 2.5/8)
+        
         var offY2 = [0,0,0,-frame.size.height/18,-frame.size.height/18,-frame.size.height/18,frame.size.height/18,frame.size.height/18,frame.size.height/18,0,0,-frame.size.height/18,-frame.size.height/18,frame.size.height/18]
         offY2.append(frame.size.height/18)
         offY2.append(0)
@@ -530,21 +572,35 @@ class MathDragScene: SKScene {
         offY2.append(frame.size.height/18)
         offY2.append(frame.size.height/18)
         
+        offY2.append(0)
+        offY2.append(0)
+        offY2.append(-frame.size.height/18)
+        offY2.append(-frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        
+        offY2.append(0)
+        offY2.append(2*frame.size.height/18)
+        offY2.append(-frame.size.height/18)
+        offY2.append(2*frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        offY2.append(frame.size.height/18)
+        
         var offYStudent : CGFloat = 0
         if studentStartsWithGoods {
-           offYStudent = -self.size.height*12/48
+           offYStudent = -self.size.height*11.1/48
         }
         
         if A > 0 {
             for i in 0...A-1 {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
                 itemNodeAr[i].name = "item1"
-                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
+                itemNodeAr[i].position = CGPoint(x: frame.size.width*0.498 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
                 if global.heightWidthRat < 1.5 {
                     itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
                 }
                 else {
-                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
                 }
                 itemNodeAr[i].zPosition = 301
                 addChild(itemNodeAr[i])
@@ -554,14 +610,14 @@ class MathDragScene: SKScene {
             for i in A...A+B-1 {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
                 itemNodeAr[i].name = "item2"
-                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
+                itemNodeAr[i].position = CGPoint(x: frame.size.width*0.498 + offX2[i%offX.count], y: self.size.height*15.5/24 + offY2[i%offY.count])
                 if global.heightWidthRat < 1.5 {
                     itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
                 }
                 else {
-                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
                 }
-                itemNodeAr[i].zPosition = 301
+                itemNodeAr[i].zPosition = 302
                 addChild(itemNodeAr[i])
             }
         }
@@ -569,14 +625,14 @@ class MathDragScene: SKScene {
             for i in 0...X-1 {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item + ".png"))
                 itemNodeAr[i].name = "item1"
-                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count]+offYStudent)
+                itemNodeAr[i].position = CGPoint(x: frame.size.width*0.498 + offX[i%offX.count], y: self.size.height*9.9/24 + offY[i%offY.count]+offYStudent)
                 if global.heightWidthRat < 1.5 {
                     itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
                 }
                 else {
-                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
                 }
-                itemNodeAr[i].zPosition = 301
+                itemNodeAr[i].zPosition = 303
                 addChild(itemNodeAr[i])
             }
         }
@@ -584,22 +640,22 @@ class MathDragScene: SKScene {
             for i in X...X+Z-1 {
                 itemNodeAr.append(SKSpriteNode(imageNamed: item2 + ".png"))
                 itemNodeAr[i].name = "item2"
-                itemNodeAr[i].position = CGPoint(x: frame.size.width/2 + offX[i%offX.count], y: self.size.height*10/24 + offY[i%offY.count]+offYStudent)
+                itemNodeAr[i].position = CGPoint(x: frame.size.width*0.498 + offX[i%offX.count], y: self.size.height*9.9/24 + offY[i%offY.count]+offYStudent)
                 if global.heightWidthRat < 1.5 {
                     itemNodeAr[i].scale(to: CGSize(width: self.size.width/14, height: self.size.width/14))
                 }
                 else {
-                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/9, height: self.size.width/9))
+                    itemNodeAr[i].scale(to: CGSize(width: self.size.width/10, height: self.size.width/10))
                 }
-                itemNodeAr[i].zPosition = 301
+                itemNodeAr[i].zPosition = 304
                 addChild(itemNodeAr[i])
             }
         }
     }
     
     func DrawDefinition(definition:String,i:Int,incorrectAnswer:Bool,pos:CGPoint) {
-        var fontColor = global.blue
-        var fontSize = SELECTTEXT_FONTSIZE
+        let fontColor = global.blue
+        let fontSize = SELECTTEXT_FONTSIZE
         let position = pos
         let displayWidth = size.width * 9.2 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)

@@ -16,7 +16,6 @@ class MathDrawScene: SKScene {
     var labelAnswer = SKLabelNode(fontNamed: "Arial")
     var labelAnswerShadow = SKLabelNode(fontNamed: "Arial")
     var buttonAr = [SKSpriteNode]()
-    //var buttonShadowAr = [SKShapeNode]()
     var buttonShadowAr = [SKSpriteNode]()
     var buttonLabelAr = [SKLabelNode]()
     var buttonLabelShadowAr = [SKLabelNode]()
@@ -39,6 +38,7 @@ class MathDrawScene: SKScene {
     var currentExtraWordNum = 0
     var answerSelected = false
     var NUMBER_BUTTON_SIZE :CGFloat = 0
+    let PROBLEM_FONT_SIZE : CGFloat = 75
     
     init(size: CGSize, currentSentenceNum:Int, correctAnswers:Int, incorrectAnswers:Int, currentExtraWordNum:Int,sceneType:String) {
         super.init(size: size)
@@ -69,7 +69,7 @@ class MathDrawScene: SKScene {
         else {
             let labelArg1 = SKLabelNode(fontNamed: "Arial")
             labelArg1.text = String(arg1)
-            labelArg1.fontSize = GetFontSize(size:80)
+            labelArg1.fontSize = GetFontSize(size:PROBLEM_FONT_SIZE)
             labelArg1.fontColor = SKColor.blue
             labelArg1.position = CGPoint(x: self.size.width/2, y: self.size.height*16/24)
             labelArg1.zPosition = 100.0
@@ -108,7 +108,7 @@ class MathDrawScene: SKScene {
     
     func DrawTitle() {
         labelTitle.text = "Answer with the numbers below"
-        labelTitle.fontSize = GetFontSize(size:20)
+        labelTitle.fontSize = GetFontSize(size:19)
         labelTitle.fontColor = global.realPurple
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.1/24)
         labelTitle.zPosition = 100.0
@@ -138,39 +138,50 @@ class MathDrawScene: SKScene {
     }
     
     func AddDivision() {
+        var arg1FontSize : CGFloat = PROBLEM_FONT_SIZE
+        var largestCount = String(arg1).count
+        if String(arg2).count > largestCount {
+            largestCount = String(arg2).count
+        }
+        if largestCount == 3 {
+            arg1FontSize = 60
+        }
+        else if largestCount == 4 {
+            arg1FontSize = 50
+        }
         let labelArg1 = SKLabelNode(fontNamed: "Arial")
         labelArg1.text = String(arg1)
-        labelArg1.fontSize = GetFontSize(size:80)
+        labelArg1.fontSize = GetFontSize(size:arg1FontSize)
         labelArg1.fontColor = SKColor.blue
-        labelArg1.position = CGPoint(x: self.size.width/6.75, y: self.size.height*(12.5)/24)
+        labelArg1.position = CGPoint(x: self.size.width/6, y: self.size.height*(12.5)/24)
         labelArg1.zPosition = 100.0
         addChild(labelArg1)
         addChild(CreateShadowLabel(label: labelArg1,offset: GetFontSize(size:1)))
         
         var points = [CGPoint(x:0.0, y:0.0),CGPoint(x:0.0, y:self.size.height/7.96)]
         let line = SKShapeNode(points: &points, count: points.count)
-        line.position = CGPoint(x:self.size.width/3,y:self.size.height*(12.25)/24)
+        line.position = CGPoint(x:self.size.width/2.8,y:self.size.height*(12.25)/24)
         line.lineWidth = GetFontSize(size:10.0)
         line.strokeColor = SKColor.blue
         self.addChild(line)
         
         var points2 = [CGPoint(x:0.0, y:0.0),CGPoint(x:self.size.width/2, y:0.0)]
         let line2 = SKShapeNode(points: &points2, count: points.count)
-        line2.position = CGPoint(x:self.size.width/3,y:self.size.height*(15.1)/24)
+        line2.position = CGPoint(x:self.size.width/2.8,y:self.size.height*(15.1)/24)
         line2.lineWidth = GetFontSize(size:10.0)
         line2.strokeColor = SKColor.blue
         self.addChild(line2)
         
         if let labelArg2 = labelArg1.copy() as? SKLabelNode {
             labelArg2.text = String(arg2)
-            labelArg2.position = CGPoint(x: self.size.width/2, y: self.size.height*(12.5)/24)
+            labelArg2.position = CGPoint(x: self.size.width/1.8, y: self.size.height*(12.5)/24)
             addChild(labelArg2)
             addChild(CreateShadowLabel(label: labelArg2,offset: GetFontSize(size:1)))
         }
         
         labelAnswer = labelArg1.copy() as! SKLabelNode
         labelAnswer.text = ""
-        labelAnswer.position = CGPoint(x: self.size.width/2, y: self.size.height*15.5/24)
+        labelAnswer.position = CGPoint(x: self.size.width/1.8, y: self.size.height*15.5/24)
         addChild(labelAnswer)
         labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: GetFontSize(size:1))
         addChild(labelAnswerShadow)
@@ -460,13 +471,21 @@ class MathDrawScene: SKScene {
         }
         else if randOper == 3 {
             oper1 = "/"
-            arg1 = GetNumber(numDigit: 2)
-            arg2 = GetNumber(numDigit: 2)
+            let numbers = GetNumbers(myOper: oper1)
+            arg1 = numbers[0]
+            arg2 = numbers[1]
             if arg1 > arg2 {
                 let temp = arg2
                 arg2 = arg1
                 arg1 = temp
             }
+//            arg1 = GetNumber(numDigit: 2)
+//            arg2 = GetNumber(numDigit: 2)
+//            if arg1 > arg2 {
+//                let temp = arg2
+//                arg2 = arg1
+//                arg1 = temp
+//            }
             correctAnswer = arg2 / arg1
             correctAnswerRemainder = arg2 % arg1
         }
@@ -745,7 +764,7 @@ class MathDrawScene: SKScene {
             drawLineAr[drawLineAr.endIndex-1].position = prevLocation
             drawLineAr[drawLineAr.endIndex-1].strokeColor = SKColor.red
             drawLineAr[drawLineAr.endIndex-1].isAntialiased = true
-            drawLineAr[drawLineAr.endIndex-1].glowWidth = 4
+            drawLineAr[drawLineAr.endIndex-1].lineWidth = GetFontSize(size:5)
             drawLineAr[drawLineAr.endIndex-1].fillColor = SKColor.red
             self.addChild(drawLineAr[drawLineAr.endIndex-1])
         }

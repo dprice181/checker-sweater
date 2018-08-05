@@ -5,6 +5,7 @@ Amanda and Rachel went swimming.* n t n v v
 They jumped around all day.* n v p a n
 How are the children?* d v t n
 That boy jumps fast!* t n v d
+Super-girl flew over the house.* n v p t n
 How is your Grandma?* d v a n
 Amanda smelled something foul.* n v n a
 I watch too much tv.* n v d d n
@@ -70,7 +71,7 @@ The oval lake is very blue.* t a n v d a
 Bat-girl threw her batarang.* n v a n
 This is a lage book.* n v t a n
 This is the best part of the story!* n v t a n p t n
-Is that a Bic pen?* v n t a n
+Is that a blue pen?* v n t a n
 Why is the ugly car small?* a v t a n a
 That is not an abandoned house.* n v d t a n
 What exactly is it?* d d v n
@@ -295,7 +296,6 @@ Where are the toys?* d v t n
 When are the boys coming?* d v t n v
 Is that an abandoned car?* v n t a n
 Where are the chips?* d v t n
-Super-girl flew over the house.* n v p t n
 That man is a celebrity!* t n v a n
 Where is the delicous brownie?* d v t a n
 That girl eats quickly!* t n v d

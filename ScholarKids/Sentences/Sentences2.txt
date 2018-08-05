@@ -3,6 +3,7 @@ We smelled so many flowers.* n v d a n
 Where are all the people?* d v a t n
 We quickly ate dinner last night.* n d v n a n
 We camped at the mountain peak.* n v p t n a
+Wonder-woman jumped over the bridge.* n v p t n
 I watch too much tv.* n v d d n
 They jumped around all day.* n v p a n
 Amanda smelled something foul.* n v n a
@@ -11,6 +12,7 @@ Who is that talking to her?* d v n v p n
 When do the snacks arrive?* d v t n v
 How is your family?* d v a n
 Friendly people drive me crazy!* a n v n d
+Spider-man swung below the rooftops.* n v p t n
 How is your Grandma?* d v a n
 How is your school?* d v a n
 That boy jumps fast!* t n v d
@@ -29,7 +31,6 @@ I want to sleep less.* n v p v d
 When will it be Christmas?* d v n v n
 The dog jumped over the fence.* t n v p t n
 There are almost no houses.* n v a t n
-Wonder-woman jumped over the bridge.* n v p t n
 What exactly is it?* d d v n
 That is not a cute rabbit.* n v d t a n
 Big houses are especially rare.* a n v d a
@@ -83,7 +84,7 @@ There is no tomorrow.* n v t n
 Where is the little boy?* d v t a n
 The ornate door is long.* t a n v a
 What is this disgusting insect?* d v a a n
-Is that a Bic pen?* v n t a n
+Is that a blue pen?* v n t a n
 This is a public park.* n v t a n
 I like your fun game.* n v a a n
 The sun will rise soon.* t n v v d
@@ -238,7 +239,6 @@ These silly monkeys are very crazy.* a a n v d a
 These people are extremely wild but content.* a n v d a t a
 The sun will not set soon.* t n v d v d
 Big dogs are very friendly.* a n v d a
-Spider-man swung below the rooftops.* n v p t n
 This black shoe is extremely small.* a a n v d a
 That is a parked car.* n v t a n
 What are this crazy place?* d v a a n

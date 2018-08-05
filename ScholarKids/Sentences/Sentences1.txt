@@ -12,6 +12,7 @@ Is that a pen?* v n t n
 There are three chairs.* n v a n
 Where is the soda?* d v t n
 There is no tomorrow.* n v t n
+Iron-man has the best gadgets.* n v t a n
 Who is the man over there?* d v t n p n
 How are the children?* d v t n
 That is a book.* n v t n
@@ -190,7 +191,6 @@ Your milk is white.* a n v a
 The girl chatted very frequently.* t n v d d
 Why is the ocean blue?* d v t n a
 Why are there animals?* d v a n
-Iron-man has the best gadgets.* n v t a n
 Those are not pencils.* o v d o
 These are books.* o v n
 The girl is happy.* t n v a
