@@ -70,9 +70,13 @@ func GetFontSize(size:CGFloat) -> CGFloat {
     return returnSize
 }
 
-func GetCornerSize(size:CGFloat,max:CGFloat) -> CGFloat {
-    if 2 * size > max {
-        return max/2.1
+func GetCornerSize(size:CGFloat,max:CGSize) -> CGFloat {
+    var smallerDim = max.width
+    if max.height < smallerDim {
+        smallerDim = max.height
+    }
+    if 2 * size > smallerDim {
+        return smallerDim/2.1
     }
     return size
 }
@@ -85,11 +89,11 @@ func DrawBackButton(scene:SKScene) {
         backButton.name = "backbutton"
         
         if global.heightWidthRat < 1.5 {
-            backButton.position = CGPoint(x: width/18, y: height*18.3/20)
+            backButton.position = CGPoint(x: width/16, y: height*18.3/20)
             backButton.scale(to: CGSize(width: width/12.5, height: width/12.5))
         }
         else {
-            backButton.position = CGPoint(x: width/12, y: height*18.3/20)
+            backButton.position = CGPoint(x: width/11.5, y: height*18.3/20)
             backButton.scale(to: CGSize(width: width/9, height: width/9))
         }
         scene.addChild(backButton)
@@ -585,7 +589,7 @@ func DisplayLevelFinished(scene : SKScene) {
     
     let correctAnswers = global.correctAnswers
     let incorrectAnswers = global.incorrectAnswers
-    let overlay = SKShapeNode(rectOf: CGSize(width: scene.size.width*8/10,height: scene.size.height*25/48),cornerRadius: GetCornerSize(size:30.0,max:scene.size.height*25/48))
+    let overlay = SKShapeNode(rectOf: CGSize(width: scene.size.width*8/10,height: scene.size.height*25/48),cornerRadius: GetCornerSize(size:30.0,max:CGSize(width: scene.size.width*8/10,height: scene.size.height*25/48)))
     overlay.name = "overlay"
     overlay.fillColor = SKColor.white
     overlay.strokeColor = SKColor.purple

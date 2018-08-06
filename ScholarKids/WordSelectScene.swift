@@ -73,7 +73,7 @@ class WordSelectScene: SKScene {
         let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
         var widthSentence = sizeSentence.width
         
-        let displayWidth = size.width * 9.2 / 10
+        let displayWidth = size.width * 9 / 10
         
         let space = " "
         let mySpace: NSString = space as NSString
@@ -84,8 +84,8 @@ class WordSelectScene: SKScene {
         
         let widthSentenceHalf = widthSentence / 2
         var startX = size.width / 2 - widthSentenceHalf
-        if startX < size.width * 0.04 {
-            startX = size.width * 0.04
+        if startX < size.width * 0.05 {
+            startX = size.width * 0.05
         }
         var startY:CGFloat = 0.0
         var widthSum:CGFloat = 0.0
@@ -290,7 +290,6 @@ class WordSelectScene: SKScene {
                 GetSentence(increment:false)  //get the next sentence if it doesn't contain the levelType (nouns, verbs, etc.)
                 i = i + 1
             }
-            
         }
         else {
             print("file not found")

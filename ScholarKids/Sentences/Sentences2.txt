@@ -23,7 +23,7 @@ Where are the chips?* d v t n
 Who is it behind the rock?* d v n p t n
 I like my smelly dog.* n v a a n
 There are almost no tables.* n v a t n
-That man is a celebrity!* t n v a n
+That man is a celebrity!* t n v t n
 Who are you?* d v n
 The girls are speaking quickly.* t n v v d
 This friendly person is extremely tall.* a a n v d a
@@ -43,7 +43,7 @@ That is a friendly girl.* n v t a n
 Is that an abandoned building?* v n t a n
 The oval lake is very blue.* t a n v d a
 That is not a big bike.* n v d t a n
-This is a timed test.* n v a a n
+This is a timed test.* n v t a n
 Who is that at the door?* d v n p t n
 We took all the paper.* n v a t n
 Who is the woman over there?* d v t n p n
@@ -93,7 +93,7 @@ Are these the correct menus?* v n t a n
 Who is the woman next to you?* d v t n p p n
 The children are disobedient and noisy.* t n v a t a
 There are seven delicious cookies.* n v a a n
-Deborah is a wonderful wife and mother.* n v t a n c n
+June is a wonderful wife and mother.* n v t a n t n
 There are three live chickens.* n v a a n
 These funny children are extremely obedient.* a a n v d a
 The intelligent girl sits quietly.* t a n v d
@@ -231,7 +231,7 @@ Why do few people hunt?* d v a n v
 This is a car magazine.* n v t a n
 What is this black bug?* d v a a n
 That is not a lead pencil.* n v d t a n
-The cat climbed under the gate.* t n c p t n
+The cat crawled under the gate.* t n c p t n
 Rectangles have four sides.* n v a n
 The small boy lied particularly often.* t a n v d d
 When are you coming home?* d v n v n

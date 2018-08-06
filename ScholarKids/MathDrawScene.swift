@@ -153,7 +153,13 @@ class MathDrawScene: SKScene {
         labelArg1.text = String(arg1)
         labelArg1.fontSize = GetFontSize(size:arg1FontSize)
         labelArg1.fontColor = SKColor.blue
-        labelArg1.position = CGPoint(x: self.size.width/6, y: self.size.height*(12.5)/24)
+        if global.heightWidthRat < 1.5 {
+            labelArg1.position = CGPoint(x: self.size.width/5, y: self.size.height*(12.5)/24)
+        }
+        else {
+            labelArg1.position = CGPoint(x: self.size.width/6, y: self.size.height*(12.5)/24)
+        }
+        
         labelArg1.zPosition = 100.0
         addChild(labelArg1)
         addChild(CreateShadowLabel(label: labelArg1,offset: GetFontSize(size:1)))
@@ -174,14 +180,24 @@ class MathDrawScene: SKScene {
         
         if let labelArg2 = labelArg1.copy() as? SKLabelNode {
             labelArg2.text = String(arg2)
-            labelArg2.position = CGPoint(x: self.size.width/1.8, y: self.size.height*(12.5)/24)
+            if global.heightWidthRat < 1.5 {
+                labelArg2.position = CGPoint(x: self.size.width/2, y: self.size.height*(12.5)/24)
+            }
+            else {
+                labelArg2.position = CGPoint(x: self.size.width/1.8, y: self.size.height*(12.5)/24)
+            }
             addChild(labelArg2)
             addChild(CreateShadowLabel(label: labelArg2,offset: GetFontSize(size:1)))
         }
         
         labelAnswer = labelArg1.copy() as! SKLabelNode
         labelAnswer.text = ""
-        labelAnswer.position = CGPoint(x: self.size.width/1.8, y: self.size.height*15.5/24)
+        if global.heightWidthRat < 1.5 {
+            labelAnswer.position = CGPoint(x: self.size.width/2, y: self.size.height*15.5/24)
+        }
+        else {
+            labelAnswer.position = CGPoint(x: self.size.width/1.8, y: self.size.height*15.5/24)
+        }
         addChild(labelAnswer)
         labelAnswerShadow = CreateShadowLabel(label: labelAnswer,offset: GetFontSize(size:1))
         addChild(labelAnswerShadow)

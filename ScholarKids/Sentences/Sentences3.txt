@@ -172,7 +172,7 @@ My broken pencil is green.* a a n v a
 I wish I was having more fun.* n v n v v a a
 We took all the paper.* n v a t n
 Why do some people listen?* a v a n v
-Deborah is a wonderful wife and mother.* n v t a n c n
+June is a wonderful wife and mother.* n v t a n t n
 Are those lead pencils?* v o a n
 What is this crazy place?* d v a a n
 What is this interesting class?* d v a a n
@@ -268,7 +268,7 @@ Iron-man has the best gadgets.* n v t a n
 The father is very happy.* t n v d a
 That is not a nice boy.* n v d t a n
 Where is the difficult homework?* d v t a n
-The cat climbed under the gate.* t n c p t n
+The cat crawled under the gate.* t n c p t n
 The sun will rise soon.* t n v v d
 Your chocolate cookie is brown.* a a n v a
 This is a car magazine.* n v t a n
@@ -283,7 +283,7 @@ This is a blue car.* n v t a n
 Who is it behind the table?* d v n p t n
 When are the girls arriving?* d v t n v
 This is the worst site!* n v t a n
-This is a timed test.* n v a a n
+This is a timed test.* n v t a n
 There are no cats here.* n v t n n
 Who is the girl over there?* d v t n p n
 Who is the woman over there?* d v t n p n
@@ -296,7 +296,7 @@ Where are the toys?* d v t n
 When are the boys coming?* d v t n v
 Is that an abandoned car?* v n t a n
 Where are the chips?* d v t n
-That man is a celebrity!* t n v a n
+That man is a celebrity!* t n v t n
 Where is the delicous brownie?* d v t a n
 That girl eats quickly!* t n v d
 When will it be Halloween?* d v n v n

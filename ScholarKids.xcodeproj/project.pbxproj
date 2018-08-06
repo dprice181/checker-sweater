@@ -57,6 +57,7 @@
 		04635F3B210FAE6000A320CC /* Sentences1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04635F38210FAE5F00A320CC /* Sentences1.txt */; };
 		04635F3C210FAE6000A320CC /* Sentences2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04635F39210FAE5F00A320CC /* Sentences2.txt */; };
 		04635F3D210FAE6000A320CC /* Sentences3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04635F3A210FAE6000A320CC /* Sentences3.txt */; };
+		048AF84A21181B9C006793D9 /* RedButtonBigGold.png in Resources */ = {isa = PBXBuildFile; fileRef = 048AF84921181B9B006793D9 /* RedButtonBigGold.png */; };
 		04902DDE20FADCBE008B24CC /* WordProblems5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04902DDC20FADCBD008B24CC /* WordProblems5.txt */; };
 		04902DDF20FADCBE008B24CC /* WordProblemsK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04902DDD20FADCBD008B24CC /* WordProblemsK.txt */; };
 		04902DE120FCFBCE008B24CC /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04902DE020FCFBCE008B24CC /* OptionsScene.swift */; };
@@ -168,6 +169,7 @@
 		04635F38210FAE5F00A320CC /* Sentences1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sentences1.txt; path = ScholarKids/Sentences/Sentences1.txt; sourceTree = SOURCE_ROOT; };
 		04635F39210FAE5F00A320CC /* Sentences2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sentences2.txt; path = ScholarKids/Sentences/Sentences2.txt; sourceTree = SOURCE_ROOT; };
 		04635F3A210FAE6000A320CC /* Sentences3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sentences3.txt; path = ScholarKids/Sentences/Sentences3.txt; sourceTree = SOURCE_ROOT; };
+		048AF84921181B9B006793D9 /* RedButtonBigGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonBigGold.png; sourceTree = "<group>"; };
 		04902DDC20FADCBD008B24CC /* WordProblems5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblems5.txt; path = ScholarKids/Sentences/WordProblems5.txt; sourceTree = SOURCE_ROOT; };
 		04902DDD20FADCBD008B24CC /* WordProblemsK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WordProblemsK.txt; path = ScholarKids/Sentences/WordProblemsK.txt; sourceTree = SOURCE_ROOT; };
 		04902DE020FCFBCE008B24CC /* OptionsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				04B22B0320DB6E0E00F3AA69 /* BackwardsClean.png */,
 				04B22B0520DB6E0E00F3AA69 /* GoldButton.png */,
 				04B22B0720DB6E0E00F3AA69 /* RedButtonBig.png */,
+				048AF84921181B9B006793D9 /* RedButtonBigGold.png */,
 				04B22B0220DB6E0E00F3AA69 /* RedButtonSmall.png */,
 				04635F34210EC4C200A320CC /* RedButtonBigShadow.png */,
 				04635F35210EC4C200A320CC /* RedButtonSmallShadow.png */,
@@ -505,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048AF84A21181B9C006793D9 /* RedButtonBigGold.png in Resources */,
 				043752A620E4725300E791F0 /* WordProblems1.txt in Resources */,
 				8400BBE020B7B8F50040CC24 /* background3.jpg in Resources */,
 				04635F3D210FAE6000A320CC /* Sentences3.txt in Resources */,

@@ -106,7 +106,7 @@ class VocabularySelectScene: SKScene {
         if incorrectAnswer {
             fontColor = SKColor.red
         }
-        let displayWidth = size.width * 9.28 / 10
+        let displayWidth = size.width * 9 / 10
         let sizeSentence = GetTextSize(text:definition,fontSize:fontSize)
         let sentenceWidth = sizeSentence.width
         

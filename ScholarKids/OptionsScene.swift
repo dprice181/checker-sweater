@@ -156,7 +156,7 @@ class OptionsScene: SKScene {
             fullButton.position = CGPoint(x: self.size.width/24, y: self.size.height*42.5/48 + myOffY)
             fullButton.zPosition = 100.0
             
-            buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6 + extraBoxWidth,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:20.0,max:self.size.height*4/48)))
+            buttonAr.append(SKShapeNode(rectOf: CGSize(width: self.size.width/6 + extraBoxWidth,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:20.0,max:CGSize(width: self.size.width/6 + extraBoxWidth,height: self.size.height*4/48))))
             buttonAr.last!.name = String(i) + "optionbutton" + String(ind)
             buttonAr.last!.fillColor = backgroundColor
             if isButtonSelected {
@@ -244,14 +244,14 @@ class OptionsScene: SKScene {
         clickButton.position = CGPoint(x: self.size.width/2, y: offY)
         clickButton.zPosition = 100.0
         
-        clickButtonShadowAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48)))
+        clickButtonShadowAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:CGSize(width: widthText*1.3,height: self.size.height*4/48))))
         clickButtonShadowAr.last!.name = "sbshadow"
         clickButtonShadowAr.last!.fillColor = SKColor.black
         clickButtonShadowAr.last!.strokeColor = SKColor.black
         clickButtonShadowAr.last!.position = CGPoint(x:-2.5, y: 2.5)
         clickButton.addChild(clickButtonShadowAr.last!)
         
-        clickButtonAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:self.size.height*4/48)))
+        clickButtonAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:CGSize(width: widthText*1.3,height: self.size.height*4/48))))
         clickButtonAr.last!.name = "clickbutton" + String(i)
         clickButtonAr.last!.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         clickButtonAr.last!.strokeColor = global.blue

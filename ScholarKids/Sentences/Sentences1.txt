@@ -130,7 +130,7 @@ I like my pants.* n v a n
 This is the smelliest armpit!* n v t a n
 What is this subject?* d v a n
 There are no adults.* n v t n
-This is a test.* n v a n
+This is a test.* n v t n
 What are these?* d v o
 Where is the boy?* d v t n
 I wish I was having fun.* n v n v v a
@@ -170,7 +170,7 @@ I like your cat.* n v a n
 Is that a rock?* v n t n
 This woman is particularly smart.* a n v d a
 This game is not fun.* a n v d a
-June is a wonderful wife and mother.* n v t a n c n
+June is a wonderful wife and mother.* n v t a n t n
 That is not a rabbit.* n v d t n
 This shoe is considerably small.* a n v d a
 Is that a broom?* v n t n
@@ -234,7 +234,7 @@ There are no tables.* n v t n
 When will we get there?* d v n v n
 Why do people work?* d v n v
 Why is the man tall?* d v t n a
-The cat climbed under the gate.* t n c p t n
+The cat crawled under the gate.* t n c p t n
 This is the biggest thing!* n v t a n
 I like my computer.* n v a n
 Why is the grass green?* d v t n a
@@ -297,7 +297,7 @@ That girl eats quickly!* t n v d
 That kid talks loudly!* t n v d
 Where are the sandwiches?* d v t n
 Where are the chips?* d v t n
-That man is a celebrity!* t n v a n
+That man is a celebrity!* t n v t n
 How is your family?* d v a n
 Who is it behind the table?* d v n p t n
 That boy jumps fast!* t n v d

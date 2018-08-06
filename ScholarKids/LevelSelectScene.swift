@@ -44,7 +44,7 @@ class LevelSelectScene: SKScene {
         DrawTitle()
         DrawBalloons()
         maxX = 0
-        minX = -(self.size.width/8 + CGFloat(maxLevel-4)*(self.size.width/5))
+        minX = -(self.size.width/8 + CGFloat(maxLevel-3)*(self.size.width/5))
         DrawSwipeLeft()
         DrawBackButton(scene:self)
     }
@@ -389,7 +389,7 @@ class LevelSelectScene: SKScene {
         
         if scrollBoxInd > -1 {
             if hotAirBalloonAr.count > scrollBoxInd {
-                var scrollX  : CGFloat = location2.x - prevLocation.x
+                var scrollX  : CGFloat = 1.3 * (location2.x - prevLocation.x)
                 if curX[scrollBoxInd]+scrollX < minX-balloonOffX[scrollBoxInd] {
                     scrollX = 0.0
                 }
@@ -397,7 +397,7 @@ class LevelSelectScene: SKScene {
                     scrollX = 0.0
                 }
                 
-                let action = SKAction.moveBy(x: scrollX, y: 0, duration: 0.1)
+                let action = SKAction.moveBy(x: scrollX, y: 0, duration: 0.2)
                 action.timingMode = SKActionTimingMode.easeInEaseOut
                 if scrollX != 0.0 {
                     for hotAirBalloon in hotAirBalloonAr[scrollBoxInd] {

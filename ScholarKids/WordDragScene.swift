@@ -32,6 +32,7 @@ class WordDragScene: SKScene {
     var sentence = ""
     var choiceWordAr = [String]()
     var selectedNode = SKSpriteNode()
+    var boxChoiceAr = [SKSpriteNode]()
     
     var answerboxPos = CGPoint(x:0,y:0)    
     var currentExtraWordNum = 0
@@ -107,7 +108,7 @@ class WordDragScene: SKScene {
         }
         var startY:CGFloat = 0.0
         var widthSum:CGFloat = 0.0
-        let displayWidth = size.width * 9.2 / 10
+        let displayWidth = size.width * 9 / 10
         
         var i = 0
         for var word in wordAr {
@@ -147,7 +148,7 @@ class WordDragScene: SKScene {
                 if global.heightWidthRat < 1.5 {
                     cornerSize = 40.0
                 }
-                let box = SKShapeNode(rectOf: sizeBox,cornerRadius: GetCornerSize(size:cornerSize,max:sizeBox.height))
+                let box = SKShapeNode(rectOf: sizeBox,cornerRadius: GetCornerSize(size:cornerSize,max:sizeBox))
                 box.name = "answerboxrect"
                 box.fillColor = SKColor.lightGray
                 box.strokeColor = SKColor.red
@@ -234,11 +235,11 @@ class WordDragScene: SKScene {
             choiceNode.addChild(labelChoice)
             choiceNode.addChild(CreateShadowLabel(label: labelChoice,offset: GetFontSize(size:1)))
             
-            let boxChoice = SKSpriteNode(imageNamed: "RedButtonBig.png")
-            boxChoice.name = "choicebox"
-            boxChoice.position = .zero
-            boxChoice.scale(to: CGSize(width:sizeWordChoice.width,height:sizeWordChoice.height * yMult))
-            choiceNode.addChild(boxChoice)
+            boxChoiceAr.append(SKSpriteNode(imageNamed: "RedButtonBig.png"))
+            boxChoiceAr.last!.name = "choicebox" + String(n)
+            boxChoiceAr.last!.position = .zero
+            boxChoiceAr.last!.scale(to: CGSize(width:sizeWordChoice.width,height:sizeWordChoice.height * yMult))
+            choiceNode.addChild(boxChoiceAr.last!)
             addChild(choiceNode)
             
             posX = posX + self.size.width*2/6
@@ -540,8 +541,8 @@ class WordDragScene: SKScene {
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
 
-        if touchedNode.name == "choicelabel" || touchedNode.name == "choicebox" {
-            if touchedNode == nil || touchedNode.parent == nil {
+        if touchedNode.name == "choicelabel" || (touchedNode.name?.contains("choicebox") != nil && (touchedNode.name?.contains("choicebox"))!) {
+            if touchedNode.parent == nil {
                 selectedNode = SKSpriteNode()
             }
             else {
@@ -549,13 +550,9 @@ class WordDragScene: SKScene {
             }
         }
         else if touchedNode.name?.contains("choice") != nil && (touchedNode.name?.contains("choice"))! {
-            if touchedNode == nil || touchedNode.parent == nil {
-                selectedNode = SKSpriteNode()
-            }
-            else {
-                selectedNode = touchedNode as! SKSpriteNode
-            }
+            selectedNode = SKSpriteNode()
         }
+    
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -689,6 +686,13 @@ class WordDragScene: SKScene {
         labelIncorrect.text = "Missed : " + String(global.incorrectAnswers)
         labelIncorrectShadow.text = "Missed : " + String(global.incorrectAnswers)
         
+        for choicebox in boxChoiceAr {
+            if choicebox.name == "choicebox" + String(answerPos) {
+                choicebox.texture = SKTexture(imageNamed: "RedButtonBigGold.png")
+                break
+            }
+        }
+        
         if global.correctAnswers + global.incorrectAnswers >= 12 {
             answerSelected = false  //let them touch the screen again
             DisplayLevelFinished(scene:self)
@@ -706,12 +710,10 @@ class WordDragScene: SKScene {
         choiceMade = true
         answerboxPos = answerbox.position
         answerbox.removeFromParent()
-        if choicebox.name == "choice" + String(answerPos)
-        {
+        if choicebox.name == "choice" + String(answerPos) {
             CorrectAnswerSelected()
         }
-        else
-        {
+        else {
             IncorrectAnswerSelected()
         }
     }
