@@ -192,7 +192,6 @@ class TitleScene: SKScene {
             
             let nextScene = PlayerSelectScene(size: self.size,currentSentenceNum:0,correctAnswers:0,incorrectAnswers:0,currentExtraWordNum:0,sceneType:"PlayerSelect")
             self.view?.presentScene(nextScene, transition: reveal)
-        
         })
         self.run(SKAction.sequence([playSound,newScene]))
     }

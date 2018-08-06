@@ -111,7 +111,9 @@ class WordSelectScene: SKScene {
             labelAr[i].horizontalAlignmentMode = .left
             labelAr[i].position = CGPoint(x: startX + widthSum, y: startY + self.size.height * 11 / 24)
             addChild(labelAr[i])
-            addChild(CreateShadowLabel(label: labelAr[i],offset: GetFontSize(size:1)))
+            let shadowLabel = CreateShadowLabel(label: labelAr[i],offset: GetFontSize(size:1))
+            shadowLabel.name = "shadowword"
+            addChild(shadowLabel) 
             widthSum = widthSum + widthWord
             
             i = i + 1
@@ -330,6 +332,12 @@ class WordSelectScene: SKScene {
         return count
     }
     
+    func DefaultSentenceColors() {
+        for label in labelAr {
+            label.fontColor = global.lightBlue
+        }
+    }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
@@ -338,21 +346,16 @@ class WordSelectScene: SKScene {
             return
         }
         
-        DefaultSentenceColors()
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
+        
+        DefaultSentenceColors()
         
         if let labelNode = touchedNode as? SKLabelNode {
             if labelNode.name == "word"  {
                 labelNode.fontColor = SKColor.red
             }
-        }
-    }
-    
-    func DefaultSentenceColors() {
-        for label in labelAr {
-            label.fontColor = global.lightBlue
         }
     }
     
@@ -364,10 +367,11 @@ class WordSelectScene: SKScene {
             return
         }
         
-        DefaultSentenceColors()
-        
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
+        
+        DefaultSentenceColors()
+        
         if let labelNode = touchedNode as? SKLabelNode {
             if labelNode.name == "word"  {
                 labelNode.fontColor = SKColor.red

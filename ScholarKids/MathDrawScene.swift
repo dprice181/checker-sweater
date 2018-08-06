@@ -108,7 +108,7 @@ class MathDrawScene: SKScene {
     
     func DrawTitle() {
         labelTitle.text = "Answer with the numbers below"
-        labelTitle.fontSize = GetFontSize(size:19)
+        labelTitle.fontSize = GetFontSize(size:18)
         labelTitle.fontColor = global.realPurple
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.1/24)
         labelTitle.zPosition = 100.0
@@ -117,7 +117,7 @@ class MathDrawScene: SKScene {
         addChild(labelTitleShadow)
         
         labelTitle2.text = "(Write your work with your finger)"
-        labelTitle2.fontSize = GetFontSize(size:19)
+        labelTitle2.fontSize = GetFontSize(size:18)
         labelTitle2.fontColor = SKColor.red
         labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*21.3/24)
         labelTitle2.zPosition = 100.0

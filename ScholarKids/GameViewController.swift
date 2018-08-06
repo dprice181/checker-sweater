@@ -89,8 +89,8 @@ func DrawBackButton(scene:SKScene) {
             backButton.scale(to: CGSize(width: width/12.5, height: width/12.5))
         }
         else {
-            backButton.position = CGPoint(x: width/13, y: height*18.3/20)
-            backButton.scale(to: CGSize(width: width/10, height: width/10))
+            backButton.position = CGPoint(x: width/12, y: height*18.3/20)
+            backButton.scale(to: CGSize(width: width/9, height: width/9))
         }
         scene.addChild(backButton)
     }
@@ -884,17 +884,30 @@ func WriteResultsToFile() {
     }
 }
 
+var bgSoundPlayer:AVAudioPlayer?
 class GameViewController: UIViewController, SKViewDelegate {
 
-    var bgSoundPlayer:AVAudioPlayer?
-    var background = SKSpriteNode(imageNamed: "background3.jpg")
     
+    var background = SKSpriteNode(imageNamed: "background3.jpg")
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
+        } catch {
+        }
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.playBackgroundSound(_:)), name: NSNotification.Name(rawValue: "PlayBackgroundSound"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.stopBackgroundSound), name: NSNotification.Name(rawValue: "StopBackgroundSound"), object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self,
+                                       selector: #selector(GameViewController.handleInterruption),
+                                       name: .AVAudioSessionInterruption,
+                                       object: nil)
        
         let scene = GameScene(size: view.bounds.size)
         let skView = view as! SKView
@@ -908,40 +921,86 @@ class GameViewController: UIViewController, SKViewDelegate {
         skView.presentScene(scene)        
     }
     
-    func playBackgroundSound(_ notification: Notification) {
+    func handleInterruption(_ notification: Notification) {
+        guard let value = (notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? NSNumber)?.uintValue,
+            let interruptionType =  AVAudioSessionInterruptionType(rawValue: value)
+            else {
+                print("notification.userInfo?[AVAudioSessionInterruptionTypeKey]", notification.userInfo?[AVAudioSessionInterruptionTypeKey])
+                return }
+        switch interruptionType {
+        case .began:
+            do {
+                //try theSession.setActive(false)
+                stopBackgroundSound()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            //pause()
+        default :
+            if let optionValue = (notification.userInfo?[AVAudioSessionInterruptionOptionKey] as? NSNumber)?.uintValue, AVAudioSessionInterruptionOptions(rawValue: optionValue) == .shouldResume {
+                do {
+                    //try theSession.setActive(true)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                    return
+                }
+                if global.musicStarted==false && global.musicOption < 2 {
+                    playMusic()
+                }
+            }
+        }
+    }
+    
+    func playMusic() {
         global.musicStarted = true
-        //get the name of the file to play from the data passed in with the notification
-        let name = (notification as NSNotification).userInfo!["fileToPlay"] as! String
-        
-        //if the bgSoundPlayer already exists, stop it and make it nil again
         if (bgSoundPlayer != nil) {
             bgSoundPlayer!.stop()
             bgSoundPlayer = nil
         }
-        
-        //as long as name has at least some value, proceed...
-        if (name != ""){
-            //create a URL variable using the name variable and tacking on the "mp3" extension
-            let fileURL:URL = Bundle.main.url(forResource:name, withExtension: "mp3")!
-            
-            //basically, try to initialize the bgSoundPlayer with the contents of the URL
+        if let fileURL:URL = Bundle.main.url(forResource:"BackgroundMusic", withExtension: "mp3") {
             do {
                 bgSoundPlayer = try AVAudioPlayer(contentsOf: fileURL)
             } catch _{
                 bgSoundPlayer = nil
-                
             }
             
-            bgSoundPlayer!.volume = 0.75 //set the volume anywhere from 0 to 1
-            bgSoundPlayer!.numberOfLoops = -1 // -1 makes the player loop forever
-            bgSoundPlayer!.prepareToPlay() //prepare for playback by preloading its buffers.
-            bgSoundPlayer!.play() //actually play
+            if let bgPlayer = bgSoundPlayer {
+                    bgPlayer.volume = 0.75
+                    bgPlayer.numberOfLoops = -1
+                    bgPlayer.prepareToPlay()
+                    bgPlayer.play()
+            }
+        }
+    }
+    
+    func playBackgroundSound(_ notification: Notification) {
+        global.musicStarted = true
+        if let name = (notification as NSNotification).userInfo!["fileToPlay"] as? String {
+            if (bgSoundPlayer != nil) {
+                bgSoundPlayer!.stop()
+                bgSoundPlayer = nil
+            }
+            if (name != ""){
+                if let fileURL:URL = Bundle.main.url(forResource:name, withExtension: "mp3") {
+                    do {
+                        bgSoundPlayer = try AVAudioPlayer(contentsOf: fileURL)
+                    } catch _{
+                        bgSoundPlayer = nil
+                    }
+                    
+                    if let bgPlayer = bgSoundPlayer {
+                        bgPlayer.volume = 0.75
+                        bgPlayer.numberOfLoops = -1
+                        bgPlayer.prepareToPlay()
+                        bgPlayer.play()
+                    }
+                }
+            }
         }
     }
     
     func stopBackgroundSound() {
         global.musicStarted = false
-        //if the bgSoundPlayer isn't nil, then stop it
         if (bgSoundPlayer != nil){
             bgSoundPlayer!.stop()
             bgSoundPlayer = nil
@@ -951,21 +1010,8 @@ class GameViewController: UIViewController, SKViewDelegate {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
             return .portrait
     }
-  /*
-    override var shouldAutorotate: Bool {
-        return true
-    }
- */
- /*
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
+ 
     override var prefersStatusBarHidden: Bool {
         return true
     }
- */
 }
