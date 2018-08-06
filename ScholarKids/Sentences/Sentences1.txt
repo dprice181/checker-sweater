@@ -20,7 +20,7 @@ Where are all the people?* d v a t n
 My pencil is green.* a n v a
 Small children are happy.* a n v a
 That woman cooks really well!* t n v d d
-What are this place?* d v a n
+What is this place?* d v a n
 Is that a building?* v n t n
 The monkey swung under the branches.* t n v p t n
 Who is it above the staircase?* d v n p t n
@@ -53,7 +53,7 @@ That is not a floor.* n v d t n
 This is the worst!* n v t a
 Is that an eraser?* v n t n
 The sun will rise soon.* t n v v d
-What are this food?* d v a n
+What is this food?* d v a n
 He watches too much tv.* n v a a n
 The lion roared particularly confidently.* t n v d d
 This is the smallest child!* n v t a n
@@ -128,7 +128,7 @@ What is this rock?* d v a n
 The hat is pointy.* t n v a
 I like my pants.* n v a n
 This is the smelliest armpit!* n v t a n
-What are this subject?* d v a n
+What is this subject?* d v a n
 There are no adults.* n v t n
 This is a test.* n v a n
 What are these?* d v o
@@ -164,7 +164,7 @@ The dog is loud.* t n v a
 This backpack is not cute.* a n v d a
 Who is this talking to me?* d v n v p n
 Why is the air smelly?* d v t n a
-What are this class?* d v a n
+What is this class?* d v a n
 Rectangles have four sides.* n v a n
 I like your cat.* n v a n
 Is that a rock?* v n t n
@@ -181,7 +181,7 @@ That is not a house.* n v d t n
 There are no burgers.* n v t n
 Why is the monkey funny?* d v t n a
 This is a book.* n v t n
-What are this thing?* d v a n
+What is this thing?* d v a n
 Are these books?* v n n
 What is this chair?* d v a n
 This man is deliberately humble.* a n v d a
@@ -209,7 +209,7 @@ The sun will set soon.* t n v v d
 There are many animals.* n v a n
 There are twenty steps.* n v a n
 The people argued deliberately noisily.* t n v d d
-What are this animal?* d v a n
+What is this animal?* d v a n
 What is this dog?* d v a n
 The room is small.* t n v a
 This is really fun!* n v d a
@@ -217,14 +217,14 @@ The man is smelly.* t n v a
 There are two paintings.* n v a n
 Why do people hunt?* d v n v
 This is a park.* n v t n
-What are this story?* d v a n
+What is this story?* d v a n
 I like my shoes.* n v a n
 Triangles have three sides.* n v a n
 The dog jumped over the fence.* t n v p t n
-What are this game?* d v a n
+What is this game?* d v a n
 There are many snakes.* n v a n
 The boy lied extremely often.* t n v d d
-What are this chapter?* d v a n
+What is this chapter?* d v a n
 Are those pencils?* v o n
 Where is the homework?* d v t n
 What is this table?* d v a n
@@ -304,7 +304,7 @@ That boy jumps fast!* t n v d
 How are there no people here?* d v n t n n
 There are many children.* n v a n
 The girls are speaking quickly.* t n v v d
-How is your Grandma?* d v a n
+How is your grandma?* d v a n
 Rachel played all day.* n v a n
 Amanda and Rachel went swimming.* n t n v v
 Amanda smelled something foul.* n v n a

@@ -13,7 +13,7 @@ When do the snacks arrive?* d v t n v
 How is your family?* d v a n
 Friendly people drive me crazy!* a n v n d
 Spider-man swung below the rooftops.* n v p t n
-How is your Grandma?* d v a n
+How is your grandma?* d v a n
 How is your school?* d v a n
 That boy jumps fast!* t n v d
 Green eyes are astonishingly pretty.* a n v d a
@@ -181,7 +181,7 @@ Why are there different animals?* d v a a n
 That butler cleans all the time!* t n v a t n
 Who is the girl over there?* d v t n p n
 That is not a lousy floor.* n v d t a n
-What are this interesting class?* d v a a n
+What is this interesting class?* d v a a n
 These tiny cats are not friendly.* a a n v d a
 The child is extremely sleepy.* t n v d a
 The monkey is friendly and small.* t n v a t a
@@ -193,15 +193,15 @@ Magazines are fun to read.* n v a p v
 The monkey swung under the branches.* t n v p t n
 Is that a yellow pencil?* v n t a n
 The box is particularly small.* t n v d a
-What are this useless subject?* d v a a n
+What is this useless subject?* d v a a n
 What is this large rock?* d v a a n
 Those are small items.* o v a n
-What are this friendly animal?* d v a a n
+What is this friendly animal?* d v a a n
 Circles have zero sides.* n v a n
 When does the party start?* d v t n v
 Triangles have three sides.* n v a n
 My backyard pool is blue.* a a n v a
-What are this tiny thing?* d v a a n
+What is this tiny thing?* d v a a n
 That is not a friendly kid.* v v d t a n
 The people are hungry and thirsty.* t n v a t a
 There are twenty large steps.* n v a a n
@@ -219,7 +219,7 @@ How are the children?* d v t n
 I like your old cat.* n v a a n
 This is the best part of the story!* n v t a n p t n
 My large dog is brown.* a a n v a
-What are this particular chapter?* d v a a n
+What is this particular chapter?* d v a a n
 I want to nap often.* n v p v d
 That is not a driveable street.* n v d t a n
 Who is the kid next to you?* d v t n p p n
@@ -241,8 +241,8 @@ The sun will not set soon.* t n v d v d
 Big dogs are very friendly.* a n v d a
 This black shoe is extremely small.* a a n v d a
 That is a parked car.* n v t a n
-What are this crazy place?* d v a a n
-What are this fun game?* d v a a n
+What is this crazy place?* d v a a n
+What is this fun game?* d v a a n
 Why is the colorful house big?* d v t a n a
 The pretty cat purred very often.* t a n v d d
 Small cats are not mean.* a n v d a

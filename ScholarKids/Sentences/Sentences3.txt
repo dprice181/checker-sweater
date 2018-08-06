@@ -6,7 +6,7 @@ They jumped around all day.* n v p a n
 How are the children?* d v t n
 That boy jumps fast!* t n v d
 Super-girl flew over the house.* n v p t n
-How is your Grandma?* d v a n
+How is your grandma?* d v a n
 Amanda smelled something foul.* n v n a
 I watch too much tv.* n v d d n
 When is the Superbowl?* d v t n
@@ -81,7 +81,7 @@ There are twenty large steps.* n v a a n
 There is no tomorrow.* n v t n
 The room is small but tidy.* t n v a c a
 There are five quiet children.* n v a a n
-What are this friendly animal?* d v a a n
+What is this friendly animal?* d v a a n
 Is that an abandoned house?* v n t a n
 Videogames are especially fun!* n v d a
 That is not a friendly kid.* n v d t a n
@@ -148,7 +148,7 @@ The child is extremely sleepy.* t n v d a
 When are you coming home?* d v n v n
 Wonder-woman jumped over the bridge.* n v p t n
 There are many smelly cats.* n v a a n
-What are this useless subject?* d v a a n
+What is this useless subject?* d v a a n
 Circles have zero sides.* n v a n
 The room is small and useless.* t n v a t a
 The sun will not set soon.* t n v d v d
@@ -174,8 +174,8 @@ We took all the paper.* n v a t n
 Why do some people listen?* a v a n v
 Deborah is a wonderful wife and mother.* n v t a n c n
 Are those lead pencils?* v o a n
-What are this crazy place?* d v a a n
-What are this interesting class?* d v a a n
+What is this crazy place?* d v a a n
+What is this interesting class?* d v a a n
 I like my little dogs.* n v a a n
 Thanos conquered all the heroes.* n v n t n
 This is the smelliest armpit!* n v t a n
@@ -201,7 +201,7 @@ This backpack is not cute or useful.* a n v d a t a
 Those are small items.* o v a n
 Why do many people cheat?* a v a n v
 There are three large chairs.* n v a a n
-What are this particular chapter?* d v a a n
+What is this particular chapter?* d v a a n
 These beautiful doors are not heavy.* a a n v d a
 The girl chatted extremely frequently and noisily.* t n v d d t d
 The cow flew over the moon.* t n v p t n
@@ -235,7 +235,7 @@ Where is the little boy?* d v t a n
 The gathered people argued deliberately noisily.* t a n v d d
 The family drove around the neighborhood.* t n v p t n
 Why is the large ocean blue?* a v t a n a
-What are this tiny thing?* d v a a n
+What is this tiny thing?* d v a a n
 Red dogs are especially rare.* a n v d a
 Your young cat is black.* a a n v a
 These shoes are very comfortable.* a n v d a
@@ -250,7 +250,7 @@ I want to watch more.* n v p v d
 There are two ornate paintings.* n v a a n
 Who is it behind the rock?* d v n p t n
 The turtle is angry and slow.* t n v a t a
-What are this fun game?* d v a a n
+What is this fun game?* d v a a n
 The tiny boy ran deliberately quickly.* t a n v d d
 Spider-man swung below the rooftops.* n v p t n
 This is the biggest, ugliest thing!* n v t a a n
