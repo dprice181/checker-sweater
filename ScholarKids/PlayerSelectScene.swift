@@ -390,7 +390,7 @@ class PlayerSelectScene: SKScene {
                         }
                     }
                     fileText = lineAr.joined(separator: "\n")
-                    try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+                    try fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
 
                     self.removeAllChildren()
                     DeleteDataArrays()
@@ -433,7 +433,7 @@ class PlayerSelectScene: SKScene {
                 }
                 let text = addName + "*" + addGrade + "*-1*-1*-1*-1"
                 fileText.append("\n"+text)
-                try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+                try fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
 
                 //refresh the players
                 self.removeAllChildren()

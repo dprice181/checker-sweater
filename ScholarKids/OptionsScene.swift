@@ -86,7 +86,7 @@ class OptionsScene: SKScene {
         textAr1 = ["0","3","6","9","12"]
         textAr2 = []
         offY = -self.size.height*15.4/48
-        DrawOption(ind:2,text:"# Correct To Advance Level",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:30,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:0,removeAds:false,lock:false)
+        DrawOption(ind:2,text:"# Correct To Advance Level",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:30,fontColor:SKColor.red,boxColor:global.lightPink,boxColorSelected:SKColor.red,extraBoxWidth:-self.size.width/96,removeAds:false,lock:false)
         
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
         textAr2 = ["Unlocked","Unlocked","Unlocked","Unlocked"]
@@ -134,13 +134,13 @@ class OptionsScene: SKScene {
         var xPosInc = self.size.width/4
         var labOffY : CGFloat = 0.0
         if textAr1.count == 5 {
-            xPos = self.size.width/18
-            xPosInc = self.size.width/5
+            xPos = self.size.width/12
+            xPosInc = self.size.width/5 - self.size.width/70
             labOffY = -self.size.height*0.4/24
         }
         if textAr1.count == 4 {
-            xPos = self.size.width/12
-            xPosInc = self.size.width/4
+            xPos = self.size.width/10
+            xPosInc = self.size.width/4 - self.size.width/100
             labOffY = self.size.height*0.1/24
         }
         
@@ -244,14 +244,14 @@ class OptionsScene: SKScene {
         clickButton.position = CGPoint(x: self.size.width/2, y: offY)
         clickButton.zPosition = 100.0
         
-        clickButtonShadowAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:CGSize(width: widthText*1.3,height: self.size.height*4/48))))
+        clickButtonShadowAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.25,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:CGSize(width: widthText*1.25,height: self.size.height*4/48))))
         clickButtonShadowAr.last!.name = "sbshadow"
         clickButtonShadowAr.last!.fillColor = SKColor.black
         clickButtonShadowAr.last!.strokeColor = SKColor.black
         clickButtonShadowAr.last!.position = CGPoint(x:-2.5, y: 2.5)
         clickButton.addChild(clickButtonShadowAr.last!)
         
-        clickButtonAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.3,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:CGSize(width: widthText*1.3,height: self.size.height*4/48))))
+        clickButtonAr.append(SKShapeNode(rectOf: CGSize(width: widthText*1.25,height: self.size.height*4/48),cornerRadius: GetCornerSize(size:30.0,max:CGSize(width: widthText*1.25,height: self.size.height*4/48))))
         clickButtonAr.last!.name = "clickbutton" + String(i)
         clickButtonAr.last!.fillColor = SKColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         clickButtonAr.last!.strokeColor = global.blue
@@ -597,7 +597,8 @@ class OptionsScene: SKScene {
         }
     }
     
-    func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subject:String,node:SKNode,allSubjects:Bool) {
+    func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subject:String,
+                    node:SKNode,allSubjects:Bool) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
@@ -618,7 +619,6 @@ class OptionsScene: SKScene {
                     self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
                 }
             }
-            
         })
         UpdateOptions()  //put here since we can't access global function form inside lambda
         

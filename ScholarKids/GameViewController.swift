@@ -124,7 +124,7 @@ func WriteOptionsToFile() {
         let path = dir + "/" + file
         do {
             let fileText = global.optionAr.joined(separator: "*")
-            try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+            try fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
         }
         catch {
             print("File read error:", error)
@@ -174,7 +174,7 @@ func ReadOptionsFile() {
         do {
             //let fileText2 = "Music*1*Sound*0*Correct*3*Math*0*Grammar*0*Vocabulary*0*Spelling*0"
             //try! fileText2.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-            var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            var fileText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             global.optionAr = fileText.characters.split{$0 == "*"}.map(String.init)
         }
         catch {
@@ -847,7 +847,7 @@ func WriteResultsToFile() {
     if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
         let path = dir + "/" + file
         do {
-            var fileText = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            var fileText = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var lineAr = fileText.components(separatedBy: .newlines)
             if lineAr.count > 0 {
                 for i in 0..<lineAr.count {
@@ -880,7 +880,7 @@ func WriteResultsToFile() {
                 }
             }
             fileText = lineAr.joined(separator: "\n")
-            try! fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+            try fileText.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
         }
         catch {
             print("File read error:", error)
