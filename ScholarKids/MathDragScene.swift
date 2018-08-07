@@ -262,7 +262,7 @@ class MathDragScene: SKScene {
         labelFirstName.text = person1
         labelFirstName.fontSize = GetFontSize(size:30)
         labelFirstName.fontColor = SKColor.blue
-        labelFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*12.5/24)
+        labelFirstName.position = CGPoint(x: self.size.width/2, y: self.size.height*12.3/24)
         labelFirstName.zPosition = 100.0
         addChild(labelFirstName)
         let labelFirstNameShadow = CreateShadowLabel(label: labelFirstName,offset: GetFontSize(size:1))
@@ -356,7 +356,7 @@ class MathDragScene: SKScene {
         labelSecondName.text = global.currentStudent
         labelSecondName.fontSize = GetFontSize(size:30)
         labelSecondName.fontColor = SKColor.red
-        labelSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*7/24)
+        labelSecondName.position = CGPoint(x: self.size.width/2, y: self.size.height*6.8/24)
         labelSecondName.zPosition = 100.0
         addChild(labelSecondName)
         let labelSecondNameShadow = CreateShadowLabel(label: labelSecondName,offset: GetFontSize(size:1))

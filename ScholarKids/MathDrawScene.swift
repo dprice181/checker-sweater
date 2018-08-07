@@ -220,6 +220,19 @@ class MathDrawScene: SKScene {
                 if global.currentLevel > 1 {
                     return [Int(arc4random_uniform(10+global.currentLevel)),GetNumber(numDigit: 1)]
                 }
+                else {
+                    return [GetNumber(numDigit: 1),GetNumber(numDigit: 1)]
+                }
+            }
+            else if myOper == "-" {
+                var oper1 = Int(arc4random_uniform(UInt32(10 * global.currentLevel)))
+                var oper2 = GetNumber(numDigit: 1)
+                if oper1 < oper2 {
+                    let temp = oper1
+                    oper1 = oper2
+                    oper2 = temp
+                }
+                return [oper1,oper2]
             }
             return [GetNumber(numDigit: 1),GetNumber(numDigit: 1)]
         case "1":
@@ -249,7 +262,7 @@ class MathDrawScene: SKScene {
             var oper1 = 0
             var oper2 = 0
             if myOper == "X" {
-                if global.currentLevel > 5 {
+                if global.currentLevel > 9 {
                     oper1 = Int(arc4random_uniform(UInt32(5 + global.currentLevel)))
                     oper2 = GetNumber(numDigit: 1)
                 }
@@ -303,7 +316,7 @@ class MathDrawScene: SKScene {
                     oper2 = oper1 * Int(arc4random_uniform(UInt32(3*global.currentLevel)))
                 }
                 else {
-                    oper1 = Int(arc4random_uniform(UInt32(15 + 5*global.currentLevel)))
+                    oper1 = Int(arc4random_uniform(UInt32(8 + 5*global.currentLevel)))
                     oper2 = GetNumber(numDigit: 1)
                 }
             }

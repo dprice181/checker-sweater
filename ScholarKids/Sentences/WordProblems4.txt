@@ -1,4 +1,3 @@
-Student had \X items and \Z items2 and gave Alice \Y items and \W items2.  How many items and items2 did Student have left?#\Y#\W#\X-\Y#\Z-\W
 Alice had \X items and gave Student \Y.  How many items did Alice have left?#\X-\Y#\Y
 There are \A items.  Alice took \Y and Student took the rest.  How many did they take?#\Y#\A-\Y
 Alice had \X items and \Z items2 and gave Student \Y items and \W items2.  How many items and items2 did Alice have left?#\X-\Y#\Z-\W#\Y#\W
