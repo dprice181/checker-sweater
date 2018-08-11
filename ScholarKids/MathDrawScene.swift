@@ -397,12 +397,12 @@ class MathDrawScene: SKScene {
                 oper2 = Int(arc4random_uniform(UInt32(5 + 10*global.currentLevel)))
             }
             else if myOper == "-" {
-                oper1 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
-                oper2 = Int(arc4random_uniform(UInt32(40 + 60 * global.currentLevel)))
+                oper1 = Int(arc4random_uniform(UInt32(100 + 50 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(100 + 50 * global.currentLevel)))
             }
             else {  //"+"
-                oper1 = Int(arc4random_uniform(UInt32(50 + 100 * global.currentLevel)))
-                oper2 = Int(arc4random_uniform(UInt32(50 + 100 * global.currentLevel)))
+                oper1 = Int(arc4random_uniform(UInt32(150 + 60 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(150 + 60 * global.currentLevel)))
             }
             return [oper1,oper2]
         default:
@@ -508,13 +508,12 @@ class MathDrawScene: SKScene {
                 arg2 = arg1
                 arg1 = temp
             }
-//            arg1 = GetNumber(numDigit: 2)
-//            arg2 = GetNumber(numDigit: 2)
-//            if arg1 > arg2 {
-//                let temp = arg2
-//                arg2 = arg1
-//                arg1 = temp
-//            }
+            if arg2 < 1 {
+                arg2 = 1
+            }
+            if arg1 < 1 {
+                arg1 = 1
+            }
             correctAnswer = arg2 / arg1
             correctAnswerRemainder = arg2 % arg1
         }
@@ -567,7 +566,6 @@ class MathDrawScene: SKScene {
             offYSubmitClear = self.size.height/32
             yMult = 1.5 / global.heightWidthRat
         }
-        
         
         for i in 0..<5 {
             if i == 0 || i==4 {
@@ -624,11 +622,10 @@ class MathDrawScene: SKScene {
                 addChild(buttonShadowAr[i])
                 addChild(buttonLabelAr[i])
             }
-            
         }
-        buttonShadowAr[0].position = CGPoint(x: self.size.width*5.75/7 - GetFontSize(size:1.5), y: self.size.height*20.2/24 + GetFontSize(size:1.5))
-        buttonAr[0].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*20.2/24)
-        buttonLabelAr[0].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*20.2/24 - self.size.height/96)
+        buttonShadowAr[0].position = CGPoint(x: self.size.width*5.75/7 - GetFontSize(size:1.5), y: self.size.height*19.8/24 + GetFontSize(size:1.5))
+        buttonAr[0].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*19.8/24)
+        buttonLabelAr[0].position = CGPoint(x: self.size.width*5.75/7, y: self.size.height*19.8/24 - self.size.height/96)
         buttonLabelAr[0].text = "Wipe Screen"
         buttonShadowAr[1].position = CGPoint(x: self.size.width*8.7/10 - GetFontSize(size:1.5), y: self.size.height*10.3/24 + GetFontSize(size:1.5) + offYSubmitClear)
         buttonAr[1].position = CGPoint(x: self.size.width*8.7/10, y: self.size.height*10.3/24 + offYSubmitClear)
@@ -688,13 +685,13 @@ class MathDrawScene: SKScene {
             self.addChild(circle)
       
             if global.heightWidthRat < 1.5 {
-                circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:42)))
+                circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:45)))
             }
-            else if size.height < 375 {
-                circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:35)))
+            else if size.width < 375 {
+                circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:35.5)))
             }
             else {
-                circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:34)))
+                circleShadowAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:33.5)))
             }
             circleShadowAr[i-1].position = CGPoint(x:GetFontSize(size:-1.5)+size.width*0.135 + (size.width/5.4)*CGFloat((i-1)%5) ,y:GetFontSize(size:1.5)+size.height*(offY+4-secondRow)/24)
             circleShadowAr[i-1].name = "cirshadow" + String(i-1)
@@ -999,6 +996,10 @@ class MathDrawScene: SKScene {
         if ind == 2 { //Clear Answer
             labelAnswer.text = ""
             labelAnswerShadow.text = ""
+            buttonLabelAr[3].text = "Put -"
+            buttonLabelShadowAr[3].text = "Put -"
+            buttonLabelAr[4].text = "Add Remainder"
+            buttonLabelShadowAr[4].text = "Add Remainder"
         }
         if ind == 3 { //negative pressed
             PutNegativePressed()

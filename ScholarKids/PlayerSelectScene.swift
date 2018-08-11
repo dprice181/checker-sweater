@@ -60,13 +60,22 @@ class PlayerSelectScene: SKScene {
         }
         
         let labelTitle = SKLabelNode(fontNamed: "Arial")
-        labelTitle.text = "Select Or Create New Student"
-        labelTitle.fontSize = GetFontSize(size:25)
+        labelTitle.text = "Select Or Create"
+        labelTitle.fontSize = GetFontSize(size:30)
         labelTitle.fontColor = global.titleColor
-        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*19/24)
+        labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*21.5/24)
         labelTitle.zPosition = 100.0
         addChild(labelTitle)
         addChild(CreateShadowLabel(label: labelTitle,offset: GetFontSize(size:1)))
+        
+        let labelTitle2 = SKLabelNode(fontNamed: "Arial")
+        labelTitle2.text = "New Student"
+        labelTitle2.fontSize = GetFontSize(size:30)
+        labelTitle2.fontColor = global.titleColor
+        labelTitle2.position = CGPoint(x: self.size.width/2, y: self.size.height*20.5/24)
+        labelTitle2.zPosition = 100.0
+        addChild(labelTitle2)
+        addChild(CreateShadowLabel(label: labelTitle2,offset: GetFontSize(size:1)))
         
         
         let displayWidth = (size.width * 7.5 / 10) / 2
@@ -110,7 +119,7 @@ class PlayerSelectScene: SKScene {
             
             
             nodeDefinitionAr.append(SKNode())
-            nodeDefinitionAr[i].position = CGPoint(x: self.size.width/2, y: self.size.height*(16-2.2 * CGFloat(i))/24)
+            nodeDefinitionAr[i].position = CGPoint(x: self.size.width/2, y: self.size.height*(18-2.2 * CGFloat(i))/24)
             nodeDefinitionAr[i].zPosition = 100.0
             nodeDefinitionAr[i].name = "playerbox" + String(i)
             
@@ -239,7 +248,7 @@ class PlayerSelectScene: SKScene {
             let name = "New Student"
             
             nodeDefinitionAr.append(SKNode())
-            nodeDefinitionAr[i].position = CGPoint(x: self.size.width/2, y: self.size.height*(16-2.2 * CGFloat(i))/24)
+            nodeDefinitionAr[i].position = CGPoint(x: self.size.width/2, y: self.size.height*(18-2.2 * CGFloat(i))/24)
             nodeDefinitionAr[i].zPosition = 100.0
             nodeDefinitionAr[i].name = "playerbox" + String(i)
             
