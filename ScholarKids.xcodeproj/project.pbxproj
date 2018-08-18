@@ -51,6 +51,7 @@
 		0445EC5820DC07A5006098ED /* RedLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5720DC07A5006098ED /* RedLeft.png */; };
 		0445EC5B20DC7B73006098ED /* GoldStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5920DC7B73006098ED /* GoldStar.png */; };
 		0445EC5C20DC7B73006098ED /* BlackStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5A20DC7B73006098ED /* BlackStar.png */; };
+		0457EEEC21276BFC002AC892 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457EEEB21276BFB002AC892 /* IAPHandler.swift */; };
 		0459362E20C12080003D1A6B /* MathDrawScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459362D20C12080003D1A6B /* MathDrawScene.swift */; };
 		04635F36210EC4C300A320CC /* RedButtonBigShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04635F34210EC4C200A320CC /* RedButtonBigShadow.png */; };
 		04635F37210EC4C300A320CC /* RedButtonSmallShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04635F35210EC4C200A320CC /* RedButtonSmallShadow.png */; };
@@ -163,6 +164,7 @@
 		0445EC5720DC07A5006098ED /* RedLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedLeft.png; sourceTree = "<group>"; };
 		0445EC5920DC7B73006098ED /* GoldStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldStar.png; sourceTree = "<group>"; };
 		0445EC5A20DC7B73006098ED /* BlackStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackStar.png; sourceTree = "<group>"; };
+		0457EEEB21276BFB002AC892 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IAPHandler.swift; path = /Users/boojawitzmann/Projects/ScholarKids/ScholarKids/IAPHandler.swift; sourceTree = "<absolute>"; };
 		0459362D20C12080003D1A6B /* MathDrawScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathDrawScene.swift; sourceTree = "<group>"; };
 		04635F34210EC4C200A320CC /* RedButtonBigShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonBigShadow.png; sourceTree = "<group>"; };
 		04635F35210EC4C200A320CC /* RedButtonSmallShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonSmallShadow.png; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				04902DE220FD809C008B24CC /* CreditsScene.swift */,
 				840B92AD20B8C6FC001F8FA3 /* PlayerSelectScene.swift */,
 				840B92AF20B8C771001F8FA3 /* LevelSelectScene.swift */,
+				0457EEEB21276BFB002AC892 /* IAPHandler.swift */,
 				041354DA20F90E8100CC606D /* ProgressReportScene.swift */,
 				0459362D20C12080003D1A6B /* MathDrawScene.swift */,
 				04B22B0020D71C9700F3AA69 /* MathDragScene.swift */,
@@ -468,7 +471,7 @@
 				TargetAttributes = {
 					84004A7E20AF3C3100761FB6 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 79C8AE88Z7;
+						DevelopmentTeam = XQJSWX4B8F;
 						ProvisioningStyle = Automatic;
 					};
 					84004A9820AF3C3100761FB6 = {
@@ -609,6 +612,7 @@
 				04B22B0120D71C9700F3AA69 /* MathDragScene.swift in Sources */,
 				04902DE120FCFBCE008B24CC /* OptionsScene.swift in Sources */,
 				840B92AE20B8C6FC001F8FA3 /* PlayerSelectScene.swift in Sources */,
+				0457EEEC21276BFC002AC892 /* IAPHandler.swift in Sources */,
 				0437529220E2AE8000E791F0 /* VocabularyConnectScene.swift in Sources */,
 				84C36AC520B4DB7B00ED9C19 /* VocabularySelectScene.swift in Sources */,
 				84E8A4C920B3432800AF7C4C /* WordDragScene.swift in Sources */,
@@ -777,11 +781,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 79C8AE88Z7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQJSWX4B8F;
 				INFOPLIST_FILE = ScholarKids/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DougPersonal.ScholarKids;
+				PRODUCT_BUNDLE_IDENTIFIER = DougPrice.ScholarKids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -790,11 +797,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 79C8AE88Z7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQJSWX4B8F;
 				INFOPLIST_FILE = ScholarKids/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DougPersonal.ScholarKids;
+				PRODUCT_BUNDLE_IDENTIFIER = DougPrice.ScholarKids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

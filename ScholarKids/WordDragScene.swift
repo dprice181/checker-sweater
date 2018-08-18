@@ -567,21 +567,7 @@ class WordDragScene: SKScene {
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
-        if let labelNode = touchedNode as? SKLabelNode {
-            if labelNode.name == "word"  {
-                var correctAnswerSelected = false
-                for correctAnswer in correctAnswerAr {
-                    if labelNode == labelAr[correctAnswer] {
-                        CorrectAnswerSelected()
-                        correctAnswerSelected = true
-                    }
-                }
-                if (correctAnswerSelected == false) {
-                    IncorrectAnswerSelected()
-                }
-            }
-        }
-        else if let shapeNode = touchedNode as? SKNode {
+        if let shapeNode = touchedNode as? SKNode {
             if shapeNode.name?.contains("backbutton") != nil && (shapeNode.name?.contains("backbutton"))!  {
                 TransitionBackFromScene(myScene: self)
             }

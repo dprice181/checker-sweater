@@ -218,7 +218,7 @@ class MathDrawScene: SKScene {
         case "K":
             if myOper == "+" {
                 if global.currentLevel > 1 {
-                    return [Int(arc4random_uniform(10+global.currentLevel)),GetNumber(numDigit: 1)]
+                    return [Int(arc4random_uniform(7 + 2*global.currentLevel)),GetNumber(numDigit: 1)]
                 }
                 else {
                     return [GetNumber(numDigit: 1),GetNumber(numDigit: 1)]
@@ -254,7 +254,7 @@ class MathDrawScene: SKScene {
                 }
             }
             else {  //"+"
-                oper1 = Int(arc4random_uniform(UInt32(2 + 8 * global.currentLevel)))
+                oper1 = Int(arc4random_uniform(UInt32(3 + 7 * global.currentLevel)))
                 oper2 = Int(arc4random_uniform(UInt32(4 + 6 * global.currentLevel)))
             }
             return [oper1,oper2]
@@ -272,8 +272,8 @@ class MathDrawScene: SKScene {
                 }
             }
             else if myOper == "-" {
-                oper1 = Int(arc4random_uniform(UInt32(10 + 7 * global.currentLevel)))
-                oper2 = Int(arc4random_uniform(UInt32(10 + 7 * global.currentLevel)))
+                oper1 = Int(arc4random_uniform(UInt32(10 + 8 * global.currentLevel)))
+                oper2 = Int(arc4random_uniform(UInt32(10 + 8 * global.currentLevel)))
                 if oper1 < oper2 {
                     let temp = oper1
                     oper1 = oper2

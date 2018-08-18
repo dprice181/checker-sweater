@@ -609,12 +609,18 @@ class OptionsScene: SKScene {
                 global.optionAr[13] = "1" //Spelling
                 WriteOptionsToFile()
                 self.UnlockAllLevels()
+                
+                IAPHandler.shared.purchaseMyProduct(index: 0)
+                
                 self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
             }
             else {
                 if sectionInd > 0 {
                     global.optionAr[sectionInd*2+1] = "1"
                     WriteOptionsToFile()
+                    
+                    IAPHandler.shared.purchaseMyProduct(index: 0)
+                    
                     self.UnlockLevel(node:node)
                     self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
                 }

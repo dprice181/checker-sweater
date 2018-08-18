@@ -412,7 +412,6 @@ func InitLetterStrings() {
     global.letterStringsReplace.append(["cs","cks","x"])
     global.letterStringsReplace.append(["z","s","ss"])
     global.letterStringsReplace.append(["tch","sh","c"])
-
     
     global.letterStringsSingleFind.append("a")
     global.letterStringsSingleFind.append("b")
@@ -778,7 +777,6 @@ func DisplayLevelFinished(scene : SKScene) {
         }))
     }
     
-    
     var wrongProgressSound = SKAction.wait(forDuration: 0.001)
     var correctProgressSound = SKAction.wait(forDuration: 0.001)
     if correctAnswers > 0 {
@@ -836,9 +834,6 @@ func DisplayLevelFinished(scene : SKScene) {
                                        DrawLine(scene:scene,overlayNode:global.overlayNode,ratio:incorrectAnswers,yPos:-scene.size.height*6/48,color:SKColor.red)
                                         })
         ]))
-    
-    
-    
 }
 
 func WriteResultsToFile() {
@@ -896,6 +891,18 @@ class GameViewController: UIViewController, SKViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        IAPHandler.shared.fetchAvailableProducts()
+        IAPHandler.shared.purchaseStatusBlock = {[weak self] (type) in
+            guard let strongSelf = self else{ return }
+            if type == .purchased {
+                let alertView = UIAlertController(title: "Hello Purchase", message: type.message(), preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+                    
+                })
+                alertView.addAction(action)
+                strongSelf.present(alertView, animated: true, completion: nil)
+            }
+        }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)

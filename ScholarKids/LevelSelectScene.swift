@@ -547,6 +547,9 @@ class LevelSelectScene: SKScene {
                 let subject = self.subjectAr[subjectInd]
                 global.optionAr[sectionInd*2+1] = "1"
                 WriteOptionsToFile()
+                
+                IAPHandler.shared.purchaseMyProduct(index: 0)
+                
                 self.UnlockLevel(subjectInd:subjectInd,subject:subject)
                 self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subjectInd:subjectInd)
             }
