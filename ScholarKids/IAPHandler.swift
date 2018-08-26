@@ -1,11 +1,9 @@
 //
 //  IAPHandler.swift
 //
-//  Created by Dejan Atanasov on 13/07/2017.
-//  Copyright © 2017 Dejan Atanasov. All rights reserved.
-//
 import UIKit
 import StoreKit
+import SpriteKit
 
 enum IAPHandlerAlertType{
     case disabled
@@ -25,45 +23,62 @@ enum IAPHandlerAlertType{
 class IAPHandler: NSObject {
     static let shared = IAPHandler()
     
-    let NON_CONSUMABLE_PURCHASE_PRODUCT_ID = "ScholarKidsAllSubjectsUnlock"
-    
     fileprivate var productID = ""
     fileprivate var productsRequest = SKProductsRequest()
     fileprivate var iapProducts = [SKProduct]()
     
+    var param1 : Int = 0
+    var param2 : String = ""
+    var param3 : SKNode = SKNode()
+    var callbackFunc : ((Int,String,SKNode)->())? = nil
+    
+    let sectionIndDict = ["ScholarKidsAllSubjectsUnlock" : 0,"ScholarKidsMathUnlock":7,"ScholarKidsGrammarUnlock":9,
+                          "ScholarKidsVocabularyUnlock":11,"ScholarKidsSpellingUnlock":13]
+    
+    let productIDByIndex = ["ScholarKidsAllSubjectsUnlock","ScholarKidsMathUnlock","ScholarKidsGrammarUnlock",
+    "ScholarKidsVocabularyUnlock","ScholarKidsSpellingUnlock"]
     var purchaseStatusBlock: ((IAPHandlerAlertType) -> Void)?
     
-    // MARK: - MAKE PURCHASE OF A PRODUCT
     func canMakePurchases() -> Bool {  return SKPaymentQueue.canMakePayments()  }
     
-    func purchaseMyProduct(index: Int){
+    func purchaseMyProduct(index: Int,p1 : Int, p2 : String, p3 : SKNode,completion: @escaping (Int,String,SKNode)->()){
         if iapProducts.count == 0 { return }
         
+        param1 = p1
+        param2 = p2
+        param3 = p3
+        callbackFunc = completion
         if self.canMakePurchases() {
-            let product = iapProducts[index]
-            let payment = SKPayment(product: product)
-            SKPaymentQueue.default().add(self)
-            SKPaymentQueue.default().add(payment)
-            
-            print("PRODUCT TO PURCHASE: \(product.productIdentifier)")
-            productID = product.productIdentifier
+            if index < iapProducts.count {
+                let id = productIDByIndex[index]
+                var actualInd = 0
+                for prod in iapProducts {
+                    if prod.productIdentifier == id {
+                        break
+                    }
+                    actualInd = actualInd + 1
+                }
+                let product = iapProducts[actualInd]
+                let payment = SKPayment(product: product)
+                SKPaymentQueue.default().add(self)
+                SKPaymentQueue.default().add(payment)
+                
+                print("PRODUCT TO PURCHASE: \(product.productIdentifier)")
+                productID = product.productIdentifier
+            }
         } else {
             purchaseStatusBlock?(.disabled)
         }
     }
     
-    // MARK: - RESTORE PURCHASE
     func restorePurchase(){
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
-    
-    // MARK: - FETCH AVAILABLE IAP PRODUCTS
     func fetchAvailableProducts(){
-        
-        // Put here your IAP Products ID's
-        let productIdentifiers = NSSet(objects: NON_CONSUMABLE_PURCHASE_PRODUCT_ID)
+        let productIdentifiers = NSSet(objects: "ScholarKidsAllSubjectsUnlock","ScholarKidsMathUnlock","ScholarKidsGrammarUnlock",
+                                       "ScholarKidsVocabularyUnlock","ScholarKidsSpellingUnlock")
         
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
         productsRequest.delegate = self
@@ -72,9 +87,7 @@ class IAPHandler: NSObject {
 }
 
 extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
-    // MARK: - REQUEST IAP PRODUCTS
-    func productsRequest (_ request:SKProductsRequest, didReceive response:SKProductsResponse) {
-        
+    func productsRequest (_ request:SKProductsRequest, didReceive response:SKProductsResponse) {        
         if (response.products.count > 0) {
             iapProducts = response.products
             for product in iapProducts{
@@ -82,8 +95,8 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                 numberFormatter.formatterBehavior = .behavior10_4
                 numberFormatter.numberStyle = .currency
                 numberFormatter.locale = product.priceLocale
-                let price1Str = numberFormatter.string(from: product.price)
-                print(product.localizedDescription + "\nfor just \(price1Str!)")
+                //let price1Str = numberFormatter.string(from: product.price)
+                //print(product.localizedDescription + "\nfor just \(price1Str!)")
             }
         }
     }
@@ -92,27 +105,59 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
         purchaseStatusBlock?(.restored)
     }
     
-    // MARK:- IAP PAYMENT QUEUE
+    func UpdateMyOptions(payment: SKPayment) {
+        if let sectionInd = sectionIndDict[payment.productIdentifier] {
+            if sectionInd == 0 {
+                global.optionAr[7] = "1"  //Math
+                global.optionAr[9] = "1"
+                global.optionAr[11] = "1"
+                global.optionAr[13] = "1" //Spelling
+            }
+            else {
+                global.optionAr[sectionInd] = "1"
+            }
+            UpdateOptions()
+            WriteOptionsToFile()
+            
+        }
+    }
+    
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction:AnyObject in transactions {
             if let trans = transaction as? SKPaymentTransaction {
+                let payment = trans.payment
+                print ("payment id=",payment.productIdentifier)
+                print ("transstate=",trans.transactionState)
+                print("name=",global.currentStudent)
                 switch trans.transactionState {
                 case .purchased:
                     print("purchased")
+                    print ("xpayment id=",payment.productIdentifier)
+                    if let funccall = callbackFunc {
+                        funccall(param1,param2,param3)
+                    }
+                    UpdateMyOptions(payment:payment)
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    
                     purchaseStatusBlock?(.purchased)
                     break
-                    
                 case .failed:
                     print("failed")
+                    print ("xxpayment id=",payment.productIdentifier)
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     break
                 case .restored:
                     print("restored")
+                    print ("xxxpayment id=",payment.productIdentifier)
+                    if let funccall = callbackFunc {
+                        funccall(param1,param2,param3)
+                    }
+                    UpdateMyOptions(payment:payment)
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     break
-                    
                 default: break
-                }}}
+                }
+            }
+        }
     }
 }

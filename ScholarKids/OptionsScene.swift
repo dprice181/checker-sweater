@@ -115,19 +115,19 @@ class OptionsScene: SKScene {
         let labelShadow = CreateShadowLabel(label: label,offset: GetFontSize(size:1))
         fullLabel.addChild(labelShadow)
         
-        if removeAds {
-            let label2 = SKLabelNode(fontNamed: "Arial")
-            label2.text = "(Any Purchase Removes All Ads)"
-            label2.fontSize = GetFontSize(size:fontSize-2)
-            label2.fontColor = fontColor
-            label2.horizontalAlignmentMode = .left
-            label2.position = CGPoint(x:0,y:-self.size.height*2/48)
-            myOffY = myOffY - self.size.height*2/48
-            label2.zPosition = 100.0
-            fullLabel.addChild(label2)
-            let label2Shadow = CreateShadowLabel(label: label2,offset: GetFontSize(size:1))
-            fullLabel.addChild(label2Shadow)
-        }
+//        if removeAds {
+//            let label2 = SKLabelNode(fontNamed: "Arial")
+//            label2.text = "(Any Purchase Removes All Ads)"
+//            label2.fontSize = GetFontSize(size:fontSize-2)
+//            label2.fontColor = fontColor
+//            label2.horizontalAlignmentMode = .left
+//            label2.position = CGPoint(x:0,y:-self.size.height*2/48)
+//            myOffY = myOffY - self.size.height*2/48
+//            label2.zPosition = 100.0
+//            fullLabel.addChild(label2)
+//            let label2Shadow = CreateShadowLabel(label: label2,offset: GetFontSize(size:1))
+//            fullLabel.addChild(label2Shadow)
+//        }
         addChild(fullLabel)
         
         var xPos = self.size.width/5
@@ -486,10 +486,50 @@ class OptionsScene: SKScene {
                 playSound = SKAction.wait(forDuration: 0.0001)
             }
             self.run(SKAction.sequence([playSound]))
-            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all " + String(global.maxLevels) + " levels of all subjects for 2.99?  This will also remove all ads!",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
+//            global.optionAr[7] = "1"  //Math
+//            global.optionAr[9] = "1"
+//            global.optionAr[11] = "1"
+//            global.optionAr[13] = "1" //Spelling
+//            WriteOptionsToFile()
+//            self.UnlockAllLevels()
+            
+            
+            IAPHandler.shared.purchaseMyProduct(index: 0,p1:0,p2:"",p3:SKNode(),completion:{_,_,_ in self.UnlockAllLevels()} )
+            
+//            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all " + String(global.maxLevels) + " levels of all subjects for 2.99?  This will also remove all ads!",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
         }
         if buttonNode.name?.contains("clickbutton2") != nil && (buttonNode.name?.contains("clickbutton2"))!  {
             TransitionSceneCredits()
+        }
+    }
+    
+    func UnlockLevel(node: SKNode) {
+        if let parentNode = node.parent {
+            for child in parentNode.children {
+                if let lockNode = child as? SKSpriteNode {
+                    for lock in lockAr {
+                        if lock.name == lockNode.name {
+                            lockNode.removeFromParent()
+                        }
+                    }
+                }
+                if let box = child as? SKShapeNode {
+                    box.strokeColor = global.realPurple
+                }
+                if let label = child as? SKLabelNode {
+                    if label.name?.contains("secondoptionbutton") != nil && (label.name?.contains("secondoptionbutton"))! {
+                        label.fontColor = global.realPurple
+                        label.isHidden = false
+                    }
+                    else if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
+                        label.fontColor = global.realPurple
+                    }
+                    else {  //shadow label
+                        label.fontColor = SKColor.black
+                        label.isHidden = false
+                    }
+                }
+            }
         }
     }
     
@@ -521,8 +561,10 @@ class OptionsScene: SKScene {
                             playSound = SKAction.wait(forDuration: 0.0001)
                         }
                         self.run(SKAction.sequence([playSound]))
-                        MessageBox(title:"Unlock " + subject,message:"Would you like to unlock all " + String(global.maxLevels)
-                            + " levels in " + subject + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:sectionInd,subject:subject,node:node,allSubjects:false)
+                        IAPHandler.shared.purchaseMyProduct(index: optionIndInt+1,p1:0,p2:"",p3:node,completion: {_,_,node in self.UnlockLevel(node:node)})
+                        //self.UnlockLevel(node:node)
+//                        MessageBox(title:"Unlock " + subject,message:"Would you like to unlock all " + String(global.maxLevels)
+//                            + " levels in " + subject + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:sectionInd,subject:subject,node:node,allSubjects:false)
                     }
                     else {  //already unlocked
                         var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
@@ -536,8 +578,8 @@ class OptionsScene: SKScene {
             }
         }
         
-        UpdateOptions()
-        WriteOptionsToFile()
+        //UpdateOptions()
+        //WriteOptionsToFile()
     }
     
     func UnlockAllLevels() {
@@ -567,67 +609,37 @@ class OptionsScene: SKScene {
         }
     }
     
-    func UnlockLevel(node:SKNode) {
-        if let parentNode = node.parent {
-            for child in parentNode.children {
-                if let lockNode = child as? SKSpriteNode {
-                    for lock in lockAr {
-                        if lock.name == child.name {
-                            child.removeFromParent()
-                        }
-                    }
-                }
-                if let box = child as? SKShapeNode {
-                    box.strokeColor = global.realPurple
-                }
-                if let label = child as? SKLabelNode {
-                    if label.name?.contains("secondoptionbutton") != nil && (label.name?.contains("secondoptionbutton"))! {
-                        label.fontColor = global.realPurple
-                        label.isHidden = false
-                    }
-                    else if label.name?.contains("optionbutton") != nil && (label.name?.contains("optionbutton"))! {
-                        label.fontColor = global.realPurple
-                    }
-                    else {  //shadow label
-                        label.fontColor = SKColor.black
-                        label.isHidden = false
-                    }
-                }
-            }
-        }
-    }
-    
     func MessageBox(title:String,message:String,cancelButton:Bool,sectionInd:Int,subject:String,
                     node:SKNode,allSubjects:Bool) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             if allSubjects {
-                global.optionAr[7] = "1"  //Math
-                global.optionAr[9] = "1"
-                global.optionAr[11] = "1"
-                global.optionAr[13] = "1" //Spelling
-                WriteOptionsToFile()
-                self.UnlockAllLevels()
-                
-                IAPHandler.shared.purchaseMyProduct(index: 0)
-                
-                self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
+//                global.optionAr[7] = "1"  //Math
+//                global.optionAr[9] = "1"
+//                global.optionAr[11] = "1"
+//                global.optionAr[13] = "1" //Spelling
+//                WriteOptionsToFile()
+//                self.UnlockAllLevels()
+
+                IAPHandler.shared.purchaseMyProduct(index: 0,p1:0,p2:"",p3:SKNode(),completion: {_,_,_  in self.UnlockAllLevels()})
+
+//                self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
             }
             else {
                 if sectionInd > 0 {
                     global.optionAr[sectionInd*2+1] = "1"
                     WriteOptionsToFile()
-                    
-                    IAPHandler.shared.purchaseMyProduct(index: 0)
-                    
-                    self.UnlockLevel(node:node)
+
+                    IAPHandler.shared.purchaseMyProduct(index: sectionInd,p1:0,p2:"",p3:node,completion: {_,_,node in self.UnlockLevel(node:node)})
+
+                    //self.UnlockLevel(node:node)
                     self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
                 }
             }
         })
         UpdateOptions()  //put here since we can't access global function form inside lambda
-        
+
         dialogMessage.addAction(ok)
         if cancelButton {
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) -> Void in

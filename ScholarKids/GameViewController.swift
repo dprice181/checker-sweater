@@ -53,6 +53,7 @@ class Global {
     var maxLevels = 25
     var musicStarted = false
     var heightWidthRat : CGFloat = 0
+    var initLevelsUnlocked = 2
 }
 
 let global = Global()
@@ -645,7 +646,7 @@ func DisplayLevelFinished(scene : SKScene) {
     }
     else if correctAnswers >= global.minimumCorrectToUnlock {
         let labelComplete2 = SKLabelNode(fontNamed: "Arial")
-        labelComplete2.text = "You unlocked the next level!"
+        labelComplete2.text = "You advanced to the next level!"
         labelComplete2.fontSize = GetFontSize(size:20)
         labelComplete2.fontColor = global.purple
         labelComplete2.position = CGPoint(x: 0, y: scene.size.height*1.5/24)
@@ -668,7 +669,7 @@ func DisplayLevelFinished(scene : SKScene) {
         global.overlayNode.addChild(shadowComplete2)
         
         let labelComplete3 = SKLabelNode(fontNamed: "Arial")
-        labelComplete3.text = "to unlock the next level"
+        labelComplete3.text = "to advnace to the next level"
         labelComplete3.fontSize = GetFontSize(size:16)
         labelComplete3.fontColor = global.purple
         labelComplete3.position = CGPoint(x: 0, y: scene.size.height*1.3/24)
@@ -738,7 +739,21 @@ func DisplayLevelFinished(scene : SKScene) {
     let shadowRetry = CreateShadowLabel(label: labelRetry,offset: 0.6)
     global.overlayNode.addChild(shadowRetry)
     
-    if correctAnswers >= global.minimumCorrectToUnlock && global.currentLevel != global.maxLevels {
+    var unlockedLevel = global.initLevelsUnlocked
+    if global.sceneType == "Math" {
+        if global.mathUnlocked == 1 {unlockedLevel = global.maxLevels}
+    }
+    if global.sceneType == "Vocabulary" {
+        if global.vocabularyUnlocked == 1 {unlockedLevel = global.maxLevels}
+    }
+    if global.sceneType == "Spelling" {
+        if global.spellingUnlocked == 1 {unlockedLevel = global.maxLevels}
+    }
+    if global.sceneType == "Grammar" {
+        if global.grammarUnlocked == 1 {unlockedLevel = global.maxLevels}
+    }
+    if correctAnswers >= global.minimumCorrectToUnlock && global.currentLevel != global.maxLevels
+        && global.currentLevel < unlockedLevel {
         let next = SKSpriteNode(imageNamed: "next.png")
         next.name = "next"
         next.position = CGPoint(x: scene.size.width/5, y: -scene.size.height*5/24)
@@ -895,12 +910,14 @@ class GameViewController: UIViewController, SKViewDelegate {
         IAPHandler.shared.purchaseStatusBlock = {[weak self] (type) in
             guard let strongSelf = self else{ return }
             if type == .purchased {
-                let alertView = UIAlertController(title: "Hello Purchase", message: type.message(), preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
-                    
-                })
-                alertView.addAction(action)
-                strongSelf.present(alertView, animated: true, completion: nil)
+                
+                
+//                let alertView = UIAlertController(title: "Hello Purchase", message: type.message(), preferredStyle: .alert)
+//                let action = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+//
+//                })
+//                alertView.addAction(action)
+//                strongSelf.present(alertView, animated: true, completion: nil)
             }
         }
         

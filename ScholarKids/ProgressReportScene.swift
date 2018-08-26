@@ -49,9 +49,15 @@ class ProgressReportScene: SKScene {
         var i = 0
         var offX : CGFloat = 0.0
         for valString in data {
-            if let value = Int(valString) {
+            if var value = Int(valString) {
                 if value < 0 {
-                    continue
+                    if data.count == 1 {
+                        continue
+                    }
+                    else {
+                        //special case, they skipped the first level, so just draw it as a 0
+                        value = 0
+                    }
                 }
                 let offY : CGFloat = graphWindowHeight * CGFloat(value) / 12
                 if i == 0 {

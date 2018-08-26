@@ -5,9 +5,6 @@
       location = "container:"
       name = "New Group">
       <FileRef
-         location = "group:/Users/boojawitzmann/Projects/ScholarKids/ScholarKids/IAPHandler.swift">
-      </FileRef>
-      <FileRef
          location = "self:">
       </FileRef>
    </Group>

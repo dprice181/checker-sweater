@@ -863,6 +863,7 @@ class MathDrawScene: SKScene {
                     TransitionScene(playSound:playSound,duration:0.0)
                 }
                 if shapeNode.name?.contains("next") != nil && (shapeNode.name?.contains("next"))!  {
+                    shapeNode.name?.contains("next") != nil
                     global.currentLevel = global.currentLevel + 1
                     global.currentSentenceNum = 12 * (global.currentLevel-1)
                     var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)

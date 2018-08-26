@@ -563,7 +563,7 @@ class WordDragScene: SKScene {
             return
         }
 
-        selectedNode = SKSpriteNode()   //FIX
+        selectedNode = SKSpriteNode()   
         
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)

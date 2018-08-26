@@ -228,18 +228,19 @@ class LevelSelectScene: SKScene {
                             //spelling
                             var data = playerDataAr[5].characters.split{$0 == " "}.map(String.init)
                             if data.count > 0 {
-                                var levelUnlocked = 1
-                                if data[0] == "-1" {
-                                    levelUnlocked = 1
-                                }
-                                else {
-                                    levelUnlocked = data.count
-                                    if let val = Int(data[data.count-1]) {
-                                        if val >= global.minimumCorrectToUnlock {
-                                            levelUnlocked = data.count + 1
-                                        }
-                                    }
-                                }
+                                var levelUnlocked = global.initLevelsUnlocked
+                                
+//                                if data[0] == "-1" {
+//                                    levelUnlocked = 2
+//                                }
+//                                else {
+//                                    levelUnlocked = data.count
+//                                    if let val = Int(data[data.count-1]) {
+//                                        if val >= global.minimumCorrectToUnlock {
+//                                            levelUnlocked = data.count + 1
+//                                        }
+//                                    }
+//                                }
                                 recommendedLevel["Spelling"] = 0
                                 for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
@@ -263,18 +264,18 @@ class LevelSelectScene: SKScene {
                             //vocabulary
                             data = playerDataAr[4].characters.split{$0 == " "}.map(String.init)
                             if data.count > 0 {
-                                var levelUnlocked = 1
-                                if data[0] == "-1" {
-                                    levelUnlocked = 1
-                                }
-                                else {
-                                    levelUnlocked = data.count
-                                    if let val = Int(data[data.count-1]) {
-                                        if val >= global.minimumCorrectToUnlock {
-                                            levelUnlocked = data.count + 1
-                                        }
-                                    }
-                                }
+                                var levelUnlocked = global.initLevelsUnlocked
+//                                if data[0] == "-1" {
+//                                    levelUnlocked = 2
+//                                }
+//                                else {
+//                                    levelUnlocked = data.count
+//                                    if let val = Int(data[data.count-1]) {
+//                                        if val >= global.minimumCorrectToUnlock {
+//                                            levelUnlocked = data.count + 1
+//                                        }
+//                                    }
+//                                }
                                 recommendedLevel["Vocabulary"] = 0
                                 for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
@@ -298,18 +299,18 @@ class LevelSelectScene: SKScene {
                             //grammar
                             data = playerDataAr[3].characters.split{$0 == " "}.map(String.init)
                             if data.count > 0 {
-                                var levelUnlocked = 1
-                                if data[0] == "-1" {
-                                    levelUnlocked = 1
-                                }
-                                else {
-                                    levelUnlocked = data.count
-                                    if let val = Int(data[data.count-1]) {
-                                        if val >= global.minimumCorrectToUnlock {
-                                            levelUnlocked = data.count + 1
-                                        }
-                                    }
-                                }
+                                var levelUnlocked = global.initLevelsUnlocked
+//                                if data[0] == "-1" {
+//                                    levelUnlocked = 2
+//                                }
+//                                else {
+//                                    levelUnlocked = data.count
+//                                    if let val = Int(data[data.count-1]) {
+//                                        if val >= global.minimumCorrectToUnlock {
+//                                            levelUnlocked = data.count + 1
+//                                        }
+//                                    }
+//                                }
                                 recommendedLevel["Grammar"] = 0
                                 for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
@@ -333,18 +334,18 @@ class LevelSelectScene: SKScene {
                             //math
                             data = playerDataAr[2].characters.split{$0 == " "}.map(String.init)
                             if data.count > 0 {
-                                var levelUnlocked = 1
-                                if data[0] == "-1" {
-                                    levelUnlocked = 1
-                                }
-                                else {
-                                    levelUnlocked = data.count
-                                    if let val = Int(data[data.count-1]) {
-                                        if val >= global.minimumCorrectToUnlock {
-                                            levelUnlocked = data.count + 1
-                                        }
-                                    }
-                                }
+                                var levelUnlocked = global.initLevelsUnlocked
+//                                if data[0] == "-1" {
+//                                    levelUnlocked = 2
+//                                }
+//                                else {
+//                                    levelUnlocked = data.count
+//                                    if let val = Int(data[data.count-1]) {
+//                                        if val >= global.minimumCorrectToUnlock {
+//                                            levelUnlocked = data.count + 1
+//                                        }
+//                                    }
+//                                }
                                 recommendedLevel["Math"] = 0
                                 for i in stride(from: data.count-1, to: -1, by: -1) {
                                     if let val = Int(data[i]) {
@@ -462,8 +463,11 @@ class LevelSelectScene: SKScene {
                                                     playSound = SKAction.wait(forDuration: 0.0001)
                                                 }
                                                 self.run(SKAction.sequence([playSound]))
-                                                MessageBox(title:"Unlock " + subjectAr[ind3],message:"Would you like to unlock all " + String(global.maxLevels)
-                                                    + " levels in " + subjectAr[ind3] + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:ind3+3,subjectInd:ind3)
+                                                let subject = subjectAr[ind3]
+                                                IAPHandler.shared.purchaseMyProduct(index: ind3+1,p1:ind3,p2:subject,p3:SKNode(),
+                                                                                    completion: {ind3,subject,_   in self.UnlockLevel(subjectInd:ind3, subject:subject )})
+//                                                MessageBox(title:"Unlock " + subjectAr[ind3],message:"Would you like to unlock all " + String(global.maxLevels)
+//                                                    + " levels in " + subjectAr[ind3] + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:ind3+3,subjectInd:ind3)
                                             }
                                         }
                                     }
@@ -548,9 +552,9 @@ class LevelSelectScene: SKScene {
                 global.optionAr[sectionInd*2+1] = "1"
                 WriteOptionsToFile()
                 
-                IAPHandler.shared.purchaseMyProduct(index: 0)
+                IAPHandler.shared.purchaseMyProduct(index: 0,p1:subjectInd,p2:subject,p3:SKNode(),completion: {subjectInd,subject,_   in self.UnlockLevel(subjectInd:subjectInd, subject:subject )})
                 
-                self.UnlockLevel(subjectInd:subjectInd,subject:subject)
+                //self.UnlockLevel(subjectInd:subjectInd,subject:subject)
                 self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subjectInd:subjectInd)
             }
         })
