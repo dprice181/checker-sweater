@@ -34,7 +34,6 @@
 		0437527A20E1C72400E791F0 /* LevelCompleted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0437527920E1C72400E791F0 /* LevelCompleted.wav */; };
 		0437527D20E1CAE800E791F0 /* WrongProgress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0437527B20E1CAE800E791F0 /* WrongProgress.wav */; };
 		0437527E20E1CAE800E791F0 /* CorrectProgress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0437527C20E1CAE800E791F0 /* CorrectProgress.wav */; };
-		0437529220E2AE8000E791F0 /* VocabularyConnectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437529120E2AE7F00E791F0 /* VocabularyConnectScene.swift */; };
 		0437529E20E4560400E791F0 /* Vocabulary3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529520E4560400E791F0 /* Vocabulary3.txt */; };
 		0437529F20E4560400E791F0 /* Vocabulary7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529620E4560400E791F0 /* Vocabulary7.txt */; };
 		043752A020E4560400E791F0 /* Vocabulary4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0437529720E4560400E791F0 /* Vocabulary4.txt */; };
@@ -51,7 +50,6 @@
 		0445EC5820DC07A5006098ED /* RedLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5720DC07A5006098ED /* RedLeft.png */; };
 		0445EC5B20DC7B73006098ED /* GoldStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5920DC7B73006098ED /* GoldStar.png */; };
 		0445EC5C20DC7B73006098ED /* BlackStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445EC5A20DC7B73006098ED /* BlackStar.png */; };
-		0457EEEC21276BFC002AC892 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457EEEB21276BFB002AC892 /* IAPHandler.swift */; };
 		0459362E20C12080003D1A6B /* MathDrawScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459362D20C12080003D1A6B /* MathDrawScene.swift */; };
 		04635F36210EC4C300A320CC /* RedButtonBigShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04635F34210EC4C200A320CC /* RedButtonBigShadow.png */; };
 		04635F37210EC4C300A320CC /* RedButtonSmallShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04635F35210EC4C200A320CC /* RedButtonSmallShadow.png */; };
@@ -83,6 +81,8 @@
 		04B22B0B20DB6E0E00F3AA69 /* GoldButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0520DB6E0E00F3AA69 /* GoldButton.png */; };
 		04B22B0D20DB6E0E00F3AA69 /* RedButtonBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0720DB6E0E00F3AA69 /* RedButtonBig.png */; };
 		04B22B0F20DB6EC200F3AA69 /* SilverButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0E20DB6EC200F3AA69 /* SilverButton.png */; };
+		786E54002384E2420050FA55 /* VocabularyConnectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E53FE2384E2420050FA55 /* VocabularyConnectScene.swift */; };
+		786E54012384E2420050FA55 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E53FF2384E2420050FA55 /* IAPHandler.swift */; };
 		84004A8320AF3C3100761FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84004A8220AF3C3100761FB6 /* AppDelegate.swift */; };
 		84004A8520AF3C3100761FB6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84004A8420AF3C3100761FB6 /* GameScene.sks */; };
 		84004A8720AF3C3100761FB6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84004A8620AF3C3100761FB6 /* Actions.sks */; };
@@ -147,7 +147,6 @@
 		0437527920E1C72400E791F0 /* LevelCompleted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LevelCompleted.wav; sourceTree = "<group>"; };
 		0437527B20E1CAE800E791F0 /* WrongProgress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = WrongProgress.wav; sourceTree = "<group>"; };
 		0437527C20E1CAE800E791F0 /* CorrectProgress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CorrectProgress.wav; sourceTree = "<group>"; };
-		0437529120E2AE7F00E791F0 /* VocabularyConnectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VocabularyConnectScene.swift; path = /Users/boojawitzmann/Projects/ScholarKids/ScholarKids/VocabularyConnectScene.swift; sourceTree = "<absolute>"; };
 		0437529520E4560400E791F0 /* Vocabulary3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary3.txt; path = ScholarKids/Sentences/Vocabulary3.txt; sourceTree = SOURCE_ROOT; };
 		0437529620E4560400E791F0 /* Vocabulary7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary7.txt; path = ScholarKids/Sentences/Vocabulary7.txt; sourceTree = SOURCE_ROOT; };
 		0437529720E4560400E791F0 /* Vocabulary4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Vocabulary4.txt; path = ScholarKids/Sentences/Vocabulary4.txt; sourceTree = SOURCE_ROOT; };
@@ -164,7 +163,6 @@
 		0445EC5720DC07A5006098ED /* RedLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedLeft.png; sourceTree = "<group>"; };
 		0445EC5920DC7B73006098ED /* GoldStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldStar.png; sourceTree = "<group>"; };
 		0445EC5A20DC7B73006098ED /* BlackStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackStar.png; sourceTree = "<group>"; };
-		0457EEEB21276BFB002AC892 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IAPHandler.swift; path = /Users/boojawitzmann/Projects/ScholarKids/ScholarKids/IAPHandler.swift; sourceTree = "<absolute>"; };
 		0459362D20C12080003D1A6B /* MathDrawScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathDrawScene.swift; sourceTree = "<group>"; };
 		04635F34210EC4C200A320CC /* RedButtonBigShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonBigShadow.png; sourceTree = "<group>"; };
 		04635F35210EC4C200A320CC /* RedButtonSmallShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonSmallShadow.png; sourceTree = "<group>"; };
@@ -196,6 +194,8 @@
 		04B22B0520DB6E0E00F3AA69 /* GoldButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldButton.png; sourceTree = "<group>"; };
 		04B22B0720DB6E0E00F3AA69 /* RedButtonBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButtonBig.png; sourceTree = "<group>"; };
 		04B22B0E20DB6EC200F3AA69 /* SilverButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SilverButton.png; sourceTree = "<group>"; };
+		786E53FE2384E2420050FA55 /* VocabularyConnectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabularyConnectScene.swift; sourceTree = "<group>"; };
+		786E53FF2384E2420050FA55 /* IAPHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		84004A7F20AF3C3100761FB6 /* ScholarKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScholarKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84004A8220AF3C3100761FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84004A8420AF3C3100761FB6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -267,6 +267,8 @@
 		84004A8120AF3C3100761FB6 /* ScholarKids */ = {
 			isa = PBXGroup;
 			children = (
+				786E53FF2384E2420050FA55 /* IAPHandler.swift */,
+				786E53FE2384E2420050FA55 /* VocabularyConnectScene.swift */,
 				84004A8A20AF3C3100761FB6 /* GameViewController.swift */,
 				84004A8820AF3C3100761FB6 /* GameScene.swift */,
 				8400BBD920B7939F0040CC24 /* TitleScene.swift */,
@@ -274,14 +276,12 @@
 				04902DE220FD809C008B24CC /* CreditsScene.swift */,
 				840B92AD20B8C6FC001F8FA3 /* PlayerSelectScene.swift */,
 				840B92AF20B8C771001F8FA3 /* LevelSelectScene.swift */,
-				0457EEEB21276BFB002AC892 /* IAPHandler.swift */,
 				041354DA20F90E8100CC606D /* ProgressReportScene.swift */,
 				0459362D20C12080003D1A6B /* MathDrawScene.swift */,
 				04B22B0020D71C9700F3AA69 /* MathDragScene.swift */,
 				84A6950F20B0EAEC00D5E212 /* WordSelectScene.swift */,
 				84E8A4C820B3432800AF7C4C /* WordDragScene.swift */,
 				84C36AC420B4DB7B00ED9C19 /* VocabularySelectScene.swift */,
-				0437529120E2AE7F00E791F0 /* VocabularyConnectScene.swift */,
 				040379E121040D4B0005B965 /* SpellingDragScene.swift */,
 				84004A8C20AF3C3100761FB6 /* Main.storyboard */,
 				84004A8220AF3C3100761FB6 /* AppDelegate.swift */,
@@ -472,15 +472,18 @@
 					84004A7E20AF3C3100761FB6 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = XQJSWX4B8F;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					84004A9820AF3C3100761FB6 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 84004A7E20AF3C3100761FB6;
 					};
 					84004AA320AF3C3100761FB6 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 84004A7E20AF3C3100761FB6;
 					};
@@ -612,12 +615,12 @@
 				04B22B0120D71C9700F3AA69 /* MathDragScene.swift in Sources */,
 				04902DE120FCFBCE008B24CC /* OptionsScene.swift in Sources */,
 				840B92AE20B8C6FC001F8FA3 /* PlayerSelectScene.swift in Sources */,
-				0457EEEC21276BFC002AC892 /* IAPHandler.swift in Sources */,
-				0437529220E2AE8000E791F0 /* VocabularyConnectScene.swift in Sources */,
+				786E54012384E2420050FA55 /* IAPHandler.swift in Sources */,
 				84C36AC520B4DB7B00ED9C19 /* VocabularySelectScene.swift in Sources */,
 				84E8A4C920B3432800AF7C4C /* WordDragScene.swift in Sources */,
 				84004A8920AF3C3100761FB6 /* GameScene.swift in Sources */,
 				8400BBDA20B7939F0040CC24 /* TitleScene.swift in Sources */,
+				786E54002384E2420050FA55 /* VocabularyConnectScene.swift in Sources */,
 				84004A8B20AF3C3100761FB6 /* GameViewController.swift in Sources */,
 				84A6951020B0EAEC00D5E212 /* WordSelectScene.swift in Sources */,
 				0459362E20C12080003D1A6B /* MathDrawScene.swift in Sources */,
@@ -789,7 +792,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DougPrice.ScholarKids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -805,7 +809,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DougPrice.ScholarKids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -818,7 +823,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DougPersonal.ScholarKidsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScholarKids.app/ScholarKids";
 			};
 			name = Debug;
@@ -832,7 +838,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DougPersonal.ScholarKidsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScholarKids.app/ScholarKids";
 			};
 			name = Release;
@@ -845,7 +852,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DougPersonal.ScholarKidsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = ScholarKids;
 			};
 			name = Debug;
@@ -858,7 +866,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DougPersonal.ScholarKidsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = ScholarKids;
 			};
 			name = Release;

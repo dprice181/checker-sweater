@@ -103,11 +103,11 @@ class SpellingDragScene: SKScene {
         let wordFirstPart = GetFirstPartOfWord(word:spellingWordMissingPart)
         
         let myWord: NSString = spellingWordMissingPart as NSString
-        let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+        let sizeWord: CGSize = myWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
         let widthWord = sizeWord.width
         
         let myWordFirst: NSString = wordFirstPart as NSString
-        let sizeWordFirst: CGSize = myWordFirst.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+        let sizeWordFirst: CGSize = myWordFirst.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
         let widthWordFirst = sizeWordFirst.width
         let offX =  -widthWord/2 + widthWordFirst
         
@@ -132,7 +132,7 @@ class SpellingDragScene: SKScene {
         answerBoxNode.physicsBody?.usesPreciseCollisionDetection = true
         
         let myUnderline: NSString = underlineString as NSString
-        let sizeUnderline: CGSize = myUnderline.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE+5))])
+        let sizeUnderline: CGSize = myUnderline.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE+5))]))
         let sizeBox = CGSize(width:sizeUnderline.width,height:sizeUnderline.height*0.75)
         var cornerSize :CGFloat = 20
         if global.heightWidthRat < 1.5 {
@@ -255,7 +255,7 @@ class SpellingDragScene: SKScene {
         for n in 0...2 {
             var correctWord = spellingPartsRandomAr[n]
             let myWord: NSString = correctWord + "    " as NSString
-            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE))])
+            var sizeWordChoice: CGSize = myWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE))]))
             sizeWordChoice.width = sizeWordChoice.width * 1.6
             sizeWordChoice.height = sizeWordChoice.height * 2.0
             
@@ -650,3 +650,14 @@ extension SpellingDragScene : SKPhysicsContactDelegate {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}

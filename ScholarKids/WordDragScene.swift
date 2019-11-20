@@ -82,19 +82,19 @@ class WordDragScene: SKScene {
             i = i + 1
         }
         let mySentence: NSString = modSentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+        let sizeSentence: CGSize = mySentence.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
         let widthSentence = sizeSentence.width + sizeBox.width*5/4
         return widthSentence
     }
     
     func DrawSentence() {
         let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+        let sizeSentence: CGSize = mySentence.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
         var widthSentence = sizeSentence.width
         
         let space = "  "
         let mySpace: NSString = space as NSString
-        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+        let sizeSpace: CGSize = mySpace.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
         let widthSpace = sizeSpace.width
         
         let sizeBox = CGSize(width:size.width/6,height:sizeSentence.height)  //make box standard size
@@ -114,7 +114,7 @@ class WordDragScene: SKScene {
         for var word in wordAr {
             word = word + "   "
             let myWord: NSString = word as NSString
-            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+            let sizeWord: CGSize = myWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
             var widthWord = sizeWord.width
             
             if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
@@ -208,7 +208,7 @@ class WordDragScene: SKScene {
                 word = word.lowercased()
             }
             let myWord: NSString = word + "      " as NSString
-            var sizeWordChoice: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE))])
+            var sizeWordChoice: CGSize = myWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE_CHOICE))]))
             sizeWordChoice.height = sizeWordChoice.height * 2.0
             
             //parent node with physics body for collision
@@ -743,4 +743,15 @@ extension MutableCollection {
             swapAt(unshuffledInd2, i2)
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

@@ -210,7 +210,7 @@ class MathDrawScene: SKScene {
             prevRange = range
             range = range * 10
         }
-        return Int(arc4random_uniform(UInt32(range-prevRange)) + prevRange)
+        return Int(arc4random_uniform(UInt32(range-prevRange)) + UInt32(prevRange))
     }
     
     func GetNumbers(myOper : String) -> [Int] {
@@ -218,7 +218,7 @@ class MathDrawScene: SKScene {
         case "K":
             if myOper == "+" {
                 if global.currentLevel > 1 {
-                    return [Int(arc4random_uniform(7 + 2*global.currentLevel)),GetNumber(numDigit: 1)]
+                    return [Int(arc4random_uniform(UInt32(7) + UInt32(2*global.currentLevel))),GetNumber(numDigit: 1)]
                 }
                 else {
                     return [GetNumber(numDigit: 1),GetNumber(numDigit: 1)]

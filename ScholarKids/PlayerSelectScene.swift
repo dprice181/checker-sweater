@@ -95,7 +95,7 @@ class PlayerSelectScene: SKScene {
             gradeAr.append(grade)
             
             let mySentence: NSString = name as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE+1.0))])
+            let sizeSentence: CGSize = mySentence.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE+1.0))]))
             let sentenceWidth = sizeSentence.width
             let sentenceHeight = sizeSentence.height
             var numLines = 1
@@ -210,7 +210,7 @@ class PlayerSelectScene: SKScene {
             nodeDefinitionAr[i].addChild(CreateShadowLabel(label: labelProgress,offset: GetFontSize(size:1)))
             
             let mySentence2: NSString = "Progress" as NSString
-            let sizeSentence2: CGSize = mySentence2.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:15))])
+            let sizeSentence2: CGSize = mySentence2.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:15))]))
             let sentenceHeight2 = sizeSentence2.height
             let labelProgress2 = SKLabelNode(fontNamed: "Arial")
             labelProgress2.text = "Report"
@@ -684,3 +684,14 @@ class PlayerSelectScene: SKScene {
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}

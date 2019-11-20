@@ -70,14 +70,14 @@ class WordSelectScene: SKScene {
     
     func DrawSentence() {
         let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+        let sizeSentence: CGSize = mySentence.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
         var widthSentence = sizeSentence.width
         
         let displayWidth = size.width * 9 / 10
         
         let space = " "
         let mySpace: NSString = space as NSString
-        let sizeSpace: CGSize = mySpace.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+        let sizeSpace: CGSize = mySpace.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
         let widthSpace = sizeSpace.width
         
         widthSentence = widthSentence + CGFloat(widthSpace) * CGFloat(wordAr.count)
@@ -94,7 +94,7 @@ class WordSelectScene: SKScene {
         for var word in wordAr {
             word = word + "  "
             let myWord: NSString = word as NSString
-            let sizeWord: CGSize = myWord.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))])
+            let sizeWord: CGSize = myWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:SELECTTEXT_FONTSIZE))]))
             let widthWord = sizeWord.width
             
             if widthSum+widthWord > displayWidth {   //shouldn't need +widthWord but seems to need
@@ -205,14 +205,14 @@ class WordSelectScene: SKScene {
     func GetWSFontSize(sentence:String,fontSize:CGFloat,widthSentence: inout CGFloat) -> CGFloat {
         var myFontSize = GetFontSize(size:fontSize)
         let mySentence: NSString = sentence as NSString
-        let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
+        let sizeSentence: CGSize = mySentence.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: myFontSize)]))
         widthSentence = sizeSentence.width
         let displayWidth = size.width * 9.2 / 10
         
         while widthSentence > displayWidth && myFontSize > 8 {
             myFontSize = myFontSize - 1
             let mySentence: NSString = sentence as NSString
-            let sizeSentence: CGSize = mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: myFontSize)])
+            let sizeSentence: CGSize = mySentence.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: myFontSize)]))
             widthSentence = sizeSentence.width
         }
         
@@ -529,4 +529,15 @@ class WordSelectScene: SKScene {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

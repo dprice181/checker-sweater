@@ -543,7 +543,7 @@ func Misspell(word: String) -> [String] {
 
 func GetTextSize(text:String,fontSize:CGFloat) -> CGSize {
     let mySentence: NSString = text as NSString
-    return mySentence.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:fontSize))])
+    return mySentence.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:fontSize))]))
 }
 
 func DrawLine(scene : SKScene, overlayNode : SKNode, ratio: Int,yPos : CGFloat, color : SKColor) {
@@ -922,9 +922,10 @@ class GameViewController: UIViewController, SKViewDelegate {
         }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
-        } catch {
-        }
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)), mode: AVAudioSession.Mode.default,options: AVAudioSession.CategoryOptions.mixWithOthers)
+            
+            } catch {
+            }
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.playBackgroundSound(_:)), name: NSNotification.Name(rawValue: "PlayBackgroundSound"), object: nil)
@@ -934,7 +935,7 @@ class GameViewController: UIViewController, SKViewDelegate {
         
         NotificationCenter.default.addObserver(self,
                                        selector: #selector(GameViewController.handleInterruption),
-                                       name: .AVAudioSessionInterruption,
+                                       name: AVAudioSession.interruptionNotification,
                                        object: nil)
        
         let scene = GameScene(size: view.bounds.size)
@@ -949,9 +950,9 @@ class GameViewController: UIViewController, SKViewDelegate {
         skView.presentScene(scene)        
     }
     
-    func handleInterruption(_ notification: Notification) {
+    @objc func handleInterruption(_ notification: Notification) {
         guard let value = (notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? NSNumber)?.uintValue,
-            let interruptionType =  AVAudioSessionInterruptionType(rawValue: value)
+            let interruptionType =  AVAudioSession.InterruptionType(rawValue: value)
             else {
                 print("notification.userInfo?[AVAudioSessionInterruptionTypeKey]", notification.userInfo?[AVAudioSessionInterruptionTypeKey])
                 return }
@@ -965,7 +966,7 @@ class GameViewController: UIViewController, SKViewDelegate {
             }
             //pause()
         default :
-            if let optionValue = (notification.userInfo?[AVAudioSessionInterruptionOptionKey] as? NSNumber)?.uintValue, AVAudioSessionInterruptionOptions(rawValue: optionValue) == .shouldResume {
+            if let optionValue = (notification.userInfo?[AVAudioSessionInterruptionOptionKey] as? NSNumber)?.uintValue, AVAudioSession.InterruptionOptions(rawValue: optionValue) == .shouldResume {
                 do {
                     //try theSession.setActive(true)
                 } catch let error as NSError {
@@ -1001,7 +1002,7 @@ class GameViewController: UIViewController, SKViewDelegate {
         }
     }
     
-    func playBackgroundSound(_ notification: Notification) {
+    @objc func playBackgroundSound(_ notification: Notification) {
         global.musicStarted = true
         if let name = (notification as NSNotification).userInfo!["fileToPlay"] as? String {
             if (bgSoundPlayer != nil) {
@@ -1027,7 +1028,7 @@ class GameViewController: UIViewController, SKViewDelegate {
         }
     }
     
-    func stopBackgroundSound() {
+    @objc func stopBackgroundSound() {
         global.musicStarted = false
         if (bgSoundPlayer != nil){
             bgSoundPlayer!.stop()
@@ -1042,4 +1043,20 @@ class GameViewController: UIViewController, SKViewDelegate {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }

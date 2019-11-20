@@ -237,7 +237,7 @@ class OptionsScene: SKScene {
     
     func DrawButton(text: String,offY:CGFloat,i:Int) {
         let myText: NSString = text as NSString
-        let sizeText: CGSize = myText.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: GetFontSize(size:25))])
+        let sizeText: CGSize = myText.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: GetFontSize(size:25))]))
         let widthText = sizeText.width
         
         let clickButton = SKNode()
@@ -705,4 +705,15 @@ class OptionsScene: SKScene {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

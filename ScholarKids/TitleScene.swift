@@ -163,7 +163,7 @@ class TitleScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateLabelText() {
+    @objc func updateLabelText() {
         if calls < text1.count {
             titleLabelText += text1[calls]
             labelTitle.text = titleLabelText
