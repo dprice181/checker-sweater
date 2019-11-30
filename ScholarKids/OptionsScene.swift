@@ -91,7 +91,7 @@ class OptionsScene: SKScene {
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
         textAr2 = ["Unlocked","Unlocked","Unlocked","Unlocked"]
         offY = -self.size.height*23.8/48
-        DrawOption(ind:3,text:"Unlock All Levels",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:15,fontColor:global.blue,boxColor:global.blue,boxColorSelected:global.blue,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
+        DrawOption(ind:3,text:"Unlock All Levels (.99 each) ",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:15,fontColor:global.blue,boxColor:global.blue,boxColorSelected:global.blue,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
         
         DrawButtons()
     }
@@ -231,6 +231,23 @@ class OptionsScene: SKScene {
     }
     
     func DrawButtons() {
+        let myOffY = -self.size.height*32/48
+        let fullLabel = SKNode()
+        fullLabel.position = CGPoint(x: self.size.width/24, y: self.size.height*42/48 + myOffY)
+        fullLabel.zPosition = 100.0
+        
+        let label = SKLabelNode(fontNamed: "Arial")
+        label.text = "All four subjects for 2.99"
+        label.fontSize = GetFontSize(size:25)
+        label.fontColor = global.blue
+        label.horizontalAlignmentMode = .left
+        label.position = .zero
+        label.zPosition = 100.0
+        fullLabel.addChild(label)
+        let labelShadow = CreateShadowLabel(label: label,offset: GetFontSize(size:1))
+        fullLabel.addChild(labelShadow)
+      
+        addChild(fullLabel)
         DrawButton(text:"Unlock All Subject Levels",offY:self.size.height*7.2/48,i:1)
         //DrawButton(text:"Credits",offY:self.size.height*3.5/48,i:2)
     }
@@ -496,7 +513,7 @@ class OptionsScene: SKScene {
             
             IAPHandler.shared.purchaseMyProduct(index: 0,p1:0,p2:"",p3:SKNode(),completion:{_,_,_ in self.UnlockAllLevels()} )
             
-//            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all " + String(global.maxLevels) + " levels of all subjects for 2.99?  This will also remove all ads!",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
+//            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all " + String(global.maxLevels) + " levels of all subjects for 2.99?",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
         }
         if buttonNode.name?.contains("clickbutton2") != nil && (buttonNode.name?.contains("clickbutton2"))!  {
             TransitionSceneCredits()
@@ -634,7 +651,7 @@ class OptionsScene: SKScene {
                     IAPHandler.shared.purchaseMyProduct(index: sectionInd,p1:0,p2:"",p3:node,completion: {_,_,node in self.UnlockLevel(node:node)})
 
                     //self.UnlockLevel(node:node)
-                    self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
+                    self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked",cancelButton: false,sectionInd:-1,subject:subject,node:node,allSubjects:false)
                 }
             }
         })

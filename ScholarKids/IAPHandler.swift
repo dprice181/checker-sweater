@@ -41,8 +41,9 @@ class IAPHandler: NSObject {
     
     func canMakePurchases() -> Bool {  return SKPaymentQueue.canMakePayments()  }
     
-    func purchaseMyProduct(index: Int,p1 : Int, p2 : String, p3 : SKNode,completion: @escaping (Int,String,SKNode)->()){
+    func purchaseMyProduct(index: Int,p1 : Int, p2 : String, p3 : SKNode,completion: @escaping (Int,String,SKNode)->()){        
         if iapProducts.count == 0 { return }
+        
         
         param1 = p1
         param2 = p2
@@ -63,7 +64,7 @@ class IAPHandler: NSObject {
                 SKPaymentQueue.default().add(self)
                 SKPaymentQueue.default().add(payment)
                 
-                print("PRODUCT TO PURCHASE: \(product.productIdentifier)")
+                //print("PRODUCT TO PURCHASE: \(product.productIdentifier)")
                 productID = product.productIdentifier
             }
         } else {
@@ -81,13 +82,14 @@ class IAPHandler: NSObject {
                                        "ScholarKidsVocabularyUnlock","ScholarKidsSpellingUnlock")
         
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
+        
         productsRequest.delegate = self
         productsRequest.start()
     }
 }
 
 extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
-    func productsRequest (_ request:SKProductsRequest, didReceive response:SKProductsResponse) {        
+    func productsRequest (_ request:SKProductsRequest, didReceive response:SKProductsResponse) {
         if (response.products.count > 0) {
             iapProducts = response.products
             for product in iapProducts{
@@ -126,13 +128,13 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
         for transaction:AnyObject in transactions {
             if let trans = transaction as? SKPaymentTransaction {
                 let payment = trans.payment
-                print ("payment id=",payment.productIdentifier)
-                print ("transstate=",trans.transactionState)
-                print("name=",global.currentStudent)
+                //print ("payment id=",payment.productIdentifier)
+                //print ("transstate=",trans.transactionState)
+                //print("name=",global.currentStudent)
                 switch trans.transactionState {
                 case .purchased:
-                    print("purchased")
-                    print ("xpayment id=",payment.productIdentifier)
+                    //print("purchased")
+                    //print ("xpayment id=",payment.productIdentifier)
                     if let funccall = callbackFunc {
                         funccall(param1,param2,param3)
                     }
@@ -142,13 +144,13 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                     purchaseStatusBlock?(.purchased)
                     break
                 case .failed:
-                    print("failed")
-                    print ("xxpayment id=",payment.productIdentifier)
+                    //print("failed")
+                    //print ("xxpayment id=",payment.productIdentifier)
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     break
                 case .restored:
-                    print("restored")
-                    print ("xxxpayment id=",payment.productIdentifier)
+                    //print("restored")
+                    //print ("xxxpayment id=",payment.productIdentifier)
                     if let funccall = callbackFunc {
                         funccall(param1,param2,param3)
                     }

@@ -173,7 +173,8 @@ class VocabularyConnectScene: SKScene {
             nodeWordAr[i].addChild(labelWord)
             nodeWordAr[i].addChild(CreateShadowLabel(label: labelWord,offset: GetFontSize(size:1)))        
             
-            circleWordAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:7.0)))
+            //circleWordAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:7.0)))
+            circleWordAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:9.0)))
             circleWordAr[i].name = "wordcircle" + String(i)
             circleWordAr[i].fillColor = SKColor.red
             circleWordAr[i].strokeColor = SKColor.black
@@ -297,7 +298,8 @@ class VocabularyConnectScene: SKScene {
         choiceboxDefinitionAr[i].position = .zero
         nodeDefinitionAr[i].addChild(choiceboxDefinitionAr[i])
         
-        circleDefinitionAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:7.0)))
+        //circleDefinitionAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:7.0)))
+        circleDefinitionAr.append(SKShapeNode(circleOfRadius: GetFontSize(size:9.0)))
         circleDefinitionAr[i].name = "choicecircle" + String(i)
         circleDefinitionAr[i].fillColor = SKColor.red
         circleDefinitionAr[i].strokeColor = SKColor.black
@@ -494,6 +496,7 @@ class VocabularyConnectScene: SKScene {
             line.fillColor = SKColor.red
             self.addChild(line)
         }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

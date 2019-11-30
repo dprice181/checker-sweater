@@ -435,6 +435,7 @@ class LevelSelectScene: SKScene {
         let touchLocation = touch.location(in: self)
         let touchedNode = self.atPoint(touchLocation)
         
+        
         if isScrolling == false {
             if let shapeNode = touchedNode as? SKNode {
                 if shapeNode.name?.contains("hotairballoon") != nil && (shapeNode.name?.contains("hotairballoon"))!  {
@@ -464,10 +465,10 @@ class LevelSelectScene: SKScene {
                                                 }
                                                 self.run(SKAction.sequence([playSound]))
                                                 let subject = subjectAr[ind3]
-                                                IAPHandler.shared.purchaseMyProduct(index: ind3+1,p1:ind3,p2:subject,p3:SKNode(),
-                                                                                    completion: {ind3,subject,_   in self.UnlockLevel(subjectInd:ind3, subject:subject )})
-//                                                MessageBox(title:"Unlock " + subjectAr[ind3],message:"Would you like to unlock all " + String(global.maxLevels)
-//                                                    + " levels in " + subjectAr[ind3] + " for 99 cents?  This will also remove all ads!",cancelButton:true,sectionInd:ind3+3,subjectInd:ind3)
+//                                                IAPHandler.shared.purchaseMyProduct(index: ind3+1,p1:ind3,p2:subject,p3:SKNode(),
+//                                                                                    completion: {ind3,subject,_   in self.UnlockLevel(subjectInd:ind3, subject:subject )})
+                                                MessageBox(title:"Unlock " + subjectAr[ind3],message:"Would you like to unlock all " + String(global.maxLevels)
+                                                    + " levels in " + subjectAr[ind3] + " for 99 cents? ",cancelButton:true,sectionInd:ind3+3,subjectInd:ind3)
                                             }
                                         }
                                     }
@@ -549,13 +550,13 @@ class LevelSelectScene: SKScene {
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             if sectionInd > 0 {
                 let subject = self.subjectAr[subjectInd]
-                global.optionAr[sectionInd*2+1] = "1"
+                //global.optionAr[sectionInd*2+1] = "1"
                 WriteOptionsToFile()
-                
-                IAPHandler.shared.purchaseMyProduct(index: 0,p1:subjectInd,p2:subject,p3:SKNode(),completion: {subjectInd,subject,_   in self.UnlockLevel(subjectInd:subjectInd, subject:subject )})
+                                
+                IAPHandler.shared.purchaseMyProduct(index: subjectInd+1,p1:subjectInd,p2:subject,p3:SKNode(),completion: {subjectInd,subject,_ in self.UnlockLevel(subjectInd:subjectInd, subject:subject )})
                 
                 //self.UnlockLevel(subjectInd:subjectInd,subject:subject)
-                self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subjectInd:subjectInd)
+//                self.MessageBox(title:"Thank you!",message:"Thank you for your purchase! All levels of " + subject + " are now unlocked and all ads are removed!",cancelButton: false,sectionInd:-1,subjectInd:subjectInd)
             }
         })
         UpdateOptions()  //put here since we can't access global function form inside lambda
