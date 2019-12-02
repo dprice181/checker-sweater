@@ -83,6 +83,7 @@
 		04B22B0F20DB6EC200F3AA69 /* SilverButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B22B0E20DB6EC200F3AA69 /* SilverButton.png */; };
 		786E54002384E2420050FA55 /* VocabularyConnectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E53FE2384E2420050FA55 /* VocabularyConnectScene.swift */; };
 		786E54012384E2420050FA55 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E53FF2384E2420050FA55 /* IAPHandler.swift */; };
+		78ABD2282395B799003EE804 /* redarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 78ABD2272395B799003EE804 /* redarrow.png */; };
 		84004A8320AF3C3100761FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84004A8220AF3C3100761FB6 /* AppDelegate.swift */; };
 		84004A8520AF3C3100761FB6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84004A8420AF3C3100761FB6 /* GameScene.sks */; };
 		84004A8720AF3C3100761FB6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84004A8620AF3C3100761FB6 /* Actions.sks */; };
@@ -196,6 +197,7 @@
 		04B22B0E20DB6EC200F3AA69 /* SilverButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SilverButton.png; sourceTree = "<group>"; };
 		786E53FE2384E2420050FA55 /* VocabularyConnectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabularyConnectScene.swift; sourceTree = "<group>"; };
 		786E53FF2384E2420050FA55 /* IAPHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
+		78ABD2272395B799003EE804 /* redarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redarrow.png; path = ../../../Documents/redarrow.png; sourceTree = "<group>"; };
 		84004A7F20AF3C3100761FB6 /* ScholarKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScholarKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84004A8220AF3C3100761FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84004A8420AF3C3100761FB6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		84409F1C20B4E6320008F6D5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				78ABD2272395B799003EE804 /* redarrow.png */,
 				0425C50C210794C5004EA425 /* BluePlus.png */,
 				04421FDF20FA935B00DAD821 /* lock.png */,
 				043752AE20E4861A00E791F0 /* books.png */,
@@ -494,6 +497,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -542,6 +546,7 @@
 				04A2CF1521025D47006282B3 /* VocabularyK.txt in Resources */,
 				0437526920E19DD700E791F0 /* retry.png in Resources */,
 				0437527E20E1CAE800E791F0 /* CorrectProgress.wav in Resources */,
+				78ABD2282395B799003EE804 /* redarrow.png in Resources */,
 				040B60B620CF34D00009ED9C /* QuizWrong.wav in Resources */,
 				04A2CF202102680F006282B3 /* WordProblems7.txt in Resources */,
 				0437527D20E1CAE800E791F0 /* WrongProgress.wav in Resources */,

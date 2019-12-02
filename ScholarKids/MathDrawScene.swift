@@ -28,6 +28,12 @@ class MathDrawScene: SKScene {
     let labelIncorrect = SKLabelNode(fontNamed: "Arial")
     var labelCorrectShadow = SKLabelNode(fontNamed: "Arial")
     var labelIncorrectShadow = SKLabelNode(fontNamed: "Arial")
+    let labelHelperText = SKLabelNode(fontNamed: "Arial")
+    var labelHelperTextShadow = SKLabelNode(fontNamed: "Arial")
+    let labelHelperText2 = SKLabelNode(fontNamed: "Arial")
+    var labelHelperTextShadow2 = SKLabelNode(fontNamed: "Arial")
+    var helperArrow = SKSpriteNode(imageNamed: "redarrow.png")
+    var helperNode = SKNode()
     var lineTitle2 = SKShapeNode()
     var arg1 = 0
     var arg2 = 0
@@ -60,6 +66,7 @@ class MathDrawScene: SKScene {
         DrawNumberButtons()
         DrawOtherButtons()
         DrawCorrectLabels()
+        DrawHelperLabel()
     }
     
     func DrawProblem() {
@@ -107,7 +114,7 @@ class MathDrawScene: SKScene {
     }
     
     func DrawTitle() {
-        labelTitle.text = "Answer with the numbers below"
+        labelTitle.text = "Answer with the buttons below"
         labelTitle.fontSize = GetFontSize(size:18)
         labelTitle.fontColor = global.realPurple
         labelTitle.position = CGPoint(x: self.size.width/2, y: self.size.height*22.1/24)
@@ -524,6 +531,40 @@ class MathDrawScene: SKScene {
             arg2 = numbers[1]
             correctAnswer = arg1 + arg2
         }
+    }
+    
+    func DrawHelperLabel() {
+        helperArrow.scale(to: CGSize(width: self.size.width/8,height: self.size.height/12))
+        helperArrow.position = CGPoint(x: self.size.width/3, y: size.height*1/64)
+        helperNode.addChild(helperArrow)
+        
+        if global.heightWidthRat < 1.5 {
+            helperNode.position = CGPoint(x: self.size.width/3.5, y: size.height*6.8/24)
+        }
+        else {
+            helperNode.position = CGPoint(x: self.size.width/3.5, y: size.height*6/24)
+        }
+        helperNode.zPosition = 100.0
+        labelHelperText.text = "Enter final answer"
+        labelHelperText.fontSize = GetFontSize(size:20)
+        labelHelperText.fontColor = SKColor.red
+        if global.heightWidthRat < 1.5 {
+            labelHelperText.position = CGPoint(x: 0, y: self.size.height/32)
+        }
+        else {
+            labelHelperText.position = CGPoint(x: 0, y: self.size.height/24)
+        }
+        helperNode.addChild(labelHelperText)
+        labelHelperTextShadow = CreateShadowLabel(label: labelHelperText,offset: GetFontSize(size:1))
+        helperNode.addChild(labelHelperTextShadow)
+        
+        labelHelperText2.text = "with buttons below"
+        labelHelperText2.fontSize = GetFontSize(size:20)
+        labelHelperText2.fontColor = SKColor.red
+        labelHelperText2.position = CGPoint(x: 0, y: 0)
+        helperNode.addChild(labelHelperText2)
+        labelHelperTextShadow2 = CreateShadowLabel(label: labelHelperText2,offset: GetFontSize(size:1))
+        helperNode.addChild(labelHelperTextShadow2)
     }
     
     func DrawCorrectLabels() {
@@ -1013,6 +1054,17 @@ class MathDrawScene: SKScene {
     func SubmitAnswer() {
         var answerCorrect = false
         if var answer = labelAnswer.text {
+            if (answer.count == 0) {
+                var playSound = SKAction.playSoundFileNamed("WrongProgress.wav", waitForCompletion: false)
+                if global.soundOption > 0 {
+                    playSound = SKAction.wait(forDuration: 0.0001)
+                }
+                helperNode.removeFromParent()
+                addChild(helperNode)
+                self.run(SKAction.sequence([playSound]))
+                return
+            }
+            
             if oper1 == "/" {
                 if correctAnswerRemainder != 0 {
                     if answer.contains("r") {
@@ -1099,8 +1151,7 @@ class MathDrawScene: SKScene {
         if let answerText = labelAnswer.text {
             labelAnswer.text = answerText + number
             labelAnswerShadow.text = answerText + number
+            helperNode.removeFromParent()
         }
     }
-    
-    
 }

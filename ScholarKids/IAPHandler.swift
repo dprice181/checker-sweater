@@ -134,7 +134,7 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                 switch trans.transactionState {
                 case .purchased:
                     //print("purchased")
-                    //print ("xpayment id=",payment.productIdentifier)
+                    print ("xpayment id=",payment.productIdentifier)
                     if let funccall = callbackFunc {
                         funccall(param1,param2,param3)
                     }
@@ -150,7 +150,7 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                     break
                 case .restored:
                     //print("restored")
-                    //print ("xxxpayment id=",payment.productIdentifier)
+                    print ("xxxpayment id=",payment.productIdentifier)
                     if let funccall = callbackFunc {
                         funccall(param1,param2,param3)
                     }

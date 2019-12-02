@@ -248,7 +248,7 @@ func ReplaceFirstOccurence(myString: String,substring: String,replaceStr: String
 
 func GetLevelMode(levelMode: inout String) {
     if global.currentGrade == "K" {
-        if global.currentLevel < 10 {
+        if global.currentLevel < 7 {
             levelMode = "n"
         }
         else {
@@ -256,7 +256,7 @@ func GetLevelMode(levelMode: inout String) {
                 levelMode = "n"
             }
             else {
-                levelMode = "a"
+                levelMode = "v"
             }
         }
     }
@@ -269,28 +269,18 @@ func GetLevelMode(levelMode: inout String) {
         }
     }
     else if global.currentGrade == "2" {
-        if global.currentLevel < 10 {
-            if (global.currentLevel % 2) == 1 {
-                levelMode = "n"
-            }
-            else {
-                levelMode = "v"
-            }
+        if (global.currentLevel % 3) == 1 {
+            levelMode = "n"
+        }
+        else if (global.currentLevel % 3) == 2 {
+            levelMode = "v"
         }
         else {
-            if (global.currentLevel % 3) == 1 {
-                levelMode = "n"
-            }
-            else if (global.currentLevel % 3) == 2 {
-                levelMode = "v"
-            }
-            else {
-                levelMode = "a"
-            }
+            levelMode = "a"
         }
     }
     else if global.currentGrade == "3" {
-        if global.currentLevel < 10 {
+        if global.currentLevel < 5 {
             if (global.currentLevel % 3) == 1 {
                 levelMode = "n"
             }
