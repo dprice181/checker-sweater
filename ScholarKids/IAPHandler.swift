@@ -72,7 +72,8 @@ class IAPHandler: NSObject {
         }
     }
     
-    func restorePurchase(){
+    func restorePurchase(completion: @escaping (Int,String,SKNode)->()){
+        callbackFunc = completion
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
@@ -150,7 +151,8 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                     break
                 case .restored:
                     //print("restored")
-                    print ("xxxpayment id=",payment.productIdentifier)
+                    print ("restored xxxpayment id=",payment.productIdentifier)
+                    param2 = payment.productIdentifier
                     if let funccall = callbackFunc {
                         funccall(param1,param2,param3)
                     }

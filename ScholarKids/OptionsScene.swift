@@ -90,7 +90,7 @@ class OptionsScene: SKScene {
         
         textAr1 = ["Math","Grammar","Vocabulary","Spelling"]
         textAr2 = ["Unlocked","Unlocked","Unlocked","Unlocked"]
-        offY = -self.size.height*23.8/48
+        offY = -self.size.height*22.3/48
         DrawOption(ind:3,text:"Unlock All Levels (.99 each) ",textAr1:textAr1,textAr2:textAr2,offY:offY,fontSize:25,fontSize2:15,fontColor:global.blue,boxColor:global.blue,boxColorSelected:global.blue,extraBoxWidth:self.size.width/24,removeAds:true,lock:true)
         
         DrawButtons()
@@ -231,7 +231,7 @@ class OptionsScene: SKScene {
     }
     
     func DrawButtons() {
-        let myOffY = -self.size.height*32/48
+        let myOffY = -self.size.height*29.5/48
         let fullLabel = SKNode()
         fullLabel.position = CGPoint(x: self.size.width/24, y: self.size.height*42/48 + myOffY)
         fullLabel.zPosition = 100.0
@@ -248,7 +248,8 @@ class OptionsScene: SKScene {
         fullLabel.addChild(labelShadow)
       
         addChild(fullLabel)
-        DrawButton(text:"Unlock All Subject Levels",offY:self.size.height*7.2/48,i:1)
+        DrawButton(text:"Unlock All Subject Levels",offY:self.size.height*9.7/48,i:1)
+        DrawButton(text:"Restore Purchases",offY:self.size.height*4.3/48,i:2)
         //DrawButton(text:"Credits",offY:self.size.height*3.5/48,i:2)
     }
     
@@ -516,7 +517,48 @@ class OptionsScene: SKScene {
 //            MessageBox(title:"Unlock All Subjects",message:"Would you like to unlock all " + String(global.maxLevels) + " levels of all subjects for 2.99?",cancelButton:true,sectionInd:-1,subject:"all subjects",node:SKNode(),allSubjects:true)
         }
         if buttonNode.name?.contains("clickbutton2") != nil && (buttonNode.name?.contains("clickbutton2"))!  {
-            TransitionSceneCredits()
+            var playSound = SKAction.playSoundFileNamed("QuizRight.wav", waitForCompletion: false)
+            if global.soundOption == 2 {
+                playSound = SKAction.wait(forDuration: 0.0001)
+            }
+            self.run(SKAction.sequence([playSound]))
+                            
+            IAPHandler.shared.restorePurchase(completion:{p1,purchaseID,p3 in self.RestorePurchases(purchaseID:purchaseID)})
+            //TransitionSceneCredits()
+        }
+    }
+    
+    func RestorePurchases(purchaseID: String) {        
+        if (purchaseID == "ScholarKidsVocabularyUnlock") {
+            for lock in lockAr {
+                if (lock.name == "2optionbutton3") {
+                    UnlockLevel(node:lock)
+                }
+            }
+        }
+        else if (purchaseID == "ScholarKidsSpellingUnlock") {
+            for lock in lockAr {
+                if (lock.name == "3optionbutton3") {
+                    UnlockLevel(node:lock)
+                }
+            }
+        }
+        else if (purchaseID == "ScholarKidsGrammarUnlock") {
+            for lock in lockAr {
+                if (lock.name == "1optionbutton3") {
+                    UnlockLevel(node:lock)
+                }
+            }
+        }
+        else if (purchaseID == "ScholarKidsMathUnlock") {
+            for lock in lockAr {
+                if (lock.name == "0optionbutton3") {
+                    UnlockLevel(node:lock)
+                }
+            }
+        }
+        else if (purchaseID == "ScholarKidsAllSubjectsUnlock") {
+            UnlockAllLevels()
         }
     }
     
